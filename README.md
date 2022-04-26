@@ -1,1 +1,1 @@
-vedalaya
+vedalaya v1.0
