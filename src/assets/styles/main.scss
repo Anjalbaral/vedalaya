@@ -1,0 +1,22 @@
+// reset styles
+@import "partials/abstract/reset";
+// icons
+@import "../fonts/";
+
+// third party libraries
+
+// abstract
+@import "partials/abstract/variables";
+@import "partials/abstract/functions";
+@import "partials/abstract/mixins";
+@import "partials/abstract/genric";
+@import "partials/abstract/genral";
+
+// Global contents
+@import "partials/components";
+@import "partials/layout";
+@import "partials/pages";
+
+// Custom
+@import "partials/custom";
+@import "partials/abstract/overrides";
