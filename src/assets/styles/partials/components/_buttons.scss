@@ -1,0 +1,137 @@
+%rounded {
+	border-radius: 21.97px !important;
+	max-height: 41px !important;
+}
+
+.btn-primary,
+button.btn-primary {
+	background: $default-primary-color;
+	color: #fff;
+	border-style: solid;
+	z-index: 1000;
+	border-style: none;
+	border-radius: 3px;
+	font-size: $font-size-xs;
+	padding: 9px 18px;
+	@include media-breakpoint-up(md) {
+		font-size: $font-size-base;
+		padding: 9px 18px;
+	}
+
+	max-height: 35.24px;
+	@include flex-center();
+
+	&:active,
+	&:focus,
+	&:not(:disabled):not(.disabled):active {
+		background-color: $default-primary-color-bold;
+		color: white;
+		box-shadow: none;
+		opacity: 1;
+	}
+
+	&:hover {
+		background-color: $default-primary-color-bold;
+		color: white;
+	}
+
+	&.active {
+		background-color: $default-primary-color-bold;
+		color: white;
+		box-shadow: none;
+		opacity: 1;
+	}
+}
+
+// outlined buttons
+.btn-primary-outlined,
+button.btn-primary-outlined {
+	background: transparent;
+	color: $default-primary-color;
+	font-size: $font-size-base;
+	border: 1px solid $default-primary-color;
+	opacity: 0.8;
+	border-radius: 3px;
+	padding: 7px 15px;
+	max-height: 35.24px;
+	@include flex-center();
+
+	&:active,
+	&:focus,
+	&:not(:disabled):not(.disabled):active {
+		background-color: $default-primary-color-bold;
+		color: white;
+		border: 1px solid $default-primary-color-bold;
+		box-shadow: none;
+		opacity: 1;
+	}
+
+	&:hover {
+		background-color: $default-primary-color-bold;
+		color: white;
+		border: 1px solid $default-primary-color-bold;
+	}
+
+	&.active {
+		background-color: $default-primary-color-bold;
+		color: white;
+		border: 1px solid $default-primary-color-bold;
+		box-shadow: none;
+		opacity: 1;
+	}
+}
+
+.rounded {
+	@extend %rounded;
+}
+
+.icon-button {
+	width: 40px;
+	height: 40px;
+	box-sizing: border-box;
+	border-radius: 50%;
+	border: none;
+	padding: 7px;
+	background: transparent;
+	color: $default-text-color;
+	overflow: hidden;
+	position: relative;
+	@include flex-center();
+	cursor: pointer;
+	animation-delay: 0.2s;
+
+	&::before {
+		animation: ripple 1.5s ease-out;
+	}
+}
+
+.icon-button > .ripple {
+	padding: 7px;
+	position: absolute;
+	background: rgba(0, 0, 0, 0.1);
+	display: block;
+	content: "";
+	border-radius: 9999px;
+	opacity: 1;
+	animation: 0.9s ease 1 forwards ripple-effect;
+}
+
+@keyframes ripple-effect {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(10);
+		opacity: 0.375;
+	}
+	100% {
+		transform: scale(35);
+		opacity: 0;
+	}
+}
+
+.icon-button > .content {
+	position: relative;
+	z-index: 2;
+}

@@ -1,0 +1,58 @@
+// margin,paddings
+$i: 0;
+@while $i<=50 {
+	.p {
+		&-#{$i} {
+			padding: #{$i}px;
+		}
+
+		&-t-#{$i} {
+			padding-top: #{$i}px;
+		}
+
+		&-b-#{$i} {
+			padding-bottom: #{$i}px;
+		}
+
+		&-l-#{$i} {
+			padding-left: #{$i}px;
+		}
+
+		&-r-#{$i} {
+			padding-right: #{$i}px;
+		}
+	}
+	.m {
+		&-#{$i} {
+			margin: #{$i}px;
+		}
+
+		&-t-#{$i} {
+			margin-top: #{$i}px;
+		}
+
+		&-b-#{$i} {
+			margin-bottom: #{$i}px;
+		}
+
+		&-l-#{$i} {
+			margin-left: #{$i}px;
+		}
+
+		&-r-#{$i} {
+			margin-right: #{$i}px;
+		}
+	}
+	$i: $i + 5;
+}
+
+// flex positions
+.d-flex-center {
+	@include flex-center();
+}
+.d-flex-start {
+	@include flex-start();
+}
+.d-flex-end {
+	@include flex-end();
+}

@@ -1,9 +1,5 @@
 const App = () => {
-	return (
-		<div>
-			<span>Vedalaya init</span>
-		</div>
-	);
+	return <div></div>;
 };
 
 export default App;

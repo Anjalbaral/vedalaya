@@ -1,0 +1,8 @@
+.home {
+	min-height: 100vh;
+	padding-top: $header-height-2;
+	// cover section
+	@import "../../components/cover-section";
+	// about us section
+	@import "../../components/about-us-section";
+}

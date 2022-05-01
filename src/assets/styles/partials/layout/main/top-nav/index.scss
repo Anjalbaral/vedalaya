@@ -1,0 +1,66 @@
+.public-layout-top-nav {
+	width: 100%;
+	height: $header-height-2;
+	border-style: solid;
+	position: absolute;
+	background-color: $default-secondary-color;
+	@include flex-center();
+	padding: 0px 100px 0px 100px;
+	flex: 1;
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+	z-index: 2000;
+	&__left {
+		display: flex;
+		flex: 0.55;
+
+		img {
+			height: 55px;
+			width: 230px;
+			cursor: pointer;
+		}
+	}
+
+	&__right {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex: 0.45;
+
+		.nav-item {
+			@include flex-center();
+			max-width: 100px;
+			min-width: 100px;
+			flex: 1;
+			list-style: none;
+			color: $default-primary-color;
+
+			img {
+				display: flex;
+				@include flex-center();
+				flex: 0.1;
+				width: 10px;
+				height: 10px;
+				opacity: 0;
+			}
+
+			span {
+				margin-left: 5px;
+				display: flex;
+				flex: 0.8;
+				opacity: 0.8;
+			}
+		}
+
+		.active {
+			font-weight: $font-weight-bold;
+			img {
+				opacity: 1;
+			}
+
+			span {
+				margin-left: 5px;
+				opacity: 0.9;
+			}
+		}
+	}
+}

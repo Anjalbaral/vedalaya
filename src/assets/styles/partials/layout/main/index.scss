@@ -1,2 +1,15 @@
+.public-main {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+
 @import "side-nav";
 @import "top-nav";
+@import "info-nav";
+
+.public-body {
+	width: 100%;
+}

@@ -1,9 +1,11 @@
 // reset styles
 @import "partials/abstract/reset";
 // icons
-@import "../fonts/";
+// @import "../fonts";
 
 // third party libraries
+@import "partials/third-party/bootstrap";
+@import "partials/third-party/googlefonts";
 
 // abstract
 @import "partials/abstract/variables";

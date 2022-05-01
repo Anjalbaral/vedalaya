@@ -1,0 +1,127 @@
+@mixin flex-align-item($items: center) {
+	display: flex;
+	justify-items: $items;
+	align-items: $items;
+}
+
+@mixin flex-start($direction: row) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+@mixin flex-column-center() {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+@mixin flex-center($direction: row) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin flex-between($direction: row) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@mixin flex-end($direction: row) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+@mixin flex-start-only($direction: row) {
+	display: flex;
+	flex-direction: $direction;
+
+	@if $direction == row {
+		justify-content: baseline;
+	} @else {
+		align-items: baseline;
+	}
+}
+
+@mixin flex-center-only($direction: row) {
+	display: flex;
+	flex-direction: $direction;
+
+	@if $direction == row {
+		justify-content: center;
+	} @else {
+		align-items: center;
+	}
+}
+
+@mixin flex-end-only($direction: row) {
+	display: flex;
+	flex-direction: $direction;
+
+	@if $direction == row {
+		justify-content: flex-end;
+	} @else {
+		align-items: flex-end;
+	}
+}
+
+// from old -- may need to be updated or not
+$xl: 1199.98px;
+$lg: 991.98px;
+$md: 767.98px;
+$sm: 575.98px;
+
+@mixin dimension($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin font($weight: 400, $size: 24px, $height: 24px, $family: Lato) {
+	font: $weight $size $family;
+	line-height: $height;
+}
+
+// for BEM
+@mixin e($element) {
+	&__#{$element} {
+		@content;
+	}
+}
+
+@mixin m($modifier) {
+	&--#{$modifier} {
+		@content;
+	}
+}
+
+// media queries with small names
+@mixin large {
+	@media only screen and (max-width: $xl) {
+		@content;
+	}
+}
+
+@mixin medium {
+	@media only screen and (max-width: $lg) {
+		@content;
+	}
+}
+
+@mixin small {
+	@media only screen and (max-width: $md) {
+		@content;
+	}
+}
+
+@mixin very-small {
+	@media only screen and (max-width: $sm) {
+		@content;
+	}
+}
