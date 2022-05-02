@@ -8,6 +8,9 @@
 	flex: 1;
 
 	.DotContainer {
+		@include media-breakpoint-down(md) {
+			display: none;
+		}
 		width: 100%;
 		height: 10%;
 		align-self: flex-end;
@@ -79,7 +82,7 @@
 		@include flex-center();
 		position: absolute;
 		border-radius: 50%;
-		z-index: 1000;
+		z-index: 500;
 		background-color: rgba(255, 255, 255, 0.3);
 		box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 
@@ -104,7 +107,7 @@
 			display: none;
 		}
 		margin-top: -70px;
-		z-index: 100000;
+		z-index: 500;
 		right: 65px;
 		position: absolute;
 		height: 40px;
@@ -143,7 +146,7 @@
 		@include media-breakpoint-down(md) {
 			width: 100%;
 			justify-content: center;
-			background-color: rgba(255, 255, 255, 0.4);
+			background-color: rgba(255, 255, 255, 0.6);
 			display: flex;
 			flex-direction: column;
 			align-items: flex-end;
@@ -173,17 +176,16 @@
 			flex-direction: column;
 			align-items: flex-end;
 			@include media-breakpoint-down(md) {
-				width: 80%;
-				max-width: 80%;
+				width: 90%;
+				max-width: 90%;
 			}
-			width: 500px;
-			max-width: 500px;
+
 			flex: 1;
 			transform: translateX(-10%);
 			transition: opacity 0.2s ease-in-out, transform 0.6s ease-in-out;
 
 			.cover-info-head {
-				letter-spacing: 3px;
+				letter-spacing: 1px;
 				color: $default-primary-color;
 				span {
 					margin: 0px 5px 0px 5px;
@@ -195,6 +197,13 @@
 
 			.cover-info-title {
 				padding: 7px 0px 7px 0px;
+				@include media-breakpoint-down(md) {
+					font-size: $display-font-size-6;
+					display: flex;
+					align-items: flex-end;
+					justify-content: flex-end;
+					flex-wrap: wrap;
+				}
 				font-size: $display-font-size-6;
 				font-weight: $font-weight-bold;
 				span {

@@ -5,7 +5,7 @@ import Cover2 from "../../assets/images/cover2.jpg";
 import Cover3 from "../../assets/images/cover3.jpg";
 import Cover4 from "../../assets/images/cover4.jpg";
 import Cover5 from "../../assets/images/cover5.jpg";
-
+import CoverRadioSwitch from "../CoverRadioSwitch/CoverRadioSwitch";
 import { changeActiveSlide } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -136,6 +136,9 @@ function CoverSection(props) {
 					<span className="Dot">.</span>
 				</span>
 			</div>
+
+			{/* cover slider switch */}
+			<CoverRadioSwitch />
 		</div>
 	);
 }

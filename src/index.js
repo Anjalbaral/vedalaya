@@ -14,7 +14,7 @@ root.render(
 	<>
 		<Provider store={store}>
 			<Router history={History}>
-				<PersistGate loading={<span>FUCK</span>} persistor={persistor}>
+				<PersistGate loading={<span></span>} persistor={persistor}>
 					<App />
 				</PersistGate>
 			</Router>

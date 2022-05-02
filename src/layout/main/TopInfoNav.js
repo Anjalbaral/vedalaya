@@ -3,10 +3,13 @@ import { FaMobileAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoMdLocate } from "react-icons/io";
 import { AiFillInstagram, AiFillTwitterCircle, AiFillFacebook } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
 function TopInfoNav() {
+	const activeHover = useSelector((state) => state.main.activeHover);
+
 	return (
-		<div className="public-layout-info-nav">
+		<div className={`public-layout-info-nav ${activeHover && "activeHover"}`}>
 			<div className="public-layout-info-nav__left">
 				<div className="public-layout-info-nav__left__item">
 					<FaMobileAlt />

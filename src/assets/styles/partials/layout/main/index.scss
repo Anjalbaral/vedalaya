@@ -9,7 +9,9 @@
 @import "side-nav";
 @import "top-nav";
 @import "info-nav";
+@import "mobile-nav";
 
 .public-body {
 	width: 100%;
+	overflow-x: hidden;
 }
