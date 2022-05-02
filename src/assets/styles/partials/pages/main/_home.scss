@@ -3,6 +3,12 @@
 	padding-top: $header-height-2;
 	// cover section
 	@import "../../components/cover-section";
+	// separator
+	@import "../../components/separator";
 	// about us section
 	@import "../../components/about-us-section";
+	// service section
+	@import "../../components/services-section";
+	// gallery section
+	@import "../../components//gallery-section";
 }

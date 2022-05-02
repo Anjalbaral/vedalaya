@@ -140,7 +140,7 @@
 			flex-direction: column;
 			align-items: flex-end;
 			padding: 0px 140px 0px 0px;
-			background-color: rgba(255, 255, 255, 0.4);
+			background-color: rgba(255, 255, 255, 0.6);
 			justify-content: center;
 		}
 		@include media-breakpoint-down(md) {
@@ -166,10 +166,10 @@
 		align-items: flex-end;
 		justify-content: center;
 		padding: 0px 30px 0px 0px;
-		background-color: rgba(255, 255, 255, 0.6);
+		background-color: rgba(255, 255, 255, 0.7);
 
 		.cover-info {
-			margin-top: -70px;
+			margin-top: -100px;
 			opacity: 0;
 			position: absolute;
 			display: flex;
@@ -178,6 +178,7 @@
 			@include media-breakpoint-down(md) {
 				width: 90%;
 				max-width: 90%;
+				margin-top: -70px;
 			}
 
 			flex: 1;
@@ -218,6 +219,13 @@
 				height: 3px;
 				width: 50%;
 				background-color: $default-theme-loader-color;
+			}
+
+			.cover-info-brief {
+				font-size: $display-font-size-11;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				width: 60%;
 			}
 
 			button {

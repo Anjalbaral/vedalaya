@@ -27,7 +27,8 @@ function CoverSection(props) {
 			image: Cover1,
 			content: {
 				head: "Welcome to",
-				title: "Construction Materials"
+				title: "Construction Materials",
+				brief: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"
 			}
 		},
 		{
@@ -36,7 +37,8 @@ function CoverSection(props) {
 			image: Cover2,
 			content: {
 				head: "Welcome to",
-				title: "Interior Design Materials"
+				title: "Interior Design Materials",
+				brief: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"
 			}
 		},
 		{
@@ -45,7 +47,8 @@ function CoverSection(props) {
 			image: Cover3,
 			content: {
 				head: "Welcome to",
-				title: "Exterior Design Materials"
+				title: "Exterior Design Materials",
+				brief: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"
 			}
 		},
 		{
@@ -54,7 +57,8 @@ function CoverSection(props) {
 			image: Cover4,
 			content: {
 				head: "Welcome to",
-				title: "Design And Construction"
+				title: "Design And Construction",
+				brief: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"
 			}
 		},
 		{
@@ -63,7 +67,8 @@ function CoverSection(props) {
 			image: Cover5,
 			content: {
 				head: "Welcome to",
-				title: "Trading Service"
+				title: "Trading Service",
+				brief: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"
 			}
 		}
 	];
@@ -96,8 +101,8 @@ function CoverSection(props) {
 					return (
 						<div key={index} className={`cover-info ${infos.id === activeCover ? "cover-info-active" : ""}`}>
 							<div className="cover-info-head">
-								<span>{infos.content.head}</span>
 								<span className="highlight">Vedalaya Group</span>
+								<span>presents</span>
 							</div>
 
 							<div className="cover-info-title">
@@ -105,6 +110,7 @@ function CoverSection(props) {
 								<span className="highlight">{infos.content.title.split(" ")[infos.content.title.split(" ").length - 1]}</span>
 							</div>
 							<div className="cover-info-divider"></div>
+							<div className="cover-info-brief">{infos.content.brief}</div>
 							<button className="btn-primary">Learn More</button>
 						</div>
 					);

@@ -6,8 +6,14 @@ import NavItem from "./NavItem";
 import Logo from "../../assets/images/logo.png";
 import { useLocation, Link } from "react-router-dom";
 import { HiMenuAlt3, HiOutlineArrowNarrowRight } from "react-icons/hi";
-import { IoMdArrowDropright } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
+import { GrFormNextLink } from "react-icons/gr";
+import { MdOutlineCategory } from "react-icons/md";
+import { AiFillFacebook, AiFillTwitterSquare, AiFillInstagram } from "react-icons/ai";
+import { FaMobileAlt } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { IoMdLocate } from "react-icons/io";
+import { RiMenu3Fill } from "react-icons/ri";
 
 function TopNav({ navItems, activeNav, activeHover }) {
 	let location = useLocation();
@@ -15,7 +21,8 @@ function TopNav({ navItems, activeNav, activeHover }) {
 
 	const [insideDialog, setInsideDialog] = useState(false);
 	const [activeDialogData, setActiveDialogData] = useState({});
-	console.log("activeDialogData:", activeDialogData);
+	const [activeSubCat, setActiveSubCat] = useState(null);
+
 	useEffect(() => {
 		if (location.pathname) {
 			dispatch(changeActiveNav(location.pathname));
@@ -23,6 +30,9 @@ function TopNav({ navItems, activeNav, activeHover }) {
 	}, [location.pathname]);
 
 	const _onNavItemHover = (path, navdata) => {
+		if (path === "/") {
+			return;
+		}
 		let navdialog = document.getElementById("navdialog");
 		let topnav = document.getElementById("topnav");
 		topnav.classList.add("hoverOn");
@@ -44,6 +54,7 @@ function TopNav({ navItems, activeNav, activeHover }) {
 		let navdialog = document.getElementById("navdialog");
 		let topnav = document.getElementById("topnav");
 		topnav.classList.remove("hoverOn");
+		topnav.classList.remove("hevered");
 		navdialog.classList.remove("nav-hover-active");
 		dispatch(changeActiveHover(""));
 	};
@@ -57,8 +68,27 @@ function TopNav({ navItems, activeNav, activeHover }) {
 		let navdialog = document.getElementById("navdialog");
 		let topnav = document.getElementById("topnav");
 		topnav.classList.remove("hoverOn");
+		topnav.classList.remove("hevered");
 		navdialog.classList.remove("nav-hover-active");
 		dispatch(changeActiveHover(""));
+	};
+
+	const _closeNavDialog = () => {
+		setInsideDialog(false);
+		let navdialog = document.getElementById("navdialog");
+		let topnav = document.getElementById("topnav");
+		topnav.classList.remove("hoverOn");
+		topnav.classList.remove("hevered");
+		navdialog.classList.remove("nav-hover-active");
+		dispatch(changeActiveHover(""));
+	};
+
+	const _expandCat = (ind) => {
+		if (activeSubCat === ind) {
+			setActiveSubCat(null);
+		} else {
+			setActiveSubCat(ind);
+		}
 	};
 
 	return (
@@ -74,31 +104,33 @@ function TopNav({ navItems, activeNav, activeHover }) {
 				{/* nav right */}
 				<div className="public-layout-top-nav__right">
 					<>
-						{navItems.map((itm, inx) => {
-							let isActive = activeNav === itm.path;
-							return <NavItem onMouseEnter={_onNavItemHover} onMouseLeave={_onNavItemUnHover} item={itm} key={inx} isActive={isActive} />;
-						})}
+						{navItems &&
+							navItems.map((itm, inx) => {
+								let isActive = activeNav === itm.path;
+								let isHovered = (activeDialogData.header && activeDialogData.header.toLowerCase()) === itm.name.toLowerCase();
+								return <NavItem onMouseEnter={_onNavItemHover} isHovered={isHovered} onMouseLeave={_onNavItemUnHover} item={itm} key={inx} isActive={isActive} />;
+							})}
 						<div
 							onClick={() => {
 								dispatch(changeMenuStatus(true));
 							}}
 							className="public-layout-top-nav__right__ham"
 						>
-							<HiMenuAlt3 />
+							<RiMenu3Fill />
 						</div>
 					</>
 				</div>
 			</div>
 			{/* sub nav menu dialog */}
 			<div id="navdialog" onMouseEnter={_onMouseEnterDialog} onMouseLeave={_onMouseLeaveDialog} className="nav-dialog">
-				<div className="nav-close">
+				<div onClick={_closeNavDialog} className="nav-close">
 					<IoCloseOutline />
 				</div>
 				<div className="parta">
 					<div style={{ backgroundImage: `url(${activeDialogData.image})` }}></div>
 				</div>
 				<div className="partb">
-					<h5>Header</h5>
+					<h5>{activeDialogData.header}</h5>
 					<span>{activeDialogData.description}</span>
 					<button className="btn-primary rounded">
 						More
@@ -107,16 +139,95 @@ function TopNav({ navItems, activeNav, activeHover }) {
 				</div>
 				<div className="partc">
 					{activeDialogData &&
+						activeDialogData.header === "Products" &&
 						activeDialogData.category &&
 						activeDialogData.category.map((cat, ind) => {
 							return (
-								<div>
-									<Link to={cat.path} key={ind}>
-										<IoMdArrowDropright /> <span>{cat.title}</span>
-									</Link>
+								<div className="supcat">
+									<span key={ind}>
+										<MdOutlineCategory style={{ cursor: "pointer", color: "#f1c12d" }} onClick={() => _expandCat(ind)} />{" "}
+										<span onClick={() => _expandCat(ind)} style={{ cursor: "pointer" }}>
+											{cat.title}
+										</span>{" "}
+										<Link to={cat.path}>
+											<HiOutlineArrowNarrowRight style={{ fontSize: "20px", marginLeft: "18px", color: "blue", marginTop: "-5px", cursor: "pointer" }} />
+										</Link>
+									</span>
+									{activeSubCat === ind ? (
+										<div className="subcategory">
+											{cat.subcategory &&
+												cat.subcategory.map((scat, ind2) => {
+													return (
+														<span>
+															<Link to={scat.path} key={ind2}>
+																<GrFormNextLink style={{ fontSize: "20px" }} /> <span>{scat.title}</span>
+															</Link>
+														</span>
+													);
+												})}
+										</div>
+									) : null}
 								</div>
 							);
 						})}
+					{activeDialogData && activeDialogData.header === "Gallery" ? (
+						<div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row" }}>
+							{activeDialogData.category &&
+								activeDialogData.category.map((im, ind) => {
+									return (
+										<Link key={ind} to={im.path}>
+											<img style={{ width: ind === 0 || ind === 3 ? "165px" : ind === 2 || ind === 1 ? "165px" : "0px", height: "150px", margin: "5px", borderRadius: "5px" }} src={`${im.image}`} />
+										</Link>
+									);
+								})}
+						</div>
+					) : null}
+					{activeDialogData && activeDialogData.header === "Contact" ? (
+						<div style={{ display: "flex", flexWrap: "wrap", flexDirection: "column" }}>
+							<div className="contact-info">
+								<span className="head">Contact info</span>
+								<div className="info-item">
+									<FaMobileAlt /> +977-9816177889
+								</div>
+								<div className="info-item">
+									<MdEmail /> vedalayatrading@gmail.com
+								</div>
+								<div className="info-item">
+									<IoMdLocate /> Town Planning, Sanothimi, Bhaktapur
+								</div>
+							</div>
+							<div className="divider"></div>
+							<div className="social-links">
+								<span className="head">Social Links</span>
+								<div className="info-item">
+									<AiFillFacebook /> vedalayagroup
+								</div>
+								<div className="info-item">
+									<AiFillTwitterSquare /> @vedalayagroup
+								</div>
+								<div className="info-item">
+									<AiFillInstagram /> Vedalaya Group
+								</div>
+							</div>
+						</div>
+					) : null}
+					{activeDialogData && activeDialogData.header === "About us" ? (
+						<div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row" }}>
+							<div className="aboutus">
+								<div className="ourvision">
+									<span className="head">Our Vision</span>
+									<span className="body">
+										is to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
+										Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage,{" "}
+									</span>
+								</div>
+								<div className="whyus">
+									<span className="head">Why Us</span>
+									<span className="body">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</span>
+								</div>
+							</div>
+						</div>
+					) : null}
 				</div>
 			</div>
 		</>
