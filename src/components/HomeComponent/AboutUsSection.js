@@ -11,7 +11,7 @@ function AboutUsSection() {
 		<Parallax
 			className="about-us-background-pattern"
 			blur={{ min: -1, max: 1 }}
-			strength={200}
+			strength={300}
 			bgClassName="parallexComp"
 			bgImageStyle={{ width: isMobile ? "200%" : "150%", height: "70%", opacity: 0.7, position: "absolute", bottom: "0px" }}
 			bgImage={BackPattern}

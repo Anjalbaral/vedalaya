@@ -17,7 +17,7 @@ function OurServices() {
 			blur={{ min: -1, max: 1 }}
 			strength={-350}
 			bgClassName="parallexComp"
-			bgImageStyle={{ width: "300px", height: "1000px", opacity: isMobile ? 0.4 : 0.8, position: "absolute", bottom: "-95%" }}
+			bgImageStyle={{ width: "250px", height: "900px", opacity: isMobile ? 0.4 : 0.8, position: "absolute", bottom: "-90%" }}
 			bgImage={middletower}
 		>
 			<div className="home__services">
