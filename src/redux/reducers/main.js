@@ -242,7 +242,7 @@ const INITIAL_STATE = {
 		}
 	],
 	activeNav: "/",
-	activeSlide: 2,
+	activeSlide: 5,
 	activeHover: ""
 };
 

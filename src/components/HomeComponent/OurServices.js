@@ -25,6 +25,11 @@ function OurServices() {
 				<div className="home__services__header">
 					<span>OUR SERVICES</span>
 				</div>
+				<div className="underline-separator">
+					<div className="line"></div>
+					<div className="mid"></div>
+					<div className="line2"></div>
+				</div>
 				<div className="home__services__body">
 					{/* left */}
 					<div className="home__services__body__left">

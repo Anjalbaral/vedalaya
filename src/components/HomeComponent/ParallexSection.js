@@ -16,8 +16,8 @@ function ParallexSection() {
 			<div className="home__parallex-section">
 				<div className="home__parallex-section__top">
 					<p>
-						Experience the <span>quality</span>
-						of our products by using them
+						Experience the <span>quality </span>
+						of our products only by using them
 					</p>
 				</div>
 				<div className="home__parallex-section__bottom">

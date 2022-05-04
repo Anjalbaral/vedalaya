@@ -21,6 +21,11 @@ function AboutUsSection() {
 				<div className="home__about-us__header">
 					<span>ABOUT VEDALAYA GROUP</span>
 				</div>
+				<div className="underline-separator">
+					<div className="line"></div>
+					<div className="mid"></div>
+					<div className="line2"></div>
+				</div>
 				{/* HEAD CONTENT SECTION */}
 				<div className="home__about-us__head-content">
 					<span>

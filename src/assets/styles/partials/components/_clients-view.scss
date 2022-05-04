@@ -1,4 +1,117 @@
 &__clients-view {
-	padding: 200px 0px 200px 0px;
+	padding: 100px 0px 100px 0px;
 	@include flex-center();
+	flex-direction: column;
+	overflow: hidden;
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		z-index: 1;
+		opacity: 0.8;
+		color: $default-primary-color;
+		font-size: $display-font-size-8;
+		font-weight: $font-weight-heavy-bold;
+	}
+
+	.crane {
+		left: 0px;
+		position: absolute;
+		z-index: -1;
+		width: 80%;
+		height: 95%;
+		overflow-y: hidden;
+
+		img {
+			opacity: 0.5;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			margin-top: 100px;
+		}
+	}
+
+	overflow: hidden;
+}
+
+.mySwiper {
+	margin-top: 20px;
+	height: 400px;
+	background-color: transparent;
+	width: 100%;
+	@include flex-center();
+
+	button {
+		position: absolute;
+		border-style: none;
+		background-color: rgba(31, 37, 51, 0.1);
+		padding: 0px;
+		max-width: 40px;
+		max-height: 40px;
+		min-width: 40px;
+		min-height: 40px;
+		border-radius: 50%;
+		// box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		color: $default-primary-color;
+		@include flex-center();
+		font-size: 25px;
+		z-index: 10;
+		cursor: pointer;
+	}
+
+	.left {
+		left: 15%;
+		@include media-breakpoint-down(md) {
+			left: 5%;
+		}
+	}
+
+	.right {
+		right: 15%;
+		@include media-breakpoint-down(md) {
+			right: 5%;
+		}
+	}
+
+	.slide {
+		width: 75%;
+		height: 100%;
+		flex-direction: column;
+		display: none;
+
+		b {
+			@include media-breakpoint-down(md) {
+				font-size: $display-font-size-8;
+			}
+			font-size: $display-font-size-7;
+			border-bottom-style: solid;
+			border-bottom-width: 2px;
+			color: $default-theme-loader-color;
+			text-align: center;
+			border-color: rgba(255, 255, 255, 0);
+			padding: 0px 15px 3px 15px;
+		}
+
+		span {
+			// font-family: $default-font-family-3;
+			letter-spacing: 0.5px;
+			margin-top: 15px;
+			max-width: 60%;
+			color: $default-primary-color;
+			font-weight: $font-weight-semi-bold;
+			@include media-breakpoint-down(md) {
+				max-width: 80%;
+			}
+			text-align: justify;
+			text-align-last: center;
+		}
+	}
+
+	.active {
+		display: block;
+		@include flex-center();
+		flex-direction: column;
+	}
 }

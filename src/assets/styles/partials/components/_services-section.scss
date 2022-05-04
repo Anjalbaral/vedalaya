@@ -16,6 +16,8 @@
 		justify-content: center;
 		text-align: center;
 		z-index: 1;
+		color: $default-primary-color;
+		opacity: 0.8;
 		font-size: $display-font-size-8;
 		font-weight: $font-weight-heavy-bold;
 	}
@@ -32,7 +34,7 @@
 		align-items: center;
 		justify-content: space-between;
 		padding-bottom: 80px;
-		padding-top: 50px;
+		padding-top: 20px;
 
 		&__left {
 			width: 100%;

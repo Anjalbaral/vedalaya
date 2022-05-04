@@ -1,6 +1,104 @@
 .footer {
-	margin-top: 200px;
+	margin-top: 80px;
 	height: 50vh;
 	width: 100%;
 	background-color: $default-primary-color;
+	padding: 30px 100px 15px 100px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	&__left {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		justify-content: center;
+
+		h4 {
+			font-size: $display-font-size-9;
+			font-weight: $font-weight-bold;
+			letter-spacing: 5px;
+			color: $default-secondary-color;
+		}
+
+		&__item {
+			cursor: pointer;
+			margin-top: 20px;
+			display: flex;
+			align-items: center;
+			color: $default-secondary-color;
+
+			svg {
+				font-size: 23px;
+				margin-left: 10px;
+				opacity: 0.6;
+			}
+
+			span {
+				font-size: $display-font-size-11;
+				font-weight: $font-weight-bold;
+				opacity: 0.7;
+			}
+		}
+	}
+
+	&__center {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		img {
+			width: 200px;
+			height: 200px;
+		}
+	}
+
+	&__right {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+
+		h4 {
+			font-size: $display-font-size-9;
+			font-weight: $font-weight-bold;
+			letter-spacing: 5px;
+			color: $default-secondary-color;
+		}
+
+		&__item {
+			cursor: pointer;
+			margin-top: 20px;
+			display: flex;
+			align-items: center;
+			color: $default-secondary-color;
+
+			span {
+				font-size: $display-font-size-11;
+				font-weight: $font-weight-bold;
+				opacity: 0.7;
+			}
+
+			svg {
+				font-size: 20px;
+				margin-right: 10px;
+				opacity: 0.6;
+			}
+		}
+	}
+}
+
+.copyright {
+	@include flex-center();
+	padding: 20px 0px 20px 0px;
+	background-color: $default-primary-color;
+	color: rgba(255, 255, 255, 0.6);
+	font-weight: $display-font-size-12;
+	font-weight: $font-weight-semi-bold;
 }

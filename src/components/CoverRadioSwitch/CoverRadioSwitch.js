@@ -57,7 +57,7 @@ function CoverRadioSwitch({ activeSlide, ...rest }) {
 						}}
 						className={`cover-switch__btn ${activeSlide === btn.id ? "active" : ""}`}
 					>
-						<span>{btn.title}</span>
+						{/* <span>{btn.title}</span> */}
 					</div>
 				);
 			})}

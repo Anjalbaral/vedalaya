@@ -25,7 +25,7 @@ function CoverSection(props) {
 		{
 			id: 1,
 			title: "1",
-			image: Cover1,
+			image: "https://nestia-food.obs.ap-southeast-3.myhuaweicloud.com/202008/22/2ef21105aeffc8aeedcbc5bbd3075ffc.jpg",
 			content: {
 				head: "Welcome to",
 				title: "Construction Materials",
@@ -55,7 +55,7 @@ function CoverSection(props) {
 		{
 			id: 4,
 			title: "4",
-			image: Cover4,
+			image: "https://www.recommend.my/blog/wp-content/uploads/2018/11/5ae26fed-23ec-4c70-890d-8ca12cdd8dad_pasted20image200.jpg",
 			content: {
 				head: "Welcome to",
 				title: "Design And Construction",
@@ -65,7 +65,7 @@ function CoverSection(props) {
 		{
 			id: 5,
 			title: "5",
-			image: Cover5,
+			image: "https://media.homeanddecor.com.sg/public/2014/03/16286.jpg",
 			content: {
 				head: "Welcome to",
 				title: "Trading Service",
@@ -84,7 +84,7 @@ function CoverSection(props) {
 		<Parallax
 			className="cover-parent"
 			style={{ minWidth: "100%" }}
-			blur={{ min: -15, max: 15 }}
+			blur={{ min: -10, max: 10 }}
 			strength={300}
 			bgClassName="parallexComp"
 			bgImageStyle={{ width: "100%" }}

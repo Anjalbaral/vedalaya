@@ -20,10 +20,15 @@ function GallerySection() {
 			<div className="home__gallery-section__header">
 				<span>OUR PRODUCT GALLERY</span>
 			</div>
+			<div className="underline-separator">
+				<div className="line"></div>
+				<div className="mid"></div>
+				<div className="line2"></div>
+			</div>
 			<div className="home__gallery-section__head-content">
 				<span>
 					with over a decade of experience in the construction and construction material industry, we provide holistic solutions for all your needs. What's more, the company also offers a construction
-					consultation service that helps you to plan your project from inception to closure.
+					consultation service that helps.
 				</span>
 			</div>
 			{/* gallery iamges */}
@@ -111,7 +116,7 @@ function GallerySection() {
 			</div>
 			<div className="home__gallery-section__bottom">
 				<button className="btn-primary-outlined">
-					View More <CgArrowLongRight />
+					Explore More <CgArrowLongRight />
 				</button>
 			</div>
 		</div>
