@@ -2,7 +2,7 @@ import React from "react";
 
 function ClientsView() {
 	return (
-		<div>
+		<div className="home__clients-view">
 			<span>Clients View section</span>
 		</div>
 	);

@@ -3,6 +3,8 @@ import CoverSection from "../components/HomeComponent/CoverSection";
 import AboutUsSection from "../components/HomeComponent/AboutUsSection";
 import OurServices from "../components/HomeComponent/OurServices";
 import GallerySection from "../components/HomeComponent/GallerySection";
+import ParallexSection from "../components/HomeComponent/ParallexSection";
+import ClientsView from "../components/HomeComponent/ClientsView";
 
 function Home() {
 	return (
@@ -28,7 +30,9 @@ function Home() {
 			{/* image gallery section */}
 			<GallerySection />
 			{/* parallex section */}
+			<ParallexSection />
 			{/* clients view section */}
+			<ClientsView />
 		</div>
 	);
 }

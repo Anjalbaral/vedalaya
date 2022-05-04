@@ -8,6 +8,9 @@
 	max-height: 50px;
 	z-index: 98;
 	top: 85vh;
+	@include media-breakpoint-down(md) {
+		top: 420px;
+	}
 	width: 100%;
 	color: $default-primary-color;
 

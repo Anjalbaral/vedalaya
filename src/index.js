@@ -8,13 +8,14 @@ import History from "./helpers/history";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
 import { Provider } from "react-redux";
+import Loader from "./components/Reusable/Loader";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<>
 		<Provider store={store}>
 			<Router history={History}>
-				<PersistGate loading={<span></span>} persistor={persistor}>
+				<PersistGate loading={<Loader />} persistor={persistor}>
 					<App />
 				</PersistGate>
 			</Router>

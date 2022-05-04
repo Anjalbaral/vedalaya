@@ -35,18 +35,26 @@
 		padding-top: 50px;
 
 		&__left {
+			width: 100%;
 			padding: 10px;
 			display: flex;
 			flex-direction: column;
 			@include media-breakpoint-down(md) {
 				flex: 1;
+				align-items: flex-end;
+				justify-content: flex-end;
 			}
 			flex: 0.33;
 
 			&__item {
-				margin: 40px 5px 40px 0px;
+				box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
+				// box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+				border-bottom-style: solid;
+				border-bottom-width: 2px;
+				border-bottom-color: rgba(0, 0, 0, 0);
+				padding: 55px 20px 55px 0px;
 				@include media-breakpoint-down(md) {
-					margin: 30px 5px 30px 0px;
+					padding: 30px 0px 30px 0px;
 					justify-content: center;
 				}
 				display: flex;
@@ -78,6 +86,9 @@
 				&__right {
 					img {
 						margin-left: 15px;
+						@include media-breakpoint-down(md) {
+							margin-right: 15px;
+						}
 						width: 65px;
 						height: 70px;
 					}
@@ -87,6 +98,7 @@
 
 		// right side items
 		&__right {
+			width: 100%;
 			padding: 10px;
 			display: flex;
 			flex-direction: column;
@@ -97,12 +109,17 @@
 				justify-content: flex-end;
 			}
 			&__item {
-				margin: 40px 0px 40px 5px;
+				padding: 55px 0px 55px 20px;
+				box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 20px -20px;
+				// box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 				display: flex;
 				align-items: center;
+				border-bottom-style: solid;
+				border-bottom-width: 2px;
+				border-bottom-color: rgba(0, 0, 0, 0);
 				justify-content: flex-start;
 				@include media-breakpoint-down(md) {
-					margin: 30px 0px 30px 5px;
+					padding: 30px 0px 30px 0px;
 					flex-direction: row-reverse;
 					justify-content: flex-end;
 				}
@@ -159,8 +176,8 @@
 		position: absolute;
 		z-index: -1;
 		img {
-			width: 200px;
-			height: 500px;
+			width: 220px;
+			height: 540px;
 			bottom: 0px;
 			@include media-breakpoint-down(md) {
 				opacity: 0.4;

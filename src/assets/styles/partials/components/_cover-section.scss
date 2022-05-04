@@ -7,6 +7,11 @@
 	justify-content: center;
 	flex: 1;
 
+	@include media-breakpoint-down(md) {
+		max-height: 500px;
+		min-height: 500px;
+	}
+
 	.DotContainer {
 		@include media-breakpoint-down(md) {
 			display: none;
@@ -60,6 +65,8 @@
 		position: absolute;
 		background-size: 100%;
 		background-repeat: no-repeat;
+		background-position: center;
+		background-attachment: fixed;
 		@include media-breakpoint-down(md) {
 			background-size: cover;
 			background-repeat: no-repeat;

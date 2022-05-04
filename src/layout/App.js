@@ -5,6 +5,7 @@ import ScrollToTop from "../hoc/ScrollToTop";
 import { pubRoutes } from "../routes/pubRouters";
 import PublicRoute from "../hoc/PublicRoute";
 import Main from "./main/Main";
+import Loader from "../components/Reusable/Loader";
 
 function App() {
 	const PublicFlow = pubRoutes.map((data, index) => {
@@ -16,7 +17,7 @@ function App() {
 			<ScrollToTop>
 				{/* public flow */}
 				<Main>
-					<Suspense fallback={<span>FUCK</span>}>
+					<Suspense fallback={<Loader />}>
 						<Routes>{PublicFlow}</Routes>
 					</Suspense>
 				</Main>
