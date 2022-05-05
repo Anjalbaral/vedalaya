@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IoMdArrowDropright, IoIosAddCircle } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const fqsns = [
 	{
@@ -74,7 +75,9 @@ function Faqs() {
 			<div className="home__faqs__footer">
 				<h4>Still have a Question ?</h4>
 				<span>if yes, then you can submit your question through direct messaging. We'll respond to you withing 24 hours.</span>
-				<button className="btn-primary">Message Us</button>
+				<Link to="/contact" className="btn-primary">
+					Message Us
+				</Link>
 			</div>
 		</div>
 	);

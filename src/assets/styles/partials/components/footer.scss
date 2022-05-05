@@ -1,11 +1,14 @@
 .footer {
-	margin-top: 80px;
-	height: 50vh;
+	margin-top: 40px;
+	min-height: 50vh;
 	width: 100%;
 	background-color: $default-primary-color;
 	padding: 30px 100px 15px 100px;
 	display: flex;
 	flex-direction: row;
+	@include media-breakpoint-down(md) {
+		flex-direction: column;
+	}
 	align-items: center;
 	justify-content: space-between;
 
@@ -16,9 +19,17 @@
 		flex-direction: column;
 		align-items: flex-end;
 		justify-content: center;
+		@include media-breakpoint-down(md) {
+			align-items: flex-start;
+			order: 1;
+		}
 
 		h4 {
-			font-size: $display-font-size-9;
+			font-size: $display-font-size-10;
+			@include media-breakpoint-down(md) {
+				font-size: $display-font-size-11;
+				margin-left: -55px;
+			}
 			font-weight: $font-weight-bold;
 			letter-spacing: 5px;
 			color: $default-secondary-color;
@@ -28,18 +39,26 @@
 			cursor: pointer;
 			margin-top: 20px;
 			display: flex;
+			@include media-breakpoint-down(md) {
+				flex-direction: row-reverse;
+				margin-left: -60px;
+			}
 			align-items: center;
 			color: $default-secondary-color;
 
 			svg {
 				font-size: 23px;
+				@include media-breakpoint-down(md) {
+					margin-left: 0px;
+					margin-right: 10px;
+				}
 				margin-left: 10px;
 				opacity: 0.6;
 			}
 
 			span {
 				font-size: $display-font-size-11;
-				font-weight: $font-weight-bold;
+				font-weight: $font-weight-semi-bold;
 				opacity: 0.7;
 			}
 		}
@@ -51,9 +70,21 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		@include media-breakpoint-down(md) {
+			align-items: flex-start;
+			justify-content: flex-start;
+			order: 3;
+		}
+
 		img {
-			width: 200px;
-			height: 200px;
+			width: 150px;
+			height: 150px;
+
+			@include media-breakpoint-down(md) {
+				margin: 30px 0px 30px 0px;
+				width: 150px;
+				height: 150px;
+			}
 		}
 	}
 
@@ -64,12 +95,22 @@
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: center;
+		@include media-breakpoint-down(md) {
+			order: 2;
+			margin-top: 30px;
+			align-items: flex-start;
+			justify-content: flex-start;
+		}
 
 		h4 {
-			font-size: $display-font-size-9;
+			font-size: $display-font-size-10;
 			font-weight: $font-weight-bold;
 			letter-spacing: 5px;
 			color: $default-secondary-color;
+			@include media-breakpoint-down(md) {
+				font-size: $display-font-size-11;
+				margin-left: -55px;
+			}
 		}
 
 		&__item {
@@ -79,9 +120,13 @@
 			align-items: center;
 			color: $default-secondary-color;
 
+			@include media-breakpoint-down(md) {
+				margin-left: -60px;
+			}
+
 			span {
 				font-size: $display-font-size-11;
-				font-weight: $font-weight-bold;
+				font-weight: $font-weight-semi-bold;
 				opacity: 0.7;
 			}
 
@@ -99,6 +144,6 @@
 	padding: 20px 0px 20px 0px;
 	background-color: $default-primary-color;
 	color: rgba(255, 255, 255, 0.6);
-	font-weight: $display-font-size-12;
+	font-size: $display-font-size-11;
 	font-weight: $font-weight-semi-bold;
 }

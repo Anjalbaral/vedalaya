@@ -1,4 +1,6 @@
 import React from "react";
+import History from "../../helpers/history";
+import { Link } from "react-router-dom";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import Cover1 from "../../assets/images/cover1.png";
 import Cover2 from "../../assets/images/cover2.jpg";
@@ -21,11 +23,12 @@ function removeLastWord(str) {
 }
 
 function CoverSection(props) {
+	console.log("propsprops", props);
 	const sliders = [
 		{
 			id: 1,
 			title: "1",
-			image: "https://nestia-food.obs.ap-southeast-3.myhuaweicloud.com/202008/22/2ef21105aeffc8aeedcbc5bbd3075ffc.jpg",
+			image: "http://www.zccindia.com/wp-content/uploads/2015/05/exterior-1003-big.jpg",
 			content: {
 				head: "Welcome to",
 				title: "Construction Materials",
@@ -35,7 +38,7 @@ function CoverSection(props) {
 		{
 			id: 2,
 			title: "2",
-			image: Cover2,
+			image: "https://st.hzcdn.com/simgs/pictures/vardagsrum/bosthlm-realestate-2-elisabethphotography-com-img~6ab1cf9e06c61009_14-0141-1-e6d8552.jpg",
 			content: {
 				head: "Welcome to",
 				title: "Interior Design Materials",
@@ -45,7 +48,7 @@ function CoverSection(props) {
 		{
 			id: 3,
 			title: "3",
-			image: Cover3,
+			image: "https://5.imimg.com/data5/PQ/BM/MY-60782684/3d-cad-design-service-500x500.jpg",
 			content: {
 				head: "Welcome to",
 				title: "Exterior Design Materials",
@@ -55,7 +58,7 @@ function CoverSection(props) {
 		{
 			id: 4,
 			title: "4",
-			image: "https://www.recommend.my/blog/wp-content/uploads/2018/11/5ae26fed-23ec-4c70-890d-8ca12cdd8dad_pasted20image200.jpg",
+			image: "https://previews.123rf.com/images/archman/archman1202/archman120200121/12558577-3d-%EA%B3%84%ED%9A%8D-%EB%8F%84%EB%A9%B4.jpg",
 			content: {
 				head: "Welcome to",
 				title: "Design And Construction",
@@ -65,7 +68,7 @@ function CoverSection(props) {
 		{
 			id: 5,
 			title: "5",
-			image: "https://media.homeanddecor.com.sg/public/2014/03/16286.jpg",
+			image: "https://nativainteriors.com/wp-content/uploads/2020/04/Untitled-design-23-1080x584.png",
 			content: {
 				head: "Welcome to",
 				title: "Trading Service",
@@ -121,7 +124,9 @@ function CoverSection(props) {
 								</div>
 								<div className="cover-info-divider"></div>
 								<div className="cover-info-brief">{infos.content.brief}</div>
-								<button className="btn-primary">Learn More</button>
+								<Link className="btn-primary" to="/products">
+									Learn More
+								</Link>
 							</div>
 						);
 					})}

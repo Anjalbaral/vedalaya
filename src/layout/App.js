@@ -8,9 +8,9 @@ import Main from "./main/Main";
 import Loader from "../components/Reusable/Loader";
 import { MdKeyboardArrowUp } from "react-icons/md";
 
-function App() {
+function App(props) {
 	const PublicFlow = pubRoutes.map((data, index) => {
-		return <Route path={data.path} exact={data.exact} key={index} element={<data.component />} />;
+		return <Route path={data.path} exact={data.exact} key={index} element={<data.component {...props} />} />;
 	});
 
 	const [scrollPosition, setScrollPosition] = useState(0);

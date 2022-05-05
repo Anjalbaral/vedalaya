@@ -11,15 +11,15 @@ function Footer() {
 				<div className="footer__left">
 					<h4>GET IN TOUCH</h4>
 					<div className="footer__left__item">
-						<span>https://www.facebook.com/vedalaya</span>
+						<span>Facebook.com/vedalaya</span>
 						<AiFillFacebook />
 					</div>
 					<div className="footer__left__item">
-						<span>https://www.instagram.com/vedalaya</span>
+						<span>Instagram.com/vedalaya</span>
 						<AiFillInstagram />
 					</div>
 					<div className="footer__left__item">
-						<span>https://www.twitter.com/vedalaya</span>
+						<span>Twitter.com/vedalaya</span>
 						<AiFillTwitterSquare />
 					</div>
 				</div>
@@ -42,7 +42,7 @@ function Footer() {
 					</div>
 				</div>
 			</div>
-			<div className="copyright">&#169; Vedalaya Group.All rights reserved.</div>
+			<div className="copyright">&#169;vedalaya group, all rights reserved.</div>
 		</>
 	);
 }

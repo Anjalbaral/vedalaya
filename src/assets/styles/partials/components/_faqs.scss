@@ -1,6 +1,6 @@
 &__faqs {
 	@include flex-center();
-	padding: 100px 0px 0px 0px;
+	padding: 100px 0px 20px 0px;
 	flex-direction: column;
 
 	&__header {
@@ -16,6 +16,9 @@
 	}
 
 	&__body {
+		@include media-breakpoint-down(md) {
+			width: 90%;
+		}
 		width: 80%;
 		padding: 30px 50px 30px 50px;
 		min-height: 500px;
@@ -36,6 +39,10 @@
 					color: $default-theme-loader-color;
 				}
 				div {
+					@include media-breakpoint-down(md) {
+						font-size: $display-font-size-11;
+						text-align: left;
+					}
 					font-size: $display-font-size-10;
 					font-weight: $font-weight-bold;
 					cursor: pointer;
@@ -50,6 +57,9 @@
 			}
 
 			.answer {
+				@include media-breakpoint-down(md) {
+					margin-left: 0px;
+				}
 				margin-left: 30px;
 				width: 80%;
 				font-size: $display-font-size-11;
@@ -91,6 +101,9 @@
 			font-size: $display-font-size-11;
 			margin: 10px 0px 10px 0px;
 			width: 45%;
+			@include media-breakpoint-down(md) {
+				width: 70%;
+			}
 			text-align: center;
 		}
 

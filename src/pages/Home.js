@@ -7,6 +7,7 @@ import ParallexSection from "../components/HomeComponent/ParallexSection";
 import ClientsView from "../components/HomeComponent/ClientsView";
 import avatarpng from "../assets/images/avatar.png";
 import Faqs from "../components/HomeComponent/Faqs";
+import OurClients from "../components/HomeComponent/OurClients";
 
 const swiperData = [
 	{
@@ -62,6 +63,11 @@ function Home() {
 			</div>
 			{/* image gallery section */}
 			<GallerySection />
+			{/* our clients */}
+			<OurClients />
+			<div className="main-separator">
+				<div></div>
+			</div>
 			{/* parallex section */}
 			<ParallexSection />
 			{/* clients view section */}

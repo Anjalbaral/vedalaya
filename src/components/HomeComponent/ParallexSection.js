@@ -1,6 +1,7 @@
 import React from "react";
 import { Parallax } from "react-parallax";
 import BackPattern from "../../assets/images/backbuildnew.png";
+import { Link } from "react-router-dom";
 
 function ParallexSection() {
 	const isMobile = window.innerWidth < 700;
@@ -21,7 +22,9 @@ function ParallexSection() {
 					</p>
 				</div>
 				<div className="home__parallex-section__bottom">
-					<button className="btn-primary">View Products</button>
+					<Link to="/products" className="btn-primary">
+						View Products
+					</Link>
 				</div>
 			</div>
 		</Parallax>

@@ -5,55 +5,24 @@ const INITIAL_STATE = {
 	navItems: [
 		{
 			key: 1,
-			path: "/",
-			name: "Home",
+			path: "/portfolio",
+			name: "Portfolio",
 			content: {
-				image: "http://www.hotelqueenspark.com/wp-content/uploads/2021/07/Flex-room-vertical.png",
+				image: "https://i.pinimg.com/originals/a4/3c/15/a43c150fdcb6209cfab8931cbd180051.jpg",
+				path: "/portfolio",
 				description:
 					"From Barcelona arrives the Spanish interior designer Alexander Guirado. Meet his studio and fantastic work! Entrepreneurs and full of know-how. This is how the Spanish interior designer Alexander Guirado’s team",
-				header: "Home",
+				header: "Portfolio",
 				category: [
 					{
-						title: "Category A",
-						path: "/products/itema",
-						subcategory: [
-							{
-								title: "Subcat A",
-								path: "/products/subitema"
-							},
-							{
-								title: "Subcat A2",
-								path: "/products/subitema2"
-							}
-						]
+						title: "Our Current Ongoing Projects",
+						path: "/portfolio?type=ongoing",
+						description: "We as a company are involved in multiple ongoing projects.You can regularly follow up our ongoing projects form here."
 					},
 					{
-						title: "Category B",
-						path: "/products/itemb",
-						subcategory: [
-							{
-								title: "Subcat B",
-								path: "/products/subitemb"
-							},
-							{
-								title: "Subcat B2",
-								path: "/products/subitemb2"
-							}
-						]
-					},
-					{
-						title: "Category C",
-						path: "/products/itemc",
-						subcategory: [
-							{
-								title: "Subcat C",
-								path: "/products/subitemc"
-							},
-							{
-								title: "Subcat C2",
-								path: "/products/subitemc2"
-							}
-						]
+						title: "Our Upcoming Projects",
+						path: "/portfolio?type=upcoming",
+						description: "You can read about our upcoming projects form here."
 					}
 				]
 			}
@@ -63,7 +32,8 @@ const INITIAL_STATE = {
 			path: "/products",
 			name: "Products",
 			content: {
-				image: "https://images.squarespace-cdn.com/content/v1/4fcf5c8684aef9ce6e0a44b0/1506410556266-KZFRRPPW10C24Y9SBOZ1/Job+Site+Visits+-+Interior+Design+Lessons+To+Learn",
+				image: "https://mickricereto.files.wordpress.com/2014/08/8_6-color.jpg",
+				path: "/products",
 				header: "Products",
 				description:
 					"Mid-Century Design is more than decoration and architecture. For many people, Mid-Century is all about lifestyle. If you are part of this group, you should meet the iconic work of",
@@ -83,30 +53,6 @@ const INITIAL_STATE = {
 							{
 								title: "Subcat A3",
 								path: "/products/subitema3"
-							},
-							{
-								title: "Subcat A4",
-								path: "/products/subitema4"
-							},
-							{
-								title: "Subcat A5",
-								path: "/products/subitema5"
-							},
-							{
-								title: "Subcat A6",
-								path: "/products/subitema6"
-							},
-							{
-								title: "Subcat A7",
-								path: "/products/subitema7"
-							},
-							{
-								title: "Subcat A8",
-								path: "/products/subitema8"
-							},
-							{
-								title: "Subcat A9",
-								path: "/products/subitema9"
 							}
 						]
 					},
@@ -146,8 +92,9 @@ const INITIAL_STATE = {
 			path: "/gallery",
 			name: "Gallery",
 			content: {
-				image: "https://chemphilaust.com.au/assets/uploads/2018/05/Lydia-Maskiell-Interior-Designer-Launceston_02-1400x2097.jpg",
+				image: "https://cdnb.artstation.com/p/assets/images/images/017/987/057/large/gaurang-trivedi-kitchen-interior-furniture.jpg?1558091330",
 				header: "Gallery",
+				path: "/gallery",
 				description:
 					"Design is an important topic for Spanish people. From fashion to architecture, they tend to have special attention to it. In this article find more about Spanish interior design through",
 				category: [
@@ -179,8 +126,9 @@ const INITIAL_STATE = {
 			path: "/contact",
 			name: "Contact",
 			content: {
-				image: "https://chemphilaust.com.au/assets/uploads/2018/05/Lydia-Maskiell-Interior-Designer-Launceston_03-1400x2097.jpg",
+				image: "https://cdnb.artstation.com/p/assets/images/images/017/347/671/medium/gaurang-trivedi-millwork-for-kitchen.jpg?1555593273",
 				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+				path: "/contact",
 				header: "Contact",
 				category: []
 			}
@@ -188,11 +136,11 @@ const INITIAL_STATE = {
 		{
 			key: 5,
 			path: "/aboutus",
-
 			name: "About Us",
 			content: {
-				image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9STuiJh4wnBP159NxSTTYaPrD4AUhLocVDQ&usqp=CAU",
+				image: "https://i.pinimg.com/736x/7c/1c/80/7c1c806ea285f7f79c1ac560e06a07cf--interior-architecture-drawing-interior-rendering.jpg",
 				description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab",
+				path: "/aboutus",
 				header: "About us",
 				category: [
 					{
@@ -239,10 +187,16 @@ const INITIAL_STATE = {
 					}
 				]
 			}
+		},
+		{
+			key: 6,
+			path: "/blogs",
+			name: "Blogs",
+			content: []
 		}
 	],
 	activeNav: "/",
-	activeSlide: 5,
+	activeSlide: 1,
 	activeHover: ""
 };
 

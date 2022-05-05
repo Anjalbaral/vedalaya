@@ -1,7 +1,8 @@
 import React from "react";
-import { AiOutlineArrowsAlt } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import { CgArrowLongRight } from "react-icons/cg";
 import activemenuicon from "../../assets/images/activemenuicon.png";
+import { from } from "array-flatten";
 
 const galleryData = [
 	{ id: 1, title: "image A", description: "this is dummy image", image: "https://5.imimg.com/data5/LH/UD/BQ/SELLER-41968702/interior-decoration-500x500.jpg" },
@@ -115,9 +116,9 @@ function GallerySection() {
 				</div>
 			</div>
 			<div className="home__gallery-section__bottom">
-				<button className="btn-primary-outlined">
+				<Link to="/gallery" className="btn-primary-outlined">
 					Explore More <CgArrowLongRight />
-				</button>
+				</Link>
 			</div>
 		</div>
 	);

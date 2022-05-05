@@ -12,12 +12,14 @@ import { MdOutlineCategory } from "react-icons/md";
 import { AiFillFacebook, AiFillTwitterSquare, AiFillInstagram } from "react-icons/ai";
 import { FaMobileAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { IoMdLocate } from "react-icons/io";
+import { IoMdLocate, IoIosArrowRoundForward } from "react-icons/io";
 import { RiMenu3Fill } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 function TopNav({ navItems, activeNav, activeHover }) {
 	let location = useLocation();
 	let dispatch = useDispatch();
+	let navigate = useNavigate();
 
 	const [insideDialog, setInsideDialog] = useState(false);
 	const [activeDialogData, setActiveDialogData] = useState({});
@@ -30,7 +32,7 @@ function TopNav({ navItems, activeNav, activeHover }) {
 	}, [location.pathname]);
 
 	const _onNavItemHover = (path, navdata) => {
-		if (path === "/") {
+		if (path === "/" || path === "/blogs") {
 			return;
 		}
 		let navdialog = document.getElementById("navdialog");
@@ -91,6 +93,18 @@ function TopNav({ navItems, activeNav, activeHover }) {
 		}
 	};
 
+	// const _onNavClick = (item) => {
+	// 	setInsideDialog(false);
+	// 	let navdialog = document.getElementById("navdialog");
+	// 	let topnav = document.getElementById("topnav");
+	// 	topnav.classList.remove("hoverOn");
+	// 	topnav.classList.remove("hevered");
+	// 	navdialog.classList.remove("nav-hover-active");
+	// 	dispatch(changeActiveHover(""));
+	// };
+
+	console.log("active item:", activeDialogData);
+
 	return (
 		<>
 			<div id="topnav" className={`public-layout-top-nav`}>
@@ -132,7 +146,12 @@ function TopNav({ navItems, activeNav, activeHover }) {
 				<div className="partb">
 					<h5>{activeDialogData.header}</h5>
 					<span>{activeDialogData.description}</span>
-					<button className="btn-primary rounded">
+					<button
+						onClick={() => {
+							navigate(activeDialogData.path);
+						}}
+						className="btn-primary rounded"
+					>
 						More
 						<HiOutlineArrowNarrowRight />
 					</button>
@@ -148,7 +167,7 @@ function TopNav({ navItems, activeNav, activeHover }) {
 										<MdOutlineCategory style={{ cursor: "pointer", color: "#f1c12d" }} onClick={() => _expandCat(ind)} />{" "}
 										<span onClick={() => _expandCat(ind)} style={{ cursor: "pointer" }}>
 											{cat.title}
-										</span>{" "}
+										</span>
 										<Link to={cat.path}>
 											<HiOutlineArrowNarrowRight style={{ fontSize: "20px", marginLeft: "18px", color: "blue", marginTop: "-5px", cursor: "pointer" }} />
 										</Link>
@@ -176,7 +195,7 @@ function TopNav({ navItems, activeNav, activeHover }) {
 								activeDialogData.category.map((im, ind) => {
 									return (
 										<Link key={ind} to={im.path}>
-											<img style={{ width: ind === 0 || ind === 3 ? "165px" : ind === 2 || ind === 1 ? "165px" : "0px", height: "150px", margin: "5px", borderRadius: "5px" }} src={`${im.image}`} />
+											<img style={{ width: ind === 0 || ind === 3 ? "165px" : ind === 2 || ind === 1 ? "165px" : "0px", height: "150px", margin: "5px", borderRadius: "0px" }} src={`${im.image}`} />
 										</Link>
 									);
 								})}
@@ -224,6 +243,30 @@ function TopNav({ navItems, activeNav, activeHover }) {
 								<div className="whyus">
 									<span className="head">Why Us</span>
 									<span className="body">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</span>
+								</div>
+							</div>
+						</div>
+					) : null}
+					{activeDialogData && activeDialogData.header === "Portfolio" ? (
+						<div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row" }}>
+							<div className="aboutus">
+								<div className="ourvision">
+									<span className="head">Our Ongoing Projects</span>
+									<br />
+									<span className="body">We as a company are involved in multiple ongoing projects.You can regularly follow up our ongoing projects form here.</span>
+									<br />
+									<Link to="/portfolio?type=ongoing" style={{ padding: "10px 10px 10px 0px", marginTop: "20px", fontSize: "14px", fontWeight: "bold", color: "blue" }}>
+										ongoing projects <IoIosArrowRoundForward />
+									</Link>
+								</div>
+								<div className="whyus">
+									<span className="head">Our Upcoming Projects</span>
+									<br />
+									<span className="body">We are involved in several exciting upcoming projects.You can read about our upcoming projects form here.</span>
+									<br />
+									<Link to="/portfolio?type=upcoming" style={{ padding: "10px 10px 10px 0px", marginTop: "20px", fontSize: "14px", fontWeight: "bold", color: "blue" }}>
+										upcoming projects <IoIosArrowRoundForward />
+									</Link>
 								</div>
 							</div>
 						</div>

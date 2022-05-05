@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ExperiencedMainpower from "../../assets/images/experienced.png";
 import ExcellentService from "../../assets/images/excellent.png";
 import HighQuality from "../../assets/images/HighQuality.png";
@@ -65,12 +66,11 @@ function AboutUsSection() {
 						</div>
 					</div>
 					<div className="home__about-us__body__bottom">
-						<button className="btn-primary-outlined">Learn More</button>
+						<Link to="/aboutus" className="btn-primary-outlined">
+							Learn More
+						</Link>
 					</div>
 				</div>
-				{/* <div className="about-us-background-pattern">
-				<img src={BackPattern} />
-			</div> */}
 			</div>
 		</Parallax>
 	);
