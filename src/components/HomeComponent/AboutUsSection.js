@@ -30,8 +30,8 @@ function AboutUsSection() {
 				{/* HEAD CONTENT SECTION */}
 				<div className="home__about-us__head-content">
 					<span>
-						with over a decade of experience in the construction and construction material industry, we provide holistic solutions for all your needs. What's more, the company also offers a
-						construction consultation service that helps you to plan your project from inception to closure.
+						we specialize in the construction materials trading, the company has a wide range of products that cater to both the construction and manufacturing industries. With a focus on quality and
+						customer satisfaction, Vedalaya sets the benchmark in this field.
 					</span>
 				</div>
 				{/* BODY SECTION */}
@@ -43,7 +43,7 @@ function AboutUsSection() {
 							</div>
 							<div className="home__about-us__body__top__item__B">
 								<span className="head">Experienced Mainpower</span>
-								<span className="body">We have Experienced Mainpower</span>
+								<span className="body">We Provide Experienced Mainpower For Work</span>
 							</div>
 						</div>
 						<div className="home__about-us__body__top__item">
@@ -52,7 +52,7 @@ function AboutUsSection() {
 							</div>
 							<div className="home__about-us__body__top__item__B">
 								<span className="head">Excellent Service</span>
-								<span className="body">We Provide Excellent Service</span>
+								<span className="body">We Provide Excellent Service For Every Customer</span>
 							</div>
 						</div>
 						<div className="home__about-us__body__top__item">

@@ -11,10 +11,11 @@ import { GrFormNextLink } from "react-icons/gr";
 import { MdOutlineCategory } from "react-icons/md";
 import { AiFillFacebook, AiFillTwitterSquare, AiFillInstagram } from "react-icons/ai";
 import { FaMobileAlt } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { IoMdLocate, IoIosArrowRoundForward } from "react-icons/io";
+import { MdEmail, MdOutlineWorkspaces } from "react-icons/md";
+import { IoMdLocate, IoIosArrowRoundForward, IoMdArrowDropright } from "react-icons/io";
 import { RiMenu3Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import { BiRightArrow } from "react-icons/bi";
 
 function TopNav({ navItems, activeNav, activeHover }) {
 	let location = useLocation();
@@ -251,27 +252,49 @@ function TopNav({ navItems, activeNav, activeHover }) {
 							</div>
 						</div>
 					) : null}
+					{activeDialogData && activeDialogData.header === "Our Expertise" ? (
+						<div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row" }}>
+							<div className="ourexpertise">
+								{activeDialogData.category.map((itm, ind) => {
+									return (
+										<div className="ourexpertise__item">
+											<span className="head">{itm.title}</span>
+											<span className="body">{itm.description}</span>
+										</div>
+									);
+								})}
+							</div>
+						</div>
+					) : null}
 					{activeDialogData && activeDialogData.header === "Portfolio" ? (
 						<div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row" }}>
 							<div className="aboutus">
-								<div className="ourvision">
-									<span className="head">Our Ongoing Projects</span>
-									<br />
-									<span className="body">We as a company are involved in multiple ongoing projects.You can regularly follow up our ongoing projects form here.</span>
-									<br />
-									<Link to="/portfolio?type=ongoing" style={{ padding: "10px 10px 10px 0px", marginTop: "20px", fontSize: "14px", fontWeight: "bold", color: "blue" }}>
-										ongoing projects <IoIosArrowRoundForward />
-									</Link>
-								</div>
-								<div className="whyus">
-									<span className="head">Our Upcoming Projects</span>
-									<br />
-									<span className="body">We are involved in several exciting upcoming projects.You can read about our upcoming projects form here.</span>
-									<br />
-									<Link to="/portfolio?type=upcoming" style={{ padding: "10px 10px 10px 0px", marginTop: "20px", fontSize: "14px", fontWeight: "bold", color: "blue" }}>
-										upcoming projects <IoIosArrowRoundForward />
-									</Link>
-								</div>
+								{activeDialogData.category.map((itm, ind) => {
+									return (
+										<div className="ourvision">
+											<span className="head">{itm.title}</span>
+											<br />
+											<span className="body">{itm.description}</span>
+											<br />
+											<Link to={`${itm.path}`} style={{ padding: "10px 10px 10px 0px", marginTop: "20px", fontSize: "14px", fontWeight: "bold", color: "blue" }}>
+												{itm.slug} <IoIosArrowRoundForward />
+											</Link>
+										</div>
+									);
+								})}
+							</div>
+						</div>
+					) : null}
+					{activeDialogData && activeDialogData.header === "Areas" ? (
+						<div className="areas">
+							<div className="body">
+								{activeDialogData.category.map((itm, ind) => {
+									return (
+										<div key={ind} className="body__item">
+											<MdOutlineWorkspaces /> {itm.title}
+										</div>
+									);
+								})}
 							</div>
 						</div>
 					) : null}
