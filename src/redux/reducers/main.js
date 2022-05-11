@@ -5,6 +5,62 @@ const INITIAL_STATE = {
 	navItems: [
 		{
 			key: 1,
+			path: "/aboutus",
+			name: "About Us",
+			content: {
+				image: "https://i.pinimg.com/736x/7c/1c/80/7c1c806ea285f7f79c1ac560e06a07cf--interior-architecture-drawing-interior-rendering.jpg",
+				description:
+					"Vedalaya is a group of construction and construction materials trading companies that specialize in modern construction methods and materials. Vedalaya Construction Pvt. Ltd. and Vedalaya Trading Pvt. Ltd, are at the forefront of modern and innovative solutions in this field.",
+				path: "/aboutus",
+				header: "About us",
+				category: [
+					{
+						title: "About us info A",
+						path: "/products/itema",
+						subcategory: [
+							{
+								title: "Subcat A",
+								path: "/products/subitema"
+							},
+							{
+								title: "Subcat A2",
+								path: "/products/subitema2"
+							}
+						]
+					},
+					{
+						title: "About us info B",
+						path: "/products/itemb",
+						subcategory: [
+							{
+								title: "Subcat B",
+								path: "/products/subitemb"
+							},
+							{
+								title: "Subcat B2",
+								path: "/products/subitemb2"
+							}
+						]
+					},
+					{
+						title: "About us info C",
+						path: "/products/itemc",
+						subcategory: [
+							{
+								title: "Subcat C",
+								path: "/products/subitemc"
+							},
+							{
+								title: "Subcat C2",
+								path: "/products/subitemc2"
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			key: 2,
 			path: "/portfolio",
 			name: "Portfolio",
 			content: {
@@ -28,7 +84,7 @@ const INITIAL_STATE = {
 			}
 		},
 		{
-			key: 2,
+			key: 3,
 			path: "/products",
 			name: "Products",
 			content: {
@@ -88,7 +144,7 @@ const INITIAL_STATE = {
 			}
 		},
 		{
-			key: 3,
+			key: 4,
 			path: "/gallery",
 			name: "Gallery",
 			content: {
@@ -122,7 +178,7 @@ const INITIAL_STATE = {
 			}
 		},
 		{
-			key: 4,
+			key: 5,
 			path: "/contact",
 			name: "Contact",
 			content: {
@@ -131,61 +187,6 @@ const INITIAL_STATE = {
 				path: "/contact",
 				header: "Contact",
 				category: []
-			}
-		},
-		{
-			key: 5,
-			path: "/aboutus",
-			name: "About Us",
-			content: {
-				image: "https://i.pinimg.com/736x/7c/1c/80/7c1c806ea285f7f79c1ac560e06a07cf--interior-architecture-drawing-interior-rendering.jpg",
-				description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab",
-				path: "/aboutus",
-				header: "About us",
-				category: [
-					{
-						title: "About us info A",
-						path: "/products/itema",
-						subcategory: [
-							{
-								title: "Subcat A",
-								path: "/products/subitema"
-							},
-							{
-								title: "Subcat A2",
-								path: "/products/subitema2"
-							}
-						]
-					},
-					{
-						title: "About us info B",
-						path: "/products/itemb",
-						subcategory: [
-							{
-								title: "Subcat B",
-								path: "/products/subitemb"
-							},
-							{
-								title: "Subcat B2",
-								path: "/products/subitemb2"
-							}
-						]
-					},
-					{
-						title: "About us info C",
-						path: "/products/itemc",
-						subcategory: [
-							{
-								title: "Subcat C",
-								path: "/products/subitemc"
-							},
-							{
-								title: "Subcat C2",
-								path: "/products/subitemc2"
-							}
-						]
-					}
-				]
 			}
 		},
 		{

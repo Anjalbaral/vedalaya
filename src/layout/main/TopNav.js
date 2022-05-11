@@ -152,7 +152,7 @@ function TopNav({ navItems, activeNav, activeHover }) {
 						}}
 						className="btn-primary rounded"
 					>
-						More
+						Learn More
 						<HiOutlineArrowNarrowRight />
 					</button>
 				</div>
@@ -236,13 +236,17 @@ function TopNav({ navItems, activeNav, activeHover }) {
 								<div className="ourvision">
 									<span className="head">Our Vision</span>
 									<span className="body">
-										is to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
-										Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage,{" "}
+										Vedalaya Group is committed to finding better ways to build throughout Nepal. We provide complete construction services to realize our customer's projects through consultation to
+										construction, along with modern and innovative construction materials of optimal qualities for each project.
 									</span>
 								</div>
 								<div className="whyus">
 									<span className="head">Why Us</span>
-									<span className="body">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</span>
+									<span className="body">
+										Vedalaya Group is committed to the concept that quality should be an integral part of our corporate culture and manifest itself across all operations. We prioritize maintaining the
+										optimum standards using high-grade, standardized materials and certified technicians. We also focus on fulfilling the Owner's project requirement through timely progress and
+										feedback from the customer.
+									</span>
 								</div>
 							</div>
 						</div>

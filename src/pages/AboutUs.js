@@ -9,7 +9,7 @@ function AboutUs() {
 				className="cover-parent"
 				style={{ minWidth: "100%" }}
 				blur={{ min: -10, max: 10 }}
-				strength={200}
+				strength={300}
 				bgClassName="parallexComp"
 				bgImageStyle={{ width: "100%", backgroundSize: "100%" }}
 				bgImage={aboutuscover}
