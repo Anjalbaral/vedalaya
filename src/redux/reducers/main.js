@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 		{
 			key: 1,
 			path: "/aboutus",
-			name: "About Us",
+			name: "About",
 			content: {
 				image: "https://i.pinimg.com/736x/7c/1c/80/7c1c806ea285f7f79c1ac560e06a07cf--interior-architecture-drawing-interior-rendering.jpg",
 				description:
@@ -61,6 +61,62 @@ const INITIAL_STATE = {
 		},
 		{
 			key: 2,
+			path: "/whyus",
+			name: "Why Us",
+			content: {
+				image: "https://i.pinimg.com/736x/7c/1c/80/7c1c806ea285f7f79c1ac560e06a07cf--interior-architecture-drawing-interior-rendering.jpg",
+				description:
+					"Vedalaya is a group of construction and construction materials trading companies that specialize in modern construction methods and materials. Vedalaya Construction Pvt. Ltd. and Vedalaya Trading Pvt. Ltd, are at the forefront of modern and innovative solutions in this field.",
+				path: "/whyus",
+				header: "Why Us",
+				category: [
+					{
+						title: "About us info A",
+						path: "/products/itema",
+						subcategory: [
+							{
+								title: "Subcat A",
+								path: "/products/subitema"
+							},
+							{
+								title: "Subcat A2",
+								path: "/products/subitema2"
+							}
+						]
+					},
+					{
+						title: "About us info B",
+						path: "/products/itemb",
+						subcategory: [
+							{
+								title: "Subcat B",
+								path: "/products/subitemb"
+							},
+							{
+								title: "Subcat B2",
+								path: "/products/subitemb2"
+							}
+						]
+					},
+					{
+						title: "About us info C",
+						path: "/products/itemc",
+						subcategory: [
+							{
+								title: "Subcat C",
+								path: "/products/subitemc"
+							},
+							{
+								title: "Subcat C2",
+								path: "/products/subitemc2"
+							}
+						]
+					}
+				]
+			}
+		},
+		{
+			key: 3,
 			path: "/our-expertise",
 			name: "Expertise",
 			content: {
@@ -71,12 +127,12 @@ const INITIAL_STATE = {
 				header: "Our Expertise",
 				category: [
 					{
-						title: "Modern and Innovative Constructions Solutions",
+						title: "Constructions Solutions",
 						path: "/our-expertise",
 						description: "It involves projects related to New construction,Restoration and rehabilitation,Adaptive reuse,Green building,Demolition etc."
 					},
 					{
-						title: "Modern and Innovative UPVC Solutions",
+						title: "UPVC Solutions",
 						path: "/our-expertise",
 						description:
 							"UPVC is a versatile material that is ideal for use in a wide range of construction applications in Nepal.Its creative design, durability, and cost-effectiveness make it the perfect choice for both residential, commercial, and industrial projects."
@@ -85,7 +141,7 @@ const INITIAL_STATE = {
 			}
 		},
 		{
-			key: 3,
+			key: 4,
 			path: "/portfolio",
 			name: "Portfolio",
 			content: {
@@ -116,7 +172,7 @@ const INITIAL_STATE = {
 			}
 		},
 		{
-			key: 4,
+			key: 5,
 			path: "/products",
 			name: "Products",
 			content: {
@@ -255,7 +311,7 @@ const INITIAL_STATE = {
 			}
 		},
 		{
-			key: 5,
+			key: 6,
 			path: "/areas",
 			name: "Areas",
 			content: {
@@ -266,23 +322,23 @@ const INITIAL_STATE = {
 				header: "Areas",
 				category: [
 					{
-						title: "Residential",
+						title: "Residential areas",
 						path: "/areas"
 					},
 					{
-						title: "Commercial",
+						title: "Commercial areas",
 						path: "/areas"
 					},
 					{
-						title: "Hotel and Tourism",
+						title: "Hotel and Tourism areas",
 						path: "/areas"
 					},
 					{
-						title: "Education",
+						title: "Educational areas ",
 						path: "/areas"
 					},
 					{
-						title: "Industrial",
+						title: "Industrial areas",
 						path: "/areas"
 					},
 					{
@@ -294,7 +350,7 @@ const INITIAL_STATE = {
 						path: "/areas"
 					},
 					{
-						title: "Governmental",
+						title: "Governmental areas",
 						path: "/areas"
 					},
 					{
@@ -338,20 +394,98 @@ const INITIAL_STATE = {
 		// 		]
 		// 	}
 		// },
+		// {
+		// 	key: 7,
+		// 	path: "/contact",
+		// 	name: "Contact",
+		// 	content: {
+		// 		image: "https://cdnb.artstation.com/p/assets/images/images/017/347/671/medium/gaurang-trivedi-millwork-for-kitchen.jpg?1555593273",
+		// 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+		// 		path: "/contact",
+		// 		header: "Contact",
+		// 		category: []
+		// 	}
+		// },
+		// {
+		// 	key: 7,
+		// 	path: "/contact",
+		// 	name: "Contact",
+		// 	content: {
+		// 		image: "https://cdnb.artstation.com/p/assets/images/images/017/347/671/medium/gaurang-trivedi-millwork-for-kitchen.jpg?1555593273",
+		// 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+		// 		path: "/contact",
+		// 		header: "Contact",
+		// 		category: []
+		// 	}
+		// },
 		{
-			key: 6,
-			path: "/contact",
-			name: "Contact",
+			key: 7,
+			path: "/services",
+			name: "Services",
 			content: {
 				image: "https://cdnb.artstation.com/p/assets/images/images/017/347/671/medium/gaurang-trivedi-millwork-for-kitchen.jpg?1555593273",
-				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-				path: "/contact",
-				header: "Contact",
-				category: []
+				description:
+					"Our construction company offers innovative design and construction management solutions for both interior and exterior construction projects. The construction company specializes in design and consultation, construction management, interior design, and general contracting. The trading company specializes in purchase and procurement of the goods and materials. We have a wide variety of construction materials that cater to every construction need.",
+				path: "/services",
+				header: "Services",
+				category: [
+					{
+						title: "Project Management",
+						path: "/services"
+					},
+					{
+						title: "Design & Consultancy",
+						path: "/services"
+					},
+					{
+						title: "Design & Engineering",
+						path: "/services"
+					},
+					{
+						title: "Procurements & Materials Management",
+						path: "/services"
+					},
+					{
+						title: "Building Information Modeling(BIM)",
+						path: "/services"
+					},
+					{
+						title: "Contract Administration",
+						path: "/services"
+					},
+					{
+						title: "Cost Estimation",
+						path: "/services"
+					},
+					{
+						title: "Market Research & Analysis",
+						path: "/services"
+					},
+					{
+						title: "Quality Control & Safety",
+						path: "/services"
+					},
+					{
+						title: "Site Supervision & Safety Management",
+						path: "/services"
+					},
+					{
+						title: "Sustainability Consulting",
+						path: "/services"
+					},
+					{
+						title: "Finance & Insurance",
+						path: "/services"
+					},
+					{
+						title: "Startup Aid",
+						path: "/services"
+					}
+				]
 			}
 		},
 		{
-			key: 7,
+			key: 8,
 			path: "/blogs",
 			name: "Blogs",
 			content: []

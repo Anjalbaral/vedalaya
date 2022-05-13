@@ -43,7 +43,7 @@ function AboutUsSection() {
 							</div>
 							<div className="home__about-us__body__top__item__B">
 								<span className="head">Experienced Mainpower</span>
-								<span className="body">We Provide Experienced Mainpower For Work</span>
+								<span className="body">We Have Experienced Mainpower For Every Task We Specialize</span>
 							</div>
 						</div>
 						<div className="home__about-us__body__top__item">
@@ -52,7 +52,7 @@ function AboutUsSection() {
 							</div>
 							<div className="home__about-us__body__top__item__B">
 								<span className="head">Excellent Service</span>
-								<span className="body">We Provide Excellent Service For Every Customer</span>
+								<span className="body">We Provide Services That Are Efficient & Reliable.</span>
 							</div>
 						</div>
 						<div className="home__about-us__body__top__item">
@@ -61,7 +61,7 @@ function AboutUsSection() {
 							</div>
 							<div className="home__about-us__body__top__item__B">
 								<span className="head">High quality work</span>
-								<span className="body">We provide high quality work</span>
+								<span className="body">Quality Of Work Is The Integral Part Of Our Manifest</span>
 							</div>
 						</div>
 					</div>

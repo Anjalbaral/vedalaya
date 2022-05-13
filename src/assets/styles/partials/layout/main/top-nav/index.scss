@@ -57,6 +57,8 @@
 		}
 
 		.nav-item {
+			// border-style: solid;
+			// border-width: 1px;
 			@include media-breakpoint-down(md) {
 				display: none;
 			}
@@ -65,26 +67,34 @@
 				min-width: 90px;
 				font-size: $display-font-size-12;
 			}
-			font-size: $display-font-size-10;
-			@include flex-center();
-			max-width: 105px;
-			min-width: 105px;
+			font-size: 0.9rem;
+			font-weight: $font-weight-semi-bold;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			max-width: 90px;
+			min-width: 90px;
 			flex: 1;
 			list-style: none;
 			color: $default-primary-color;
-
-			img {
+			div {
 				display: flex;
-				@include flex-center();
-				flex: 0.1;
-				width: 10px;
-				height: 10px;
-				opacity: 0;
+				align-items: center;
+				justify-content: flex-end;
+				flex: 0.2;
+				width: 100%;
+				height: 80px;
+				img {
+					max-width: 10px;
+					max-height: 10px;
+					opacity: 0;
+				}
 			}
 
 			span {
-				padding-left: 3px;
 				display: flex;
+				align-items: center;
+				justify-content: flex-start;
 				flex: 0.8;
 				opacity: 0.8;
 
@@ -97,8 +107,10 @@
 
 		.active {
 			font-weight: $font-weight-bold;
-			img {
-				opacity: 1;
+			div {
+				img {
+					opacity: 1;
+				}
 			}
 
 			span {
@@ -128,11 +140,12 @@
 	max-height: 0px;
 	margin-top: 0px;
 	z-index: 20000;
-	background-color: rgba(250, 250, 252, 0.85);
+	background-color: rgba(250, 250, 252, 0.9);
 	opacity: 0;
 	transition: all 0.3s ease-out;
 	z-index: -1;
 	justify-content: space-between;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 	div {
 		padding: 10px;
@@ -157,6 +170,9 @@
 
 		.supcat {
 			border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+			span {
+				font-size: $display-font-size-11;
+			}
 		}
 
 		div {
@@ -173,6 +189,7 @@
 				flex-direction: column;
 				margin-left: 30px;
 				margin-top: 3px;
+				font-size: $display-font-size-10;
 				margin-bottom: 3px;
 				font-weight: $font-weight-semi-bold;
 				span {
@@ -425,7 +442,7 @@
 			color: $default-primary-color;
 			margin-right: 5px;
 			font-weight: $font-weight-bold !important;
-			font-size: $display-font-size-11 !important;
+			font-size: $display-font-size-9 !important;
 			border-bottom-style: solid;
 			border-bottom-width: 2px;
 			border-bottom-color: $default-theme-loader-color;

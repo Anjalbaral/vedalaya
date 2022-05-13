@@ -19,7 +19,7 @@ function GallerySection() {
 		<div className="home__gallery-section">
 			{/* HEAD SECTION */}
 			<div className="home__gallery-section__header">
-				<span>OUR PRODUCT GALLERY</span>
+				<span>OUR IMAGE GALLERY</span>
 			</div>
 			<div className="underline-separator">
 				<div className="line"></div>
@@ -28,7 +28,7 @@ function GallerySection() {
 			</div>
 			<div className="home__gallery-section__head-content">
 				<span>
-					with over a decade of experience in the construction and construction material industry, we provide holistic solutions for all your needs. What's more, the company also offers a construction
+					With over a decade of experience in the construction and construction material industry, we provide holistic solutions for all your needs. What's more, the company also offers a construction
 					consultation service that helps.
 				</span>
 			</div>

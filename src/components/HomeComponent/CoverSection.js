@@ -23,36 +23,37 @@ function removeLastWord(str) {
 }
 
 function CoverSection(props) {
-	console.log("propsprops", props);
 	const sliders = [
 		{
 			id: 1,
 			title: "1",
-			image: "http://www.zccindia.com/wp-content/uploads/2015/05/exterior-1003-big.jpg",
+			image: "https://www.alpora.com/wp-content/uploads/2021/03/innovation-in-construction-2.jpg",
 			content: {
 				head: "Welcome to",
-				title: "Construction Materials",
-				brief: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"
+				title: "Modern and Innovative Constructions Solutions",
+				brief: "Vedalaya Group has the expertise to handle all types of construction projects.Construction projects can take many different forms, depending on the needs and goals of the project. "
 			}
 		},
 		{
 			id: 2,
 			title: "2",
-			image: "https://st.hzcdn.com/simgs/pictures/vardagsrum/bosthlm-realestate-2-elisabethphotography-com-img~6ab1cf9e06c61009_14-0141-1-e6d8552.jpg",
+			image: "http://www.zccindia.com/wp-content/uploads/2015/05/exterior-1003-big.jpg",
 			content: {
 				head: "Welcome to",
-				title: "Interior Design Materials",
-				brief: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"
+				title: "New Construction",
+				brief:
+					"It refers to projects focused on creating a new building from scratch. This often involves complex engineering and planning efforts to ensure that the final structure meets all necessary safety and building codes."
 			}
 		},
 		{
 			id: 3,
 			title: "3",
-			image: "https://5.imimg.com/data5/PQ/BM/MY-60782684/3d-cad-design-service-500x500.jpg",
+			image: "https://kyimages.kyinbridges.com/what-does-rehabilitation-mean-in-construction-.jpg",
 			content: {
 				head: "Welcome to",
-				title: "Exterior Design Materials",
-				brief: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"
+				title: "Restoration and Rehabilitation",
+				brief:
+					"These projects typically involve restoring an existing structure to its original condition or making changes to allow it to be used for a new purpose. For example, a historic building might be restored in order to preserve its architectural integrity, or an abandoned factory might be rehabilitated into a new office complex."
 			}
 		},
 		{
@@ -61,18 +62,42 @@ function CoverSection(props) {
 			image: "https://previews.123rf.com/images/archman/archman1202/archman120200121/12558577-3d-%EA%B3%84%ED%9A%8D-%EB%8F%84%EB%A9%B4.jpg",
 			content: {
 				head: "Welcome to",
-				title: "Design And Construction",
-				brief: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"
+				title: "Adaptive Reuse",
+				brief:
+					"It is another type of construction project that involves repurposing an existing structure for a new use. This might involve something as simple as converting an old warehouse into apartments, or it could involve more drastic changes, such as turning a decommissioned power plant into a museum."
 			}
 		},
 		{
 			id: 5,
 			title: "5",
-			image: "https://nativainteriors.com/wp-content/uploads/2020/04/Untitled-design-23-1080x584.png",
+			image: "https://assets-news.housing.com/news/wp-content/uploads/2021/07/26173543/All-about-green-buildings-in-India-FB-1200x700-compressed.jpg",
 			content: {
 				head: "Welcome to",
-				title: "Trading Service",
-				brief: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"
+				title: "Green building",
+				brief:
+					"It is another common type of construction project that focuses on creating structures that are environmentally friendly and sustainable. This might involve using recycled materials, incorporating renewable energy sources, or employing energy-efficient design features."
+			}
+		},
+		{
+			id: 6,
+			title: "6",
+			image: "https://i.pinimg.com/originals/9a/1e/bd/9a1ebd55cd5ad229529dc6655dff5f69.jpg",
+			content: {
+				head: "Welcome to",
+				title: "Demolition Services",
+				brief:
+					"It involves tearing down an existing structure in order to make way for something new. This might be necessary when a building is no longer functional or safe, or it might simply be part of a larger development plan that involves rebuilding the area from scratch. Regardless of the reasons behind a demolition project, it is an important and often necessary stage in many construction projects."
+			}
+		},
+		{
+			id: 7,
+			title: "7",
+			image: "https://www.glasxperts.com/wp-content/uploads/2016/04/32.jpg",
+			content: {
+				head: "Welcome to",
+				title: "Modern and Innovative UPVC Solutions",
+				brief:
+					"UPVC is a versatile material that is ideal for use in a wide range of construction applications in Nepal.Its creative design, durability, and cost-effectiveness make it the perfect choice for both residential, commercial, and industrial projects."
 			}
 		}
 	];
@@ -99,7 +124,7 @@ function CoverSection(props) {
 				<div
 					onClick={() => {
 						if (activeCover === 1) {
-							_setCoverSlider(5);
+							_setCoverSlider(7);
 						} else {
 							_setCoverSlider(activeCover - 1);
 						}
@@ -115,7 +140,7 @@ function CoverSection(props) {
 							<div key={index} className={`cover-info ${infos.id === activeCover ? "cover-info-active" : ""}`}>
 								<div className="cover-info-head">
 									<span className="highlight">Vedalaya Group</span>
-									<span>presents</span>
+									<span>expertize on</span>
 								</div>
 
 								<div className="cover-info-title">
@@ -142,7 +167,7 @@ function CoverSection(props) {
 				{/* cover section right arrow */}
 				<div
 					onClick={() => {
-						if (activeCover === 5) {
+						if (activeCover === 7) {
 							_setCoverSlider(1);
 						} else {
 							_setCoverSlider(activeCover + 1);

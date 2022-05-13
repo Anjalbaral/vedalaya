@@ -11,7 +11,7 @@ import { GrFormNextLink } from "react-icons/gr";
 import { MdOutlineCategory } from "react-icons/md";
 import { AiFillFacebook, AiFillTwitterSquare, AiFillInstagram } from "react-icons/ai";
 import { FaMobileAlt } from "react-icons/fa";
-import { MdEmail, MdOutlineWorkspaces } from "react-icons/md";
+import { MdEmail, MdOutlineWorkspaces, MdOutlineSettingsSuggest } from "react-icons/md";
 import { IoMdLocate, IoIosArrowRoundForward, IoMdArrowDropright } from "react-icons/io";
 import { RiMenu3Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
@@ -242,11 +242,37 @@ function TopNav({ navItems, activeNav, activeHover }) {
 									</span>
 								</div>
 								<div className="whyus">
-									<span className="head">Why Us</span>
+									<span className="head">Our Story</span>
 									<span className="body">
-										Vedalaya Group is committed to the concept that quality should be an integral part of our corporate culture and manifest itself across all operations. We prioritize maintaining the
-										optimum standards using high-grade, standardized materials and certified technicians. We also focus on fulfilling the Owner's project requirement through timely progress and
-										feedback from the customer.
+										With over a decade of experience in the construction and construction materials industry, we provide holistic solutions for all your needs. What's more, the company also offers a
+										construction consultation service that helps you to plan your project from inception to closure.
+									</span>
+								</div>
+								<div className="whyus">
+									<span className="head">Our Team</span>
+									<span className="body">
+										The founder of Vedalaya Construction and Trading Company, Mr. Jaya Ram Aryal, has a long and successful history in the construction and trading industry. Beginning with a
+										background in construction, Mr. Aryal has worked his way up to leading one of the most successful construction and trading firms in Nepal, Kshamadevi Group.
+									</span>
+								</div>
+							</div>
+						</div>
+					) : null}
+					{activeDialogData && activeDialogData.header === "Why Us" ? (
+						<div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row" }}>
+							<div className="ourexpertise">
+								<div className="ourexpertise__item">
+									<span className="head">Brand and Legacy</span>
+									<span className="body">
+										We have a strong commitment to our customers and always work to provide the highest quality products and services. With a strong focus on quality and customer satisfaction, we have
+										been able to carve a niche for ourselves in the industry. We have a team of highly skilled and experienced professionals who are always ready to take on any challenge...
+									</span>
+								</div>
+								<div className="ourexpertise__item">
+									<span className="head">Features and Benefits</span>
+									<span className="body">
+										At Vedalaya Group, we pride ourselves on providing top-quality construction services that are tailored to our clients' specific needs and budget. We offer a wide range of services,
+										from home renovation and construction to commercial building projects...
 									</span>
 								</div>
 							</div>
@@ -292,6 +318,19 @@ function TopNav({ navItems, activeNav, activeHover }) {
 									return (
 										<div key={ind} className="body__item">
 											<MdOutlineWorkspaces /> {itm.title}
+										</div>
+									);
+								})}
+							</div>
+						</div>
+					) : null}
+					{activeDialogData && activeDialogData.header === "Services" ? (
+						<div className="areas">
+							<div className="body">
+								{activeDialogData.category.map((itm, ind) => {
+									return (
+										<div key={ind} className="body__item">
+											<MdOutlineSettingsSuggest /> {itm.title}
 										</div>
 									);
 								})}
