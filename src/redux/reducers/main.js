@@ -406,20 +406,20 @@ const INITIAL_STATE = {
 		// 		category: []
 		// 	}
 		// },
-		// {
-		// 	key: 7,
-		// 	path: "/contact",
-		// 	name: "Contact",
-		// 	content: {
-		// 		image: "https://cdnb.artstation.com/p/assets/images/images/017/347/671/medium/gaurang-trivedi-millwork-for-kitchen.jpg?1555593273",
-		// 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-		// 		path: "/contact",
-		// 		header: "Contact",
-		// 		category: []
-		// 	}
-		// },
 		{
 			key: 7,
+			path: "/contact",
+			name: "Contact",
+			content: {
+				image: "https://cdnb.artstation.com/p/assets/images/images/017/347/671/medium/gaurang-trivedi-millwork-for-kitchen.jpg?1555593273",
+				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+				path: "/contact",
+				header: "Contact",
+				category: []
+			}
+		},
+		{
+			key: 8,
 			path: "/services",
 			name: "Services",
 			content: {
@@ -485,14 +485,14 @@ const INITIAL_STATE = {
 			}
 		},
 		{
-			key: 8,
+			key: 9,
 			path: "/blogs",
 			name: "Blogs",
 			content: []
 		}
 	],
 	activeNav: "/",
-	activeSlide: 1,
+	activeSlide: 2,
 	activeHover: ""
 };
 

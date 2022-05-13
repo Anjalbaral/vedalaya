@@ -169,7 +169,7 @@ function AboutUs() {
 					</div>
 				</div>
 			</div>
-			<div className="home__faqs__footer" style={{ paddingBottom: "50px" }}>
+			<div className="home__faqs__footer" style={{ paddingBottom: "50px", backgroundColor: "#FAFAFC" }}>
 				<h4>Want to know more about us ?</h4>
 				<span>
 					if yes, then you can directly message us form here. <br />
