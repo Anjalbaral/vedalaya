@@ -1,4 +1,6 @@
 .about-us {
+	background-color: $default-secondary-color;
+	overflow-x: hidden;
 	min-height: 100vh;
 	padding: 70px 0px 0px 0px;
 	display: flex;
@@ -6,6 +8,18 @@
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-direction: column;
+
+	&__bottom {
+		@include flex-center();
+		padding: 20px 0px 50px 0px;
+		a {
+			height: 50px;
+		}
+		svg {
+			margin-left: 5px;
+			font-size: 25px;
+		}
+	}
 
 	&__cover {
 		width: 100%;
@@ -19,9 +33,9 @@
 			position: absolute;
 			width: 100%;
 			height: 400px;
-			opacity: 0.7;
+			opacity: 0.2;
 			z-index: 2000;
-			background-color: #1f2534;
+			background-color: $default-secondary-color;
 		}
 
 		&__content {
@@ -34,7 +48,271 @@
 
 			h3 {
 				font-weight: $font-weight-heavy-bold;
-				font-size: $display-font-size-3;
+				font-size: 50px;
+			}
+			span {
+				font-weight: $font-weight-semi-bold;
+			}
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 0px 80px 0px 80px;
+
+		&__intro {
+			margin-top: -70px;
+			z-index: 100000;
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0px 0px 100px 0px;
+
+			&__item {
+				width: 30%;
+				padding: 35px;
+				max-height: 400px;
+				min-height: 400px;
+				background-color: #fdfdfd;
+				display: flex;
+				flex-direction: column;
+				box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+				&__divider {
+					width: 25%;
+					height: 7px;
+					background-color: $default-theme-loader-color;
+				}
+
+				&__header {
+					font-weight: $font-weight-bold;
+					color: $default-primary-color;
+					padding: 20px 0px 20px 0px;
+					font-size: $display-font-size-9;
+				}
+
+				&__content {
+					font-size: $display-font-size-10;
+					color: $default-primary-color;
+				}
+			}
+		}
+
+		&__our-story {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			&__header {
+				font-size: $display-font-size-6;
+				font-weight: $font-weight-bold;
+			}
+
+			.separator {
+				width: 180px;
+				border-radius: 10px;
+				height: 5px;
+				margin-top: 10px;
+				background-color: $default-theme-loader-color;
+			}
+
+			.back-img {
+				border-style: solid;
+				border-width: 2px;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+			}
+
+			&__body {
+				text-align: center;
+				padding: 20px 0px 20px 0px;
+			}
+		}
+
+		&__our-mission {
+			width: 120%;
+			margin-top: 70px;
+			display: flex;
+			flex-direction: row;
+			background-color: #f2f5fb;
+			flex: 1;
+
+			&__right {
+				padding: 40px;
+				width: 80%;
+				display: flex;
+				flex: 0.5;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-start;
+				text-align: left;
+				.separator {
+					width: 180px;
+					border-radius: 10px;
+					height: 5px;
+					margin-top: 10px;
+					background-color: $default-theme-loader-color;
+				}
+
+				&__header {
+					font-size: $display-font-size-6;
+					font-weight: $font-weight-bold;
+				}
+
+				&__content {
+					padding-top: 30px;
+					width: 80%;
+
+					ul {
+						// border-style: solid;
+						// border-width: 2px;
+						padding: 0px;
+						// padding: 30psx 30px 30px 30px;
+						// background-color: $default-secondary-color;
+						// border-radius: 10px;
+						li {
+							svg {
+								color: $default-theme-loader-color;
+								font-size: 23px;
+							}
+							font-size: 15px;
+							font-weight: $font-weight-semi-bold;
+							padding-right: 0px;
+							margin: 15px 0px 15px 0px;
+						}
+					}
+				}
+			}
+
+			&__left {
+				padding: 40px 0px 40px 0px;
+				display: flex;
+				flex-direction: column;
+				flex: 0.5;
+				align-items: flex-end;
+				justify-content: space-between;
+				.overlay {
+					position: absolute;
+					background-color: $default-secondary-color;
+					opacity: 0.5;
+					width: 100%;
+					height: 100%;
+				}
+
+				img {
+					margin-top: 110px;
+					border-radius: 5px;
+					width: 80%;
+					height: 400px;
+				}
+			}
+		}
+
+		&__our-team {
+			box-sizing: border-box;
+			padding: 100px 0px 50px 0px;
+			display: flex;
+			min-height: 500px;
+			width: 100%;
+			flex: 1;
+			flex-direction: row;
+
+			&__left {
+				box-sizing: border-box;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				justify-content: flex-start;
+				flex: 0.5;
+				width: 100%;
+				min-height: 500px;
+				// border-style: solid;
+				// border-width: 2px;
+				padding: 20px;
+
+				&__header {
+					font-size: $display-font-size-6;
+					font-weight: $font-weight-bold;
+				}
+
+				.separator {
+					width: 180px;
+					border-radius: 10px;
+					height: 5px;
+					margin-top: 10px;
+					background-color: $default-theme-loader-color;
+				}
+
+				&__body {
+					padding: 20px 0px 0px 0px;
+					text-align: right;
+				}
+			}
+
+			&__right {
+				box-sizing: border-box;
+				display: flex;
+				flex: 0.5;
+				width: 100%;
+				min-height: 500px;
+				// border-style: solid;
+				// border-width: 2px;
+				padding: 20px;
+
+				div {
+					margin-top: 100px;
+					border-radius: 5px;
+					width: 100%;
+					height: 550px;
+					background-size: 100%;
+					background-position: center;
+				}
+			}
+		}
+
+		&__future-prospects {
+			width: 100%;
+			min-height: 400px;
+			padding: 100px 20px 20px 20px;
+			@include flex-center();
+
+			&__dialog {
+				padding: 30px;
+				width: 100%;
+				min-height: 300px;
+				border-radius: 0px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				flex: 1;
+				box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+				&__top {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-direction: column;
+					text-align: center;
+
+					&__header {
+						font-size: $display-font-size-6;
+						color: $default-theme-loader-color;
+						font-weight: $font-weight-heavy-bold;
+						span {
+							color: $default-primary-color;
+						}
+					}
+				}
+
+				&__body {
+					padding: 20px 0px 20px 0px;
+				}
 			}
 		}
 	}
