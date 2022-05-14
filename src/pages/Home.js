@@ -49,13 +49,13 @@ function Home() {
 			<div className="main-separator">
 				<div></div>
 			</div>
-			{/* about vedalaya section */}
+			{/* about vedalaya section,change to our expertise section*/}
 			<AboutUsSection />
 			{/* separator */}
 			<div className="main-separator">
 				<div></div>
 			</div>
-			{/* our service section */}
+			{/* our service section change to category based section*/}
 			<OurServices />
 			{/* separator */}
 			<div className="main-separator">
@@ -63,7 +63,7 @@ function Home() {
 			</div>
 			{/* image gallery section */}
 			<GallerySection />
-			{/* our clients */}
+			{/* our clients change to working areas */}
 			<OurClients />
 			<div className="main-separator">
 				<div></div>
@@ -73,6 +73,8 @@ function Home() {
 			{/* clients view section */}
 			<ClientsView slides={[...swiperData]} />
 			{/* faqs */}
+			{/* add about us section */}
+			{/* add blogs section */}
 			<Faqs />
 		</div>
 	);

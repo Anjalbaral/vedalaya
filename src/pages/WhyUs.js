@@ -7,6 +7,7 @@ import Affordability from "../assets/images/affordability-and-sustainability.png
 import QAAndSafety from "../assets/images/quality-assurance-and-safety.png";
 import Partnership from "../assets/images/partnership-prospects.png";
 import ResearchAndInnovation from "../assets/images/research-and-innovation.png";
+import avatar from "../assets/images/avatar.png";
 
 const WhyUs = () => {
 	return (
@@ -125,6 +126,18 @@ const WhyUs = () => {
 						</div>
 					</div>
 				</div>
+			</div>
+			<div className="why-us__recomendation">
+				<div className="why-us__recomendation__header">" Vedalaya Group Is Great "</div>
+				<div className="why-us__recomendation__content">
+					Vedalaya is a group of construction and construction materials trading companies that specialize in modern construction methods and materials. Vedalaya Construction Pvt. Ltd. and Vedalaya
+					Trading Pvt. Ltd, are at the forefront of modern and innovative solutions in this field.
+				</div>
+				<div className="why-us__recomendation__avatar">
+					<img src={avatar} />
+				</div>
+				<div className="why-us__recomendation__client">John Doe</div>
+				<div className="why-us__recomendation__client-info">COORDINATOR, XYZ COMPANY</div>
 			</div>
 		</div>
 	);
