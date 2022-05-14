@@ -59,6 +59,10 @@ function AboutUs() {
 					>
 						<div className="about-us__body__our-story__header">Our story</div>
 						<div className="separator"></div>
+						<div className="decorator">
+							<span className="decorator__A">‟</span>
+							{/* <span className="decorator__B">❜</span> */}
+						</div>
 						<div className="about-us__body__our-story__body">
 							With over a decade of experience in the construction and construction materials industry, we provide holistic solutions for all your needs. What's more, the company also offers a
 							construction consultation service that helps you to plan your project from inception to closure. With over a decade of experience in the construction industry, Vedalaya's team of experts
