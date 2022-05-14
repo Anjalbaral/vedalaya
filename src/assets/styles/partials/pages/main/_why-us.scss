@@ -1,5 +1,5 @@
 .why-us {
-	background-color: $default-secondary-color;
+	background-color: #f2f5fb;
 	overflow-x: hidden;
 	min-height: 100vh;
 	padding: 70px 0px 0px 0px;
@@ -45,20 +45,107 @@
 	}
 
 	&__intro {
+		background-color: #fff;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding: 70px 100px 40px 100px;
+		padding: 50px 100px 70px 100px;
+		.separator {
+			width: 180px;
+			border-radius: 10px;
+			height: 5px;
+			margin-top: 2px;
+			margin-bottom: 10px;
+			background-color: $default-theme-loader-color;
+		}
 
 		&__header {
+			color: $default-primary-color;
 			font-weight: $font-weight-heavy-bold;
 			font-size: $display-font-size-6;
 		}
 
 		&__body {
+			color: $default-primary-color;
 			width: 70%;
 			text-align: center;
 		}
+	}
+
+	&__our-features {
+		background-color: #f2f5fb;
+		padding: 50px 100px 0px 100px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+
+		&__item {
+			background-color: #fff;
+			border-radius: 10px;
+			padding: 30px;
+			width: 350px;
+			height: 400px;
+			box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+			// box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: flex-start;
+
+			.separator {
+				width: 50%;
+				border-radius: 10%;
+				opacity: 0;
+				box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+				height: 2px;
+				margin-top: 15px;
+				background-color: rgba(0, 0, 0, 0);
+			}
+
+			&__top {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				img {
+					width: 100px;
+					height: 90px;
+				}
+			}
+
+			&__content {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+
+				&__header {
+					color: $default-primary-color;
+					text-align: center;
+					padding: 5px 0px 20px 0px;
+					font-weight: $font-weight-bold;
+					font-size: $display-font-size-8;
+
+					span {
+						color: $default-primary-color;
+					}
+				}
+
+				&__body {
+					text-align: justify;
+					text-align-last: center;
+					font-size: 15px;
+					color: $default-primary-color;
+				}
+			}
+		}
+	}
+
+	.two {
+		padding: 0px 100px 70px 100px;
 	}
 }
