@@ -5,7 +5,9 @@ import ExcellentService from "../../assets/images/excellent.png";
 import HighQuality from "../../assets/images/HighQuality.png";
 import BackPattern from "../../assets/images/aboutusbackpattern.png";
 import { Parallax } from "react-parallax";
-import { BiRightArrow } from "react-icons/bi";
+import { BiRightArrow, BiLeftArrow } from "react-icons/bi";
+import { RiTaskLine } from "react-icons/ri";
+import { IoShieldCheckmarkOutline } from "react-icons/io5";
 
 function AboutUsSection() {
 	let isMobile = window.innerWidth < 700;
@@ -38,8 +40,9 @@ function AboutUsSection() {
 				{/* BODY SECTION */}
 				<div className="home__about-us__body">
 					<div className="home__about-us__body__head-title">
-						<BiRightArrow />
+						<IoShieldCheckmarkOutline className="left" />
 						<span>MODERN & INNOVATIVE CONSTRUCTION SOLUTIONS</span>
+						<IoShieldCheckmarkOutline className="right" />
 					</div>
 					<br />
 					<div className="home__about-us__body__top">
@@ -95,13 +98,14 @@ function AboutUsSection() {
 					<br />
 					<br />
 					<div className="home__about-us__body__head-title">
-						<BiRightArrow />
+						<IoShieldCheckmarkOutline className="left" />
 						<span>MODERN & INNOVATIVE UPVC SOLUTIONS</span>
+						<IoShieldCheckmarkOutline className="right" />
 					</div>
 					{/* <div className="separator"> */}
 					{/* <div></div> */}
 					{/* </div> */}
-					<div className="home__about-us__body__top">
+					<div className="home__about-us__body__top pt-5">
 						<div className="home__about-us__body__top__item">
 							<div className="home__about-us__body__top__item__A">
 								<img src={ExperiencedMainpower} />

@@ -53,18 +53,33 @@
 			display: flex;
 			border-left-color: $default-theme-loader-color;
 			align-items: center;
-			justify-content: flex-start;
+			justify-content: center;
 			padding: 5px 0px 5px 25px;
 			svg {
-				font-size: 25px;
+				font-size: 30px;
+				opacity: 1;
 				color: $default-theme-loader-color;
 			}
+
+			.left {
+				margin-right: 5px;
+			}
+			.right {
+				margin-left: 5px;
+			}
 			span {
-				padding-left: 10px;
-				font-size: $display-font-size-9;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				background-color: rgba(0, 0, 0, 0);
+				padding-bottom: 5px;
+				padding-top: 5px;
+				padding-left: 5px;
+				padding-right: 5px;
+				border-bottom-color: $default-theme-loader-color;
+				font-size: $display-font-size-10;
 				color: $default-primary-color;
 				opacity: 0.8;
-				font-weight: $font-weight-heavy-bold;
+				font-weight: $font-weight-bold;
 			}
 		}
 
@@ -84,7 +99,7 @@
 			@include media-breakpoint-down(md) {
 				flex-direction: column;
 			}
-			align-items: center;
+			align-items: flex-start;
 			justify-content: flex-start;
 			padding: 20px 0px 20px 0px;
 			width: 95%;
