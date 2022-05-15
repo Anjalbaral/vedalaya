@@ -48,6 +48,37 @@
 		flex-direction: column;
 		margin: 30px 0px 0px 0px;
 
+		&__head-title {
+			width: 100%;
+			display: flex;
+			border-left-color: $default-theme-loader-color;
+			align-items: center;
+			justify-content: flex-start;
+			padding: 5px 0px 5px 25px;
+			svg {
+				font-size: 25px;
+				color: $default-theme-loader-color;
+			}
+			span {
+				padding-left: 10px;
+				font-size: $display-font-size-9;
+				color: $default-primary-color;
+				opacity: 0.8;
+				font-weight: $font-weight-heavy-bold;
+			}
+		}
+
+		.separator {
+			width: 100%;
+			div {
+				height: 4px;
+				margin-left: 25px;
+				margin-top: 5px;
+				width: 20%;
+				background-color: $default-theme-loader-color;
+			}
+		}
+
 		&__top {
 			display: flex;
 			@include media-breakpoint-down(md) {
