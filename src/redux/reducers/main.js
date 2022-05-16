@@ -1,4 +1,11 @@
 import * as Types from "../types";
+import A from "../../assets/images/a.jpeg";
+import B from "../../assets/images/b.jpeg";
+import C from "../../assets/images/c.jpeg";
+import D from "../../assets/images/d.jpeg";
+import E from "../../assets/images/e.jpeg";
+import F from "../../assets/images/f.jpeg";
+import G from "../../assets/images/g.jpeg";
 
 const INITIAL_STATE = {
 	menuOn: false,
@@ -8,7 +15,7 @@ const INITIAL_STATE = {
 			path: "/aboutus",
 			name: "About",
 			content: {
-				image: "https://i.pinimg.com/736x/7c/1c/80/7c1c806ea285f7f79c1ac560e06a07cf--interior-architecture-drawing-interior-rendering.jpg",
+				image: D,
 				description:
 					"Vedalaya is a group of construction and construction materials trading companies that specialize in modern construction methods and materials. Vedalaya Construction Pvt. Ltd. and Vedalaya Trading Pvt. Ltd, are at the forefront of modern and innovative solutions in this field.",
 				path: "/aboutus",
@@ -64,7 +71,7 @@ const INITIAL_STATE = {
 			path: "/whyus",
 			name: "Why Us",
 			content: {
-				image: "https://i.pinimg.com/736x/7c/1c/80/7c1c806ea285f7f79c1ac560e06a07cf--interior-architecture-drawing-interior-rendering.jpg",
+				image: D,
 				description:
 					"Vedalaya is a group of construction and construction materials trading companies that specialize in modern construction methods and materials. Vedalaya Construction Pvt. Ltd. and Vedalaya Trading Pvt. Ltd, are at the forefront of modern and innovative solutions in this field.",
 				path: "/whyus",
@@ -120,7 +127,7 @@ const INITIAL_STATE = {
 			path: "/our-expertise",
 			name: "Expertise",
 			content: {
-				image: "https://i.pinimg.com/736x/7c/1c/80/7c1c806ea285f7f79c1ac560e06a07cf--interior-architecture-drawing-interior-rendering.jpg",
+				image: D,
 				description:
 					"     Vedalaya Group has the expertise to handle all types of construction projects.Construction projects can take many different forms, depending on the needs and goals of the project. ",
 				path: "/our-expertise",
@@ -145,7 +152,7 @@ const INITIAL_STATE = {
 			path: "/portfolio",
 			name: "Portfolio",
 			content: {
-				image: "https://i.pinimg.com/originals/a4/3c/15/a43c150fdcb6209cfab8931cbd180051.jpg",
+				image: D,
 				path: "/portfolio",
 				description: "Vedalaya group is involved in several ongoing,completed and upcoming construction & trading related projects.",
 				header: "Portfolio",
@@ -176,7 +183,7 @@ const INITIAL_STATE = {
 			path: "/products",
 			name: "Products",
 			content: {
-				image: "https://mickricereto.files.wordpress.com/2014/08/8_6-color.jpg",
+				image: D,
 				path: "/products",
 				header: "Products",
 				description:
@@ -315,7 +322,7 @@ const INITIAL_STATE = {
 			path: "/areas",
 			name: "Areas",
 			content: {
-				image: "https://i.pinimg.com/originals/a4/3c/15/a43c150fdcb6209cfab8931cbd180051.jpg",
+				image: D,
 				path: "/areas",
 				description:
 					"At Vedalaya Construction and Trading Company, we focus on construction and trading in a range of different areas. This includes the hotel industry, schools and colleges, office spaces, and residential buildings but not limited to those. We are always open to working with innovative start-ups, and we also are open to partnerships for real estate investments. Our construction and trading expertise ensures that each project is successfully completed and delivered on time. With our experience and knowledge, we provide a construction or trading service that is efficient, reliable, and of the highest quality.",
@@ -411,7 +418,7 @@ const INITIAL_STATE = {
 			path: "/contact",
 			name: "Contact",
 			content: {
-				image: "https://cdnb.artstation.com/p/assets/images/images/017/347/671/medium/gaurang-trivedi-millwork-for-kitchen.jpg?1555593273",
+				image: D,
 				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
 				path: "/contact",
 				header: "Contact",
@@ -423,7 +430,7 @@ const INITIAL_STATE = {
 			path: "/services",
 			name: "Services",
 			content: {
-				image: "https://cdnb.artstation.com/p/assets/images/images/017/347/671/medium/gaurang-trivedi-millwork-for-kitchen.jpg?1555593273",
+				image: D,
 				description:
 					"Our construction company offers innovative design and construction management solutions for both interior and exterior construction projects. The construction company specializes in design and consultation, construction management, interior design, and general contracting. The trading company specializes in purchase and procurement of the goods and materials. We have a wide variety of construction materials that cater to every construction need.",
 				path: "/services",

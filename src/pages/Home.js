@@ -8,6 +8,7 @@ import ClientsView from "../components/HomeComponent/ClientsView";
 import avatarpng from "../assets/images/avatar.png";
 import Faqs from "../components/HomeComponent/Faqs";
 import OurClients from "../components/HomeComponent/OurClients";
+import AboutCompanyInfo from "../components/HomeComponent/AboutCompanyInfo";
 
 const swiperData = [
 	{
@@ -72,9 +73,10 @@ function Home() {
 			<ParallexSection />
 			{/* clients view section */}
 			<ClientsView slides={[...swiperData]} />
-			{/* faqs */}
 			{/* add about us section */}
+			<AboutCompanyInfo />
 			{/* add blogs section */}
+			{/* faqs */}
 			<Faqs />
 		</div>
 	);

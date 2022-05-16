@@ -142,7 +142,7 @@ function TopNav({ navItems, activeNav, activeHover }) {
 					<IoCloseOutline />
 				</div>
 				<div className="parta">
-					<div style={{ backgroundImage: `url(${activeDialogData.image})` }}></div>
+					<div style={{ background: `url(${activeDialogData.image})` }}></div>
 				</div>
 				<div className="partb">
 					<h5>{activeDialogData.header}</h5>
