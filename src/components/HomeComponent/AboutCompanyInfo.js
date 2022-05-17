@@ -31,21 +31,21 @@ function AboutCompanyInfo() {
 					<div className="aboutus" style={{ marginTop: "50px" }}>
 						<div className="ourvision">
 							<span className="head">Our Vision</span>
-							<span className="body" style={{ fontSize: "15px" }}>
+							<span className="body" style={{ fontSize: "16px" }}>
 								Vedalaya Group is committed to finding better ways to build throughout Nepal. We provide complete construction services to realize our customer's projects through consultation to
 								construction, along with modern and innovative construction materials of optimal qualities for each project.
 							</span>
 						</div>
 						<div className="whyus" style={{ marginTop: "50px" }}>
 							<span className="head">Our Story</span>
-							<span className="body" style={{ fontSize: "15px" }}>
+							<span className="body" style={{ fontSize: "16px" }}>
 								With over a decade of experience in the construction and construction materials industry, we provide holistic solutions for all your needs. What's more, the company also offers a
 								construction consultation service that helps you to plan your project from inception to closure.
 							</span>
 						</div>
 						<div className="whyus" style={{ marginTop: "50px" }}>
 							<span className="head">Our Team</span>
-							<span className="body" style={{ fontSize: "15px" }}>
+							<span className="body" style={{ fontSize: "16px" }}>
 								The founder of Vedalaya Construction and Trading Company, Mr. Jaya Ram Aryal, has a long and successful history in the construction and trading industry. Beginning with a background in
 								construction, Mr. Aryal has worked his way up to leading one of the most successful construction and trading firms in Nepal, Kshamadevi Group.
 							</span>
