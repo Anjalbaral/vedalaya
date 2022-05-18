@@ -1,7 +1,44 @@
 .services {
-	padding: 100px 0px 100px 0px;
+	padding: 70px 0px 70px 0px;
 	min-height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: flex !important;
+	align-items: flex-start !important;
+	justify-content: flex-start !important;
+
+	&__cover {
+		width: 100%;
+		height: 350px;
+		@include flex-center();
+		background-position: center;
+		background-size: 100%;
+		overflow: hidden;
+
+		&__overlay {
+			position: absolute;
+			width: 100%;
+			height: 350px;
+			opacity: 1;
+			z-index: 2000;
+			border-style: solid;
+			border-width: 3px;
+			background-color: $default-primary-color !important;
+		}
+
+		&__content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			color: $default-secondary-color;
+			z-index: 3000;
+
+			h3 {
+				font-weight: $font-weight-heavy-bold;
+				font-size: 50px;
+			}
+			span {
+				font-weight: $font-weight-semi-bold;
+			}
+		}
+	}
 }
