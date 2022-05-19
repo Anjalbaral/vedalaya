@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CgArrowLongRight } from "react-icons/cg";
 import activemenuicon from "../../assets/images/activemenuicon.png";
-import windowdoors from "../../assets/images/window&doors-p1.png";
-import roofing from "../../assets/images/roofing-p2.jpeg";
-import flooring from "../../assets/images/flooring-p3.jpeg";
-import fascia from "../../assets/images/fascia-p4.jpeg";
-import glutter from "../../assets/images/glutter.jpeg";
-import pipes from "../../assets/images/pipes.jpeg";
+import windowdoors from "../../assets/images/window&doors-p1.jpg";
+import roofing from "../../assets/images/roofing-p2.jpg";
+import flooring from "../../assets/images/flooring-p3.jpg";
+import fascia from "../../assets/images/fascia-p4.jpg";
+import glutter from "../../assets/images/glutter.jpg";
+import pipes from "../../assets/images/pipes.jpg";
 
 const galleryData = [
 	{

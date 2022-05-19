@@ -1,6 +1,7 @@
 import React from "react";
 import coverimg from "../assets/images/workareacover2.jpeg";
 import { Parallax } from "react-parallax";
+import { Link } from "react-router-dom";
 
 const Areas = () => {
 	return (
@@ -123,6 +124,18 @@ const Areas = () => {
 							</div>
 						</div>
 					</div>
+				</div>
+				<div className="underline-separator" style={{ marginTop: "35px" }}>
+					<div className="line"></div>
+					<div className="mid"></div>
+					<div className="line2"></div>
+				</div>
+				<div className="home__faqs__footer" style={{ paddingBottom: "50px" }}>
+					<h4>Want to know more ?</h4>
+					<span>if yes, then contact us today to learn more about our working areas.</span>
+					<Link to="/contact" className="btn-primary">
+						Contact Us
+					</Link>
 				</div>
 			</div>
 		</div>
