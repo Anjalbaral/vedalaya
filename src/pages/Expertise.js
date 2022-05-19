@@ -2,22 +2,22 @@ import React from "react";
 import aboutuscover from "../assets/images/aboutuscover.jpg";
 import { Parallax } from "react-parallax";
 import { IoSettingsOutline } from "react-icons/io5";
-import residental1 from "../assets/images/residental1.jpeg";
-import residental2 from "../assets/images/residental2.jpeg";
-import residental3 from "../assets/images/residental3.jpeg";
-import residental4 from "../assets/images/residental4.jpeg";
+import residental1 from "../assets/images/residental1.jpg";
+import residental2 from "../assets/images/residental2.jpg";
+import residental3 from "../assets/images/residental3.jpg";
+import residental4 from "../assets/images/residental4.jpg";
 
-import commercial1 from "../assets/images/commercial1.jpeg";
-import commercial2 from "../assets/images/commercial2.jpeg";
-import commercial3 from "../assets/images/commercial3.jpeg";
-import commercial4 from "../assets/images/commercial4.jpeg";
+import commercial1 from "../assets/images/commercial1.jpg";
+import commercial2 from "../assets/images/commercial2.jpg";
+import commercial3 from "../assets/images/commercial3.jpg";
+import commercial4 from "../assets/images/commercial4.jpg";
 import commercial5 from "../assets/images/commercial5.jpg";
 
-import industrial1 from "../assets/images/industrial1.jpeg";
-import industrial2 from "../assets/images/industrial2.jpeg";
-import industrial3 from "../assets/images/industrial3.jpeg";
+import industrial1 from "../assets/images/industrial1.jpg";
+import industrial2 from "../assets/images/industrial2.jpg";
+import industrial3 from "../assets/images/industrial3.jpg";
 import { Link } from "react-router-dom";
-import newconst from "../assets/images/newconst.jpeg";
+import newconst from "../assets/images/newconst.jpg";
 
 const Expertise = () => {
 	return (
