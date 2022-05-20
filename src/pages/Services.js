@@ -85,7 +85,7 @@ function Services() {
 				</div>
 				<div className="services__sectionA__item">
 					<div className="services__sectionA__item__top-icon">
-						<img src={exteriordesign} />
+						<img src={designandconst} />
 					</div>
 					<div className="services__sectionA__item__header">Procurements and Materials Management</div>
 					<div className="services__sectionA__item__content">
@@ -152,7 +152,7 @@ function Services() {
 				</div>
 				<div className="services__sectionA__item">
 					<div className="services__sectionA__item__top-icon">
-						<img src={exteriordesign} />
+						<img src={designandconst} />
 					</div>
 					<div className="services__sectionA__item__header">Site Supervision and Safety Management</div>
 					<div className="services__sectionA__item__content">
