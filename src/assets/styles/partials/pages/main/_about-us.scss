@@ -61,20 +61,33 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		@include media-breakpoint-down(md) {
+			padding: 0px 10px 0px 10px;
+			z-index: 1000;
+		}
 		padding: 0px 80px 0px 80px;
 
 		&__intro {
 			margin-top: -70px;
+			margin-bottom: 20px;
 			z-index: 100000;
 			display: flex;
-			flex-wrap: nowrap;
+			flex-direction: row;
+			flex-wrap: wrap;
 			align-items: center;
-			justify-content: space-between;
+			justify-content: center;
 			padding: 0px 0px 100px 0px;
+			width: 100%;
 
 			&__item {
-				width: 30%;
+				width: 350px;
+				margin: 0px 15px 0px 15px;
+				@include media-breakpoint-down(md) {
+					width: 330px;
+					margin: 0px 10px 0px 10px;
+				}
 				padding: 35px;
+
 				max-height: 400px;
 				min-height: 400px;
 				background-color: #fdfdfd;
@@ -168,8 +181,12 @@
 			}
 
 			&__body {
-				text-align: center;
+				text-align: justify;
 				padding: 0px 0px 20px 0px;
+				@include media-breakpoint-down(md) {
+					padding: 0px 10px 20px 10px;
+					font-size: $display-font-size-11;
+				}
 			}
 		}
 
@@ -177,11 +194,19 @@
 			width: 120%;
 			margin-top: 70px;
 			display: flex;
+			@include media-breakpoint-down(md) {
+				flex-direction: column;
+				margin-top: 30px;
+			}
 			flex-direction: row;
 			background-color: #f2f5fb;
 			flex: 1;
 
 			&__right {
+				@include media-breakpoint-down(md) {
+					flex: 1;
+					width: 100%;
+				}
 				padding: 40px;
 				width: 80%;
 				display: flex;
@@ -201,19 +226,21 @@
 				&__header {
 					font-size: $display-font-size-6;
 					font-weight: $font-weight-bold;
+					@include media-breakpoint-down(md) {
+						font-size: $display-font-size-7;
+					}
 				}
 
 				&__content {
 					padding-top: 30px;
+					@include media-breakpoint-down(md) {
+						width: 100%;
+						padding-top: 20px;
+					}
 					width: 80%;
 
 					ul {
-						// border-style: solid;
-						// border-width: 2px;
 						padding: 0px;
-						// padding: 30psx 30px 30px 30px;
-						// background-color: $default-secondary-color;
-						// border-radius: 10px;
 						li {
 							svg {
 								color: $default-theme-loader-color;
@@ -233,6 +260,12 @@
 				display: flex;
 				flex-direction: column;
 				flex: 0.5;
+				@include media-breakpoint-down(md) {
+					flex: 1;
+					width: 100%;
+					align-items: center;
+					padding: 0px 0px 0px 0px;
+				}
 				align-items: flex-end;
 				justify-content: space-between;
 				.overlay {
@@ -247,6 +280,9 @@
 					margin-top: 110px;
 					border-radius: 5px;
 					width: 80%;
+					@include media-breakpoint-down(md) {
+						height: 300px;
+					}
 					height: 400px;
 				}
 			}
@@ -260,18 +296,23 @@
 			width: 100%;
 			flex: 1;
 			flex-direction: row;
+			@include media-breakpoint-down(md) {
+				flex-direction: column-reverse;
+			}
 
 			&__left {
 				box-sizing: border-box;
 				display: flex;
 				flex-direction: column;
 				align-items: flex-end;
+				@include media-breakpoint-down(md) {
+					align-items: flex-start;
+					padding: 0px 20px 0px 20px;
+				}
 				justify-content: flex-start;
 				flex: 0.5;
 				width: 100%;
 				min-height: 500px;
-				// border-style: solid;
-				// border-width: 2px;
 				padding: 20px;
 
 				&__header {
@@ -290,6 +331,9 @@
 				&__body {
 					padding: 20px 0px 0px 0px;
 					text-align: right;
+					@include media-breakpoint-down(md) {
+						text-align: justify;
+					}
 				}
 			}
 
@@ -299,11 +343,13 @@
 				flex: 0.5;
 				width: 100%;
 				min-height: 500px;
-				// border-style: solid;
-				// border-width: 2px;
 				padding: 20px;
 
 				div {
+					@include media-breakpoint-down(md) {
+						height: 400px;
+						margin-top: 0px;
+					}
 					margin-top: 100px;
 					border-radius: 5px;
 					width: 100%;
@@ -341,6 +387,9 @@
 					text-align: center;
 
 					&__header {
+						@include media-breakpoint-down(md) {
+							text-align: left;
+						}
 						font-size: $display-font-size-6;
 						color: $default-theme-loader-color;
 						font-weight: $font-weight-heavy-bold;
@@ -348,10 +397,12 @@
 							color: $default-primary-color;
 						}
 					}
-				}
-
-				&__body {
-					padding: 20px 0px 20px 0px;
+					&__body {
+						@include media-breakpoint-down(md) {
+							text-align: justify;
+						}
+						padding: 20px 0px 20px 0px;
+					}
 				}
 			}
 		}

@@ -395,7 +395,7 @@ const Expertise = () => {
 					</div>
 				</div>
 				<div className="divider"></div>
-				<div className="home__faqs__footer" style={{ paddingBottom: "50px", backgroundColor: "#FAFAFC" }}>
+				<div className="home__faqs__footer" style={{ paddingBottom: "50px", backgroundColor: "#FAFAFC", textAlign: "center" }}>
 					<h4>Want to know more about our expertise ?</h4>
 					<span>
 						if yes, then you can directly message us form here. <br />

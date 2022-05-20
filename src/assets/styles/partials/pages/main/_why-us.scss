@@ -51,6 +51,9 @@
 		align-items: center;
 		justify-content: center;
 		padding: 50px 100px 70px 100px;
+		@include media-breakpoint-down(md) {
+			padding: 50px 0px 50px 0px;
+		}
 		.separator {
 			width: 180px;
 			border-radius: 10px;
@@ -64,10 +67,18 @@
 			color: $default-primary-color;
 			font-weight: $font-weight-heavy-bold;
 			font-size: $display-font-size-6;
+			@include media-breakpoint-down(md) {
+				font-size: $display-font-size-7;
+			}
 		}
 
 		&__body {
 			color: $default-primary-color;
+			@include media-breakpoint-down(md) {
+				width: 90%;
+				text-align: justify;
+				font-size: $display-font-size-10;
+			}
 			width: 70%;
 			text-align: center;
 		}
@@ -78,10 +89,15 @@
 		padding: 50px 110px 0px 110px;
 		display: flex;
 		flex-direction: row;
-		flex-wrap: nowrap;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
 		width: 100%;
+
+		@include media-breakpoint-down(md) {
+			padding: 50px 20px 0px 20px;
+			justify-content: center;
+		}
 
 		&__item {
 			background-color: #fff;
@@ -96,6 +112,9 @@
 			align-items: center;
 			flex-direction: column;
 			justify-content: flex-start;
+			@include media-breakpoint-down(md) {
+				margin-top: 20px;
+			}
 
 			.separator {
 				width: 50%;
@@ -166,11 +185,17 @@
 		text-align: center;
 		background-color: #fff;
 		padding: 100px 110px 100px 110px;
+		@include media-breakpoint-down(md) {
+			padding: 50px 20px 0px 20px;
+		}
 
 		&__header {
 			color: $default-primary-color;
 			font-weight: $font-weight-heavy-bold;
 			font-size: $display-font-size-6;
+			@include media-breakpoint-down(md) {
+				font-size: $display-font-size-7;
+			}
 			opacity: 0.8;
 		}
 
@@ -205,6 +230,11 @@
 			opacity: 0.7;
 			color: $default-primary-color;
 			padding: 20px 0px 20px 0px;
+			@include media-breakpoint-down(md) {
+				font-size: $display-font-size-10;
+				text-align: justify;
+				width: 90%;
+			}
 			width: 80%;
 			font-size: 18px;
 		}
@@ -212,5 +242,8 @@
 
 	.two {
 		padding: 0px 100px 70px 100px;
+		@include media-breakpoint-down(md) {
+			padding: 0px 20px 50px 20px;
+		}
 	}
 }

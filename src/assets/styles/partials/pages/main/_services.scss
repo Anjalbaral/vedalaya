@@ -49,6 +49,10 @@
 		min-height: 400px;
 		flex-direction: row;
 		padding: 100px 50px 50px 50px;
+		@include media-breakpoint-down(md) {
+			padding: 50px 20px 50px 20px;
+			flex-direction: column;
+		}
 		flex: 1;
 
 		&__left {
@@ -58,9 +62,15 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: flex-start;
+			@include media-breakpoint-down(md) {
+				align-items: flex-start;
+			}
 			flex: 0.5;
 
 			.separator {
+				@include media-breakpoint-down(md) {
+					width: 85%;
+				}
 				width: 46%;
 				display: flex;
 				align-items: flex-start;
@@ -75,6 +85,9 @@
 			span {
 				color: $default-primary-color;
 				font-size: 60px;
+				@include media-breakpoint-down(md) {
+					font-size: 50px;
+				}
 				font-weight: $font-weight-heavy-bold;
 			}
 
@@ -93,11 +106,15 @@
 			flex-direction: column;
 
 			&__header {
+				@include media-breakpoint-down(md) {
+					width: 100%;
+					font-size: $display-font-size-10;
+					padding-top: 15px;
+				}
 				font-size: $display-font-size-8;
 				font-weight: $font-weight-heavy-bold;
 				width: 80%;
 				opacity: 0.7;
-				// letter-spacing: 1px;
 				font-family: $default-font-family;
 			}
 
@@ -146,15 +163,26 @@
 		justify-content: space-between;
 		flex-wrap: wrap;
 
+		@include media-breakpoint-down(md) {
+			padding: 30px 20px 30px 20px;
+		}
+
 		&__item {
 			display: flex;
 			flex-direction: column;
 			padding: 30px;
+			@include media-breakpoint-down(md) {
+				padding: 20px 20px 20px 20px;
+				width: 330px;
+			}
 			margin-top: 20px;
-			border-style: solid;
-			border-width: 1px;
-			border-color: rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
 			width: 380px;
+			box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+			// box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+			// box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+			// box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+			// box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 
 			&__top-icon {
 				width: 90px;
