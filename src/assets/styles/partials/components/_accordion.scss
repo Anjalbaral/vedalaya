@@ -1,0 +1,35 @@
+.accordion {
+	.accordion-button::after {
+		background-size: 0.875rem;
+		background-position: center;
+	}
+}
+
+.accordion-light {
+	.accordion-item {
+		color: $default-primary-color;
+		background-color: $default-secondary-color;
+		border: 1 solid $default-primary-color;
+		border-radius: 5px;
+		box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
+
+		.accordion-button {
+			color: $default-primary-color;
+			background-color: $default-secondary-color;
+			box-shadow: none !important;
+
+			&:not(.collapsed) {
+				color: $default-primary-color;
+			}
+
+			&[aria-expanded="true"] {
+				font-weight: $font-weight-bold;
+				box-shadow: none;
+			}
+		}
+	}
+
+	.accordion-collapse {
+		background-color: $default-secondary-color;
+	}
+}

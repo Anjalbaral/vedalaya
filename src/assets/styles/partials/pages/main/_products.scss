@@ -1,6 +1,5 @@
 .products {
 	padding: 70px 0px 70px 0px;
-	min-height: 100vh;
 	display: flex !important;
 	flex-direction: column;
 	align-items: flex-start !important;
@@ -26,18 +25,50 @@
 
 	&__body {
 		width: 100%;
-		padding: 80px 30px 50px 30px;
+		padding: 80px 50px 50px 50px;
 		min-height: 600px;
 		display: flex;
 
 		&__filters {
 			left: 20px;
-			width: 300px;
-			border-width: 1px;
-			border-color: lightgray;
-			border-style: solid;
+			width: 250px;
 			border-radius: 10px;
 			height: 500px;
+			@include media-breakpoint-down(md) {
+				display: none;
+			}
+
+			.separator {
+				width: 100%;
+				height: 1px;
+				background-color: $default-theme-loader-color;
+			}
+
+			.head {
+				font-weight: $font-weight-bold;
+				margin: 0px 0px 20px 5px;
+				opacity: 0.8;
+				font-size: $display-font-size-10;
+			}
+		}
+	}
+
+	&__float-btn {
+		background-color: $default-theme-loader-color;
+		padding: 8px 30px 8px 30px;
+		border-radius: 10px;
+		position: fixed;
+		bottom: 80px;
+		width: 60%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		z-index: 1000;
+		font-weight: bold;
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+		@include media-breakpoint-up(md) {
+			display: none;
 		}
 	}
 }
