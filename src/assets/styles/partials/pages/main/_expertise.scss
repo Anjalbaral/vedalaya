@@ -22,7 +22,7 @@
 			width: 100%;
 			min-height: 350px;
 			opacity: 0.3;
-			z-index: 2000;
+			z-index: 500;
 			background-color: $default-secondary-color;
 		}
 
@@ -32,7 +32,7 @@
 			align-items: center;
 			justify-content: center;
 			color: $default-secondary-color;
-			z-index: 3000;
+			z-index: 600;
 
 			h3 {
 				font-weight: $font-weight-heavy-bold;

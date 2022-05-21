@@ -22,9 +22,9 @@ function Services() {
 				bgImageStyle={{ width: "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
 				bgImage={servicecover}
 			>
-				<div className="expertise__cover">
-					<div className="expertise__cover__overlay"></div>
-					<div className="expertise__cover__content">
+				<div className="services__cover">
+					<div className="services__cover__overlay"></div>
+					<div className="services__cover__content">
 						<h3>Our Services</h3>
 						<span>services we provide</span>
 					</div>

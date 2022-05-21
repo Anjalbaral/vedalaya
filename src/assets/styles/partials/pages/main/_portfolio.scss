@@ -4,5 +4,70 @@
 	display: flex;
 	width: 100%;
 	align-items: center !important;
-	justify-content: center !important;
+	justify-content: flex-start !important;
+
+	&__intro {
+		background-color: #fff;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 30px 100px 40px 100px;
+		@include media-breakpoint-down(md) {
+			padding: 50px 0px 50px 0px;
+		}
+		.separator {
+			width: 180px;
+			border-radius: 10px;
+			height: 5px;
+			margin-top: 2px;
+			margin-bottom: 10px;
+			background-color: $default-theme-loader-color;
+		}
+
+		&__header {
+			color: $default-primary-color;
+			font-weight: $font-weight-heavy-bold;
+			font-size: $display-font-size-6;
+			@include media-breakpoint-down(md) {
+				font-size: $display-font-size-7;
+			}
+		}
+
+		&__body {
+			color: $default-primary-color;
+			@include media-breakpoint-down(md) {
+				width: 90%;
+				text-align: justify;
+				font-size: $display-font-size-10;
+			}
+			width: 70%;
+			text-align: center;
+		}
+	}
+
+	&__grid-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-start;
+		@include media-breakpoint-down(md) {
+			justify-content: center;
+			padding: 30px 0px 100px 0px;
+		}
+		flex-direction: row;
+		padding: 30px 90px 100px 90px;
+		width: 100%;
+
+		&__item {
+			border-width: 2px;
+			width: 340px;
+			margin: 0px 15px 0px 15px;
+			@include media-breakpoint-down(md) {
+				margin: 5px 0px 5px 0px;
+				width: 320px;
+			}
+			min-height: 380px;
+		}
+	}
 }

@@ -1,0 +1,29 @@
+.custom-tabs {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+
+	&__tab {
+		cursor: pointer;
+		margin: 7px 10px 7px 10px;
+		padding: 7px 15px 7px 15px;
+		border-radius: 10px;
+		background-color: rgba(0, 0, 0, 0.1);
+		opacity: 0.8;
+
+		&__hover {
+			opacity: 1;
+		}
+
+		span {
+			font-size: $display-font-size-11;
+		}
+	}
+
+	.active-tab {
+		font-weight: bold;
+		background-color: $default-theme-loader-color;
+	}
+}

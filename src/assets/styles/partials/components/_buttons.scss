@@ -135,3 +135,40 @@ button.btn-primary-outlined {
 	position: relative;
 	z-index: 2;
 }
+
+.btn-primary-2-outlined,
+button.btn-primary-2-outlined {
+	background: transparent;
+	color: $default-primary-color;
+	font-size: $font-size-base;
+	border: 1px solid $default-primary-color;
+	opacity: 0.8;
+	border-radius: 3px;
+	padding: 7px 15px;
+	max-height: 35.24px;
+	@include flex-center();
+
+	&:active,
+	&:focus,
+	&:not(:disabled):not(.disabled):active {
+		background-color: $default-theme-loader-color;
+		color: $default-primary-color;
+		border: 1px solid $default-theme-loader-color;
+		box-shadow: none;
+		opacity: 1;
+	}
+
+	&:hover {
+		background-color: $default-theme-loader-color;
+		color: $default-primary-color;
+		border: 1px solid $default-theme-loader-color;
+	}
+
+	&.active {
+		background-color: $default-theme-loader-color;
+		color: $default-primary-color;
+		border: 1px solid $default-theme-loader-color;
+		box-shadow: none;
+		opacity: 1;
+	}
+}

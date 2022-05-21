@@ -1,0 +1,153 @@
+.card {
+	width: 100%;
+	height: 100%;
+	margin: 10px;
+	@include media-breakpoint-down(md) {
+		margin: 0px;
+	}
+	background-color: transparent;
+
+	&:hover {
+		.card__caption {
+			top: 50%;
+			transform: translateY(-80%);
+		}
+
+		.card__title {
+			background-color: rgba(0, 0, 0, 0.3);
+		}
+
+		.card__image {
+			transform: translateY(-10px);
+		}
+
+		.card__thumb {
+			height: 100%;
+			&::after {
+				background: rgba(0, 0, 0, 0.5);
+				top: 0px;
+			}
+		}
+
+		.card__snippet {
+			margin: 20px 0px 20px 0px;
+		}
+	}
+
+	&__thumb {
+		position: absolute;
+		min-height: 340px;
+		width: 100%;
+		max-height: 340px;
+		overflow: hidden;
+
+		&::after {
+			position: absolute;
+			top: 0;
+			display: block;
+			content: "";
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0);
+			transition: 0.3s;
+
+			@include media-breakpoint-up(md) {
+				top: calc(100%);
+			}
+		}
+	}
+
+	&__image {
+		width: 100%;
+		height: 360px;
+		transition: 0.5s ease-in-out;
+	}
+
+	&__caption {
+		position: absolute;
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		top: 60%;
+		z-index: 1;
+		padding: 0 0px;
+		color: white;
+		transform: translateY(-50%);
+		text-align: center;
+		transition: 0.3s;
+
+		@include media-breakpoint-up(md) {
+			top: calc(100% - 50px);
+			transform: unset;
+		}
+
+		button {
+			color: $default-secondary-color;
+			border-color: $default-secondary-color;
+			border-radius: 10%;
+			margin-left: 40%;
+		}
+	}
+
+	&__title {
+		display: -webkit-box;
+		max-height: 90px;
+		overflow: hidden;
+		font-family: $default-font-family, serif;
+		font-weight: $font-weight-semi-bold;
+		font-size: $display-font-size-9;
+		@include media-breakpoint-down(md) {
+			background-color: rgba(75, 80, 92, 0);
+		}
+
+		background-color: rgba(75, 80, 92, 0.3);
+		width: 100%;
+		height: 55px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		line-height: 28px;
+		color: $default-secondary-color;
+		text-overflow: ellipsis;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+	}
+
+	&__snippet {
+		display: -webkit-box;
+		max-height: 150px;
+		margin: 20px 0;
+		padding: 0px 20px 0px 20px;
+		text-align: justify;
+		overflow: hidden;
+		font-family: "Roboto", sans-serif;
+		font-size: $display-font-size-11;
+		font-weight: $font-weight-semi-bold;
+		line-height: 20px;
+		text-overflow: ellipsis;
+		transition: 0.5s ease-in-out;
+		-webkit-line-clamp: 5;
+		-webkit-box-orient: vertical;
+
+		@include media-breakpoint-up(md) {
+			margin: 60px 0;
+		}
+	}
+
+	&__button {
+		display: inline-block;
+		padding: 10px 20px;
+		color: white;
+		border: 1px solid white;
+		font-family: "Roboto", sans-serif;
+		font-size: 12px;
+		text-transform: uppercase;
+		text-decoration: none;
+		transition: 0.3s;
+
+		&:hover {
+			color: black;
+			background-color: white;
+		}
+	}
+}
