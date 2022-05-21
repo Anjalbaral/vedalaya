@@ -66,7 +66,7 @@
 	&__caption {
 		position: absolute;
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 		flex-direction: column;
 		top: 60%;
 		z-index: 1;
@@ -81,11 +81,9 @@
 			transform: unset;
 		}
 
-		button {
+		a {
 			color: $default-secondary-color;
 			border-color: $default-secondary-color;
-			border-radius: 10%;
-			margin-left: 40%;
 		}
 	}
 
@@ -118,11 +116,11 @@
 		max-height: 150px;
 		margin: 20px 0;
 		padding: 0px 20px 0px 20px;
-		text-align: justify;
+		text-align: center;
 		overflow: hidden;
 		font-family: "Roboto", sans-serif;
 		font-size: $display-font-size-11;
-		font-weight: $font-weight-semi-bold;
+		font-weight: 200;
 		line-height: 20px;
 		text-overflow: ellipsis;
 		transition: 0.5s ease-in-out;

@@ -7,7 +7,10 @@ const AboutUs = React.lazy(() => import("../pages/AboutUs"));
 const Contact = React.lazy(() => import("../pages/Contact"));
 const PageNotFound = React.lazy(() => import("../pages/NotFound"));
 const Blogs = React.lazy(() => import("../pages/Blogs"));
+
 const Portfolio = React.lazy(() => import("../pages/Portfolio"));
+const PortfolioDetails = React.lazy(() => import("../pages/PortfolioDetails"));
+
 const WhyUs = React.lazy(() => import("../pages/WhyUs"));
 const Expertise = React.lazy(() => import("../pages/Expertise"));
 const Areas = React.lazy(() => import("../pages/Areas"));
@@ -81,7 +84,13 @@ const pubRoutes = [
 		component: Portfolio
 	},
 	{
-		path: "/404",
+		path: "/portfolio/:id",
+		exact: true,
+		name: "Portfolio Details",
+		component: PortfolioDetails
+	},
+	{
+		path: "",
 		exact: true,
 		name: "404 Not Found",
 		component: PageNotFound
