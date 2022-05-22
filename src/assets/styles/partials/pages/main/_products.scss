@@ -16,7 +16,7 @@
 		input {
 			border-style: none;
 			box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
-			width: 60%;
+			width: 55%;
 			height: 65px;
 			padding-left: 30px;
 			border-radius: 10px;
@@ -25,8 +25,8 @@
 
 	&__body {
 		width: 100%;
-		padding: 80px 50px 50px 50px;
-		min-height: 600px;
+		min-height: 700px;
+		padding: 20px 50px 50px 50px;
 		display: flex;
 
 		&__filters {

@@ -62,7 +62,7 @@
 		align-items: center;
 		justify-content: center;
 		@include media-breakpoint-down(md) {
-			padding: 0px 10px 0px 10px;
+			padding: 0px 0px 0px 0px;
 			z-index: 1000;
 		}
 		padding: 0px 80px 0px 80px;
@@ -84,7 +84,7 @@
 				margin: 0px 15px 0px 15px;
 				@include media-breakpoint-down(md) {
 					width: 330px;
-					margin: 0px 10px 0px 10px;
+					margin: 0px 0px 0px 0px;
 				}
 				padding: 35px;
 
@@ -126,9 +126,6 @@
 			}
 
 			.decorator {
-				// position: absolute;
-				// border-style: solid;
-				// border-width: 2px;
 				width: 100%;
 				height: 100px;
 				display: flex;
@@ -136,8 +133,6 @@
 				justify-content: center;
 
 				&__A {
-					// border-style: solid;
-					// border-width: 2px;
 					width: 100%;
 					position: absolute;
 					display: flex;

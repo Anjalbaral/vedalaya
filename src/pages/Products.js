@@ -4,13 +4,13 @@ import productscover from "../assets/images/productscover.jpg";
 import FilterModal from "../components/Reusable/FilterModal";
 import RadioMenu from "../components/Reusable/RadioMenu";
 
-const sizes = [{ label: "1 to 10", value: "1to10", name: "1to10" }, { label: "10 to 20", value: "10to20", name: "10to20" }, { label: "20 to 30", value: "20to30", name: "20to30" }];
+const sizes = [{ label: "Small", value: "small", name: "small" }, { label: "Medium", value: "medium", name: "medium" }, { label: "Large", value: "large", name: "large" }];
 const colors = [
 	{ label: "Red", value: "red", name: "red", colorcode: "red" },
 	{ label: "Green", value: "green", name: "green", colorcode: "green" },
 	{ label: "Yellow", value: "yellow", name: "yellow", colorcode: "yellow" }
 ];
-const materials = [{ label: "Wood", value: "wood", name: "wood" }, { label: "Iron", value: "iron", name: "iron" }, { label: "Aluminium", value: "aluminium", name: "aluminium" }];
+const materials = [{ label: "Wood", value: "wood", name: "wood" }, { label: "Metal", value: "metal", name: "metal" }, { label: "Aluminium", value: "aluminium", name: "aluminium" }];
 
 function Products() {
 	const [searchText, setSearchText] = useState("");
