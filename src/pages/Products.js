@@ -12,27 +12,108 @@ const colors = [
 ];
 const materials = [{ label: "Wood", value: "wood", name: "wood" }, { label: "Metal", value: "metal", name: "metal" }, { label: "Aluminium", value: "aluminium", name: "aluminium" }];
 
+const productsList = [
+	{
+		id: 1,
+		type: "DOOR",
+		title: "Product A",
+		color: "red",
+		image: "https://tricitypropertysearches.com/wp-content/uploads/2021/08/perfect-door-designs.jpg",
+		description: "Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick."
+	},
+	{
+		id: 2,
+		type: "WINDOW",
+		title: "Product B",
+		color: "red",
+		image: "https://media.istockphoto.com/photos/white-doubleleafed-door-of-classical-design-picture-id1058525596?k=20&m=1058525596&s=612x612&w=0&h=95amup2jV9wD9nuzwGxUU-VRk-YUP3WYzxEaMWkbxcU=",
+		description: "Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick."
+	},
+	{
+		id: 3,
+		type: "GATE",
+		title: "Product C",
+		color: "red",
+		image: "https://www.chinapivotdoor.com/wp-content/uploads/2019/04/Simple-Teak-Color-Wood-Main-Entry-Composite-Door-Design-2.jpg",
+		description: "Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick."
+	},
+	{
+		id: 4,
+		type: "STATUE",
+		title: "Product D",
+		color: "red",
+		image: "https://www.decorchamp.com/wp-content/uploads/2017/02/main-gate-design-ideas-indi-1200x1038.jpg",
+		description: "Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick."
+	},
+	{
+		id: 5,
+		type: "LIGHT",
+		title: "Product E",
+		color: "red",
+		image: "https://www.homelane.com/blog/wp-content/uploads/2020/03/shutterstock_374660689-1.jpg",
+		description: "Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick."
+	},
+	{
+		id: 6,
+		type: "STATUE",
+		title: "Product F",
+		color: "red",
+		image: "https://noorfurnishers.com/wp-content/uploads/2021/03/Design-Wooden-Doors.webp",
+		description: "Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick."
+	},
+	{
+		id: 7,
+		type: "LIGHT",
+		title: "Product G",
+		color: "red",
+		image: "https://xtremeedeals.com/wp-content/uploads/2020/11/architecture-metal-doors.jpg",
+		description: "Classic Peace Lily is a spathiphyllum floor plant arranged in a bamboo planter with a blue & red ribbom and butterfly pick."
+	}
+];
+
+const defaultFilters = {
+	color: [],
+	size: [],
+	material: []
+};
+
 function Products() {
 	const [searchText, setSearchText] = useState("");
 	const [searchModal, setSearchModal] = useState(false);
-	const [scrollPosition, setScrollPosition] = useState(0);
+	const [activeFilters, setActiveFilters] = useState({
+		...defaultFilters
+	});
+
+	const [tempFilters, setTempFilters] = useState({
+		...defaultFilters
+	});
+
+	const _changeFilter = (name, value) => {
+		setActiveFilters({
+			...activeFilters,
+			[name]: value
+		});
+		setTempFilters({
+			...activeFilters,
+			[name]: value
+		});
+	};
+
+	const _changeTempFilters = (name, value) => {
+		setTempFilters({
+			...tempFilters,
+			[name]: value
+		});
+	};
 
 	const _search = (e) => {
 		setSearchText(e.target.value);
 	};
 
-	const handleScroll = () => {
-		const position = window.pageYOffset;
-		setScrollPosition(position);
+	const toggleModal = () => {
+		setSearchModal(!searchModal);
+		setTempFilters({ ...defaultFilters });
 	};
-
-	useEffect(() => {
-		window.addEventListener("scroll", handleScroll, { passive: true });
-
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
 
 	return (
 		<div className="products">
@@ -53,32 +134,75 @@ function Products() {
 					</div>
 				</div>
 			</Parallax>
-
 			<div className="products__search">
 				<input type="text" value={searchText} onChange={_search} placeholder="Search Product" />
 			</div>
 			<div className="products__body">
 				<div className="products__body__filters">
 					<div className="head">Apply Filters</div>
-					<div className="separator"></div>
-					<RadioMenu active="" options={sizes} header="Size" value="" />
-					<div className="separator"></div>
-					<RadioMenu active="" options={colors} header="Color" value="" />
-					<div className="separator"></div>
-					<RadioMenu active="" options={materials} header="Material" value="" />
+					<RadioMenu defaultActiveKey="0" name="size" active={activeFilters.size} onChange={_changeFilter} options={sizes} header="Size" />
+					<RadioMenu defaultActiveKey="0" name="color" active={activeFilters.color} onChange={_changeFilter} options={colors} header="Color" />
+					<RadioMenu defaultActiveKey="0" name="material" active={activeFilters.material} onChange={_changeFilter} options={materials} header="Material" />
+				</div>
+				<div className="products__body__product-list">
+					{productsList.map((dat, ind) => {
+						return (
+							<div class="card">
+								<nav>
+									PRODUCT TYPE : <b style={{ marginLeft: "5px" }}>{dat.type}</b>
+								</nav>
+								<div className="content">
+									<div class="photo">
+										<img src={dat.image} />
+									</div>
+									<div class="description">
+										<h1>{dat.title}</h1>
+										<h2>{dat.color}</h2>
+										<p>{dat.description}</p>
+										<div className="button-group">
+											<button className="btn-primary-outlined">Details</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						);
+					})}
 				</div>
 			</div>
-			{!searchModal && (
-				<div
-					onClick={() => {
-						setSearchModal(true);
-					}}
-					style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}
-				>
-					<div className="products__float-btn">Filters</div>
+			<div
+				onClick={() => {
+					setSearchModal(true);
+				}}
+				style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}
+			>
+				<div className="products__float-btn">Filters</div>
+			</div>
+			<FilterModal openmodal={searchModal} toggleModal={setSearchModal}>
+				<RadioMenu defaultActiveKey="" name="size" active={tempFilters.size} onChange={_changeTempFilters} options={sizes} header="Size" />
+				<div className="separator"></div>
+				<RadioMenu defaultActiveKey="" name="color" active={tempFilters.color} onChange={_changeTempFilters} options={colors} header="Color" />
+				<div className="separator"></div>
+				<RadioMenu defaultActiveKey="" name="material" active={tempFilters.material} onChange={_changeTempFilters} options={materials} header="Material" />
+				<div className="filter-modal-btn">
+					<button
+						onClick={() => {
+							setActiveFilters({ ...tempFilters });
+							setSearchModal(false);
+						}}
+						className="btn-primary"
+					>
+						Apply
+					</button>
+					<button
+						className="btn-primary-outlined"
+						onClick={() => {
+							toggleModal();
+						}}
+					>
+						Cancel
+					</button>
 				</div>
-			)}
-			<FilterModal openmodal={searchModal} toggleModal={setSearchModal} />
+			</FilterModal>
 		</div>
 	);
 }

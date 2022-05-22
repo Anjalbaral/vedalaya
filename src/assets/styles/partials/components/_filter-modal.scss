@@ -1,13 +1,21 @@
 .mobile-modal {
+	.filter-modal-btn {
+		display: flex;
+		flex-direction: row;
+		button {
+			margin: 10px;
+		}
+	}
+
 	.modal-dialog {
 		@include media-breakpoint-down(lg) {
 			position: absolute;
 			bottom: 0;
 			left: 0;
 			right: 0;
-			max-width: 100% !important;
 			margin: 0;
 			transform: translateY(100%) !important;
+
 			.modal-content {
 				border: none;
 				border-radius: 0.3rem 0.3rem 0 0;
@@ -27,7 +35,6 @@
 
 .modal.show {
 	@include media-breakpoint-down(lg) {
-		overflow: hidden;
 		.modal-dialog {
 			transform: translateY(0%) !important;
 			min-height: 0px;
