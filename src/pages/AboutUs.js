@@ -1,5 +1,5 @@
 import React from "react";
-import aboutuscover from "../assets/images/aboutuscover.jpg";
+import aboutuscover from "../assets/images/productscover2.jpg";
 import { Parallax } from "react-parallax";
 import { IoMdArrowDropright } from "react-icons/io";
 import BackPattern from "../assets/images/bbb.png";

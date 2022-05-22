@@ -1,5 +1,5 @@
 import React from "react";
-import aboutuscover from "../assets/images/aboutuscover.jpg";
+import expertisecover from "../assets/images/productscover2.jpg";
 import { Parallax } from "react-parallax";
 import { IoSettingsOutline } from "react-icons/io5";
 import residental1 from "../assets/images/residental1.jpg";
@@ -29,7 +29,7 @@ const Expertise = () => {
 				strength={200}
 				bgClassName="parallexComp"
 				bgImageStyle={{ width: "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
-				bgImage={residental2}
+				bgImage={expertisecover}
 			>
 				<div className="expertise__cover">
 					<div className="expertise__cover__overlay"></div>

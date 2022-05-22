@@ -1,5 +1,5 @@
 import React from "react";
-import coverimg from "../assets/images/workareacover2.jpeg";
+import coverimg from "../assets/images/productscover2.jpg";
 import { Parallax } from "react-parallax";
 import { Link } from "react-router-dom";
 

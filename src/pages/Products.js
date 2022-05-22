@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Parallax } from "react-parallax";
-import productscover from "../assets/images/productscover.jpg";
+import productscover from "../assets/images/productscover2.jpg";
 import FilterModal from "../components/Reusable/FilterModal";
 import RadioMenu from "../components/Reusable/RadioMenu";
 

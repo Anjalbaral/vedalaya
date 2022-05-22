@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import coverbanner from "../assets/images/coverbanner.jpg";
 import { Parallax } from "react-parallax";
-import servicecover from "../assets/images/servicescover2.jpg";
+import servicecover from "../assets/images/productscover2.jpg";
 import designandconst from "../assets/images/designandconst.png";
 import interiordesign from "../assets/images/interiordesign.png";
 import exteriordesign from "../assets/images/exteriordesign.png";

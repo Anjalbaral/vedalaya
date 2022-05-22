@@ -1,5 +1,5 @@
 import React from "react";
-import whyuscover from "../assets/images/whyuscover.jpg";
+import whyuscover from "../assets/images/productscover2.jpg";
 import { Parallax } from "react-parallax";
 import BrandAndLagecy from "../assets/images/brand-and-legacy.png";
 import AdvantageAndBenifits from "../assets/images/advantage-and-benifits.png";
