@@ -4,6 +4,8 @@ import { Parallax } from "react-parallax";
 import { Link } from "react-router-dom";
 
 const Areas = () => {
+	let isMobile = window.innerWidth < 700;
+
 	return (
 		<div className="areas">
 			<Parallax
@@ -12,7 +14,7 @@ const Areas = () => {
 				blur={{ min: 0, max: 0 }}
 				strength={200}
 				bgClassName="parallexComp"
-				bgImageStyle={{ width: "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
+				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
 				bgImage={coverimg}
 			>
 				<div className="areas__cover">

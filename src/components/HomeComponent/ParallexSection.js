@@ -11,7 +11,7 @@ function ParallexSection() {
 			blur={{ min: -15, max: 15 }}
 			strength={500}
 			bgClassName="parallexComp"
-			bgImageStyle={{ height: "150%", width: isMobile ? "200%" : "150%", opacity: 0.4, position: "absolute", bottom: "-200px" }}
+			bgImageStyle={{ height: "150%", width: isMobile ? "400%" : "150%", opacity: 0.4, position: "absolute", bottom: "-200px" }}
 			bgImage={BackPattern}
 		>
 			<div className="home__parallex-section">

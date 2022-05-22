@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { RiMessage2Fill } from "react-icons/ri";
 
 function AboutUs() {
+	let isMobile = window.innerWidth < 700;
+
 	return (
 		<>
 			<div className="about-us">
@@ -16,7 +18,7 @@ function AboutUs() {
 					blur={{ min: 0, max: 0 }}
 					strength={200}
 					bgClassName="parallexComp"
-					bgImageStyle={{ width: "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
+					bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
 					bgImage={aboutuscover}
 				>
 					<div className="about-us__cover">

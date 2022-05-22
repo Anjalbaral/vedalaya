@@ -108,6 +108,8 @@ function CoverSection(props) {
 		dispatch(changeActiveSlide(activeid));
 	};
 
+	let isMobile = window.innerWidth < 700;
+
 	return (
 		<Parallax
 			className="cover-parent"
@@ -115,7 +117,7 @@ function CoverSection(props) {
 			blur={{ min: -10, max: 10 }}
 			strength={300}
 			bgClassName="parallexComp"
-			bgImageStyle={{ width: "100%" }}
+			bgImageStyle={{ width: isMobile ? "150%" : "100%" }}
 			bgImage={sliders.filter((im, ind) => im.id === activeCover)[0].image}
 		>
 			<div className="home__cover-section">

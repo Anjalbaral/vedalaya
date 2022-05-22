@@ -10,6 +10,8 @@ import ResearchAndInnovation from "../assets/images/research-and-innovation.png"
 import avatar from "../assets/images/avatar.png";
 
 const WhyUs = () => {
+	let isMobile = window.innerWidth < 700;
+
 	return (
 		<div className="why-us">
 			<Parallax
@@ -18,7 +20,7 @@ const WhyUs = () => {
 				blur={{ min: 0, max: 0 }}
 				strength={200}
 				bgClassName="parallexComp"
-				bgImageStyle={{ width: "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
+				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
 				bgImage={whyuscover}
 			>
 				<div className="why-us__cover">

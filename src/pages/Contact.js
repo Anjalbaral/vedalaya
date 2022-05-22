@@ -7,7 +7,6 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 function Contact() {
 	return (
 		<div className="connect-with-us-section">
-			{/* <div className="connect-with-us-section__header">Message Us</div> */}
 			<div className="connect-with-us-section__body">
 				<img src={map3} />
 				<div className="connect-with-us-section__body__content">

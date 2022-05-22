@@ -11,13 +11,14 @@ import { IoShieldCheckmarkOutline } from "react-icons/io5";
 
 function AboutUsSection() {
 	let isMobile = window.innerWidth < 700;
+
 	return (
 		<Parallax
 			className="about-us-background-pattern"
 			blur={{ min: -1, max: 1 }}
 			strength={300}
 			bgClassName="parallexComp"
-			bgImageStyle={{ width: isMobile ? "200%" : "150%", height: "70%", opacity: 0.7, position: "absolute", bottom: "0px" }}
+			bgImageStyle={{ width: isMobile ? "600%" : "150%", height: "70%", opacity: 0.7, position: "absolute", bottom: "0px" }}
 			bgImage={BackPattern}
 		>
 			<div className={`home__about-us`}>

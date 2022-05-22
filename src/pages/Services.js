@@ -11,6 +11,8 @@ import trading from "../assets/images/trading.png";
 import comppricing from "../assets/images/comppricing.png";
 
 function Services() {
+	let isMobile = window.innerWidth < 700;
+
 	return (
 		<div className="services">
 			<Parallax
@@ -19,7 +21,7 @@ function Services() {
 				blur={{ min: 0, max: 0 }}
 				strength={200}
 				bgClassName="parallexComp"
-				bgImageStyle={{ width: "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
+				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
 				bgImage={servicecover}
 			>
 				<div className="services__cover">

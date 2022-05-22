@@ -20,6 +20,8 @@ import { Link } from "react-router-dom";
 import newconst from "../assets/images/newconst.jpg";
 
 const Expertise = () => {
+	let isMobile = window.innerWidth < 700;
+
 	return (
 		<div className="expertise">
 			<Parallax
@@ -28,7 +30,7 @@ const Expertise = () => {
 				blur={{ min: 0, max: 0 }}
 				strength={200}
 				bgClassName="parallexComp"
-				bgImageStyle={{ width: "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
+				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
 				bgImage={expertisecover}
 			>
 				<div className="expertise__cover">
