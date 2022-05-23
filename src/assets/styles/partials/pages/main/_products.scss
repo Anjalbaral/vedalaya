@@ -15,25 +15,25 @@
 
 		div {
 			height: 60px;
-			width:60px;
-			display:flex;
-			align-items:center;
-			justify-content:center;
-			background-color:white;
-			border-radius:10px;
-			margin-right:5px;
-			cursor:pointer;
+			width: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: white;
+			border-radius: 10px;
+			margin-right: 5px;
+			cursor: pointer;
 			box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 			svg {
-				font-size:20px;
-				opacity:0.8;
-				color:$default-primary-color;
+				font-size: 20px;
+				opacity: 0.8;
+				color: $default-primary-color;
 			}
 
 			&:hover {
-             svg {
-				 opacity:1
-			 }
+				svg {
+					opacity: 1;
+				}
 			}
 		}
 
@@ -53,176 +53,178 @@
 	&__body {
 		width: 100%;
 		padding: 20px 50px 50px 50px;
-		display: flex;	
-		
+		display: flex;
+
 		@include media-breakpoint-down(md) {
 			padding: 20px 20px 50px 20px;
 		}
 
-        &__cat{
-			width:100%;
-			display:flex;
-			flex-direction:column;
-
-		&__intro {
-			width:100%;
-			padding:30px 0px 10px 0px;
-			display:flex;
-			flex-direction:column;
-			align-items:center;
-			justify-content:center;
-			.separator {
-			width: 180px;
-			border-radius: 10px;
-			height: 5px;
-			margin-top: 2px;
-			margin-bottom: 10px;
-			background-color: $default-theme-loader-color;
-		}
-
-			span {
-				color:$default-primary-color;
-				opacity:0.7;
-				font-size:$display-font-size-8;
-				font-weight:$font-weight-bold;
-			}
-		}
-
-		&__category-mode {
-			display:flex;
-			width:100%;
-			flex-direction:row;
-			align-items:center;
-			justify-content:center;
-			flex-wrap:wrap;
-
-			&__item {
+		&__cat {
+			width: 100%;
 			display: flex;
 			flex-direction: column;
-			align-items: center;
-			justify-content: space-between;
-			width:30%;
-			margin:5px;
-			height:300px;
-			@include media-breakpoint-down(md) {
-				min-width: 100%;
-			margin:5px;
-			}
-			border-radius:5px;
 
-			&__subitem {
-			border-radius:5px;
-				cursor: cell;
+			&__intro {
+				width: 100%;
+				padding: 30px 0px 10px 0px;
 				display: flex;
-				height: 300px;
-				width: 96%;
-				margin: 7px;
-				box-sizing: border-box;
+				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				overflow: hidden;
-				background-position: center;
-				background-size: cover;
-				opacity: 0.9;
-				transition: all 0.3s ease-in-out;
-
-				.overlayy {
-					width: 100%;
-					height: 100%;
-					z-index: 2000;
-					background-color: rgba(31, 37, 52, 0);
-					transition: all 0.4s ease-in-out;
+				.separator {
+					width: 180px;
+					border-radius: 10px;
+					height: 5px;
+					margin-top: 2px;
+					margin-bottom: 10px;
+					background-color: $default-theme-loader-color;
 				}
 
-				.content {
-					width: 200px;
-					height: 200px;
-					padding: 5px;
-					position: absolute;
-					z-index: 3000;
+				span {
+					text-align: center;
+					color: $default-primary-color;
+					opacity: 0.7;
+					font-size: $display-font-size-8;
+					font-weight: $font-weight-bold;
+				}
+			}
+
+			&__category-mode {
+				display: flex;
+				width: 100%;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				flex-wrap: wrap;
+
+				&__item {
 					display: flex;
 					flex-direction: column;
-					align-items: flex-start;
-					justify-content: flex-start;
-					display: none;
-					opacity: 0;
-					transition: all 0.4s ease-in-out;
-
-					&__icon {
-						opacity: 0;
-						width: 50px;
-						height: 50px;
-						top: 0px;
+					align-items: center;
+					justify-content: space-between;
+					width: 30%;
+					margin: 5px;
+					height: 300px;
+					@include media-breakpoint-down(md) {
+						min-width: 100%;
+						margin: 5px;
 					}
-					&__body {
-						display: flex;
-						flex-direction: column;
-						align-items: flex-start;
-						justify-content: flex-start;
-						color: white;
-						min-height: 50px;
-						margin-left: -20px;
+					border-radius: 5px;
 
-						.redirect {
-							color: white;
-							text-decoration: none;
-							cursor: pointer;
-							font-size: $display-font-size-11;
-							font-weight: $font-weight-semi-bold;
+					&__subitem {
+						border-radius: 5px;
+						cursor: cell;
+						display: flex;
+						height: 300px;
+						width: 96%;
+						margin: 7px;
+						box-sizing: border-box;
+						align-items: center;
+						justify-content: center;
+						overflow: hidden;
+						background-position: center;
+						background-size: cover;
+						opacity: 0.9;
+						transition: all 0.3s ease-in-out;
+
+						.overlayy {
+							width: 100%;
+							height: 100%;
+							z-index: 2000;
+							background-color: rgba(31, 37, 52, 0);
+							transition: all 0.4s ease-in-out;
+						}
+
+						.content {
+							width: 200px;
+							height: 200px;
+							padding: 5px;
+							position: absolute;
+							z-index: 3000;
 							display: flex;
-							align-items: center;
-							justify-content: center;
+							flex-direction: column;
+							align-items: flex-start;
+							justify-content: flex-start;
+							display: none;
+							opacity: 0;
+							transition: all 0.4s ease-in-out;
 
-							&:hover {
-								color: lightgray;
+							&__icon {
+								opacity: 0;
+								width: 50px;
+								height: 50px;
+								top: 0px;
+							}
+							&__body {
+								display: flex;
+								flex-direction: column;
+								align-items: flex-start;
+								justify-content: flex-start;
+								color: white;
+								min-height: 50px;
+								margin-left: -20px;
+
+								.redirect {
+									color: white;
+									text-decoration: none;
+									cursor: pointer;
+									font-size: $display-font-size-11;
+									font-weight: $font-weight-semi-bold;
+									display: flex;
+									align-items: center;
+									justify-content: center;
+
+									&:hover {
+										color: lightgray;
+									}
+
+									svg {
+										margin-left: 5px;
+									}
+								}
+
+								.separator {
+									width: 50%;
+									height: 3px;
+									margin: 4px 0px 4px 0px;
+									background-color: $default-theme-loader-color;
+								}
+
+								.title {
+									font-weight: $font-weight-bold;
+									font-size: $display-font-size-11;
+								}
+								.description {
+									font-size: $display-font-size-12;
+								}
+							}
+							@include flex-center();
+						}
+
+						&:hover {
+							opacity: 1;
+							transform: scale(1.15);
+							z-index: 5000;
+							.overlayy {
+								width: 100%;
+								height: 100%;
+								z-index: 2000;
+								background-color: rgba(31, 37, 52, 0.7);
 							}
 
-							svg {
-								margin-left: 5px;
+							.content {
+								display: flex;
+								opacity: 1;
+
+								&__body {
+									color: white;
+								}
 							}
-						}
-
-						.separator {
-							width: 50%;
-							height: 3px;
-							margin: 4px 0px 4px 0px;
-							background-color: $default-theme-loader-color;
-						}
-
-						.title {
-							font-weight: $font-weight-bold;
-							font-size: $display-font-size-11;
-						}
-						.description {
-							font-size: $display-font-size-12;
-						}
-					}
-					@include flex-center();
-				}
-
-				&:hover {
-					opacity: 1;
-					transform: scale(1.15);
-					z-index: 5000;
-					.overlayy {
-						width: 100%;
-						height: 100%;
-						z-index: 2000;
-						background-color: rgba(31, 37, 52, 0.7);
-					}
-
-					.content {
-						display: flex;
-						opacity: 1;
-
-						&__body {
-							color: white;
 						}
 					}
 				}
 			}
 		}
-		}}
 
 		&__filters {
 			display: flex;
