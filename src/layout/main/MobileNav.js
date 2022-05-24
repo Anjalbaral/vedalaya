@@ -41,21 +41,24 @@ function Mobilenav({ navItems, menuOn, activeNav }) {
 				<ul>
 					{navItems.map((mnav, ind) => {
 						return (
-							<li>
-								<Link
-									to={mnav.path}
-									onClick={() => {
-										dispatch(changeActiveNav(mnav.path));
-										// history.push(mnav.path);
-										dispatch(changeMenuStatus(false));
-									}}
-									className={mnav.path === activeNav ? "active" : ""}
-									key={ind}
-								>
-									<span>{mnav.name}</span>
-									{mnav.path === activeNav ? <BiCaretRight className="active" /> : null}
-								</Link>
-							</li>
+							<>
+								<li>
+									<Link
+										to={mnav.path}
+										onClick={() => {
+											dispatch(changeActiveNav(mnav.path));
+											// history.push(mnav.path);
+											dispatch(changeMenuStatus(false));
+										}}
+										className={mnav.path === activeNav ? "active" : ""}
+										key={ind}
+									>
+										<span>{mnav.name}</span>
+										{mnav.path === activeNav ? <BiCaretRight className="active" /> : null}
+									</Link>
+								</li>
+								<div className="divider"></div>
+							</>
 						);
 					})}
 				</ul>

@@ -375,8 +375,7 @@ const INITIAL_STATE = {
 				image: D,
 				header: "Gallery",
 				path: "/gallery",
-				description:
-					"Design is an important topic for Spanish people. From fashion to architecture, they tend to have special attention to it. In this article find more about Spanish interior design through",
+				description: "Our image gallery includes images of memorable moments captured in several events associated with our company.",
 				category: [
 					{
 						title: "Image A",
@@ -401,18 +400,6 @@ const INITIAL_STATE = {
 				]
 			}
 		},
-		// {
-		// 	key: 7,
-		// 	path: "/contact",
-		// 	name: "Contact",
-		// 	content: {
-		// 		image: "https://cdnb.artstation.com/p/assets/images/images/017/347/671/medium/gaurang-trivedi-millwork-for-kitchen.jpg?1555593273",
-		// 		description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-		// 		path: "/contact",
-		// 		header: "Contact",
-		// 		category: []
-		// 	}
-		// },
 		{
 			key: 8,
 			path: "/contact",
