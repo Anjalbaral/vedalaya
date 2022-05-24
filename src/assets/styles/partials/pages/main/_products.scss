@@ -30,6 +30,11 @@
 				color: $default-primary-color;
 			}
 
+			@include media-breakpoint-down(md) {
+				height: 45px;
+				width: 45px;
+			}
+
 			&:hover {
 				svg {
 					opacity: 1;
@@ -42,7 +47,8 @@
 			box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 			width: 50%;
 			@include media-breakpoint-down(md) {
-				width: 80%;
+				width: 70%;
+				height: 45px;
 			}
 			height: 65px;
 			padding-left: 30px;
@@ -78,6 +84,9 @@
 					margin-top: 2px;
 					margin-bottom: 10px;
 					background-color: $default-theme-loader-color;
+					@include media-breakpoint-down(md) {
+						height: 3px;
+					}
 				}
 
 				span {
@@ -86,6 +95,11 @@
 					opacity: 0.7;
 					font-size: $display-font-size-8;
 					font-weight: $font-weight-bold;
+
+					@include media-breakpoint-down(md) {
+						font-size: $display-font-size-10;
+						width: 100%;
+					}
 				}
 			}
 
