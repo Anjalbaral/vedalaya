@@ -1,4 +1,142 @@
 .blogs {
 	@include flex-center();
 	min-height: 100vh;
+	padding: 80px 80px 80px 80px;
+	@include media-breakpoint-down(md) {
+		padding: 80px 20px 80px 20px;
+	}
+
+	.blog-container {
+		width: 100%;
+		display: flex;
+		@include flex-center-only(column);
+
+		h2 {
+			font: 800 2rem Lato;
+			margin-top: 2rem;
+			opacity: 0.8;
+			color: $default-primary-color;
+		}
+		img {
+			border-radius: 5px;
+		}
+	}
+
+	.blogs__contain {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	// add variables
+	$max-width: 500px;
+
+	.blogs__container {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	.blog__card {
+		padding: 2rem 0;
+		flex-basis: 48%;
+		padding-bottom: 0;
+
+		@include media-breakpoint-down(md) {
+			padding-top: 1rem;
+			padding-bottom: 0;
+		}
+
+		a {
+			color: $default-primary-color;
+			opacity: 1;
+			width: 100%;
+			img {
+				width: 100%;
+				border-radius: 8px;
+			}
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+
+		h4 {
+			padding: 1rem 0 0px;
+			margin-bottom: 10px;
+			color: #000;
+			// for ellipsis ...
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-size: 1.5rem;
+			line-clamp: 2;
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+
+			@include media-breakpoint-down(md) {
+				margin-bottom: 0.5rem;
+				font-size: 1.15rem;
+			}
+
+			a {
+				font: 700 22px/30.4px Lato;
+				color: $default-primary-color;
+				text-decoration: none;
+			}
+		}
+		p {
+			font: 400 18px/150% Lato;
+			color: #909090;
+			// margin-bottom: 5rem;
+			@include medium {
+				// margin-bottom: 20px;
+			}
+		}
+
+		// blog top description
+		.blog__info {
+			margin-top: 1.2rem;
+			p {
+				display: inline-block;
+				font: 400 18px Lato;
+				color: #6b6b6b;
+				margin: 0 4px;
+				margin-bottom: 2px;
+			}
+		}
+
+		img {
+			max-width: 99%;
+		}
+
+		@include large {
+			flex-basis: 48%;
+			max-width: calc((100vw - 20px) / 2);
+			h4 > a {
+				font-size: 24px;
+				line-height: 1.6rem;
+			}
+			p {
+				font-size: 14px;
+			}
+		}
+
+		@include medium {
+			h4 > a {
+				font-size: 19px;
+				padding: 10px 0;
+				// line-height: 1.7rem;
+			}
+		}
+		@include small {
+			h4 > a {
+				// font-size: 18px;
+				line-height: 1.5rem;
+			}
+		}
+		@include very-small {
+			flex-basis: 100%;
+			min-width: 100%;
+		}
+	}
 }
