@@ -11,8 +11,8 @@ import flooring from "../assets/images/flooring-p3.jpg";
 import fascia from "../assets/images/fascia-p4.jpg";
 import glutter from "../assets/images/glutter.jpg";
 import pipes from "../assets/images/pipes.jpg";
-import {Link} from 'react-router-dom';
-import {HiArrowNarrowLeft} from 'react-icons/hi'
+import { useNavigate } from "react-router-dom";
+import { HiArrowNarrowLeft } from "react-icons/hi";
 
 const sizes = [{ label: "Small", value: "small", name: "small" }, { label: "Medium", value: "medium", name: "medium" }, { label: "Large", value: "large", name: "large" }];
 const colors = [
@@ -20,6 +20,7 @@ const colors = [
 	{ label: "Green", value: "green", name: "green", colorcode: "green" },
 	{ label: "Yellow", value: "yellow", name: "yellow", colorcode: "yellow" }
 ];
+
 const materials = [{ label: "Wood", value: "wood", name: "wood" }, { label: "Metal", value: "metal", name: "metal" }, { label: "Aluminium", value: "aluminium", name: "aluminium" }];
 const categoryData = [
 	{
@@ -59,7 +60,6 @@ const categoryData = [
 		image: pipes
 	}
 ];
-
 
 const productsList = [
 	{
@@ -132,8 +132,8 @@ function Products() {
 	const [activeFilters, setActiveFilters] = useState({
 		...defaultFilters
 	});
-
-	const [categoryMode,setCategoryMode] = useState(true);
+	const navigate = useNavigate();
+	const [categoryMode, setCategoryMode] = useState(true);
 
 	const [tempFilters, setTempFilters] = useState({
 		...defaultFilters
@@ -166,13 +166,13 @@ function Products() {
 		setTempFilters({ ...defaultFilters });
 	};
 
-	useEffect(()=>{
-     if(searchText.length>0){
-		 setCategoryMode(false)
-	 }else{
-		 setCategoryMode(true)
-	 }
-	},[searchText])
+	useEffect(() => {
+		if (searchText.length > 0) {
+			setCategoryMode(false);
+		} else {
+			setCategoryMode(true);
+		}
+	}, [searchText]);
 
 	let isMobile = window.innerWidth < 700;
 
@@ -196,75 +196,93 @@ function Products() {
 				</div>
 			</Parallax>
 			<div className="products__search">
-			    {!categoryMode && (
-             <div onClick={()=>{setCategoryMode(true)}} ><HiArrowNarrowLeft  /></div>
+				{!categoryMode && (
+					<div
+						onClick={() => {
+							setCategoryMode(true);
+						}}
+					>
+						<HiArrowNarrowLeft />
+					</div>
 				)}
 				<input type="text" value={searchText} onChange={_search} placeholder="Search Product" />
 			</div>
 			<div className="products__body">
 				{!categoryMode && (
-				<div className="products__body__filters">
-					<div className="head">Apply Filters</div>
-					<RadioMenu defaultActiveKey="0" name="size" active={activeFilters.size} onChange={_changeFilter} options={sizes} header="Size" />
-					<RadioMenu defaultActiveKey="0" name="color" active={activeFilters.color} onChange={_changeFilter} options={colors} header="Color" />
-					<RadioMenu defaultActiveKey="0" name="material" active={activeFilters.material} onChange={_changeFilter} options={materials} header="Material" />
-				</div>
+					<div className="products__body__filters">
+						<div className="head">Apply Filters</div>
+						<RadioMenu defaultActiveKey="0" name="size" active={activeFilters.size} onChange={_changeFilter} options={sizes} header="Size" />
+						<RadioMenu defaultActiveKey="0" name="color" active={activeFilters.color} onChange={_changeFilter} options={colors} header="Color" />
+						<RadioMenu defaultActiveKey="0" name="material" active={activeFilters.material} onChange={_changeFilter} options={materials} header="Material" />
+					</div>
 				)}
-				
+
 				{categoryMode ? (
-					<div className="products__body__cat" >
-				<div className="products__body__cat__intro">
-				<span>Search from any of Categories below</span>
-				<div className="separator" style={{marginTop:'5px'}} ></div>
-				</div>
-				<div className="products__body__cat__category-mode">
-				{
-					categoryData.map((dat,ind)=>{
-						return (
-							<div className="products__body__cat__category-mode__item">
-					<div className="products__body__cat__category-mode__item__subitem" style={{ backgroundImage: `url(${dat.image})` }}>
-						<div className="overlayy"></div>
-						<div className="content">
-							<div className="content__body">
-								<span onClick={()=>{setCategoryMode(false)}} className="redirect">
-									view products
-									<CgArrowLongRight style={{ fontSize: "20px" }} />
-								</span>
-								<div className="separator"></div>
-								<span className="title">{dat.title}</span>
-								<span className="description">{dat.description}</span>
-							</div>
+					<div className="products__body__cat">
+						<div className="products__body__cat__intro">
+							<span>Search from any of Categories below</span>
+							<div className="separator" style={{ marginTop: "5px" }}></div>
+						</div>
+						<div className="products__body__cat__category-mode">
+							{categoryData.map((dat, ind) => {
+								return (
+									<div className="products__body__cat__category-mode__item">
+										<div className="products__body__cat__category-mode__item__subitem" style={{ backgroundImage: `url(${dat.image})` }}>
+											<div className="overlayy"></div>
+											<div className="content">
+												<div className="content__body">
+													<span
+														onClick={() => {
+															setCategoryMode(false);
+														}}
+														className="redirect"
+													>
+														view products
+														<CgArrowLongRight style={{ fontSize: "20px" }} />
+													</span>
+													<div className="separator"></div>
+													<span className="title">{dat.title}</span>
+													<span className="description">{dat.description}</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								);
+							})}
 						</div>
 					</div>
-					</div>
-						)
-					})
-				}</div>
-				</div>
-				):null}
+				) : null}
 				<div className="products__body__product-list">
-					{!categoryMode && productsList.map((dat, ind) => {
-						return (
-							<div class="card">
-								<nav>
-									PRODUCT TYPE : <b style={{ marginLeft: "5px" }}>{dat.type}</b>
-								</nav>
-								<div className="content">
-									<div class="photo">
-										<img src={dat.image} />
-									</div>
-									<div class="description">
-										<h1>{dat.title}</h1>
-										<h2>{dat.color}</h2>
-										<p>{dat.description}</p>
-										<div className="button-group">
-											<button className="btn-primary-outlined">Details</button>
+					{!categoryMode &&
+						productsList.map((dat, ind) => {
+							return (
+								<div class="card">
+									<nav>
+										PRODUCT TYPE : <b style={{ marginLeft: "5px" }}>{dat.type}</b>
+									</nav>
+									<div className="content">
+										<div class="photo">
+											<img src={dat.image} />
+										</div>
+										<div class="description">
+											<h1>{dat.title}</h1>
+											<h2>{dat.color}</h2>
+											<p>{dat.description}</p>
+											<div className="button-group">
+												<button
+													onClick={() => {
+														navigate(`/product/${dat.id}`);
+													}}
+													className="btn-primary-outlined"
+												>
+													Details
+												</button>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						);
-					})}
+							);
+						})}
 				</div>
 			</div>
 			<div

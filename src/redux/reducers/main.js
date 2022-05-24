@@ -367,40 +367,40 @@ const INITIAL_STATE = {
 				]
 			}
 		},
-		// {
-		// 	key: 5,
-		// 	path: "/gallery",
-		// 	name: "Gallery",
-		// 	content: {
-		// 		image: "https://cdnb.artstation.com/p/assets/images/images/017/987/057/large/gaurang-trivedi-kitchen-interior-furniture.jpg?1558091330",
-		// 		header: "Gallery",
-		// 		path: "/gallery",
-		// 		description:
-		// 			"Design is an important topic for Spanish people. From fashion to architecture, they tend to have special attention to it. In this article find more about Spanish interior design through",
-		// 		category: [
-		// 			{
-		// 				title: "Image A",
-		// 				path: "/gallery",
-		// 				image: "https://thearchitectsdiary.com/wp-content/uploads/2018/11/Interior-Exterior.jpg"
-		// 			},
-		// 			{
-		// 				title: "Image B",
-		// 				path: "/gallery",
-		// 				image: "https://3.imimg.com/data3/MI/HM/MY-3631407/residential-interior-and-exterior-500x500.jpg"
-		// 			},
-		// 			{
-		// 				title: "Image C",
-		// 				path: "/gallery",
-		// 				image: "https://i0.wp.com/dk3dhomedesign.com/wp-content/uploads/2021/03/small-house-exterior-design-2.jpg?resize=696%2C522&ssl=1"
-		// 			},
-		// 			{
-		// 				title: "Image D",
-		// 				path: "/gallery",
-		// 				image: "http://cdn.home-designing.com/wp-content/uploads/2017/05/stone-and-charcoal-two-storey-house-design.jpg"
-		// 			}
-		// 		]
-		// 	}
-		// },
+		{
+			key: 7,
+			path: "/gallery",
+			name: "Gallery",
+			content: {
+				image: D,
+				header: "Gallery",
+				path: "/gallery",
+				description:
+					"Design is an important topic for Spanish people. From fashion to architecture, they tend to have special attention to it. In this article find more about Spanish interior design through",
+				category: [
+					{
+						title: "Image A",
+						path: "/gallery",
+						image: "https://thearchitectsdiary.com/wp-content/uploads/2018/11/Interior-Exterior.jpg"
+					},
+					{
+						title: "Image B",
+						path: "/gallery",
+						image: "https://3.imimg.com/data3/MI/HM/MY-3631407/residential-interior-and-exterior-500x500.jpg"
+					},
+					{
+						title: "Image C",
+						path: "/gallery",
+						image: "https://i0.wp.com/dk3dhomedesign.com/wp-content/uploads/2021/03/small-house-exterior-design-2.jpg?resize=696%2C522&ssl=1"
+					},
+					{
+						title: "Image D",
+						path: "/gallery",
+						image: "http://cdn.home-designing.com/wp-content/uploads/2017/05/stone-and-charcoal-two-storey-house-design.jpg"
+					}
+				]
+			}
+		},
 		// {
 		// 	key: 7,
 		// 	path: "/contact",
@@ -414,7 +414,7 @@ const INITIAL_STATE = {
 		// 	}
 		// },
 		{
-			key: 7,
+			key: 8,
 			path: "/contact",
 			name: "Contact",
 			content: {
@@ -426,7 +426,7 @@ const INITIAL_STATE = {
 			}
 		},
 		{
-			key: 8,
+			key: 9,
 			path: "/services",
 			name: "Services",
 			content: {
@@ -492,7 +492,7 @@ const INITIAL_STATE = {
 			}
 		},
 		{
-			key: 9,
+			key: 10,
 			path: "/blogs",
 			name: "Blogs",
 			content: []

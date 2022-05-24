@@ -104,8 +104,6 @@ function TopNav({ navItems, activeNav, activeHover }) {
 	// 	dispatch(changeActiveHover(""));
 	// };
 
-	console.log("active item:", activeDialogData);
-
 	return (
 		<>
 			<div id="topnav" className={`public-layout-top-nav`}>

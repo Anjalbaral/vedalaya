@@ -2,7 +2,10 @@ import React from "react";
 
 const Home = React.lazy(() => import("../pages/Home"));
 const Gallery = React.lazy(() => import("../pages/Gallery"));
+
 const Products = React.lazy(() => import("../pages/Products"));
+const ProductDetails = React.lazy(() => import("../pages/ProductDetails"));
+
 const AboutUs = React.lazy(() => import("../pages/AboutUs"));
 const Contact = React.lazy(() => import("../pages/Contact"));
 const PageNotFound = React.lazy(() => import("../pages/NotFound"));
@@ -34,6 +37,12 @@ const pubRoutes = [
 		exact: true,
 		name: "Products",
 		component: Products
+	},
+	{
+		path: "/product/:id",
+		exact: true,
+		name: "Product Details",
+		component: ProductDetails
 	},
 	{
 		path: "/contact",
