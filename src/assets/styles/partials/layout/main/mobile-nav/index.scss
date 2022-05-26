@@ -1,5 +1,6 @@
 .mobile-nav {
 	overflow-x: hidden;
+	overflow-y: scroll;
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -57,6 +58,7 @@
 			padding: 0px;
 			height: 50%;
 			width: 60%;
+			overflow-y: scroll;
 
 			li {
 				@include flex-center();
