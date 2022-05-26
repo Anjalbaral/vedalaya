@@ -6,36 +6,36 @@ import BlogCard from "../components/Reusable/BlogCard";
 const BlogsData = [
 	{
 		id: 1,
-		title: "Here's Our Hand-Picked Selection Of Some Of The Most Beautiful Blogs",
+		title: "Building with UPVC products - Nepal's new standard",
 		image: "",
-		description: "The standard Lorem Ipsum passage, used since the 1500s Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		description: "As Nepal continues to grow and develop, there is a need for efficient, cost-effective building materials that can withstand the harsh weather conditions of",
 		author: "anjal baral",
 		pubdate: "Tue 05 2020",
 		readtime: "2 min read"
 	},
 	{
 		id: 2,
-		title: "Here's Our Hand-Picked Selection Of Some Of The Most Beautiful Blogs",
+		title: "Building with UPVC products - Nepal's new standard",
 		image: "",
-		description: "The standard Lorem Ipsum passage, used since the 1500s Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		description: "As Nepal continues to grow and develop, there is a need for efficient, cost-effective building materials that can withstand the harsh weather conditions of",
 		author: "anjal baral",
 		pubdate: "Tue 05 2020",
 		readtime: "2 min read"
 	},
 	{
 		id: 3,
-		title: "Here's Our Hand-Picked Selection Of Some Of The Most Beautiful Blogs",
+		title: "Building with UPVC products - Nepal's new standard",
 		image: "",
-		description: "The standard Lorem Ipsum passage, used since the 1500s Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		description: "As Nepal continues to grow and develop, there is a need for efficient, cost-effective building materials that can withstand the harsh weather conditions of",
 		author: "anjal baral",
 		pubdate: "Tue 05 2020",
 		readtime: "2 min read"
 	},
 	{
 		id: 4,
-		title: "Here's Our Hand-Picked Selection Of Some Of The Most Beautiful Blogs",
+		title: "Building with UPVC products - Nepal's new standard",
 		image: "",
-		description: "The standard Lorem Ipsum passage, used since the 1500s Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		description: "As Nepal continues to grow and develop, there is a need for efficient, cost-effective building materials that can withstand the harsh weather conditions of",
 		author: "anjal baral",
 		pubdate: "Tue 05 2020",
 		readtime: "2 min read"
