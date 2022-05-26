@@ -1,9 +1,5 @@
 import React from "react";
-// import { PropTypes } from "prop-types";
-
-// import Loader from "../Loaders/Loader";
 import blogPlaceholder from "../../assets/images/activemenuicon.png";
-
 /**
  *
  * @param {boolean} loading
@@ -11,11 +7,12 @@ import blogPlaceholder from "../../assets/images/activemenuicon.png";
  * @param {object} type === blog then display blog header details
  * @returns React Component
  */
+
 const BlogCard = ({ blog, type, loading }) => {
 	if (loading) {
 		return (
 			<div className="blog__card">
-				<img src={blogPlaceholder} className="loader" alt={"loading"} />
+				<img src={blog.image ? blog.image : blogPlaceholder} className="loader" alt={"loading"} />
 				{/* <Loader height={250} width={12} /> */}
 				<div className="blog__info" style={{ display: "flex", alignItems: "center" }}>
 					{/* <Loader height={12} width={2} /> */}
@@ -32,19 +29,19 @@ const BlogCard = ({ blog, type, loading }) => {
 	return (
 		<div className="blog__card">
 			<a>
-				<img id="blogImg" src={blog && `https://picsum.photos/500/300?random=${blog}`} alt={blog} />
+				<img id="blogImg" src={blog && blog.image ? blog.image : `https://picsum.photos/500/300?random=${blog}`} alt={blog} />
 			</a>
 			{type && type === "blog" && (
 				<div className="blog__info">
-					<p>{new Date().toDateString()}</p>
+					<p>{blog.pubdate}</p>
 					<p>&#x2022;</p>
-					<p>2 min read</p>
+					<p>{blog.readtime}</p>
 				</div>
 			)}
 			<h4>
-				<a href={"/blog/" + blog.id}>8 Wild turkeys. and relocations. A</a>
+				<a href={"/blog/" + blog.id}>{blog.title}</a>
 			</h4>
-			<p>Codes and School. The Chicago Marathon has been reused by scientists for the government in</p>
+			<p>{blog.description}</p>
 		</div>
 	);
 };

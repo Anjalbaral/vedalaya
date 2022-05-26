@@ -19,7 +19,7 @@ function Contact() {
 						</div>
 						<div className="connect-with-us-section__body__content__A__bottom">
 							<div className="our-info">
-								<span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae</span>
+								<span>If you are looking for a construction company that can provide you with the quality services you need at a price you can afford, contact us today.</span>
 							</div>
 							<div className="contact-details">
 								<div className="phone">
@@ -54,7 +54,7 @@ function Contact() {
 						</div>
 						<div className="phone">
 							<b>Phone</b>
-							<input type="text" name="phone" placeholder="contact no..." />
+							<input type="text" name="phone" placeholder="phone number..." />
 						</div>
 						<div className="message">
 							<b>Message</b>

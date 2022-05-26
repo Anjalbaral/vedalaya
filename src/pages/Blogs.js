@@ -1,13 +1,52 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 // import { getFeatured } from "redux/blogs";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import BlogCard from "../components/Reusable/BlogCard";
+
+const BlogsData = [
+	{
+		id: 1,
+		title: "Here's Our Hand-Picked Selection Of Some Of The Most Beautiful Blogs",
+		image: "",
+		description: "The standard Lorem Ipsum passage, used since the 1500s Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		author: "anjal baral",
+		pubdate: "Tue 05 2020",
+		readtime: "2 min read"
+	},
+	{
+		id: 2,
+		title: "Here's Our Hand-Picked Selection Of Some Of The Most Beautiful Blogs",
+		image: "",
+		description: "The standard Lorem Ipsum passage, used since the 1500s Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		author: "anjal baral",
+		pubdate: "Tue 05 2020",
+		readtime: "2 min read"
+	},
+	{
+		id: 3,
+		title: "Here's Our Hand-Picked Selection Of Some Of The Most Beautiful Blogs",
+		image: "",
+		description: "The standard Lorem Ipsum passage, used since the 1500s Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		author: "anjal baral",
+		pubdate: "Tue 05 2020",
+		readtime: "2 min read"
+	},
+	{
+		id: 4,
+		title: "Here's Our Hand-Picked Selection Of Some Of The Most Beautiful Blogs",
+		image: "",
+		description: "The standard Lorem Ipsum passage, used since the 1500s Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		author: "anjal baral",
+		pubdate: "Tue 05 2020",
+		readtime: "2 min read"
+	}
+];
 
 const Blogs = () => {
 	const dispatch = useDispatch();
-	// useEffect(() => dispatch(getFeatured()), [dispatch]);
 	const blogsList = [];
-	const loading = false;
+	const [Blogs, setBlogs] = useState([...BlogsData]);
+	const [loading, setLoading] = useState(false);
 
 	return (
 		<div className="blogs">
@@ -22,7 +61,7 @@ const Blogs = () => {
 						</div>
 					) : (
 						<div className="blogs__contain">
-							{[1, 2, 3, 4, 5].map((blog) => (
+							{Blogs.map((blog) => (
 								<BlogCard key={blog} blog={blog} type="blog" />
 							))}
 						</div>

@@ -406,7 +406,7 @@ const INITIAL_STATE = {
 			name: "Contact",
 			content: {
 				image: D,
-				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+				description: "If you are looking for a construction company that can provide you with the quality services you need at a price you can afford, contact us today.",
 				path: "/contact",
 				header: "Contact",
 				category: []

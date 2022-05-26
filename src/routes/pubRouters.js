@@ -10,6 +10,7 @@ const AboutUs = React.lazy(() => import("../pages/AboutUs"));
 const Contact = React.lazy(() => import("../pages/Contact"));
 const PageNotFound = React.lazy(() => import("../pages/NotFound"));
 const Blogs = React.lazy(() => import("../pages/Blogs"));
+const Blog = React.lazy(() => import("../pages/Blog"));
 
 const Portfolio = React.lazy(() => import("../pages/Portfolio"));
 const PortfolioDetails = React.lazy(() => import("../pages/PortfolioDetails"));
@@ -85,6 +86,12 @@ const pubRoutes = [
 		exact: true,
 		name: "Blogs",
 		component: Blogs
+	},
+	{
+		path: "/blog/:id",
+		exact: true,
+		name: "Blog",
+		component: Blog
 	},
 	{
 		path: "/portfolio",
