@@ -1,12 +1,6 @@
 import React from "react";
 import blogPlaceholder from "../../assets/images/activemenuicon.png";
-/**
- *
- * @param {boolean} loading
- * @param {object} blog
- * @param {object} type === blog then display blog header details
- * @returns React Component
- */
+import { Link } from "react-router-dom";
 
 const BlogCard = ({ blog, type, loading }) => {
 	if (loading) {
@@ -39,7 +33,7 @@ const BlogCard = ({ blog, type, loading }) => {
 				</div>
 			)}
 			<h4>
-				<a href={"/blog/" + blog.id}>{blog.title}</a>
+				<Link to={"/blog/" + blog.id}>{blog.title}</Link>
 			</h4>
 			<p>{blog.description}</p>
 		</div>
