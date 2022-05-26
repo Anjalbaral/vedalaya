@@ -1,12 +1,11 @@
 .mobile-nav {
-	overflow-y: scroll;
 	overflow-x: hidden;
 	position: fixed;
 	top: 0;
 	bottom: 0;
 	width: 100%;
 	z-index: 20000;
-	min-height: 100%;
+	min-height: 120vh;
 	overflow: none;
 	background-color: $default-secondary-color;
 	opacity: 1;
@@ -43,6 +42,7 @@
 	}
 
 	&__body {
+		overflow-y: scroll;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
