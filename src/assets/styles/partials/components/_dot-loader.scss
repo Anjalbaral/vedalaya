@@ -1,0 +1,61 @@
+.loading {
+	position: absolute;
+	display: flex;
+	left: 50%;
+	top: 0;
+	/* height: 20px; */
+	top: 45%;
+	transform: translate(-50%, -50%);
+	gap: 0.25rem;
+
+	&--no-data {
+		font-weight: 600;
+		font-size: 1.5rem;
+		color: black;
+	}
+}
+.loading-chip {
+	background: #d8d8d8 !important;
+	border-radius: 50%;
+	transform: scale(0.75);
+	overflow: hidden;
+	position: relative;
+	height: 15px;
+	width: 15px;
+
+	&:before {
+		content: "";
+		height: 100%;
+		width: 100%;
+		background-color: rgb(240, 240, 240);
+		position: absolute;
+		top: 0;
+		left: 0;
+		animation-name: loading-shimmer;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+	}
+
+	&--2 {
+		&:before {
+			animation-delay: 0.25s;
+		}
+	}
+	&--3 {
+		&:before {
+			animation-delay: 0.5s;
+		}
+	}
+}
+
+@keyframes loading-shimmer {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

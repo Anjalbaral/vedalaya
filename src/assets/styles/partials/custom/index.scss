@@ -49,3 +49,17 @@
 		transform: translateY(-7px);
 	}
 }
+
+.custom-bg {
+	@include media-breakpoint-down(md) {
+		width: 1400px !important;
+		height: 700px !important;
+	}
+	width: 1920px !important;
+	height: 800px !important;
+
+	video {
+		width: 100% !important;
+		height: 100% !important;
+	}
+}

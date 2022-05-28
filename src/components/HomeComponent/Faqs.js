@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoMdArrowDropright, IoIosAddCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
+import DotLoader from "../Reusable/DotLoader";
+import parse from "html-react-parser";
 
 const fqsns = [
 	{
@@ -30,8 +32,15 @@ const fqsns = [
 	}
 ];
 
-function Faqs() {
+function Faqs({ data, loading }) {
 	const [activeFaq, setActiveFaq] = useState(null);
+	const [faqList, setFaqlist] = useState([...fqsns]);
+
+	useEffect(() => {
+		if (data.length > 0) {
+			setFaqlist(data);
+		}
+	}, [data]);
 
 	const _setFaq = (id) => {
 		if (id === activeFaq) {
@@ -40,6 +49,13 @@ function Faqs() {
 			setActiveFaq(id);
 		}
 	};
+
+	if (loading)
+		return (
+			<div className="home__faqs">
+				<DotLoader />
+			</div>
+		);
 
 	return (
 		<div className="home__faqs">
@@ -50,27 +66,28 @@ function Faqs() {
 				<div className="line2"></div>
 			</div>
 			<div className="home__faqs__body">
-				{fqsns.map((fq, ind) => {
-					let isActive = fq.id === activeFaq;
-					console.log("activeFaq:", activeFaq, isActive);
-					return (
-						<div key={ind} className={`home__faqs__body__item`}>
-							<div
-								className="home__faqs__body__item__question"
-								onClick={() => {
-									_setFaq(fq.id);
-								}}
-							>
-								<div>
-									<IoMdArrowDropright /> <span>{fq.question}</span>
+				{faqList &&
+					faqList.map((fq, ind) => {
+						let isActive = fq.id === activeFaq;
+						console.log("activeFaq:", activeFaq, isActive);
+						return (
+							<div key={ind} className={`home__faqs__body__item`}>
+								<div
+									className="home__faqs__body__item__question"
+									onClick={() => {
+										_setFaq(fq.id);
+									}}
+								>
+									<div>
+										<IoMdArrowDropright /> <span>{fq.question}</span>
+									</div>
+									<IoIosAddCircle style={{ cursor: "pointer" }} />
 								</div>
-								<IoIosAddCircle style={{ cursor: "pointer" }} />
+								<div className={`answer ${isActive && "active"}`}>{fq && fq.answer ? parse(fq.answer) : ""}</div>
+								<div className="separator"></div>
 							</div>
-							<div className={`answer ${isActive && "active"}`}>{fq.answer}</div>
-							<div className="separator"></div>
-						</div>
-					);
-				})}
+						);
+					})}
 			</div>
 			<div className="home__faqs__footer">
 				<h4>Still have a Question ?</h4>

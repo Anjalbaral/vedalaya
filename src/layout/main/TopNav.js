@@ -16,12 +16,13 @@ import { IoMdLocate, IoIosArrowRoundForward, IoMdArrowDropright } from "react-ic
 import { RiMenu3Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { BiRightArrow } from "react-icons/bi";
+import parse from "html-react-parser";
 
-function TopNav({ navItems, activeNav, activeHover }) {
+function TopNav({ navItems, activeNav, activeHover, menuData }) {
 	let location = useLocation();
 	let dispatch = useDispatch();
 	let navigate = useNavigate();
-
+	console.log("menu data:", menuData);
 	const [insideDialog, setInsideDialog] = useState(false);
 	const [activeDialogData, setActiveDialogData] = useState({});
 	const [activeSubCat, setActiveSubCat] = useState(null);
@@ -94,16 +95,6 @@ function TopNav({ navItems, activeNav, activeHover }) {
 		}
 	};
 
-	// const _onNavClick = (item) => {
-	// 	setInsideDialog(false);
-	// 	let navdialog = document.getElementById("navdialog");
-	// 	let topnav = document.getElementById("topnav");
-	// 	topnav.classList.remove("hoverOn");
-	// 	topnav.classList.remove("hevered");
-	// 	navdialog.classList.remove("nav-hover-active");
-	// 	dispatch(changeActiveHover(""));
-	// };
-
 	return (
 		<>
 			<div id="topnav" className={`public-layout-top-nav`}>
@@ -144,7 +135,7 @@ function TopNav({ navItems, activeNav, activeHover }) {
 				</div>
 				<div className="partb">
 					<h5>{activeDialogData.header}</h5>
-					<span>{activeDialogData.description}</span>
+					<span>{activeDialogData && activeDialogData.description ? parse(activeDialogData.description) : ""}</span>
 					<button
 						onClick={() => {
 							navigate(activeDialogData.path);
@@ -345,7 +336,8 @@ const mapStateToProps = (state) => {
 	return {
 		navItems: state.main.navItems,
 		activeNav: state.main.activeNav,
-		activeHover: state.main.activeHover
+		activeHover: state.main.activeHover,
+		menuData: state.home.MenuData
 	};
 };
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CustomTabs from "../components/Reusable/CustomTabs";
 import { BsArrowRight } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { getGalleryPageData } from "../api/gallery";
 
 const all = [
 	{
@@ -248,6 +249,24 @@ function Gallery() {
 	const [activetab, setActivetab] = useState("all");
 	const location = useLocation();
 	const navigate = useNavigate();
+
+	const _getGalleryItems = (signal) => {
+		getGalleryPageData("", signal)
+			.then((res) => {
+				if (res.json.status) {
+					setGridItems([...res.json.data]);
+				}
+			})
+			.catch((err) => {
+				// handle error
+			});
+	};
+
+	useEffect(() => {
+		const controller = new AbortController();
+		_getGalleryItems(controller.signal);
+		return () => controller.abort();
+	}, []);
 
 	useEffect(() => {
 		const queryString = location.search;

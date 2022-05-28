@@ -27,3 +27,10 @@ export const changeActiveHover = (active) => {
 		payload: active
 	};
 };
+
+export const setNavItems = (data) => {
+	return {
+		type: Types.SET_NAV_ITEMS,
+		payload: data
+	};
+};

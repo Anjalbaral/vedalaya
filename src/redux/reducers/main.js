@@ -12,6 +12,7 @@ const INITIAL_STATE = {
 	navItems: [
 		{
 			key: 1,
+			identifier: "about",
 			path: "/aboutus",
 			name: "About",
 			content: {
@@ -69,11 +70,12 @@ const INITIAL_STATE = {
 		{
 			key: 2,
 			path: "/whyus",
+			identifier: "why_us",
 			name: "Why Us",
 			content: {
 				image: D,
 				description:
-					"Vedalaya is a group of construction and construction materials trading companies that specialize in modern construction methods and materials. Vedalaya Construction Pvt. Ltd. and Vedalaya Trading Pvt. Ltd, are at the forefront of modern and innovative solutions in this field.",
+					"We have a strong commitment to our customers and always work to provide the highest quality products and services. With a strong focus on quality and customer satisfaction, we have been able to carve a niche for ourselves in the industry.",
 				path: "/whyus",
 				header: "Why Us",
 				category: [
@@ -125,11 +127,12 @@ const INITIAL_STATE = {
 		{
 			key: 3,
 			path: "/our-expertise",
+			identifier: "expertise",
 			name: "Expertise",
 			content: {
 				image: D,
 				description:
-					"     Vedalaya Group has the expertise to handle all types of construction projects.Construction projects can take many different forms, depending on the needs and goals of the project. ",
+					"Vedalaya Group has the expertise to handle all types of construction projects.Construction projects can take many different forms, depending on the needs and goals of the project. ",
 				path: "/our-expertise",
 				header: "Our Expertise",
 				category: [
@@ -150,6 +153,7 @@ const INITIAL_STATE = {
 		{
 			key: 4,
 			path: "/portfolio",
+			identifier: "portfolio",
 			name: "Portfolio",
 			content: {
 				image: D,
@@ -182,6 +186,7 @@ const INITIAL_STATE = {
 			key: 5,
 			path: "/products",
 			name: "Products",
+			identifier: "products",
 			content: {
 				image: D,
 				path: "/products",
@@ -321,6 +326,7 @@ const INITIAL_STATE = {
 			key: 6,
 			path: "/areas",
 			name: "Areas",
+			identifier: "areas",
 			content: {
 				image: D,
 				path: "/areas",
@@ -370,6 +376,7 @@ const INITIAL_STATE = {
 		{
 			key: 7,
 			path: "/gallery",
+			identifier: "gallery",
 			name: "Gallery",
 			content: {
 				image: D,
@@ -404,6 +411,7 @@ const INITIAL_STATE = {
 			key: 8,
 			path: "/contact",
 			name: "Contact",
+			identifier: "contact",
 			content: {
 				image: D,
 				description: "If you are looking for a construction company that can provide you with the quality services you need at a price you can afford, contact us today.",
@@ -416,6 +424,7 @@ const INITIAL_STATE = {
 			key: 9,
 			path: "/services",
 			name: "Services",
+			identifier: "services",
 			content: {
 				image: D,
 				description:
@@ -482,16 +491,19 @@ const INITIAL_STATE = {
 			key: 10,
 			path: "/blogs",
 			name: "Blogs",
+			identifier: "blogs",
 			content: []
 		}
 	],
 	activeNav: "/",
-	activeSlide: 2,
+	activeSlide: 1,
 	activeHover: ""
 };
 
 export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
+		case Types.SET_NAV_ITEMS:
+			return { ...state, navItems: action.payload };
 		case Types.CHANGE_ACTIVE_HOVER:
 			return { ...state, activeHover: action.payload };
 		case Types.CHANGE_ACTIVE_SLIDE:
