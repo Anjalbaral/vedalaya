@@ -51,7 +51,7 @@
 		flex-wrap: wrap;
 		min-height: 600px;
 		align-items: flex-start;
-		justify-content: flex-start;
+		justify-content: center;
 		@include media-breakpoint-down(md) {
 			justify-content: center;
 			padding: 30px 0px 100px 0px;
