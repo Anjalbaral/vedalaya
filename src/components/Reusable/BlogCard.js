@@ -35,7 +35,7 @@ const BlogCard = ({ blog, type, loading }) => {
 			<h4>
 				<Link to={"/blog/" + blog.id}>{blog.title}</Link>
 			</h4>
-			<p>{blog.description}</p>
+			<p>{blog.content ? blog.content.slice(0, 120) : ""}</p>
 		</div>
 	);
 };

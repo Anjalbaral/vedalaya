@@ -259,6 +259,7 @@ function Portfolio() {
 				if (res.response.ok) {
 					setLoading(false);
 					setPortfolios(res.json.results);
+					setGridItems(res.json.results);
 				}
 			})
 			.catch((err) => {
@@ -282,8 +283,6 @@ function Portfolio() {
 			setActivetab("all");
 		}
 	}, [location]);
-
-	console.log("locationnn", location);
 
 	useEffect(() => {
 		if (activetab === "all") {

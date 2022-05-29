@@ -247,9 +247,9 @@ const events = [
 
 function Gallery() {
 	const tablist = [{ label: "All", value: "all" }, { label: "Events", value: "events" }, { label: "Work Sites", value: "worksites" }, { label: "Office", value: "office" }];
-	const [gridItems, setGridItems] = useState([...all]);
+	const [gridItems, setGridItems] = useState([]);
 	const [galleryCategories, setGalleryCategories] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const [activetab, setActivetab] = useState("all");
 	const location = useLocation();
 	const navigate = useNavigate();

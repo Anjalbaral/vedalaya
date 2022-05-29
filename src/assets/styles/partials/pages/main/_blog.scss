@@ -81,43 +81,65 @@
 
 		&__content {
 			padding: 15px 0px 15px 0px;
-			font-size: 17px;
+			font-size: 16px;
 			@include media-breakpoint-down(md) {
-				font-size: 17px;
+				font-size: 16px;
 			}
 			color: $default-primary-color;
 			opacity: 0.8;
 			font-weight: $font-weight-semi-bold;
 			text-align: justify;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			padding: 0px !important;
 
-			.quote {
-				width: 100%;
-				margin: 20px 0px 0px 0px;
-				@include media-breakpoint-down(md) {
-					padding: 15px 15px 15px 15px;
-				}
-				min-height: 200px;
+			p {
+				font-size: 16px;
 				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-weight: $font-weight-heavy-bold;
-				background-color: rgba(0, 0, 0, 0.05);
-				border-radius: 10px;
-				color: $default-primary-color;
-
-				span {
-					opacity: 1;
-					font-size: $display-font-size-7;
-					@include media-breakpoint-down(md) {
-						font-size: $display-font-size-8;
-					}
-				}
-
-				b {
-					font-weight: $font-weight-heavy-bold;
-					color: $default-theme-loader-color;
-				}
+				align-items: flex-start;
+				justify-content: flex-start;
 			}
+
+			span {
+				display: flex;
+				align-items: flex-start;
+				justify-content: flex-start;
+				flex-direction: column;
+				font-size: 17px;
+				margin: 0px;
+				padding: 0px 0px 0px 0px !important;
+			}
+
+			// .quote {
+			// 	width: 100%;
+			// 	margin: 20px 0px 0px 0px;
+			// 	@include media-breakpoint-down(md) {
+			// 		padding: 15px 15px 15px 15px;
+			// 	}
+			// 	min-height: 200px;
+			// 	display: flex;
+			// 	align-items: center;
+			// 	justify-content: center;
+			// 	font-weight: $font-weight-heavy-bold;
+			// 	background-color: rgba(0, 0, 0, 0.05);
+			// 	border-radius: 10px;
+			// 	color: $default-primary-color;
+
+			// 	span {
+			// 		opacity: 1;
+			// 		font-size: $display-font-size-7;
+			// 		@include media-breakpoint-down(md) {
+			// 			font-size: $display-font-size-8;
+			// 		}
+			// 	}
+
+			// 	b {
+			// 		font-weight: $font-weight-heavy-bold;
+			// 		color: $default-theme-loader-color;
+			// 	}
+			// }
 		}
 	}
 }

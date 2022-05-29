@@ -45,7 +45,7 @@ const BlogsData = [
 ];
 
 const Blogs = () => {
-	const [Blogs, setBlogs] = useState([...BlogsData]);
+	const [Blogs, setBlogs] = useState([]);
 	const [loading, setLoading] = useState(false);
 
 	const _getBlogs = (query, signal) => {
