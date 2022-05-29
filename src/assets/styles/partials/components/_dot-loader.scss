@@ -1,10 +1,10 @@
 .loading {
-	position: absolute;
+	position: relative;
 	display: flex;
 	left: 50%;
-	top: 0;
+	top: 50%;
 	/* height: 20px; */
-	top: 45%;
+	// top: 45%;
 	transform: translate(-50%, -50%);
 	gap: 0.25rem;
 

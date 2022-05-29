@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import aboutuscover from "../assets/images/productscover2.jpg";
 import { Parallax } from "react-parallax";
 import { IoMdArrowDropright } from "react-icons/io";
 import BackPattern from "../assets/images/bbb.png";
 import { Link } from "react-router-dom";
 import { RiMessage2Fill } from "react-icons/ri";
+import { useSelector } from "react-redux";
 
 function AboutUs() {
+	const [aboutUsData, setAboutUsData] = useState({});
 	let isMobile = window.innerWidth < 700;
+	const aboutUsCover = useSelector((state) => state.main.coverData);
+	let filteredData = aboutUsCover.filter((ac, ind) => ac.on_page === "about");
+
+	useEffect(() => {
+		if (filteredData[0]) {
+			setAboutUsData(filteredData[0]);
+		}
+	}, [filteredData]);
+
+	console.log("about us data:", aboutUsData);
 
 	return (
 		<>
@@ -19,7 +31,7 @@ function AboutUs() {
 					strength={200}
 					bgClassName="parallexComp"
 					bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
-					bgImage={aboutuscover}
+					bgImage={aboutUsData && aboutUsData.content ? aboutUsData.content : aboutuscover}
 				>
 					<div className="about-us__cover">
 						<div className="about-us__cover__overlay"></div>

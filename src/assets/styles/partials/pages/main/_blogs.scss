@@ -7,9 +7,8 @@
 	}
 
 	.blog-container {
-		width: 100%;
 		display: flex;
-		@include flex-start-only(column);
+		@include flex-center-only(column);
 
 		h2 {
 			font: 800 2rem Lato;
@@ -23,8 +22,8 @@
 	}
 
 	.blogs__contain {
+		border-style: solid;
 		display: flex;
-		width: 100%;
 		flex-wrap: wrap;
 		justify-content: space-between;
 	}
@@ -33,13 +32,21 @@
 	$max-width: 500px;
 
 	.blogs__container {
-		width: 100%;
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
 	}
 
 	.blog__card {
+		max-width: 48%;
+		@include media-breakpoint-down(md) {
+			max-width: 80%;
+		}
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		overflow: hidden;
+		box-sizing: border-box;
 		padding: 2rem 0;
 		flex-basis: 48%;
 		padding-bottom: 0;
@@ -89,6 +96,9 @@
 		p {
 			font: 400 18px/150% Lato;
 			color: #909090;
+			display: flex;
+			flex-wrap: wrap;
+			overflow: hidden;
 			// margin-bottom: 5rem;
 			@include medium {
 				// margin-bottom: 20px;

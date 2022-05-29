@@ -172,12 +172,6 @@ const INITIAL_STATE = {
 						slug: "completed projects",
 						path: "/portfolio?type=completed",
 						description: "Vedalaya group as a company has completed several challenging projects. You can learn more about our completed works from here."
-					},
-					{
-						title: "Our Upcoming Projects",
-						slug: "upcoming projects",
-						path: "/portfolio?type=upcoming",
-						description: "You can read about our upcoming projects form here."
 					}
 				]
 			}
@@ -497,11 +491,14 @@ const INITIAL_STATE = {
 	],
 	activeNav: "/",
 	activeSlide: 1,
-	activeHover: ""
+	activeHover: "",
+	coverData: []
 };
 
 export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
+		case Types.SET_COVER_DATA:
+			return { ...state, coverData: action.payload };
 		case Types.SET_NAV_ITEMS:
 			return { ...state, navItems: action.payload };
 		case Types.CHANGE_ACTIVE_HOVER:

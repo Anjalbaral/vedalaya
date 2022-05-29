@@ -34,3 +34,10 @@ export const setNavItems = (data) => {
 		payload: data
 	};
 };
+
+export const setCoverData = (data) => {
+	return {
+		type: Types.SET_COVER_DATA,
+		payload: data
+	};
+};

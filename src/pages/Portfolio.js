@@ -4,6 +4,10 @@ import { BsArrowRight } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getPortfoliosData } from "../api/portfolio";
 import fireSpark from "../helpers/spark";
+import parse from "html-react-parser";
+import DotLoader from "../components/Reusable/DotLoader";
+import isEmpty from "../helpers/isEmpty";
+import EmptyComp from "../components/Reusable/Empty";
 
 const all = [
 	{
@@ -245,33 +249,36 @@ const completed = [
 ];
 
 function Portfolio() {
-	const tablist = [{ label: "All", value: "all" }, { label: "Completed", value: "completed" }, { label: "Upcoming", value: "upcoming" }, { label: "Ongoing", value: "ongoing" }];
-	const [gridItems, setGridItems] = useState([...all]);
+	const tablist = [{ label: "All", value: "all" }, { label: "Completed", value: "completed" }, { label: "Ongoing", value: "ongoing" }];
+	const [gridItems, setGridItems] = useState([]);
 	const [activetab, setActivetab] = useState("all");
 	const location = useLocation();
 	const navigate = useNavigate();
-	const [portfolios, setPortfolios] = useState([]);
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 
 	const _getPortfolios = (query, signal) => {
+		setLoading(true);
 		getPortfoliosData(query, signal)
 			.then((res) => {
 				if (res.response.ok) {
 					setLoading(false);
-					setPortfolios(res.json.results);
 					setGridItems(res.json.results);
 				}
 			})
 			.catch((err) => {
-				fireSpark("error", err);
+				// fireSpark("error", err);
 			});
 	};
 
 	useEffect(() => {
 		const controller = new AbortController();
-		_getPortfolios("", controller.signal);
+		if (activetab === "all") {
+			_getPortfolios("", controller.signal);
+		} else {
+			_getPortfolios(`?search=${activetab}`, controller.signal);
+		}
 		return () => controller.abort();
-	}, []);
+	}, [activetab]);
 
 	useEffect(() => {
 		const queryString = location.search;
@@ -284,18 +291,6 @@ function Portfolio() {
 		}
 	}, [location]);
 
-	useEffect(() => {
-		if (activetab === "all") {
-			setGridItems(all);
-		} else if (activetab === "completed") {
-			setGridItems(completed);
-		} else if (activetab === "upcoming") {
-			setGridItems(upcoming);
-		} else if (activetab === "ongoing") {
-			setGridItems(ongoing);
-		}
-	}, [activetab]);
-
 	return (
 		<div className="portfolio">
 			<div className="portfolio__intro">
@@ -304,26 +299,37 @@ function Portfolio() {
 				<div className="portfolio__intro__body">Our portfolio itself is the source of confidence, we deliver quality construction projects on time and on budget all over Nepal.</div>
 			</div>
 			<CustomTabs tablist={tablist} activetab={activetab} setActivetab={setActivetab} />
-			<div className="portfolio__grid-container">
-				{gridItems.map((port, ind) => {
-					return (
-						<div className="portfolio__grid-container__item">
-							<div className="card" key={ind}>
-								<figure class="card__thumb">
-									<img src={port.image} alt={port.title} class="card__image" />
-									<figcaption class="card__caption">
-										<h2 class="card__title">{port.title}</h2>
-										<p class="card__snippet">{port.description && port.description.length > 150 ? port.description.substring(0, 150) + "..." : port.description}</p>
-										<Link to={`/portfolio/${port.id}`} class="btn-primary-outlined">
-											Learn More <BsArrowRight style={{ fontSize: "17px", marginLeft: "5px" }} />
-										</Link>
-									</figcaption>
-								</figure>
+			<br />
+			{loading ? (
+				<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "40px 0 40px 0" }}>
+					<DotLoader />
+				</div>
+			) : isEmpty(gridItems) ? (
+				<EmptyComp>No any Projects</EmptyComp>
+			) : (
+				<div className="portfolio__grid-container">
+					{gridItems.map((port, ind) => {
+						return (
+							<div className="portfolio__grid-container__item">
+								<div className="card" key={ind}>
+									<figure class="card__thumb">
+										<img src={port.header_image} alt={port.name} class="card__image" />
+										<figcaption class="card__caption">
+											<h2 class="card__title">{port.name}</h2>
+											<p class="card__snippet" style={{ width: "100%" }}>
+												{port && port.description ? (port.description && port.description.length > 100 ? parse(port.description.substring(0, 100)) + "..." : parse(port.description)) : ""}
+											</p>
+											<Link to={`/portfolio/${port.id}`} class="btn-primary-outlined">
+												Learn More <BsArrowRight style={{ fontSize: "17px", marginLeft: "5px" }} />
+											</Link>
+										</figcaption>
+									</figure>
+								</div>
 							</div>
-						</div>
-					);
-				})}
-			</div>
+						);
+					})}
+				</div>
+			)}
 		</div>
 	);
 }

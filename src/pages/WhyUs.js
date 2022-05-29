@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import whyuscover from "../assets/images/productscover2.jpg";
 import { Parallax } from "react-parallax";
 import BrandAndLagecy from "../assets/images/brand-and-legacy.png";
@@ -8,9 +8,19 @@ import QAAndSafety from "../assets/images/quality-assurance-and-safety.png";
 import Partnership from "../assets/images/partnership-prospects.png";
 import ResearchAndInnovation from "../assets/images/research-and-innovation.png";
 import avatar from "../assets/images/avatar.png";
+import { useSelector } from "react-redux";
 
 const WhyUs = () => {
 	let isMobile = window.innerWidth < 700;
+	const [whyUsData, setWhyUsData] = useState({});
+	const whyUsCover = useSelector((state) => state.main.coverData);
+	let filteredData = whyUsCover.filter((ac, ind) => ac.on_page === "why_us");
+
+	useEffect(() => {
+		if (filteredData[0]) {
+			setWhyUsData(filteredData[0]);
+		}
+	}, [filteredData]);
 
 	return (
 		<div className="why-us">
@@ -21,7 +31,7 @@ const WhyUs = () => {
 				strength={200}
 				bgClassName="parallexComp"
 				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
-				bgImage={whyuscover}
+				bgImage={whyUsData && whyUsData.content ? whyUsData.content : whyuscover}
 			>
 				<div className="why-us__cover">
 					<div className="why-us__cover__overlay"></div>

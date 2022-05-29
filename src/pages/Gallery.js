@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getGalleryPageData, getGalleryCategoryData } from "../api/gallery";
 import fireSpark from "../helpers/spark";
 import DotLoader from "../components/Reusable/DotLoader";
+import isEmpty from "../helpers/isEmpty";
+import EmptyComp from "../components/Reusable/Empty";
 
 const all = [
 	{
@@ -308,9 +310,11 @@ function Gallery() {
 			</div>
 			<CustomTabs tablist={galleryCategories} activetab={activetab} setActivetab={setActivetab} />
 			{loading ? (
-				<div className="portfolio" style={{ position: "relative", display: "flex", alignItems: "flex-start", justifyContent: "flex-start", maxHeight: "300px" }}>
+				<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "60px 0 0px 0" }}>
 					<DotLoader />
 				</div>
+			) : isEmpty(gridItems) ? (
+				<EmptyComp>No images</EmptyComp>
 			) : (
 				<div className="portfolio__grid-container">
 					{gridItems.map((port, ind) => {

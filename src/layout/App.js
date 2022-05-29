@@ -7,16 +7,31 @@ import PublicRoute from "../hoc/PublicRoute";
 import Main from "./main/Main";
 import Loader from "../components/Reusable/Loader";
 import { MdKeyboardArrowUp } from "react-icons/md";
+import { getCoverData } from "../api/cover";
+import { useDispatch } from "react-redux";
+import { setCoverData } from "../redux/actions";
 
 function App(props) {
 	const PublicFlow = pubRoutes.map((data, index) => {
 		return <Route path={data.path} exact={data.exact} key={index} element={<data.component {...props} />} />;
 	});
-
+	const dispatch = useDispatch();
 	const [scrollPosition, setScrollPosition] = useState(0);
 
 	const _scrollToTop = () => {
 		window.scrollTo(0, 0);
+	};
+
+	const _getCoverData = (query, signal) => {
+		getCoverData(query, signal)
+			.then((res) => {
+				if (res.response.ok) {
+					dispatch(setCoverData(res.json.results));
+				}
+			})
+			.catch((err) => {
+				//  error handling
+			});
 	};
 
 	const handleScroll = () => {
@@ -32,7 +47,11 @@ function App(props) {
 		};
 	}, []);
 
-	console.log("window.pageYOffset", scrollPosition);
+	useEffect(() => {
+		const controller = new AbortController();
+		_getCoverData("", controller.signal);
+		return () => controller.abort();
+	}, []);
 
 	return (
 		<Wrapper>

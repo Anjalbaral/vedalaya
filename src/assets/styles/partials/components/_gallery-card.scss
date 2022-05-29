@@ -14,7 +14,7 @@
 		}
 
 		.card__title {
-			background-color: rgba(0, 0, 0, 0.3);
+			background-color: rgba(0, 0, 0, 0);
 		}
 
 		.card__gallery-title {
@@ -39,6 +39,9 @@
 	}
 
 	&__thumb {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		position: absolute;
 		min-height: 300px;
 		width: 100%;
@@ -99,6 +102,11 @@
 	&__title {
 		display: -webkit-box;
 		max-height: 90px;
+		p {
+			// font-family: "Roboto", sans-serif;
+			font-size: $display-font-size-11;
+		}
+		border-radius: 10px;
 		overflow: hidden;
 		font-family: $default-font-family, serif;
 		font-weight: $font-weight-semi-bold;
@@ -107,8 +115,8 @@
 			background-color: rgba(75, 80, 92, 0);
 		}
 
-		background-color: rgba(75, 80, 92, 0.3);
-		width: 100%;
+		background-color: rgba(0, 0, 0, 0.4);
+		width: 100% !important;
 		height: 55px;
 		display: flex;
 		align-items: center;
@@ -159,6 +167,11 @@
 		transition: 0.5s ease-in-out;
 		-webkit-line-clamp: 5;
 		-webkit-box-orient: vertical;
+
+		p {
+			// font-family: "Roboto", sans-serif;
+			font-size: $display-font-size-11;
+		}
 
 		@include media-breakpoint-up(md) {
 			margin: 60px 0;

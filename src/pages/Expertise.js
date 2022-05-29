@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import expertisecover from "../assets/images/productscover2.jpg";
 import { Parallax } from "react-parallax";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -6,7 +6,7 @@ import residental1 from "../assets/images/residental1.jpg";
 import residental2 from "../assets/images/residental2.jpg";
 import residental3 from "../assets/images/residental3.jpg";
 import residental4 from "../assets/images/residental4.jpg";
-
+import { useSelector } from "react-redux";
 import commercial1 from "../assets/images/commercial1.jpg";
 import commercial2 from "../assets/images/commercial2.jpg";
 import commercial3 from "../assets/images/commercial3.jpg";
@@ -21,6 +21,15 @@ import newconst from "../assets/images/newconst.jpg";
 
 const Expertise = () => {
 	let isMobile = window.innerWidth < 700;
+	const [expertiseData, setExpertiseData] = useState({});
+	const expertiseCover = useSelector((state) => state.main.coverData);
+	let filteredData = expertiseCover.filter((ac, ind) => ac.on_page === "expertise");
+
+	useEffect(() => {
+		if (filteredData[0]) {
+			setExpertiseData(filteredData[0]);
+		}
+	}, [filteredData]);
 
 	return (
 		<div className="expertise">
@@ -31,7 +40,7 @@ const Expertise = () => {
 				strength={200}
 				bgClassName="parallexComp"
 				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
-				bgImage={expertisecover}
+				bgImage={expertiseData && expertiseData.content ? expertiseData.content : expertisecover}
 			>
 				<div className="expertise__cover">
 					<div className="expertise__cover__overlay"></div>

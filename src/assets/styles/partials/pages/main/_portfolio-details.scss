@@ -199,6 +199,10 @@
 				}
 
 				&__content {
+					font-size: $display-font-size-11;
+					p {
+						font-size: $display-font-size-10;
+					}
 					margin: 10px 10px 10px 28px;
 				}
 			}
