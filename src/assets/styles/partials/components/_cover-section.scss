@@ -273,7 +273,7 @@
 		&__image {
 			margin-top: -70px;
 			width: 500px;
-			height: 300px;
+			min-height: 300px;
 			overflow: hidden;
 			.cover-img {
 				z-index: 80;

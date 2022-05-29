@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import CustomTabs from "../components/Reusable/CustomTabs";
 import { BsArrowRight } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { getGalleryPageData } from "../api/gallery";
+import { getGalleryPageData, getGalleryCategoryData } from "../api/gallery";
+import fireSpark from "../helpers/spark";
+import DotLoader from "../components/Reusable/DotLoader";
 
 const all = [
 	{
@@ -246,15 +248,19 @@ const events = [
 function Gallery() {
 	const tablist = [{ label: "All", value: "all" }, { label: "Events", value: "events" }, { label: "Work Sites", value: "worksites" }, { label: "Office", value: "office" }];
 	const [gridItems, setGridItems] = useState([...all]);
+	const [galleryCategories, setGalleryCategories] = useState([]);
+	const [loading, setLoading] = useState(false);
 	const [activetab, setActivetab] = useState("all");
 	const location = useLocation();
 	const navigate = useNavigate();
 
-	const _getGalleryItems = (signal) => {
-		getGalleryPageData("", signal)
+	const _getGalleryItems = (query, signal) => {
+		setLoading(true);
+		getGalleryPageData(query, signal)
 			.then((res) => {
-				if (res.json.status) {
-					setGridItems([...res.json.data]);
+				if (res.response.ok) {
+					setLoading(false);
+					setGridItems([...res.json.results]);
 				}
 			})
 			.catch((err) => {
@@ -262,35 +268,35 @@ function Gallery() {
 			});
 	};
 
+	const _getGaleryCategories = (query, signal) => {
+		getGalleryCategoryData(query, signal)
+			.then((res) => {
+				if (res.response.ok) {
+					let filteredCats = res.json.results.map((rc) => {
+						return { label: rc.name, value: rc.id };
+					});
+					setGalleryCategories([{ label: "All", value: "all" }, ...filteredCats]);
+				}
+			})
+			.catch((err) => {
+				fireSpark("error", err);
+			});
+	};
+
 	useEffect(() => {
 		const controller = new AbortController();
-		_getGalleryItems(controller.signal);
+		_getGaleryCategories("/", controller.signal);
 		return () => controller.abort();
 	}, []);
 
 	useEffect(() => {
-		const queryString = location.search;
-		const queryParams = new URLSearchParams(queryString) || "";
-		let atab = queryParams.get("type");
-		if (atab) {
-			setActivetab(atab);
-		} else {
-			setActivetab("all");
-		}
-	}, [location]);
-
-	console.log("locationnn", location);
-
-	useEffect(() => {
+		const controller = new AbortController();
 		if (activetab === "all") {
-			setGridItems(all);
-		} else if (activetab === "events") {
-			setGridItems(events);
-		} else if (activetab === "worksites") {
-			setGridItems(worksites);
-		} else if (activetab === "office") {
-			setGridItems(office);
+			_getGalleryItems(`/`, controller.signal);
+		} else {
+			_getGalleryItems(`/?category=${activetab}`, controller.signal);
 		}
+		return () => controller.abort();
 	}, [activetab]);
 
 	return (
@@ -300,33 +306,39 @@ function Gallery() {
 				<div className="separator"></div>
 				<div className="portfolio__intro__body">Our image gallery includes images of memorable moments captured in several events associated with our company.</div>
 			</div>
-			<CustomTabs tablist={tablist} activetab={activetab} setActivetab={setActivetab} />
-			<div className="portfolio__grid-container">
-				{gridItems.map((port, ind) => {
-					return (
-						<div className="portfolio__grid-container__item">
-							<div className="card" key={ind}>
-								<figure class="card__thumb">
-									<img src={port.image} alt={port.title} class="card__image" />
-									<figcaption class="card__caption" style={{ display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", width: "100%" }}>
-										<h2 class="card__gallery-title" style={{ width: "100%" }}>
-											{port.title}
-										</h2>
-										<button
-											onClick={() => {
-												window.open(port.image, "_blank");
-											}}
-											class="btn-primary-outlined"
-										>
-											<BsArrowRight style={{ fontSize: "17px" }} />
-										</button>
-									</figcaption>
-								</figure>
+			<CustomTabs tablist={galleryCategories} activetab={activetab} setActivetab={setActivetab} />
+			{loading ? (
+				<div className="portfolio" style={{ position: "relative", display: "flex", alignItems: "flex-start", justifyContent: "flex-start", maxHeight: "300px" }}>
+					<DotLoader />
+				</div>
+			) : (
+				<div className="portfolio__grid-container">
+					{gridItems.map((port, ind) => {
+						return (
+							<div className="portfolio__grid-container__item">
+								<div className="card" key={ind}>
+									<figure class="card__thumb">
+										<img src={port.image} alt={port.title} class="card__image" />
+										<figcaption class="card__caption" style={{ display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", width: "100%" }}>
+											<h2 class="card__gallery-title" style={{ width: "100%" }}>
+												{port.alt_text}
+											</h2>
+											<button
+												onClick={() => {
+													window.open(port.image, "_blank");
+												}}
+												class="btn-primary-outlined"
+											>
+												<BsArrowRight style={{ fontSize: "17px" }} />
+											</button>
+										</figcaption>
+									</figure>
+								</div>
 							</div>
-						</div>
-					);
-				})}
-			</div>
+						);
+					})}
+				</div>
+			)}
 		</div>
 	);
 }

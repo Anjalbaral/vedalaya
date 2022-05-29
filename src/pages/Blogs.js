@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { getFeatured } from "redux/blogs";
 import { useDispatch } from "react-redux";
 import BlogCard from "../components/Reusable/BlogCard";
+import { getBlogsData } from "../api/blogs";
+import fireSpark from "../helpers/spark";
 
 const BlogsData = [
 	{
@@ -43,10 +45,27 @@ const BlogsData = [
 ];
 
 const Blogs = () => {
-	const dispatch = useDispatch();
-	const blogsList = [];
 	const [Blogs, setBlogs] = useState([...BlogsData]);
 	const [loading, setLoading] = useState(false);
+
+	const _getBlogs = (query, signal) => {
+		getBlogsData(query, signal)
+			.then((res) => {
+				if (res.response.ok) {
+					setLoading(false);
+					setBlogs(res.json.results);
+				}
+			})
+			.catch((err) => {
+				fireSpark("error", err);
+			});
+	};
+
+	useEffect(() => {
+		const controller = new AbortController();
+		_getBlogs("/", controller.signal);
+		return () => controller.abort();
+	}, []);
 
 	return (
 		<div className="blogs">

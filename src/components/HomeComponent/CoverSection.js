@@ -47,13 +47,15 @@ function CoverSection({ data, loading }) {
 	const [sliderData, setSliderData] = useState([...sliders]);
 
 	useEffect(() => {
-		console.log("[cover-section]", data);
 		if (data && data.length > 0) {
-			setSliderData(data);
+			let filteredData = data.map((fb) => {
+				let isVideo = fb.content.slice(-3) === "mp4";
+				return { ...fb, isVideo: isVideo };
+			});
+			setSliderData(filteredData);
 		}
 	}, [data]);
 
-	console.log("cover data:", sliderData);
 	let activeCover = useSelector((state) => state.main.activeSlide);
 	const dispatch = useDispatch();
 	const _setCoverSlider = (activeid) => {
@@ -68,6 +70,7 @@ function CoverSection({ data, loading }) {
 				<DotLoader />
 			</div>
 		);
+
 	return (
 		<Parallax
 			className="cover-parent"
@@ -79,16 +82,26 @@ function CoverSection({ data, loading }) {
 			// bgImage={}
 		>
 			<Background className="custom-bg">
-				<video
-					src={
-						sliderData && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0] && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].content
-							? `${CONSTANTS.BASE_URL}${sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].content}`
-							: ""
-					}
-					autoPlay
-					muted
-					loop
-				/>
+				{sliderData && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0] && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].isVideo ? (
+					<video
+						src={
+							sliderData && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0] && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].content
+								? `${CONSTANTS.BASE_URL}${sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].content}`
+								: ""
+						}
+						autoPlay
+						muted
+						loop
+					/>
+				) : (
+					<img
+						src={
+							sliderData && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0] && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].content
+								? `${CONSTANTS.BASE_URL}${sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].content}`
+								: ""
+						}
+					/>
+				)}
 			</Background>
 			<div className="home__cover-section">
 				{/* <div className="home__cover-section__full-cover-img" style={{ backgroundImage: `url(${sliders.filter((im, ind) => im.id === activeCover)[0].image})` }}></div> */}
@@ -140,7 +153,10 @@ function CoverSection({ data, loading }) {
 					<div className="home__cover-section__right__image">
 						{sliderData &&
 							sliderData.map((immg, index) => {
-								return <video key={index} className={`cover-img ${immg.id === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} controls />;
+								if(immg.isVideo){
+								return <video key={index} className={`cover-img ${immg.id === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} controls />}else{
+									return <img className={`cover-img ${immg.id === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} />
+								}
 							})}
 					</div>
 				</div>

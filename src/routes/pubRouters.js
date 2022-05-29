@@ -106,7 +106,7 @@ const pubRoutes = [
 		component: PortfolioDetails
 	},
 	{
-		path: "",
+		path: "*",
 		exact: true,
 		name: "404 Not Found",
 		component: PageNotFound

@@ -27,9 +27,9 @@ const BlogCard = ({ blog, type, loading }) => {
 			</a>
 			{type && type === "blog" && (
 				<div className="blog__info">
-					<p>{blog.pubdate}</p>
+					<p>{blog && blog.created_at ? blog.created_at.slice(0, 10) : null}</p>
 					<p>&#x2022;</p>
-					<p>{blog.readtime}</p>
+					<p>.. min read</p>
 				</div>
 			)}
 			<h4>

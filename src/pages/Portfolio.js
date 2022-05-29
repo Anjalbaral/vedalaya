@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import CustomTabs from "../components/Reusable/CustomTabs";
 import { BsArrowRight } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { getPortfoliosData } from "../api/portfolio";
+import fireSpark from "../helpers/spark";
 
 const all = [
 	{
@@ -248,6 +250,27 @@ function Portfolio() {
 	const [activetab, setActivetab] = useState("all");
 	const location = useLocation();
 	const navigate = useNavigate();
+	const [portfolios, setPortfolios] = useState([]);
+	const [loading, setLoading] = useState(true);
+
+	const _getPortfolios = (query, signal) => {
+		getPortfoliosData(query, signal)
+			.then((res) => {
+				if (res.response.ok) {
+					setLoading(false);
+					setPortfolios(res.json.results);
+				}
+			})
+			.catch((err) => {
+				fireSpark("error", err);
+			});
+	};
+
+	useEffect(() => {
+		const controller = new AbortController();
+		_getPortfolios("", controller.signal);
+		return () => controller.abort();
+	}, []);
 
 	useEffect(() => {
 		const queryString = location.search;

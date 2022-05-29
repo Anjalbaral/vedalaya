@@ -1,0 +1,84 @@
+.colored-toast.swal2-icon-success {
+	background-color: $default-success-color !important;
+	padding: 10px 10px 12px 0px !important;
+	text-align: start !important;
+}
+
+.colored-toast.swal2-icon-error {
+	background-color: $default-danger-color !important;
+	padding: 10px 10px 12px 0px !important;
+	text-align: start !important;
+}
+
+.colored-toast.swal2-icon-warning {
+	background-color: $default-warning-color !important;
+	padding: 10px 10px 12px 0px !important;
+	text-align: start !important;
+}
+
+.colored-toast.swal2-icon-info {
+	background-color: $default-info-color !important;
+	padding: 10px 10px 12px 0px !important;
+	text-align: start !important;
+}
+
+.colored-toast.swal2-icon-question {
+	background-color: #87adbd !important;
+	padding: 10px 10px 12px 0px !important;
+	text-align: start !important;
+}
+
+.colored-toast .swal2-title {
+	color: white;
+}
+
+.colored-toast .swal2-close {
+	color: white;
+}
+
+.colored-toast .swal2-content {
+	color: white;
+}
+
+.titleClass div span {
+	font-weight: bold;
+	margin-right: 10px;
+	font-family: "Mulish";
+}
+
+.titleClass div {
+	padding: 0px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.toastClass {
+	height: 100% !important;
+	z-index: 1000;
+}
+
+.colored-toast.iconClass {
+	margin-left: -100px !important;
+}
+
+.successmsg {
+	margin-left: -30px !important;
+	padding: 0px !important;
+}
+
+.warningmsg {
+	margin-left: -30px !important;
+	padding: 0px !important;
+}
+
+.errormsg {
+	margin-left: -30px !important;
+	padding: 0px !important;
+}
+
+.infomsg {
+	margin-left: -30px !important;
+	padding: 0px !important;
+}
