@@ -6,7 +6,7 @@ const BlogCard = ({ blog, type, loading }) => {
 	if (loading) {
 		return (
 			<div className="blog__card">
-				<img src={blog.image ? blog.image : blogPlaceholder} className="loader" alt={"loading"} />
+				<img src={`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSCcCeM42oBqyEDUbxLF0agTDAxtrr4yfqnGWY6qZYb6RcUEJKNwJfjWxwEbvOsDKAKN4&usqp=CAU`} className="loader" alt={"loading"} />
 				{/* <Loader height={250} width={12} /> */}
 				<div className="blog__info" style={{ display: "flex", alignItems: "center" }}>
 					{/* <Loader height={12} width={2} /> */}
@@ -23,7 +23,11 @@ const BlogCard = ({ blog, type, loading }) => {
 	return (
 		<div className="blog__card">
 			<a>
-				<img id="blogImg" src={blog && blog.image ? blog.image : `https://picsum.photos/500/300?random=${blog}`} alt={blog} />
+				<img
+					id="blogImg"
+					src={blog && blog.cover_image ? blog.cover_image : `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSCcCeM42oBqyEDUbxLF0agTDAxtrr4yfqnGWY6qZYb6RcUEJKNwJfjWxwEbvOsDKAKN4&usqp=CAU`}
+					alt={blog}
+				/>
 			</a>
 			{type && type === "blog" && (
 				<div className="blog__info">

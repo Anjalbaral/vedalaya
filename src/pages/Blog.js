@@ -43,7 +43,7 @@ const Blog = () => {
 				strength={200}
 				bgClassName="parallexComp"
 				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover", marginTop: "0px" }}
-				bgImage={servicecover}
+				bgImage={blogData && blogData.cover_image ? blogData.cover_image : servicecover}
 			>
 				<div className="blog__cover">
 					<div className="blog__cover__overlay"></div>
