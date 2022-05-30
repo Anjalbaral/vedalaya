@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Parallax } from "react-parallax";
+import { Parallax, Background } from "react-parallax";
 import productscover from "../assets/images/productscover2.jpg";
 import FilterModal from "../components/Reusable/FilterModal";
 import RadioMenu from "../components/Reusable/RadioMenu";
@@ -13,6 +13,7 @@ import glutter from "../assets/images/glutter.jpg";
 import pipes from "../assets/images/pipes.jpg";
 import { useNavigate } from "react-router-dom";
 import { HiArrowNarrowLeft } from "react-icons/hi";
+import { useSelector } from "react-redux";
 
 const sizes = [{ label: "Small", value: "small", name: "small" }, { label: "Medium", value: "medium", name: "medium" }, { label: "Large", value: "large", name: "large" }];
 const colors = [
@@ -138,6 +139,16 @@ function Products() {
 	const [tempFilters, setTempFilters] = useState({
 		...defaultFilters
 	});
+	const [productData, setProductData] = useState({});
+	const productCover = useSelector((state) => state.main.coverData);
+	let filteredData = productCover.filter((ac, ind) => ac.on_page === "products");
+
+	useEffect(() => {
+		if (filteredData[0]) {
+			let isVideo = filteredData[0].content.slice(-3) === "mp4";
+			setProductData({ ...filteredData[0], isVideo: isVideo });
+		}
+	}, [filteredData]);
 
 	const _changeFilter = (name, value) => {
 		setActiveFilters({
@@ -180,13 +191,20 @@ function Products() {
 		<div className="products">
 			<Parallax
 				className="cover-parent"
-				style={{ minWidth: "100%" }}
+				style={{ minWidth: "100%", borderBottomStyle: "solid", borderBottomWidth: "3px", borderColor: "#F1C12D" }}
 				blur={{ min: 0, max: 0 }}
-				strength={200}
+				strength={0}
 				bgClassName="parallexComp"
 				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
-				bgImage={productscover}
+				// bgImage={productData && productData.content ? productData.content : productscover}
 			>
+				<Background className="custom-bg custom-cover">
+					{productData && productData.isVideo ? (
+						<video src={productData && productData.content ? productData.content : productscover} autoPlay muted loop />
+					) : (
+						<img src={productData && productData.content ? productData.content : productscover} />
+					)}
+				</Background>
 				<div className="expertise__cover">
 					<div className="expertise__cover__overlay"></div>
 					<div className="expertise__cover__content">

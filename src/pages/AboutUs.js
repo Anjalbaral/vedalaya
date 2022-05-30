@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import aboutuscover from "../assets/images/productscover2.jpg";
-import { Parallax } from "react-parallax";
+import { Parallax, Background } from "react-parallax";
 import { IoMdArrowDropright } from "react-icons/io";
 import BackPattern from "../assets/images/bbb.png";
 import { Link } from "react-router-dom";
@@ -15,24 +15,30 @@ function AboutUs() {
 
 	useEffect(() => {
 		if (filteredData[0]) {
-			setAboutUsData(filteredData[0]);
+			let isVideo = filteredData[0].content.slice(-3) === "mp4";
+			setAboutUsData({ ...filteredData[0], isVideo: isVideo });
 		}
 	}, [filteredData]);
-
-	console.log("about us data:", aboutUsData);
 
 	return (
 		<>
 			<div className="about-us">
 				<Parallax
 					className="cover-parent"
-					style={{ minWidth: "100%" }}
+					style={{ minWidth: "100%", borderBottomStyle: "solid", borderBottomWidth: "3px", borderColor: "#F1C12D" }}
 					blur={{ min: 0, max: 0 }}
-					strength={200}
+					strength={0}
 					bgClassName="parallexComp"
 					bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
-					bgImage={aboutUsData && aboutUsData.content ? aboutUsData.content : aboutuscover}
+					// bgImage={aboutUsData && aboutUsData.content ? aboutUsData.content : aboutuscover}
 				>
+					<Background className="custom-bg custom-cover">
+						{aboutUsData && aboutUsData.isVideo ? (
+							<video src={aboutUsData && aboutUsData.content ? aboutUsData.content : aboutuscover} autoPlay muted loop />
+						) : (
+							<img src={aboutUsData && aboutUsData.content ? aboutUsData.content : aboutuscover} />
+						)}
+					</Background>
 					<div className="about-us__cover">
 						<div className="about-us__cover__overlay"></div>
 						<div className="about-us__cover__content">

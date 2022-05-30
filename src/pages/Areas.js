@@ -1,22 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import coverimg from "../assets/images/productscover2.jpg";
-import { Parallax } from "react-parallax";
+import { Parallax, Background } from "react-parallax";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Areas = () => {
 	let isMobile = window.innerWidth < 700;
+	const [areasData, setAreasData] = useState({});
+	const areasCover = useSelector((state) => state.main.coverData);
+	let filteredData = areasCover.filter((ac, ind) => ac.on_page === "areas");
+
+	useEffect(() => {
+		if (filteredData[0]) {
+			let isVideo = filteredData[0].content.slice(-3) === "mp4";
+			setAreasData({ ...filteredData[0], isVideo: isVideo });
+		}
+	}, [filteredData]);
 
 	return (
 		<div className="areas">
 			<Parallax
 				className="cover-parent"
-				style={{ minWidth: "100%" }}
+				style={{ minWidth: "100%", borderBottomStyle: "solid", borderBottomWidth: "3px", borderColor: "#F1C12D" }}
 				blur={{ min: 0, max: 0 }}
-				strength={200}
+				strength={0}
 				bgClassName="parallexComp"
 				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
-				bgImage={coverimg}
+				// bgImage={coverimg}
 			>
+				<Background className="custom-bg custom-cover">
+					{areasData && areasData.isVideo ? (
+						<video src={areasData && areasData.content ? areasData.content : coverimg} autoPlay muted loop />
+					) : (
+						<img src={areasData && areasData.content ? areasData.content : coverimg} />
+					)}
+				</Background>
 				<div className="areas__cover">
 					<div className="areas__cover__overlay"></div>
 					<div className="areas__cover__content">

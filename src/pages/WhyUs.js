@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import whyuscover from "../assets/images/productscover2.jpg";
-import { Parallax } from "react-parallax";
+import { Parallax, Background } from "react-parallax";
 import BrandAndLagecy from "../assets/images/brand-and-legacy.png";
 import AdvantageAndBenifits from "../assets/images/advantage-and-benifits.png";
 import Affordability from "../assets/images/affordability-and-sustainability.png";
@@ -18,7 +18,8 @@ const WhyUs = () => {
 
 	useEffect(() => {
 		if (filteredData[0]) {
-			setWhyUsData(filteredData[0]);
+			let isVideo = filteredData[0].content.slice(-3) === "mp4";
+			setWhyUsData({ ...filteredData[0], isVideo: isVideo });
 		}
 	}, [filteredData]);
 
@@ -26,13 +27,20 @@ const WhyUs = () => {
 		<div className="why-us">
 			<Parallax
 				className="cover-parent"
-				style={{ minWidth: "100%" }}
+				style={{ minWidth: "100%", borderBottomStyle: "solid", borderBottomWidth: "3px", borderColor: "#F1C12D" }}
 				blur={{ min: 0, max: 0 }}
-				strength={200}
+				strength={0}
 				bgClassName="parallexComp"
 				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
-				bgImage={whyUsData && whyUsData.content ? whyUsData.content : whyuscover}
+				// bgImage={whyUsData && whyUsData.content ? whyUsData.content : whyuscover}
 			>
+				<Background className="custom-bg custom-cover">
+					{whyUsData && whyUsData.isVideo ? (
+						<video src={whyUsData && whyUsData.content ? whyUsData.content : whyuscover} autoPlay muted loop />
+					) : (
+						<img src={whyUsData && whyUsData.content ? whyUsData.content : whyuscover} />
+					)}
+				</Background>
 				<div className="why-us__cover">
 					<div className="why-us__cover__overlay"></div>
 					<div className="why-us__cover__content">

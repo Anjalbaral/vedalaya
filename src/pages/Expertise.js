@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import expertisecover from "../assets/images/productscover2.jpg";
-import { Parallax } from "react-parallax";
+import { Parallax, Background } from "react-parallax";
 import { IoSettingsOutline } from "react-icons/io5";
 import residental1 from "../assets/images/residental1.jpg";
 import residental2 from "../assets/images/residental2.jpg";
@@ -27,7 +27,8 @@ const Expertise = () => {
 
 	useEffect(() => {
 		if (filteredData[0]) {
-			setExpertiseData(filteredData[0]);
+			let isVideo = filteredData[0].content.slice(-3) === "mp4";
+			setExpertiseData({ ...filteredData[0], isVideo: isVideo });
 		}
 	}, [filteredData]);
 
@@ -35,13 +36,20 @@ const Expertise = () => {
 		<div className="expertise">
 			<Parallax
 				className="cover-parent"
-				style={{ minWidth: "100%" }}
+				style={{ minWidth: "100%", borderBottomStyle: "solid", borderBottomWidth: "3px", borderColor: "#F1C12D" }}
 				blur={{ min: 0, max: 0 }}
-				strength={200}
+				strength={0}
 				bgClassName="parallexComp"
 				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
-				bgImage={expertiseData && expertiseData.content ? expertiseData.content : expertisecover}
+				// bgImage={expertiseData && expertiseData.content ? expertiseData.content : expertisecover}
 			>
+				<Background className="custom-bg custom-cover">
+					{expertiseData && expertiseData.isVideo ? (
+						<video src={expertiseData && expertiseData.content ? expertiseData.content : expertisecover} autoPlay muted loop />
+					) : (
+						<img src={expertiseData && expertiseData.content ? expertiseData.content : expertisecover} />
+					)}
+				</Background>
 				<div className="expertise__cover">
 					<div className="expertise__cover__overlay"></div>
 					<div className="expertise__cover__content">

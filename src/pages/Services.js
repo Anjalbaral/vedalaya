@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import coverbanner from "../assets/images/coverbanner.jpg";
-import { Parallax } from "react-parallax";
+import { Parallax, Background } from "react-parallax";
 import servicecover from "../assets/images/productscover2.jpg";
 import designandconst from "../assets/images/designandconst.png";
 import interiordesign from "../assets/images/interiordesign.png";
@@ -9,21 +9,40 @@ import exteriordesign from "../assets/images/exteriordesign.png";
 import genralcontracting from "../assets/images/genralcontracting.png";
 import trading from "../assets/images/trading.png";
 import comppricing from "../assets/images/comppricing.png";
+import { useSelector } from "react-redux";
 
 function Services() {
 	let isMobile = window.innerWidth < 700;
+
+	const [serviceData, setServiceData] = useState({});
+	const serviceCover = useSelector((state) => state.main.coverData);
+	let filteredData = serviceCover.filter((ac, ind) => ac.on_page === "service");
+
+	useEffect(() => {
+		if (filteredData[0]) {
+			let isVideo = filteredData[0].content.slice(-3) === "mp4";
+			setServiceData({ ...filteredData[0], isVideo: isVideo });
+		}
+	}, [filteredData]);
 
 	return (
 		<div className="services">
 			<Parallax
 				className="cover-parent"
-				style={{ minWidth: "100%" }}
+				style={{ minWidth: "100%", borderBottomStyle: "solid", borderBottomWidth: "3px", borderColor: "#F1C12D" }}
 				blur={{ min: 0, max: 0 }}
-				strength={200}
+				strength={0}
 				bgClassName="parallexComp"
 				bgImageStyle={{ width: isMobile ? "300%" : "100%", backgroundSize: "100%", backgroundPosition: "cover" }}
-				bgImage={servicecover}
+				// bgImage={serviceData && serviceData.content ? serviceData.content : servicecover}
 			>
+				<Background className="custom-bg custom-cover">
+					{serviceData && serviceData.isVideo ? (
+						<video src={serviceData && serviceData.content ? serviceData.content : coverbanner} autoPlay muted loop />
+					) : (
+						<img src={serviceData && serviceData.content ? serviceData.content : coverbanner} />
+					)}
+				</Background>
 				<div className="services__cover">
 					<div className="services__cover__overlay"></div>
 					<div className="services__cover__content">
