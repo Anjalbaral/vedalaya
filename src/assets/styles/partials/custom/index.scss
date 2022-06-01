@@ -73,3 +73,71 @@
 		height: 100% !important;
 	}
 }
+
+.table-bottom-pagination {
+	border-bottom: 0px;
+	background: white;
+	border-top: 1px solid #ededed;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	@include media-breakpoint-down(md) {
+		gap: 1rem;
+		flex-direction: column;
+	}
+
+	&__pages {
+		display: flex;
+		align-items: center;
+
+		&__buttons {
+			padding: 0.25rem 0.75rem;
+			// border-radius: 4px;
+			border: 1px solid #ededed;
+			cursor: pointer;
+			color: #95a2b4;
+			font-size: 0.85rem;
+
+			&--prev {
+				border-radius: 4px 0 0 4px;
+				color: black;
+				font-weight: 500;
+			}
+
+			&--next {
+				border-radius: 0 4px 4px 0;
+				font-weight: 500;
+				color: black;
+			}
+
+			&--active {
+				color: white;
+				border-radius: 5px;
+				border: 1px solid $default-primary-color;
+				background-color: $default-primary-color;
+				font-weight: 600;
+			}
+
+			&--disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+				// pointer-events: none;
+			}
+		}
+	}
+
+	&__rows {
+		font-size: 0.85rem;
+
+		&__text {
+			color: #9fa2b4;
+		}
+
+		&__number {
+			border: none;
+			margin-left: 0.25rem;
+		}
+	}
+}

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import CustomTabs from "../components/Reusable/CustomTabs";
 import { BsArrowRight } from "react-icons/bs";
+import { Card } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getGalleryPageData, getGalleryCategoryData } from "../api/gallery";
 import fireSpark from "../helpers/spark";
 import DotLoader from "../components/Reusable/DotLoader";
 import isEmpty from "../helpers/isEmpty";
 import EmptyComp from "../components/Reusable/Empty";
+import Paging from "../components/Reusable/Paging";
 
 const all = [
 	{
@@ -250,6 +252,7 @@ const events = [
 function Gallery() {
 	const tablist = [{ label: "All", value: "all" }, { label: "Events", value: "events" }, { label: "Work Sites", value: "worksites" }, { label: "Office", value: "office" }];
 	const [gridItems, setGridItems] = useState([]);
+	const [instanceCount, setInstanceCount] = useState(0);
 	const [galleryCategories, setGalleryCategories] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [activetab, setActivetab] = useState("all");
@@ -262,6 +265,7 @@ function Gallery() {
 			.then((res) => {
 				if (res.response.ok) {
 					setLoading(false);
+					setInstanceCount(res.json.count);
 					setGridItems([...res.json.results]);
 				}
 			})
@@ -302,48 +306,53 @@ function Gallery() {
 	}, [activetab]);
 
 	return (
-		<div className="portfolio">
-			<div className="portfolio__intro">
-				<div className="portfolio__intro__header">Our Image Gallery</div>
-				<div className="separator"></div>
-				<div className="portfolio__intro__body">Our image gallery includes images of memorable moments captured in several events associated with our company.</div>
+		<>
+			<div className="portfolio">
+				<div className="portfolio__intro">
+					<div className="portfolio__intro__header">Our Image Gallery</div>
+					<div className="separator"></div>
+					<div className="portfolio__intro__body">Our image gallery includes images of memorable moments captured in several events associated with our company.</div>
+				</div>
+				<CustomTabs tablist={galleryCategories} activetab={activetab} setActivetab={setActivetab} />
+				{loading ? (
+					<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "60px 0 0px 0" }}>
+						<DotLoader />
+					</div>
+				) : isEmpty(gridItems) ? (
+					<EmptyComp>No images</EmptyComp>
+				) : (
+					<>
+						<div className="portfolio__grid-container">
+							{gridItems.map((port, ind) => {
+								return (
+									<div className="portfolio__grid-container__item">
+										<div className="card" key={ind}>
+											<figure class="card__thumb">
+												<img src={port.image} alt={port.title} class="card__image" />
+												<figcaption class="card__caption" style={{ display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", width: "100%" }}>
+													<h2 class="card__gallery-title" style={{ width: "100%" }}>
+														{port.alt_text}
+													</h2>
+													<button
+														onClick={() => {
+															window.open(port.image, "_blank");
+														}}
+														class="btn-primary-outlined"
+													>
+														<BsArrowRight style={{ fontSize: "17px" }} />
+													</button>
+												</figcaption>
+											</figure>
+										</div>
+									</div>
+								);
+							})}
+						</div>
+					</>
+				)}
+				<div>{!isEmpty(gridItems) && <Paging instanceCount={instanceCount} />}</div>
 			</div>
-			<CustomTabs tablist={galleryCategories} activetab={activetab} setActivetab={setActivetab} />
-			{loading ? (
-				<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "60px 0 0px 0" }}>
-					<DotLoader />
-				</div>
-			) : isEmpty(gridItems) ? (
-				<EmptyComp>No images</EmptyComp>
-			) : (
-				<div className="portfolio__grid-container">
-					{gridItems.map((port, ind) => {
-						return (
-							<div className="portfolio__grid-container__item">
-								<div className="card" key={ind}>
-									<figure class="card__thumb">
-										<img src={port.image} alt={port.title} class="card__image" />
-										<figcaption class="card__caption" style={{ display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", width: "100%" }}>
-											<h2 class="card__gallery-title" style={{ width: "100%" }}>
-												{port.alt_text}
-											</h2>
-											<button
-												onClick={() => {
-													window.open(port.image, "_blank");
-												}}
-												class="btn-primary-outlined"
-											>
-												<BsArrowRight style={{ fontSize: "17px" }} />
-											</button>
-										</figcaption>
-									</figure>
-								</div>
-							</div>
-						);
-					})}
-				</div>
-			)}
-		</div>
+		</>
 	);
 }
 

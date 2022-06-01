@@ -4,16 +4,23 @@ import productscover from "../assets/images/productscover2.jpg";
 import FilterModal from "../components/Reusable/FilterModal";
 import RadioMenu from "../components/Reusable/RadioMenu";
 import activemenuicon from "../assets/images/activemenuicon.png";
-import { CgArrowLongRight } from "react-icons/cg";
+import { CgArrowLongRight, CgArrowsExchangeAlt } from "react-icons/cg";
 import windowdoors from "../assets/images/window&doors-p1.jpg";
 import roofing from "../assets/images/roofing-p2.jpg";
 import flooring from "../assets/images/flooring-p3.jpg";
 import fascia from "../assets/images/fascia-p4.jpg";
 import glutter from "../assets/images/glutter.jpg";
 import pipes from "../assets/images/pipes.jpg";
-import { useNavigate } from "react-router-dom";
-import { HiArrowNarrowLeft } from "react-icons/hi";
+import { useNavigate, useLocation, useParams, useSearchParams } from "react-router-dom";
+import { HiArrowNarrowLeft, HiTemplate } from "react-icons/hi";
 import { useSelector } from "react-redux";
+import { getProductCategories, getProductItems, getProductColors, getProductSizes, getProductMaterials } from "../api/products";
+import { MdOutlineCategory, MdOutlineArrowRightAlt } from "react-icons/md";
+import { BiRightArrow } from "react-icons/bi";
+import { BsArrowRight, BsArrowClockwise } from "react-icons/bs";
+import DotLoader from "../components/Reusable/DotLoader";
+import isEmpty from "../helpers/isEmpty";
+import EmptyComp from "../components/Reusable/Empty";
 
 const sizes = [{ label: "Small", value: "small", name: "small" }, { label: "Medium", value: "medium", name: "medium" }, { label: "Large", value: "large", name: "large" }];
 const colors = [
@@ -129,16 +136,28 @@ const defaultFilters = {
 
 function Products() {
 	const [searchText, setSearchText] = useState("");
+	const [loading, setLoading] = useState(false);
+	const [searchParams, setSearchParams] = useSearchParams();
 	const [searchModal, setSearchModal] = useState(false);
 	const [activeFilters, setActiveFilters] = useState({
 		...defaultFilters
 	});
+	const [categoryList, setCategoryList] = useState([]);
+	const [productList, setProductList] = useState([]);
 	const navigate = useNavigate();
+	const [activeCategory, setActiveCategory] = useState("");
 	const [categoryMode, setCategoryMode] = useState(true);
-
+	const [categoryLoading, setCategoryLoading] = useState(true);
 	const [tempFilters, setTempFilters] = useState({
 		...defaultFilters
 	});
+
+	const [productColors, setProductColors] = useState([]);
+	const [productSizes, setProductSizes] = useState([]);
+	const [productMaterials, setProductMaterials] = useState([]);
+
+	console.log("product colors,product sizes,product materials:", productColors, productSizes, productMaterials);
+
 	const [productData, setProductData] = useState({});
 	const productCover = useSelector((state) => state.main.coverData);
 	let filteredData = productCover.filter((ac, ind) => ac.on_page === "products");
@@ -148,7 +167,7 @@ function Products() {
 			let isVideo = filteredData[0].content.slice(-3) === "mp4";
 			setProductData({ ...filteredData[0], isVideo: isVideo });
 		}
-	}, [filteredData]);
+	}, []);
 
 	const _changeFilter = (name, value) => {
 		setActiveFilters({
@@ -161,6 +180,18 @@ function Products() {
 		});
 	};
 
+	useEffect(() => {
+		let categoryParam = searchParams.get("category");
+		let search = searchParams.get("search");
+		if (search && search.length > 0) {
+			setSearchText(search);
+		}
+		if (categoryParam && categoryParam.length > 0) {
+			setActiveCategory(categoryParam);
+			setCategoryMode(false);
+		}
+	}, [searchParams]);
+
 	const _changeTempFilters = (name, value) => {
 		setTempFilters({
 			...tempFilters,
@@ -168,25 +199,157 @@ function Products() {
 		});
 	};
 
+	const _getProductColors = (signal) => {
+		getProductColors("/", signal)
+			.then((res) => {
+				if (res.response.ok) {
+					setProductColors(res.json.results.map((pc) => ({ label: pc.name, value: pc.id, name: pc.name, colorcode: pc.hex_code ? pc.hex_code : "gray" })));
+				}
+			})
+			.catch((err) => {
+				//   error handling
+			});
+	};
+
+	const _getProductSizes = (signal) => {
+		getProductSizes("/", signal)
+			.then((res) => {
+				if (res.response.ok) {
+					setProductSizes(res.json.results.map((pc) => ({ label: `${pc.width}*${pc.hight} ${pc.unit.slice(0, 3)}`, value: pc.id, name: `${pc.width}*${pc.hight}${pc.unit.slice(0, 3)}` })));
+				}
+			})
+			.catch((err) => {
+				//   error handling
+			});
+	};
+
+	const _getProductMaterials = (signal) => {
+		getProductMaterials("/", signal)
+			.then((res) => {
+				if (res.response.ok) {
+					setProductMaterials(res.json.results.map((pc) => ({ label: pc.name, value: pc.id, name: pc.name })));
+				}
+			})
+			.catch((err) => {
+				//   error handling
+			});
+	};
+
+	useEffect(() => {
+		let controller = new AbortController();
+		_getProductColors(controller.signal);
+		_getProductMaterials(controller.signal);
+		_getProductSizes(controller.signal);
+		return () => controller.abort();
+	}, []);
+
 	const _search = (e) => {
 		setSearchText(e.target.value);
+		if (e.target.value.length === 0) {
+			searchParams.delete("search");
+		} else {
+			searchParams.set("search", e.target.value);
+		}
+		setSearchParams(searchParams);
 	};
 
 	const toggleModal = () => {
 		setSearchModal(!searchModal);
-		setTempFilters({ ...defaultFilters });
+	};
+
+	const _getProductCategories = (query, signal) => {
+		setCategoryLoading(true);
+		getProductCategories(query, signal)
+			.then((res) => {
+				if (res.response.ok) {
+					setCategoryLoading(false);
+					setCategoryList(res.json.results);
+				}
+			})
+			.catch((err) => {
+				//  error handling
+			});
+	};
+
+	const _getProductItems = (query, signal) => {
+		setLoading(true);
+		getProductItems(query, signal)
+			.then((res) => {
+				if (res.response.ok) {
+					setLoading(false);
+					setProductList(res.json.results);
+				}
+			})
+			.catch((err) => {
+				//  error handling
+			});
 	};
 
 	useEffect(() => {
-		if (searchText.length > 0) {
-			setCategoryMode(false);
-		} else {
-			setCategoryMode(true);
+		const controller = new AbortController();
+
+		let filterQuery = "";
+		if (!isEmpty(activeFilters.color)) {
+			let colorIds = activeFilters.color;
+			filterQuery += `&colors=${String(colorIds)}`;
 		}
-	}, [searchText]);
+
+		if (!isEmpty(activeFilters.size)) {
+			let sizeIds = activeFilters.size;
+			filterQuery += `&sizes=${String(sizeIds)}`;
+		}
+
+		if (!isEmpty(activeFilters.material)) {
+			let materialIds = activeFilters.material;
+			filterQuery += `&materials=${String(materialIds)}`;
+		}
+
+		if (categoryMode) {
+			if (searchText && searchText.length > 0) {
+				// get all products
+				setCategoryMode(false);
+				_getProductItems(`/?search=${searchText}${filterQuery}`, controller.signal);
+			} else {
+				_getProductCategories("/", controller.signal);
+			}
+		} else {
+			if (searchText && searchText.length > 0) {
+				// get products with text an category
+				if (activeCategory === null) {
+					_getProductItems(`/?search=${searchText}${filterQuery}`, controller.signal);
+				} else {
+					_getProductItems(`/?category=${activeCategory}&search=${searchText}${filterQuery}`, controller.signal);
+				}
+			} else {
+				// get products with category
+				if (activeCategory === null) {
+					_getProductItems(`/${filterQuery ? filterQuery.substring(1) : ""}`, controller.signal);
+				} else {
+					_getProductItems(`/?category=${activeCategory}${filterQuery}`, controller.signal);
+				}
+			}
+		}
+		return () => {
+			controller.abort();
+		};
+	}, [searchText, activeCategory, categoryMode, activeFilters]);
+
+	const _reloadCategory = () => {
+		_getProductCategories("/");
+	};
+
+	console.log("activeCategory:", activeCategory, categoryList);
+
+	let categoryName = "";
+	if (activeCategory && categoryList && categoryList.length > 0) {
+		let cats = categoryList.filter((cl) => cl.id.toString() === activeCategory.toString());
+		console.log("cats:", cats, activeCategory, categoryList);
+		if (cats.length > 0) {
+			categoryName = cats[0].name;
+		}
+	}
 
 	let isMobile = window.innerWidth < 700;
-
 	return (
 		<div className="products">
 			<Parallax
@@ -217,6 +380,11 @@ function Products() {
 				{!categoryMode && (
 					<div
 						onClick={() => {
+							searchParams.delete("category");
+							searchParams.delete("search");
+							setSearchText("");
+							setActiveCategory(null);
+							setSearchParams(searchParams);
 							setCategoryMode(true);
 						}}
 					>
@@ -229,9 +397,9 @@ function Products() {
 				{!categoryMode && (
 					<div className="products__body__filters">
 						<div className="head">Apply Filters</div>
-						<RadioMenu defaultActiveKey="0" name="size" active={activeFilters.size} onChange={_changeFilter} options={sizes} header="Size" />
-						<RadioMenu defaultActiveKey="0" name="color" active={activeFilters.color} onChange={_changeFilter} options={colors} header="Color" />
-						<RadioMenu defaultActiveKey="0" name="material" active={activeFilters.material} onChange={_changeFilter} options={materials} header="Material" />
+						<RadioMenu defaultActiveKey="0" name="size" active={activeFilters.size} onChange={_changeFilter} options={productSizes} header="Size" />
+						<RadioMenu defaultActiveKey="0" name="color" active={activeFilters.color} onChange={_changeFilter} options={productColors} header="Color" />
+						<RadioMenu defaultActiveKey="0" name="material" active={activeFilters.material} onChange={_changeFilter} options={productMaterials} header="Material" />
 					</div>
 				)}
 
@@ -241,66 +409,117 @@ function Products() {
 							<span>Search from any of Categories below</span>
 							<div className="separator" style={{ marginTop: "5px" }}></div>
 						</div>
-						<div className="products__body__cat__category-mode">
-							{categoryData.map((dat, ind) => {
-								return (
-									<div className="products__body__cat__category-mode__item">
-										<div className="products__body__cat__category-mode__item__subitem" style={{ backgroundImage: `url(${dat.image})` }}>
-											<div className="overlayy"></div>
-											<div className="content">
-												<div className="content__body">
-													<span
-														onClick={() => {
-															setCategoryMode(false);
-														}}
-														className="redirect"
-													>
-														view products
-														<CgArrowLongRight style={{ fontSize: "20px" }} />
-													</span>
-													<div className="separator"></div>
-													<span className="title">{dat.title}</span>
-													<span className="description">{dat.description}</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								);
-							})}
-						</div>
-					</div>
-				) : null}
-				<div className="products__body__product-list">
-					{!categoryMode &&
-						productsList.map((dat, ind) => {
-							return (
-								<div class="card">
-									<nav>
-										PRODUCT TYPE : <b style={{ marginLeft: "5px" }}>{dat.type}</b>
-									</nav>
-									<div className="content">
-										<div class="photo">
-											<img src={dat.image} />
-										</div>
-										<div class="description">
-											<h1>{dat.title}</h1>
-											<h2>{dat.color}</h2>
-											<p>{dat.description}</p>
-											<div className="button-group">
-												<button
-													onClick={() => {
-														navigate(`/product/${dat.id}`);
-													}}
-													className="btn-primary-outlined"
-												>
-													Details
-												</button>
-											</div>
-										</div>
+						{categoryLoading ? (
+							<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "60px 0 0px 0" }}>
+								<DotLoader />
+							</div>
+						) : isEmpty(categoryList) ? (
+							<EmptyComp>No categories</EmptyComp>
+						) : (
+							<div className="products__body__cat__category-mode">
+								{/* default section open */}
+								<div className="products__body__cat__category-mode__default-item">
+									<div className="home__gallery-section__body__default-item__subitem">
+										<BsArrowClockwise onClick={_reloadCategory} />
+										<p>-- RELOAD --</p>
+										<span>All Categories</span>
+										<div className="separator"></div>
 									</div>
 								</div>
-							);
-						})}
+								{/* default section close */}
+								{categoryList &&
+									categoryList.map((dat, ind) => {
+										return (
+											<div key={ind} className="products__body__cat__category-mode__item">
+												<div
+													className="home__gallery-section__body__item__subitem"
+													style={{ backgroundImage: dat.image ? `url(${dat.image})` : `url(http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png)`, borderRadius: "15px" }}
+												>
+													<div className="overlayy"></div>
+													<div className="content">
+														<div className={`content__icon`}>
+															<img src={activemenuicon} />
+														</div>
+														<div className="content__body">
+															<span className="title">{dat && dat.name ? dat.name : `unknown`}</span>
+															<div className="separator"></div>
+															{dat && (
+																<span
+																	onClick={() => {
+																		setCategoryMode(false);
+																		setProductList([]);
+																		searchParams.set("category", dat.id);
+																		setSearchParams(searchParams);
+																	}}
+																	className="redirect"
+																>
+																	view items
+																	<CgArrowLongRight style={{ fontSize: "20px" }} />
+																</span>
+															)}
+														</div>
+													</div>
+												</div>
+											</div>
+										);
+									})}
+							</div>
+						)}
+					</div>
+				) : null}
+				<div className="products__body__product-list" style={{ display: "flex", flexDirection: "column" }}>
+					{!categoryMode && (
+						<>
+							<div className="product-list-title" style={{ paddingLeft: "15px", paddingBottom: "10px" }}>
+								<span>
+									<b>Category</b> : {activeCategory ? categoryName : "all"}
+								</span>
+							</div>
+							<div className="divider"></div>
+						</>
+					)}
+					<div className="products__body__product-list">
+						{loading && !categoryMode ? (
+							<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "60px 0 0px 0" }}>
+								<DotLoader />
+							</div>
+						) : isEmpty(productList) && !categoryMode ? (
+							<EmptyComp>No any products</EmptyComp>
+						) : (
+							<>
+								{!categoryMode &&
+									productList.map((dat, ind) => {
+										return (
+											<div class="card">
+												<nav>
+													PRODUCT TYPE : <b style={{ marginLeft: "5px" }}>{dat && dat.materials_details && dat.materials_details[0] ? dat.materials_details[0].name : "unknown"}</b>
+												</nav>
+												<div className="content">
+													<div class="photo">
+														<img src={dat && dat.images_details && dat.images_details[0] ? dat.images_details[0].image : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"} />
+													</div>
+													<div class="description">
+														<h1>{dat && dat.category_str ? dat.category_str : "unknown"}</h1>
+														<h2>{dat && dat.color && dat.color[0] ? dat.color_details[0].name : "none"}</h2>
+														<p>{dat && dat.description ? dat.description : "none"}</p>
+														<div className="button-group">
+															<button
+																onClick={() => {
+																	navigate(`/product/${dat.id}`);
+																}}
+																className="btn-primary-outlined"
+															>
+																Details
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										);
+									})}
+							</>
+						)}
+					</div>
 				</div>
 			</div>
 			<div
@@ -312,11 +531,11 @@ function Products() {
 				<div className="products__float-btn">Filters</div>
 			</div>
 			<FilterModal openmodal={searchModal} toggleModal={setSearchModal}>
-				<RadioMenu defaultActiveKey="" name="size" active={tempFilters.size} onChange={_changeTempFilters} options={sizes} header="Size" />
+				<RadioMenu defaultActiveKey="" name="size" active={tempFilters.size} onChange={_changeTempFilters} options={productSizes} header="Size" />
 				<div className="separator"></div>
-				<RadioMenu defaultActiveKey="" name="color" active={tempFilters.color} onChange={_changeTempFilters} options={colors} header="Color" />
+				<RadioMenu defaultActiveKey="" name="color" active={tempFilters.color} onChange={_changeTempFilters} options={productColors} header="Color" />
 				<div className="separator"></div>
-				<RadioMenu defaultActiveKey="" name="material" active={tempFilters.material} onChange={_changeTempFilters} options={materials} header="Material" />
+				<RadioMenu defaultActiveKey="" name="material" active={tempFilters.material} onChange={_changeTempFilters} options={productMaterials} header="Material" />
 				<div className="filter-modal-btn">
 					<button
 						onClick={() => {

@@ -22,7 +22,6 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 	let location = useLocation();
 	let dispatch = useDispatch();
 	let navigate = useNavigate();
-	console.log("menu data:", menuData);
 	const [insideDialog, setInsideDialog] = useState(false);
 	const [activeDialogData, setActiveDialogData] = useState({});
 	const [activeSubCat, setActiveSubCat] = useState(null);

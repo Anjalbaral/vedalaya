@@ -11,7 +11,7 @@ function RadioMenu({ active, options, header, defaultActiveKey, onChange, name }
 						<ul className="list-unstyled">
 							{options &&
 								options.map((op, ind) => {
-									let isActive = active.includes(op.value);
+									let isActive = active.includes(op.value.toString());
 									return (
 										<li className="my-2 form-check" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }} key={ind}>
 											<span>
@@ -24,7 +24,7 @@ function RadioMenu({ active, options, header, defaultActiveKey, onChange, name }
 													checked={isActive}
 													onChange={(e) => {
 														if (isActive) {
-															let tempItems = active.filter((d) => d !== op.value);
+															let tempItems = active.filter((d) => d.toString() !== op.value.toString());
 															onChange(name, [...tempItems]);
 														} else {
 															onChange(name, [...active, e.target.value]);

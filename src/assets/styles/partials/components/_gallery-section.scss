@@ -178,6 +178,143 @@
 				}
 			}
 		}
+
+		&__default-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			flex: 0.25;
+			@include media-breakpoint-down(md) {
+				flex: 1;
+				min-width: 100%;
+			}
+			height: 100%;
+
+			&__subitem {
+				background-color: #e9eff0;
+				flex-direction: column;
+				cursor: cell;
+				display: flex;
+				height: 100%;
+				width: 96%;
+				margin: 0px;
+				box-sizing: border-box;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+				background-position: center;
+				background-size: cover;
+				opacity: 0.9;
+				transition: all 0.3s ease-in-out;
+
+				p {
+					font-size: $display-font-size-12;
+					color: rgba(0, 0, 0, 0.7);
+				}
+				span {
+					font-size: 16px;
+					font-weight: bold;
+					color: #6f727c;
+					margin-top: 15px;
+				}
+
+				.separator {
+					width: 50%;
+					height: 3px;
+					opacity: 0.5;
+					margin-top: 5px;
+					background-color: $default-theme-loader-color;
+				}
+
+				svg {
+					cursor: pointer;
+					font-size: 30px;
+					color: #6f727c;
+					transition: all 0.3s ease-in-out;
+
+					&:hover {
+						color: #000;
+						transform: rotateZ(360deg);
+					}
+				}
+
+				.overlayy {
+					width: 100%;
+					height: 100%;
+					z-index: 2000;
+					background-color: rgba(31, 37, 52, 0);
+					transition: all 0.4s ease-in-out;
+				}
+
+				.content {
+					width: 200px;
+					height: 200px;
+					padding: 5px;
+					position: absolute;
+					z-index: 3000;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					display: none;
+					opacity: 0;
+					transition: all 0.4s ease-in-out;
+
+					&__icon {
+						opacity: 1;
+						width: 50px;
+						height: 50px;
+						top: 0px;
+					}
+					&__body {
+						display: flex;
+						flex-direction: column;
+						align-items: flex-start;
+						justify-content: center;
+						color: white;
+						min-height: 50px;
+						margin-left: -10px;
+
+						.redirect {
+							color: white;
+							text-decoration: none;
+							cursor: pointer;
+							font-size: $display-font-size-11;
+							font-weight: $font-weight-semi-bold;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+
+							&:hover {
+								color: lightgray;
+							}
+
+							svg {
+								margin-left: 5px;
+							}
+						}
+
+						.separator {
+							width: 50%;
+							height: 2px;
+							margin: 4px 0px 4px 0px;
+							background-color: $default-theme-loader-color;
+						}
+
+						.title {
+							font-weight: $font-weight-bold;
+							font-size: $display-font-size-11;
+						}
+						.description {
+							display: none;
+							font-size: $display-font-size-12;
+						}
+					}
+					@include flex-center();
+				}
+			}
+		}
 	}
 
 	&__bottom {
