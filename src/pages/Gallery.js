@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CustomTabs from "../components/Reusable/CustomTabs";
 import { BsArrowRight } from "react-icons/bs";
 import { Card } from "react-bootstrap";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { getGalleryPageData, getGalleryCategoryData } from "../api/gallery";
 import fireSpark from "../helpers/spark";
 import DotLoader from "../components/Reusable/DotLoader";
@@ -256,21 +256,42 @@ function Gallery() {
 	const [galleryCategories, setGalleryCategories] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [activetab, setActivetab] = useState("all");
+	const [searchParams, setSearchParams] = useSearchParams();
 	const location = useLocation();
 	const navigate = useNavigate();
 
-	const _getGalleryItems = (query, signal) => {
+	const _setActivetab = (tab) => {
+		setActivetab(tab);
+		setGridItems([]);
+		searchParams.set("page", 1);
+		setSearchParams(searchParams);
+	};
+
+	const _getGalleryItems = (signal) => {
 		setLoading(true);
-		getGalleryPageData(query, signal)
+		let currentpage = searchParams.get("page") ? searchParams.get("page") : 1;
+		let pageqry = `page=${currentpage}`;
+		let filterQuery = ``;
+
+		if (activetab === "all") {
+			filterQuery = `/?${pageqry}`;
+		} else {
+			filterQuery = `/?category=${activetab}&${pageqry}`;
+		}
+
+		getGalleryPageData(filterQuery, signal)
 			.then((res) => {
 				if (res.response.ok) {
 					setLoading(false);
 					setInstanceCount(res.json.count);
-					setGridItems([...res.json.results]);
+					setGridItems([...gridItems, ...res.json.results]);
+				} else {
+					setLoading(false);
 				}
 			})
 			.catch((err) => {
 				// handle error
+				setLoading(false);
 			});
 	};
 
@@ -297,13 +318,9 @@ function Gallery() {
 
 	useEffect(() => {
 		const controller = new AbortController();
-		if (activetab === "all") {
-			_getGalleryItems(`/`, controller.signal);
-		} else {
-			_getGalleryItems(`/?category=${activetab}`, controller.signal);
-		}
+		_getGalleryItems(controller.signal);
 		return () => controller.abort();
-	}, [activetab]);
+	}, [activetab, searchParams]);
 
 	return (
 		<>
@@ -313,14 +330,9 @@ function Gallery() {
 					<div className="separator"></div>
 					<div className="portfolio__intro__body">Our image gallery includes images of memorable moments captured in several events associated with our company.</div>
 				</div>
-				<CustomTabs tablist={galleryCategories} activetab={activetab} setActivetab={setActivetab} />
-				{loading ? (
-					<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "60px 0 0px 0" }}>
-						<DotLoader />
-					</div>
-				) : isEmpty(gridItems) ? (
-					<EmptyComp>No images</EmptyComp>
-				) : (
+				<CustomTabs tablist={galleryCategories} activetab={activetab} setActivetab={_setActivetab} />
+
+				{!isEmpty(gridItems) && (
 					<>
 						<div className="portfolio__grid-container">
 							{gridItems.map((port, ind) => {
@@ -350,7 +362,22 @@ function Gallery() {
 						</div>
 					</>
 				)}
-				<div>{!isEmpty(gridItems) && <Paging instanceCount={instanceCount} />}</div>
+
+				{!loading && isEmpty(gridItems) && <EmptyComp>No images</EmptyComp>}
+				{isEmpty(gridItems) && loading && (
+					<>
+						<br />
+						<br />
+						<br />
+						<br />
+					</>
+				)}
+				{loading && (
+					<div style={{ marginTop: "-50px", width: "100%", height: "100px", display: "flex", padding: "0px 0 0px 0" }}>
+						<DotLoader />
+					</div>
+				)}
+				<div>{!loading && !isEmpty(gridItems) && <Paging instanceCount={instanceCount} />}</div>
 			</div>
 		</>
 	);

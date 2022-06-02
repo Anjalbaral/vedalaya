@@ -8,6 +8,7 @@ import parse from "html-react-parser";
 import DotLoader from "../components/Reusable/DotLoader";
 import isEmpty from "../helpers/isEmpty";
 import EmptyComp from "../components/Reusable/Empty";
+import Paging from "../components/Reusable/Paging";
 
 const all = [
 	{
@@ -252,6 +253,7 @@ function Portfolio() {
 	const tablist = [{ label: "All", value: "all" }, { label: "Completed", value: "completed" }, { label: "Ongoing", value: "ongoing" }];
 	const [gridItems, setGridItems] = useState([]);
 	const [activetab, setActivetab] = useState("all");
+	const [instanceCount, setInstantCount] = useState(0);
 	const location = useLocation();
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(false);
@@ -262,6 +264,7 @@ function Portfolio() {
 			.then((res) => {
 				if (res.response.ok) {
 					setLoading(false);
+					setInstantCount(res.json.count);
 					setGridItems(res.json.results);
 				}
 			})
@@ -300,13 +303,7 @@ function Portfolio() {
 			</div>
 			<CustomTabs tablist={tablist} activetab={activetab} setActivetab={setActivetab} />
 			<br />
-			{loading ? (
-				<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "40px 0 40px 0" }}>
-					<DotLoader />
-				</div>
-			) : isEmpty(gridItems) ? (
-				<EmptyComp>No any Projects</EmptyComp>
-			) : (
+			{!isEmpty(gridItems) && (
 				<div className="portfolio__grid-container">
 					{gridItems.map((port, ind) => {
 						return (
@@ -330,6 +327,21 @@ function Portfolio() {
 					})}
 				</div>
 			)}
+			{!loading && isEmpty(gridItems) && <EmptyComp>No images</EmptyComp>}
+			{isEmpty(gridItems) && loading && (
+				<>
+					<br />
+					<br />
+					<br />
+					<br />
+				</>
+			)}
+			{loading && (
+				<div style={{ marginTop: "-50px", width: "100%", height: "100px", display: "flex", padding: "0px 0 0px 0" }}>
+					<DotLoader />
+				</div>
+			)}
+			<div>{!loading && !isEmpty(gridItems) && <Paging instanceCount={instanceCount} />}</div>
 		</div>
 	);
 }

@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 // import { getFeatured } from "redux/blogs";
 import { useDispatch } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import BlogCard from "../components/Reusable/BlogCard";
 import { getBlogsData } from "../api/blogs";
 import fireSpark from "../helpers/spark";
+import DotLoader from "../components/Reusable/DotLoader";
+import isEmpty from "../helpers/isEmpty";
+import EmptyComp from "../components/Reusable/Empty";
+import Paging from "../components/Reusable/Paging";
+import Blog from "./Blog";
 
 const BlogsData = [
 	{
@@ -46,14 +52,24 @@ const BlogsData = [
 
 const Blogs = () => {
 	const [Blogs, setBlogs] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
+	const [instanceCount, setInstanceCount] = useState(0);
+	const [searchParams, setSearchParams] = useSearchParams();
 
-	const _getBlogs = (query, signal) => {
-		getBlogsData(query, signal)
+	const _getBlogs = (signal) => {
+		setLoading(true);
+		let currentpage = searchParams.get("page") ? searchParams.get("page") : 1;
+		let pageqry = `page=${currentpage}`;
+		let filterQuery = `/?${pageqry}`;
+
+		getBlogsData(filterQuery, signal)
 			.then((res) => {
 				if (res.response.ok) {
 					setLoading(false);
-					setBlogs(res.json.results);
+					setInstanceCount(res.json.count);
+					setBlogs([...Blogs, ...res.json.results]);
+				} else {
+					fireSpark("error", "Blogs fetch error!");
 				}
 			})
 			.catch((err) => {
@@ -63,28 +79,37 @@ const Blogs = () => {
 
 	useEffect(() => {
 		const controller = new AbortController();
-		_getBlogs("/", controller.signal);
+		_getBlogs(controller.signal);
 		return () => controller.abort();
-	}, []);
+	}, [searchParams]);
 
 	return (
 		<div className="blogs">
 			<div className="blog-container">
 				<div className="">
 					<h2>Explore blogs</h2>
-					{loading ? (
-						<div className="blogs__contain">
-							{new Array(4).map((c, i) => (
-								<BlogCard loading key={i} />
-							))}
-						</div>
-					) : (
+					{!isEmpty(Blogs) && (
 						<div className="blogs__contain">
 							{Blogs.map((blog) => (
-								<BlogCard key={blog} blog={blog} type="blog" />
+								<BlogCard key={blog.id} blog={blog} type="blog" />
 							))}
 						</div>
 					)}
+					{!loading && isEmpty(Blogs) && <EmptyComp>No Any Blogs</EmptyComp>}
+					<br />
+					<br />
+					<br />
+					<div className="divider"></div>
+					<br />
+					<br />
+					<br />
+					<br />
+					{loading && (
+						<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "0px 0 0px 0" }}>
+							<DotLoader />
+						</div>
+					)}
+					<div>{!loading && !isEmpty(Blogs) && <Paging instanceCount={instanceCount} />}</div>
 				</div>
 			</div>
 		</div>

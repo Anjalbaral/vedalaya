@@ -1,6 +1,7 @@
 import React from "react";
 import blogPlaceholder from "../../assets/images/activemenuicon.png";
 import { Link } from "react-router-dom";
+import parse from "html-react-parser";
 
 const BlogCard = ({ blog, type, loading }) => {
 	if (loading) {
@@ -20,27 +21,32 @@ const BlogCard = ({ blog, type, loading }) => {
 		);
 	}
 
+	let blogText = blog && blog.content ? parse(blog.content) : "";
+
 	return (
-		<div className="blog__card">
-			<a>
-				<img
-					id="blogImg"
-					src={blog && blog.cover_image ? blog.cover_image : `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSCcCeM42oBqyEDUbxLF0agTDAxtrr4yfqnGWY6qZYb6RcUEJKNwJfjWxwEbvOsDKAKN4&usqp=CAU`}
-					alt={blog}
-				/>
-			</a>
-			{type && type === "blog" && (
-				<div className="blog__info">
-					<p>{blog && blog.created_at ? blog.created_at.slice(0, 10) : null}</p>
-					<p>&#x2022;</p>
-					<p>.. min read</p>
-				</div>
-			)}
-			<h4>
-				<Link to={"/blog/" + blog.id}>{blog.title}</Link>
-			</h4>
-			<p>{blog.content ? blog.content.slice(0, 120) : ""}</p>
-		</div>
+		<>
+			<div className="blog__card">
+				<a>
+					<img
+						id="blogImg"
+						src={blog && blog.cover_image ? blog.cover_image : `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSCcCeM42oBqyEDUbxLF0agTDAxtrr4yfqnGWY6qZYb6RcUEJKNwJfjWxwEbvOsDKAKN4&usqp=CAU`}
+						alt={blog}
+					/>
+				</a>
+				{type && type === "blog" && (
+					<div className="blog__info">
+						<p>{blog && blog.created_at ? blog.created_at.slice(0, 10) : null}</p>
+						<p>&#x2022;</p>
+						<p>.. min read</p>
+					</div>
+				)}
+				<h4>
+					<Link to={"/blog/" + blog.id}>{blog.title}</Link>
+				</h4>
+				<div className="divider"></div>
+				<p style={{ height: "110px", overflow: "hidden", paddingTop: "5px" }}>{blogText ? blogText.slice(0, 120) : ""}</p>
+			</div>
+		</>
 	);
 };
 

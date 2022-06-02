@@ -2,8 +2,8 @@
 	padding: 0px;
 	margin: 0px;
 	width: 100%;
-	height: 100%;
 	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 @import "side-nav";
@@ -13,9 +13,13 @@
 
 .public-body {
 	width: 100%;
+	min-height: 100vh;
 	overflow-x: hidden;
 	display: flex;
 	flex-direction: column;
+	flex: 1;
+	overflow-y: auto;
+
 	&::-webkit-scrollbar {
 		width: 0px;
 		color: rgba(0, 0, 0, 0.856) $default-dashboard-sidebar-background;

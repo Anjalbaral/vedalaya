@@ -21,6 +21,7 @@ import { BsArrowRight, BsArrowClockwise } from "react-icons/bs";
 import DotLoader from "../components/Reusable/DotLoader";
 import isEmpty from "../helpers/isEmpty";
 import EmptyComp from "../components/Reusable/Empty";
+import Paging from "../components/Reusable/Paging";
 
 const sizes = [{ label: "Small", value: "small", name: "small" }, { label: "Medium", value: "medium", name: "medium" }, { label: "Large", value: "large", name: "large" }];
 const colors = [
@@ -142,6 +143,7 @@ function Products() {
 	const [activeFilters, setActiveFilters] = useState({
 		...defaultFilters
 	});
+	const [instanceCount, setInstanceCount] = useState(0);
 	const [categoryList, setCategoryList] = useState([]);
 	const [productList, setProductList] = useState([]);
 	const navigate = useNavigate();
@@ -155,8 +157,6 @@ function Products() {
 	const [productColors, setProductColors] = useState([]);
 	const [productSizes, setProductSizes] = useState([]);
 	const [productMaterials, setProductMaterials] = useState([]);
-
-	console.log("product colors,product sizes,product materials:", productColors, productSizes, productMaterials);
 
 	const [productData, setProductData] = useState({});
 	const productCover = useSelector((state) => state.main.coverData);
@@ -277,6 +277,7 @@ function Products() {
 			.then((res) => {
 				if (res.response.ok) {
 					setLoading(false);
+					setInstanceCount(res.json.count);
 					setProductList(res.json.results);
 				}
 			})
@@ -490,7 +491,7 @@ function Products() {
 								{!categoryMode &&
 									productList.map((dat, ind) => {
 										return (
-											<div class="card">
+											<div key={ind} class="card">
 												<nav>
 													PRODUCT TYPE : <b style={{ marginLeft: "5px" }}>{dat && dat.materials_details && dat.materials_details[0] ? dat.materials_details[0].name : "unknown"}</b>
 												</nav>
@@ -519,6 +520,13 @@ function Products() {
 									})}
 							</>
 						)}
+					</div>
+					<br />
+					<br />
+					<br />
+					<br />
+					<div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+						{!loading && !categoryMode && !isEmpty(productList) && <Paging instanceCount={instanceCount} />}
 					</div>
 				</div>
 			</div>
