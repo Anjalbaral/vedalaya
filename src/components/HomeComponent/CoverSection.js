@@ -73,6 +73,7 @@ function CoverSection({ data, loading }) {
 			</div>
 		);
 
+	console.log("window.innerWidth", window.innerWidth);
 	return (
 		<Parallax
 			className="cover-parent"
@@ -80,10 +81,10 @@ function CoverSection({ data, loading }) {
 			blur={{ min: -10, max: 10 }}
 			strength={300}
 			bgClassName="parallexComp"
-			bgImageStyle={{ width: isMobile ? "150%" : "100%" }}
+			// bgImageStyle={{ width: isMobile ? "150%" : "100%" }}
 			// bgImage={}
 		>
-			<Background className="custom-bg" style={{ width: window.innerWidth > 1920 && `${window.innerWidth}px` }}>
+			<Background>
 				{sliderData && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0] && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].isVideo ? (
 					<video
 						src={
@@ -91,6 +92,7 @@ function CoverSection({ data, loading }) {
 								? `${CONSTANTS.BASE_URL}${sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].content}`
 								: ""
 						}
+						width={window.innerWidth}
 						autoPlay
 						muted
 						loop

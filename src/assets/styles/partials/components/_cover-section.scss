@@ -1,7 +1,7 @@
 &__cover-section {
 	width: 100%;
-	max-height: 90vh;
-	min-height: 90vh;
+	max-height: 600px;
+	min-height: 600px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -59,8 +59,8 @@
 	&__full-cover-img {
 		min-width: 100%;
 		max-width: 100%;
-		max-height: 90vh;
-		min-height: 90vh;
+		max-height: 100%;
+		min-height: 100%;
 		position: absolute;
 		background-size: 100%;
 		background-repeat: no-repeat;
