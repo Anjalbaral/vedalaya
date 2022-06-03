@@ -249,6 +249,7 @@ function Products() {
 
 	const _search = (e) => {
 		setSearchText(e.target.value);
+		searchParams.set("page", 1);
 		if (e.target.value.length === 0) {
 			searchParams.delete("search");
 		} else {
