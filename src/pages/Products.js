@@ -161,6 +161,7 @@ function Products() {
 	const [productData, setProductData] = useState({});
 	const productCover = useSelector((state) => state.main.coverData);
 	let filteredData = productCover.filter((ac, ind) => ac.on_page === "products");
+	let currentPage = searchParams.get("page") ? searchParams.get("page") : 1;
 
 	useEffect(() => {
 		if (filteredData[0]) {
@@ -170,6 +171,9 @@ function Products() {
 	}, []);
 
 	const _changeFilter = (name, value) => {
+		searchParams.set("page", 1);
+		setSearchParams(searchParams);
+		setProductList([]);
 		setActiveFilters({
 			...activeFilters,
 			[name]: value
@@ -248,6 +252,7 @@ function Products() {
 		if (e.target.value.length === 0) {
 			searchParams.delete("search");
 		} else {
+			setProductList([]);
 			searchParams.set("search", e.target.value);
 		}
 		setSearchParams(searchParams);
@@ -278,7 +283,7 @@ function Products() {
 				if (res.response.ok) {
 					setLoading(false);
 					setInstanceCount(res.json.count);
-					setProductList(res.json.results);
+					setProductList([...productList, ...res.json.results]);
 				}
 			})
 			.catch((err) => {
@@ -305,11 +310,13 @@ function Products() {
 			filterQuery += `&materials=${String(materialIds)}`;
 		}
 
+		let pageQuery = `page=${currentPage}`;
+
 		if (categoryMode) {
 			if (searchText && searchText.length > 0) {
 				// get all products
 				setCategoryMode(false);
-				_getProductItems(`/?search=${searchText}${filterQuery}`, controller.signal);
+				_getProductItems(`/?search=${searchText}${filterQuery}&${pageQuery}`, controller.signal);
 			} else {
 				_getProductCategories("/", controller.signal);
 			}
@@ -317,23 +324,23 @@ function Products() {
 			if (searchText && searchText.length > 0) {
 				// get products with text an category
 				if (activeCategory === null) {
-					_getProductItems(`/?search=${searchText}${filterQuery}`, controller.signal);
+					_getProductItems(`/?search=${searchText}${filterQuery}&${pageQuery}`, controller.signal);
 				} else {
-					_getProductItems(`/?category=${activeCategory}&search=${searchText}${filterQuery}`, controller.signal);
+					_getProductItems(`/?category=${activeCategory}&search=${searchText}${filterQuery}&${pageQuery}`, controller.signal);
 				}
 			} else {
 				// get products with category
 				if (activeCategory === null) {
-					_getProductItems(`/${filterQuery ? filterQuery.substring(1) : ""}`, controller.signal);
+					_getProductItems(`/${filterQuery ? filterQuery.substring(1) : ""}&${pageQuery}`, controller.signal);
 				} else {
-					_getProductItems(`/?category=${activeCategory}${filterQuery}`, controller.signal);
+					_getProductItems(`/?category=${activeCategory}${filterQuery}&${pageQuery}`, controller.signal);
 				}
 			}
 		}
 		return () => {
 			controller.abort();
 		};
-	}, [searchText, activeCategory, categoryMode, activeFilters]);
+	}, [searchText, activeCategory, categoryMode, activeFilters, currentPage]);
 
 	const _reloadCategory = () => {
 		_getProductCategories("/");
@@ -383,6 +390,7 @@ function Products() {
 						onClick={() => {
 							searchParams.delete("category");
 							searchParams.delete("search");
+							searchParams.delete("page");
 							setSearchText("");
 							setActiveCategory(null);
 							setSearchParams(searchParams);
@@ -480,7 +488,46 @@ function Products() {
 						</>
 					)}
 					<div className="products__body__product-list">
-						{loading && !categoryMode ? (
+						{loading && !categoryMode && (
+							<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "60px 0 0px 0" }}>
+								<DotLoader />
+							</div>
+						)}
+
+						{isEmpty(productList) && !categoryMode && !loading && <EmptyComp>No any products</EmptyComp>}
+
+						{!categoryMode &&
+							productList.map((dat, ind) => {
+								return (
+									<div key={ind} class="card">
+										<nav>
+											PRODUCT TYPE : <b style={{ marginLeft: "5px" }}>{dat && dat.materials_details && dat.materials_details[0] ? dat.materials_details[0].name : "unknown"}</b>
+										</nav>
+										<div className="content">
+											<div class="photo">
+												<img src={dat && dat.images_details && dat.images_details[0] ? dat.images_details[0].image : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"} />
+											</div>
+											<div class="description">
+												<h1>{dat && dat.category_str ? dat.category_str : "unknown"}</h1>
+												<h2>{dat && dat.color && dat.color[0] ? dat.color_details[0].name : "none"}</h2>
+												<p>{dat && dat.description ? dat.description : "none"}</p>
+												<div className="button-group">
+													<button
+														onClick={() => {
+															navigate(`/product/${dat.id}`);
+														}}
+														className="btn-primary-outlined"
+													>
+														Details
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								);
+							})}
+
+						{/* {loading && !categoryMode ? (
 							<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "60px 0 0px 0" }}>
 								<DotLoader />
 							</div>
@@ -519,7 +566,7 @@ function Products() {
 										);
 									})}
 							</>
-						)}
+						)} */}
 					</div>
 					<br />
 					<br />

@@ -153,9 +153,10 @@ function CoverSection({ data, loading }) {
 					<div className="home__cover-section__right__image">
 						{sliderData &&
 							sliderData.map((immg, index) => {
-								if(immg.isVideo){
-								return <video key={index} className={`cover-img ${immg.id === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} controls />}else{
-									return <img className={`cover-img ${immg.id === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} />
+								if (immg.isVideo) {
+									return <video key={index} className={`cover-img ${immg.id === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} controls />;
+								} else {
+									return <img className={`cover-img ${immg.id === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} />;
 								}
 							})}
 					</div>

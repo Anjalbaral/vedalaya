@@ -87,7 +87,7 @@ const Blogs = () => {
 		<div className="blogs">
 			<div className="blog-container">
 				<div className="">
-					<h2>Explore blogs</h2>
+					{!isEmpty(Blogs) && <h2>Explore blogs</h2>}
 					{!isEmpty(Blogs) && (
 						<div className="blogs__contain">
 							{Blogs.map((blog) => (
