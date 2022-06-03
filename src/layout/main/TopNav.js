@@ -178,7 +178,7 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 								</div>
 							);
 						})}
-					{activeDialogData && activeDialogData.header === "Gallery" ? (
+					{/* {activeDialogData && activeDialogData.header === "Gallery" ? (
 						<div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row" }}>
 							{activeDialogData.category &&
 								activeDialogData.category.map((im, ind) => {
@@ -189,7 +189,7 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 									);
 								})}
 						</div>
-					) : null}
+					) : null} */}
 					{activeDialogData && activeDialogData.header === "Contact" ? (
 						<div style={{ display: "flex", flexWrap: "wrap", flexDirection: "column" }}>
 							<div className="contact-info">
