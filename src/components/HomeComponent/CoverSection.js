@@ -44,7 +44,7 @@ function CoverSection({ data, loading }) {
 		}
 	];
 
-	const [sliderData, setSliderData] = useState([...sliders]);
+	const [sliderData, setSliderData] = useState([]);
 
 	useEffect(() => {
 		if (data && data.length > 0) {
@@ -66,8 +66,10 @@ function CoverSection({ data, loading }) {
 
 	if (loading)
 		return (
-			<div className="home__cover-section">
-				<DotLoader />
+			<div className="home__cover-section" style={{ alignItems: "flex-start" }}>
+				<div style={{ marginTop: "0px", width: "100%", height: "100px", display: "flex", padding: "60px 0 0px 0" }}>
+					<DotLoader />
+				</div>
 			</div>
 		);
 
@@ -81,7 +83,7 @@ function CoverSection({ data, loading }) {
 			bgImageStyle={{ width: isMobile ? "150%" : "100%" }}
 			// bgImage={}
 		>
-			<Background className="custom-bg">
+			<Background className="custom-bg" style={{ width: window.innerWidth > 1920 && `${window.innerWidth}px` }}>
 				{sliderData && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0] && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].isVideo ? (
 					<video
 						src={
@@ -141,9 +143,11 @@ function CoverSection({ data, loading }) {
 									</div>
 									<div className="cover-info-divider"></div>
 									<div className="cover-info-brief">{infos.content.brief}</div> */}
-									<Link className="btn-primary" to="/products">
-										Learn More
-									</Link>
+									{infos && infos.redirect && (
+										<a className="btn-primary" href={infos.redirect.toString()}>
+											Learn More
+										</a>
+									)}
 								</div>
 							);
 						})}

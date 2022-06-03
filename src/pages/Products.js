@@ -22,6 +22,7 @@ import DotLoader from "../components/Reusable/DotLoader";
 import isEmpty from "../helpers/isEmpty";
 import EmptyComp from "../components/Reusable/Empty";
 import Paging from "../components/Reusable/Paging";
+import parse from "html-react-parser";
 
 const sizes = [{ label: "Small", value: "small", name: "small" }, { label: "Medium", value: "medium", name: "medium" }, { label: "Large", value: "large", name: "large" }];
 const colors = [
@@ -431,7 +432,7 @@ function Products() {
 								<div className="products__body__cat__category-mode__default-item">
 									<div className="home__gallery-section__body__default-item__subitem">
 										<BsArrowClockwise onClick={_reloadCategory} />
-										<p>-- RELOAD --</p>
+										<p>-- reload --</p>
 										<span>All Categories</span>
 										<div className="separator"></div>
 									</div>
@@ -510,8 +511,8 @@ function Products() {
 											</div>
 											<div class="description">
 												<h1>{dat && dat.category_str ? dat.category_str : "unknown"}</h1>
-												<h2>{dat && dat.color && dat.color[0] ? dat.color_details[0].name : "none"}</h2>
-												<p>{dat && dat.description ? dat.description : "none"}</p>
+												<h2 style={{ padding: "5px 0px 5px 0px" }}>{dat && dat.colors && dat.colors[0] ? dat.colors_details[0].name : "none"}</h2>
+												<p>{dat && dat.description ? parse(dat.description.substring(0, 95)) : "none"}</p>
 												<div className="button-group">
 													<button
 														onClick={() => {

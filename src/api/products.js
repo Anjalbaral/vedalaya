@@ -39,3 +39,11 @@ export const getProductMaterials = (query, signal) => {
 		// handle error
 	}
 };
+
+export const getProductDetails = (query, signal) => {
+	try {
+		return pubRequest(`/products/items/${query && query}`, "GET", null, signal);
+	} catch (err) {
+		//    handle error
+	}
+};
