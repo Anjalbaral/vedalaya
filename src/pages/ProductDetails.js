@@ -40,7 +40,7 @@ const ProductDetails = () => {
 		return () => {
 			controller.abort();
 		};
-	}, []);
+	}, [params.id]);
 
 	if (loading) {
 		return (
