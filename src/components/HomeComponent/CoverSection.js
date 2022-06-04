@@ -73,7 +73,6 @@ function CoverSection({ data, loading }) {
 			</div>
 		);
 
-	console.log("window.innerWidth", window.innerWidth);
 	return (
 		<Parallax
 			className="cover-parent"
@@ -126,7 +125,6 @@ function CoverSection({ data, loading }) {
 				<div className="home__cover-section__left">
 					{sliderData &&
 						sliderData.map((infos, index) => {
-							console.log("infos:", infos);
 							return (
 								<div key={index} className={`cover-info ${index + 1 === activeCover ? "cover-info-active" : ""}`}>
 									<div className="cover-info-title">

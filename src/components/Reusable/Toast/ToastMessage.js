@@ -1,5 +1,4 @@
 export const ToastMessage = (type, message) => {
-	console.log(" message ", message);
 	if (type === "error") {
 		return `<div class='errormsg' >${message}</div>`;
 	}

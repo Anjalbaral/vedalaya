@@ -69,7 +69,6 @@ function Faqs({ data, loading }) {
 				{faqList &&
 					faqList.map((fq, ind) => {
 						let isActive = fq.id === activeFaq;
-						console.log("activeFaq:", activeFaq, isActive);
 						return (
 							<div key={ind} className={`home__faqs__body__item`}>
 								<div

@@ -53,7 +53,6 @@ function Contact() {
 		return { isValid, errors };
 	};
 
-	console.log("[contact]errors", errors);
 	const _submit = () => {
 		const { isValid, errors } = validateContactInfo(contactInfo);
 		if (!isValid) {

@@ -348,12 +348,9 @@ function Products() {
 		_getProductCategories("/");
 	};
 
-	console.log("activeCategory:", activeCategory, categoryList);
-
 	let categoryName = "";
 	if (activeCategory && categoryList && categoryList.length > 0) {
 		let cats = categoryList.filter((cl) => cl.id.toString() === activeCategory.toString());
-		console.log("cats:", cats, activeCategory, categoryList);
 		if (cats.length > 0) {
 			categoryName = cats[0].name;
 		}
@@ -510,7 +507,7 @@ function Products() {
 												<img src={dat && dat.images_details && dat.images_details[0] ? dat.images_details[0].image : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"} />
 											</div>
 											<div class="description">
-												<h1>{dat && dat.category_str ? dat.category_str : "unknown"}</h1>
+												<h1>{dat && dat.name ? dat.name : "unknown"}</h1>
 												<h2 style={{ padding: "5px 0px 5px 0px" }}>{dat && dat.colors && dat.colors[0] ? dat.colors_details[0].name : "none"}</h2>
 												<p>{dat && dat.description ? parse(dat.description.substring(0, 95)) : "none"}</p>
 												<div className="button-group">

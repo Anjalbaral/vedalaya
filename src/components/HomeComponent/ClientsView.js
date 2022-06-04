@@ -36,7 +36,6 @@ function ClientsView({ data, loading }) {
 	const [activeSlide, setActiveSlide] = useState(1);
 	const [testimonilsData, setTestimonilsData] = useState([...swiperData]);
 
-	console.log("data here:", data, testimonilsData.length);
 	useEffect(() => {
 		if (data.length > 0) {
 			setTestimonilsData(data);
@@ -82,8 +81,6 @@ function ClientsView({ data, loading }) {
 				</button>
 				{testimonilsData &&
 					testimonilsData.map((data, index) => {
-						console.log("active item:", activeSlide, testimonilsData.length);
-
 						return (
 							<div key={index} className={`slide ${parseInt(index + 1) === parseInt(activeSlide) ? "active" : ""}`}>
 								<img
