@@ -91,7 +91,7 @@ function CoverSection({ data, loading }) {
 								? `${CONSTANTS.BASE_URL}${sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].content}`
 								: ""
 						}
-						width={window.innerWidth}
+						width={isMobile ? window.innerWidth * 3 : window.innerWidth}
 						autoPlay
 						muted
 						loop
