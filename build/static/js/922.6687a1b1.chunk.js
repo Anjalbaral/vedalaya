@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkvedalaya=self.webpackChunkvedalaya||[]).push([[922],{8922:function(a,e,n){n.r(e);n(2791);var s=n(184);e.default=function(){return(0,s.jsx)("div",{className:"notfound",children:(0,s.jsx)("span",{children:"Page Not Found"})})}}}]);
+//# sourceMappingURL=922.6687a1b1.chunk.js.map

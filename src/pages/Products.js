@@ -220,7 +220,7 @@ function Products() {
 		getProductSizes("/", signal)
 			.then((res) => {
 				if (res.response.ok) {
-					setProductSizes(res.json.results.map((pc) => ({ label: `${pc.width}*${pc.hight} ${pc.unit.slice(0, 3)}`, value: pc.id, name: `${pc.width}*${pc.hight}${pc.unit.slice(0, 3)}` })));
+					setProductSizes(res.json.results.map((pc) => ({ label: `${pc.width}*${pc.height} ${pc.unit.slice(0, 3)}`, value: pc.id, name: `${pc.width}*${pc.height}${pc.unit.slice(0, 3)}` })));
 				}
 			})
 			.catch((err) => {
