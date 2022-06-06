@@ -10,6 +10,7 @@ import { MdKeyboardArrowUp } from "react-icons/md";
 import { getCoverData } from "../api/cover";
 import { useDispatch } from "react-redux";
 import { setCoverData } from "../redux/actions";
+// import MessengerCustomerChat from "react-messenger-customer-chat";
 
 function App(props) {
 	const PublicFlow = pubRoutes.map((data, index) => {
@@ -77,6 +78,7 @@ function App(props) {
                     </Suspense>
                 </Dashboard> */}
 			</ScrollToTop>
+			{/* <MessengerCustomerChat pageId={"788174467894650"} appId="334398868816341" /> */}
 		</Wrapper>
 	);
 }

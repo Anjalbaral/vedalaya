@@ -60,6 +60,8 @@ function ClientsView({ data, loading }) {
 		}
 	};
 
+	let isMobile = window.innerWidth < 700;
+
 	if (loading)
 		return (
 			<div className="home__clients-view">
@@ -92,10 +94,13 @@ function ClientsView({ data, loading }) {
 										backgroundColor: "#323232",
 										color: "#7a7979",
 										padding: "1px",
-										width: "100px",
+										minWidth: "100px",
+										maxWidth: "100px",
 										borderRadius: "50%",
-										height: "100px",
-										marginBottom: "10px"
+										minHeight: "100px",
+										maxHeight: "100px",
+										marginBottom: "10px",
+										marginTop: isMobile ? "40px" : "0px"
 									}}
 								/>
 								<b>{data.name}</b>
