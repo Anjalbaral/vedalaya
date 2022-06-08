@@ -21,7 +21,7 @@ const BlogCard = ({ blog, type, loading }) => {
 		);
 	}
 
-	let blogText = blog && blog.content ? parse(blog.content) : "";
+	let blogText = blog && blog.content ? blog.content : "";
 
 	return (
 		<>
@@ -44,7 +44,7 @@ const BlogCard = ({ blog, type, loading }) => {
 					<Link to={"/blog/" + blog.id}>{blog.title}</Link>
 				</h4>
 				<div className="divider"></div>
-				<p style={{ height: "110px", overflow: "hidden", paddingTop: "5px" }}>{blogText ? blogText.slice(0, 120) : ""}</p>
+				<p style={{ height: "110px", overflow: "hidden", paddingTop: "5px" }}>{blogText ? blogText.toString().slice(0, 120) : ""}</p>
 			</div>
 		</>
 	);
