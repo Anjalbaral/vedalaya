@@ -72,7 +72,7 @@ function CoverSection({ data, loading }) {
 				</div>
 			</div>
 		);
-
+	console.log("slider data:", sliderData, sliderData.filter((sf, ind) => ind + 1 === activeCover)[0] && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0], activeCover);
 	return (
 		<Parallax
 			className="cover-parent"
@@ -158,9 +158,9 @@ function CoverSection({ data, loading }) {
 						{sliderData &&
 							sliderData.map((immg, index) => {
 								if (immg.isVideo) {
-									return <video key={index} className={`cover-img ${immg.id === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} controls />;
+									return <video key={index} className={`cover-img ${index + 1 === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} controls />;
 								} else {
-									return <img className={`cover-img ${immg.id === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} />;
+									return <img className={`cover-img ${index + 1 === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} />;
 								}
 							})}
 					</div>
