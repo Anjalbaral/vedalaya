@@ -250,7 +250,7 @@ const completed = [
 ];
 
 function Portfolio() {
-	const tablist = [{ label: "All", value: "all" }, { label: "Completed", value: "completed" }, { label: "Ongoing", value: "ongoing" }];
+	const tablist = [{ label: "All", value: "all" }, { label: "Completed", value: "completed" }, { label: "Ongoing", value: "on_going" }];
 	const [gridItems, setGridItems] = useState([]);
 	const [activetab, setActivetab] = useState("all");
 	const [instanceCount, setInstantCount] = useState(0);
@@ -278,7 +278,7 @@ function Portfolio() {
 		if (activetab === "all") {
 			_getPortfolios("", controller.signal);
 		} else {
-			_getPortfolios(`?search=${activetab}`, controller.signal);
+			_getPortfolios(`?state=${activetab}`, controller.signal);
 		}
 		return () => controller.abort();
 	}, [activetab]);
