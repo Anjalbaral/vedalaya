@@ -163,6 +163,7 @@ function Products() {
 	const productCover = useSelector((state) => state.main.coverData);
 	let filteredData = productCover.filter((ac, ind) => ac.on_page === "products");
 	let currentPage = searchParams.get("page") ? searchParams.get("page") : 1;
+	const { state } = useLocation();
 
 	useEffect(() => {
 		if (filteredData[0]) {
@@ -170,6 +171,15 @@ function Products() {
 			setProductData({ ...filteredData[0], isVideo: isVideo });
 		}
 	}, []);
+
+	// useEffect(() => {
+	// 	if (state && state.isCategory) {
+	// 		setCategoryMode(false);
+	// 		setActiveCategory(state.acCategory);
+	// 	} else {
+	// 		setCategoryMode(true);
+	// 	}
+	// }, [state]);
 
 	const _changeFilter = (name, value) => {
 		searchParams.set("page", 1);
@@ -192,6 +202,7 @@ function Products() {
 			setSearchText(search);
 		}
 		if (categoryParam && categoryParam.length > 0) {
+			setProductList([]);
 			setActiveCategory(categoryParam);
 			setCategoryMode(false);
 		}

@@ -8,16 +8,117 @@ import Main from "./main/Main";
 import Loader from "../components/Reusable/Loader";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { getCoverData } from "../api/cover";
-import { useDispatch } from "react-redux";
 import { setCoverData } from "../redux/actions";
-// import MessengerCustomerChat from "react-messenger-customer-chat";
+import MessengerCustomerChat from "react-messenger-customer-chat";
+import { getHomePageData } from "../api/homepage";
+import { useDispatch, connect } from "react-redux";
+import { setMenuData, setHomeData } from "../redux/actions/home";
+import fireSpark from "../helpers/spark";
+import { setNavItems, setContactDetailsAction } from "../redux/actions";
+import CONSTANTS from "../globals/constant";
+import { getProductCategories } from "../api/products";
+import { getContactDetails } from "../api/others";
 
 function App(props) {
-	const PublicFlow = pubRoutes.map((data, index) => {
-		return <Route path={data.path} exact={data.exact} key={index} element={<data.component {...props} />} />;
-	});
 	const dispatch = useDispatch();
 	const [scrollPosition, setScrollPosition] = useState(0);
+	const [loading, setLoading] = useState(true);
+
+	const PublicFlow = pubRoutes.map((data, index) => {
+		return <Route path={data.path} exact={data.exact} key={index} element={<data.component loading={loading} {...props} />} />;
+	});
+	const [categoryLoaders, setCategoryLoader] = useState(true);
+	const [categoryList, setCategoryList] = useState([]);
+
+	const _getContactDetails = (query, signal) => {
+		getContactDetails(query, signal)
+			.then((res) => {
+				if (res.response.ok) {
+					dispatch(setContactDetailsAction(res.json.results && res.json.results[0] ? res.json.results[0] : {}));
+				}
+			})
+			.catch((err) => {
+				// error handling
+			});
+	};
+
+	const _getProductCategories = (query, signal) => {
+		setCategoryLoader(true);
+		getProductCategories(query, signal)
+			.then((res) => {
+				if (res.response.ok) {
+					setCategoryLoader(false);
+					setCategoryList(
+						res.json.results.map((ci) => {
+							return { title: ci.name, path: `/products?category=${ci.id}`, subcategory: [] };
+						})
+					);
+				} else {
+					setCategoryLoader(false);
+				}
+			})
+			.catch((err) => {
+				setCategoryLoader(false);
+				//  error handling
+			});
+	};
+
+	const setMenuItemsData = (mItems) => {
+		let tempNavItems = [...props.navItems];
+		let currentNavItems = [...mItems];
+
+		props.navItems.forEach((elem, ind) => {
+			let activeIndex = mItems.findIndex((ci) => ci.show_on === elem.identifier);
+			if (activeIndex < 0) return;
+			tempNavItems[ind].content.image = CONSTANTS.BASE_URL + currentNavItems[activeIndex].image;
+			tempNavItems[ind].content.description = currentNavItems[activeIndex].quotation;
+		});
+
+		let productsIndex = tempNavItems.findIndex((ci) => ci.identifier === "products");
+		tempNavItems[productsIndex].content.category = categoryList;
+		dispatch(setNavItems(tempNavItems));
+	};
+
+	const _getHomeData = (signal) => {
+		getHomePageData("", signal)
+			.then((res) => {
+				if (res.response.ok) {
+					res = res.json;
+					setLoading(false);
+					dispatch(setMenuData(res.menu_highlights));
+					// set menu items
+					setMenuItemsData(res.menu_highlights);
+					delete res.menu_highlights;
+					dispatch(setHomeData(res));
+				}
+			})
+			.catch((err) => {
+				// fireSpark("error", err);
+			});
+	};
+
+	useEffect(() => {
+		const controller = new AbortController();
+
+		_getProductCategories("/", controller.signal);
+
+		return () => controller.abort();
+	}, []);
+
+	useEffect(() => {
+		const controller = new AbortController();
+		if (!categoryLoaders) {
+			_getHomeData(controller.signal);
+		}
+
+		return () => controller.abort();
+	}, [categoryList]);
+
+	useEffect(() => {
+		const controller = new AbortController();
+		_getContactDetails("/", controller.signal);
+		return () => controller.abort();
+	}, []);
 
 	const _scrollToTop = () => {
 		window.scrollTo(0, 0);
@@ -78,9 +179,18 @@ function App(props) {
                     </Suspense>
                 </Dashboard> */}
 			</ScrollToTop>
-			{/* <MessengerCustomerChat pageId={"788174467894650"} appId="334398868816341" /> */}
+			<MessengerCustomerChat pageId="102777118875171" appId="902362331163258" />
 		</Wrapper>
 	);
 }
 
-export default App;
+const mapStateToProps = (state) => {
+	return {
+		homeData: state.home.HomeData,
+		menuData: state.home.MenuData,
+		navItems: state.main.navItems,
+		contactDetails: state.main.contactDetails
+	};
+};
+
+export default connect(mapStateToProps)(App);

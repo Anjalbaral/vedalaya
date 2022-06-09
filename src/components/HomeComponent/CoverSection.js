@@ -128,8 +128,8 @@ function CoverSection({ data, loading }) {
 							return (
 								<div key={index} className={`cover-info ${index + 1 === activeCover ? "cover-info-active" : ""}`}>
 									<div className="cover-info-title">
-										<span>{removeLastWord(infos.title)}</span>
-										<span className="highlight">{infos.title.split(" ")[infos.title.split(" ").length - 1]}</span>
+										<span>{infos.title && infos.title.split(" ").length > 1 && removeLastWord(infos.title)}</span>
+										{<span className="highlight">{infos.title.split(" ")[infos.title.split(" ").length - 1]}</span>}
 									</div>
 									<div className="cover-info-brief">{infos && infos.description ? parse(infos.description) : ""}</div>
 									{/* <div className="cover-info-head">

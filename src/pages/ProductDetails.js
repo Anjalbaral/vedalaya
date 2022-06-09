@@ -7,6 +7,7 @@ import { getProductDetails } from "../api/products";
 import fireSpark from "../helpers/spark";
 import parse from "html-react-parser";
 import DotLoader from "../components/Reusable/DotLoader";
+import CONSTANTS from "../globals/constant";
 
 const ProductDetails = () => {
 	const navigate = useNavigate();
@@ -101,7 +102,15 @@ const ProductDetails = () => {
 						<br />
 						<button
 							onClick={() => {
-								navigate("/contact");
+								navigate("/contact", {
+									state: {
+										fromProduct: true,
+										productId: params.id,
+										productName: productDetails && productDetails.name ? productDetails.name : "unknown",
+										queryType: "product",
+										page: `${CONSTANTS.BASE_URL}/product/${params.id}`
+									}
+								});
 							}}
 							className="btn btn-primary rounded"
 						>

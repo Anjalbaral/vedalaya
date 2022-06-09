@@ -6,6 +6,8 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import isEmpty from "../helpers/isEmpty";
 import fireSpark from "../helpers/spark";
 import { submitContactData } from "../api/contact";
+import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const contactDataModal = {
 	name: "",
@@ -17,6 +19,8 @@ const contactDataModal = {
 function Contact() {
 	const [contactInfo, setContactInfo] = useState({ ...contactDataModal });
 	const [errors, setErrors] = useState({});
+	const { state } = useLocation();
+	const contacts = useSelector((state) => state.main.contactDetails);
 
 	const _formDataChange = (e) => {
 		let name = e.target.name;
@@ -65,7 +69,10 @@ function Contact() {
 			name: contactInfo.name,
 			contact: contactInfo.phone,
 			email: contactInfo.email,
-			message: contactInfo.message
+			message: contactInfo.message,
+			for_product: state && state.productId ? state.productId : "",
+			page: state && state.page ? state.page : "",
+			query_type: state && state.fromProduct ? "product" : "contact"
 		};
 
 		submitContactData(requestJson, "")
@@ -95,22 +102,33 @@ function Contact() {
 				<div className="connect-with-us-section__body__content">
 					<div className="connect-with-us-section__body__content__A">
 						<div className="connect-with-us-section__body__content__A__top">
-							<div>
-								<b>Message Us</b>
-								<IoIosArrowRoundForward />
-							</div>
+							{state === null ? (
+								<div>
+									<b>Message Us</b>
+									<IoIosArrowRoundForward />
+								</div>
+							) : (
+								<div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "flex-end", textAlign: "right" }}>
+									<span style={{ opacity: 0.7 }}>Enquiry For:</span>
+									<span>
+										<b style={{ margin: "0px" }}>{state.productName ? state.productName : "Unknown"}</b>
+									</span>
+								</div>
+							)}
 						</div>
 						<div className="connect-with-us-section__body__content__A__bottom">
 							<div className="our-info">
-								<span>If you are looking for a construction company that can provide you with the quality services you need at a price you can afford, contact us today.</span>
+								{state !== null ? null : (
+									<span>If you are looking for a construction company that can provide you with the quality services you need at a price you can afford, contact us today.</span>
+								)}
 							</div>
 							<div className="contact-details">
 								<div className="phone">
-									<span>(+977)9816177889</span>
+									<span>{contacts && contacts.contact_number ? contacts.contact_number : ""}</span>
 									<MdPhone />
 								</div>
 								<div className="email">
-									<span>vedalayatrading@gmail.com</span>
+									<span>{contacts && contacts.contact_email ? contacts.contact_email : ""}</span>
 									<MdMail />
 								</div>
 								<div className="address">
@@ -118,10 +136,28 @@ function Contact() {
 									<MdLocationCity />
 								</div>
 								<div className="socials">
-									<TiSocialLinkedin />
-									<TiSocialInstagram />
-									<TiSocialTwitter />
-									<TiSocialFacebook className="facebook" />
+									<TiSocialInstagram
+										onClick={() => {
+											if (contacts && contacts.instagram) {
+												window.open(contacts.instagram, "_blank");
+											}
+										}}
+									/>
+									<TiSocialTwitter
+										onClick={() => {
+											if (contacts && contacts.twitter) {
+												window.open(contacts.twitter, "_blank");
+											}
+										}}
+									/>
+									<TiSocialFacebook
+										onClick={() => {
+											if (contacts && contacts.facebook) {
+												window.open(contacts.facebook, "_blank");
+											}
+										}}
+										className="facebook"
+									/>
 								</div>
 							</div>
 						</div>

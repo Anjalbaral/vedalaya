@@ -188,131 +188,131 @@ const INITIAL_STATE = {
 				description:
 					"We at Vedalaya Construction and Trading Company are proud to offer our clients a wide range of innovative and modern UPVC products, reinforcements, roofing options, hardware and many more. Our products are manufactured using high-quality materials and innovative technology, which makes them strong and durable. We also have a wide range of options for fitting and installation to ensure that each product is perfect for the individual client. Our commitment to quality and customer satisfaction makes us a benchmark for engineering precision and styling.",
 				category: [
-					{
-						title: "UPVC windows and doors",
-						path: "/products",
-						subcategory: [
-							{
-								title: "Windows",
-								path: "/products"
-							},
-							{
-								title: "Doors",
-								path: "/products"
-							}
-						]
-					},
-					{
-						title: "UPVC roofing and cladding",
-						path: "/products",
-						subcategory: [
-							{
-								title: "UPVC Roofing",
-								path: "/products"
-							},
-							{
-								title: "Stone-coated Roofing",
-								path: "/products"
-							},
-							{
-								title: "MRI Plain Sheet",
-								path: "/products"
-							}
-						]
-					},
-					{
-						title: "UPVC flooring and decking",
-						path: "/products",
-						subcategory: []
-					},
-					{
-						title: "UPVC hardware, tools and accessories",
-						path: "/products",
-						subcategory: [
-							{
-								title: "Po/PU foam Guns",
-								path: "/products"
-							},
-							{
-								title: "UPVC Reinforcement",
-								path: "/products"
-							},
-							{
-								title: "European Handle",
-								path: "/products"
-							},
-							{
-								title: "Door and Window Hinges",
-								path: "/products"
-							},
-							{
-								title: "Moon Lock",
-								path: "/products"
-							},
-							{
-								title: "Normal Lock",
-								path: "/products"
-							},
-							{
-								title: "Roller",
-								path: "/products"
-							},
-							{
-								title: "Construction Screws",
-								path: "/products"
-							},
-							{
-								title: "Clamset",
-								path: "/products"
-							},
-							{
-								title: "Grip screw",
-								path: "/products"
-							},
-							{
-								title: "Gutter Guards",
-								path: "/products"
-							},
-							{
-								title: "Single roller",
-								path: "/products"
-							},
-							{
-								title: "Net roller",
-								path: "/products"
-							}
-						]
-					},
-					{
-						title: "UPVC soffits and fascia",
-						path: "/products",
-						subcategory: []
-					},
-					{
-						title: "UPVC partitions and wall panels",
-						path: "/products",
-						subcategory: []
-					},
-					{
-						title: "Gutters and downspouts",
-						path: "/products",
-						subcategory: []
-					},
-					{
-						title: "Pipes and fittings",
-						path: "/products",
-						subcategory: []
-					},
-					{
-						title: "Electrical conduit",
-						path: "/products",
-						subcategory: []
-					},
-					{
-						title: "UPVC scaffold tubing and finishes",
-						path: "/products",
-						subcategory: []
-					}
+					// {
+					// 	title: "UPVC windows and doors",
+					// 	path: "/products",
+					// 	subcategory: [
+					// 		{
+					// 			title: "Windows",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Doors",
+					// 			path: "/products"
+					// 		}
+					// 	]
+					// },
+					// {
+					// 	title: "UPVC roofing and cladding",
+					// 	path: "/products",
+					// 	subcategory: [
+					// 		{
+					// 			title: "UPVC Roofing",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Stone-coated Roofing",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "MRI Plain Sheet",
+					// 			path: "/products"
+					// 		}
+					// 	]
+					// },
+					// {
+					// 	title: "UPVC flooring and decking",
+					// 	path: "/products",
+					// 	subcategory: []
+					// },
+					// {
+					// 	title: "UPVC hardware, tools and accessories",
+					// 	path: "/products",
+					// 	subcategory: [
+					// 		{
+					// 			title: "Po/PU foam Guns",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "UPVC Reinforcement",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "European Handle",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Door and Window Hinges",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Moon Lock",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Normal Lock",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Roller",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Construction Screws",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Clamset",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Grip screw",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Gutter Guards",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Single roller",
+					// 			path: "/products"
+					// 		},
+					// 		{
+					// 			title: "Net roller",
+					// 			path: "/products"
+					// 		}
+					// 	]
+					// },
+					// {
+					// 	title: "UPVC soffits and fascia",
+					// 	path: "/products",
+					// 	subcategory: []
+					// },
+					// {
+					// 	title: "UPVC partitions and wall panels",
+					// 	path: "/products",
+					// 	subcategory: []
+					// },
+					// {
+					// 	title: "Gutters and downspouts",
+					// 	path: "/products",
+					// 	subcategory: []
+					// },
+					// {
+					// 	title: "Pipes and fittings",
+					// 	path: "/products",
+					// 	subcategory: []
+					// },
+					// {
+					// 	title: "Electrical conduit",
+					// 	path: "/products",
+					// 	subcategory: []
+					// },
+					// {
+					// 	title: "UPVC scaffold tubing and finishes",
+					// 	path: "/products",
+					// 	subcategory: []
+					// }
 				]
 			}
 		},
@@ -411,6 +411,7 @@ const INITIAL_STATE = {
 				description: "If you are looking for a construction company that can provide you with the quality services you need at a price you can afford, contact us today.",
 				path: "/contact",
 				header: "Contact",
+				contacts: {},
 				category: []
 			}
 		},
@@ -492,11 +493,17 @@ const INITIAL_STATE = {
 	activeNav: "/",
 	activeSlide: 1,
 	activeHover: "",
-	coverData: []
+	coverData: [],
+	contactDetails: {}
 };
 
 export default (state = INITIAL_STATE, action) => {
 	switch (action.type) {
+		case Types.SET_CONTACT_DETAILS:
+			let contactsMenuIndex = state.navItems.findIndex((ci) => ci.identifier === "contact");
+			let tempNavItems = state.navItems;
+			tempNavItems[contactsMenuIndex].content.contacts = action.payload;
+			return { ...state, contactDetails: action.payload, navItems: tempNavItems };
 		case Types.SET_COVER_DATA:
 			return { ...state, coverData: action.payload };
 		case Types.SET_NAV_ITEMS:

@@ -41,3 +41,10 @@ export const setCoverData = (data) => {
 		payload: data
 	};
 };
+
+export const setContactDetailsAction = (data) => {
+	return {
+		type: Types.SET_CONTACT_DETAILS,
+		payload: data
+	};
+};

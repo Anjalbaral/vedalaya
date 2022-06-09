@@ -9,60 +9,13 @@ import avatarpng from "../assets/images/avatar.png";
 import Faqs from "../components/HomeComponent/Faqs";
 import OurClients from "../components/HomeComponent/OurClients";
 import AboutCompanyInfo from "../components/HomeComponent/AboutCompanyInfo";
-import { getHomePageData } from "../api/homepage";
-import { useDispatch, connect } from "react-redux";
-import { setMenuData, setHomeData } from "../redux/actions/home";
-import fireSpark from "../helpers/spark";
-import { setNavItems } from "../redux/actions";
-import CONSTANTS from "../globals/constant";
+import { connect } from "react-redux";
 
 function Home({ homeData, menuData, ...rest }) {
-	const [loading, setLoading] = useState(true);
-	const dispatch = useDispatch();
-
-	const setMenuItemsData = (mItems) => {
-		let tempNavItems = [...rest.navItems];
-		let currentNavItems = [...mItems];
-
-		rest.navItems.forEach((elem, ind) => {
-			let activeIndex = mItems.findIndex((ci) => ci.show_on === elem.identifier);
-			if (activeIndex < 0) return;
-			tempNavItems[ind].content.image = CONSTANTS.BASE_URL + currentNavItems[activeIndex].image;
-			tempNavItems[ind].content.description = currentNavItems[activeIndex].quotation;
-		});
-		dispatch(setNavItems(tempNavItems));
-	};
-
-	const _getHomeData = (signal) => {
-		getHomePageData("", signal)
-			.then((res) => {
-				if (res.response.ok) {
-					res = res.json;
-					setLoading(false);
-					dispatch(setMenuData(res.menu_highlights));
-					// set menu items
-					setMenuItemsData(res.menu_highlights);
-					delete res.menu_highlights;
-					dispatch(setHomeData(res));
-				}
-			})
-			.catch((err) => {
-				fireSpark("error", err);
-			});
-	};
-
-	useEffect(() => {
-		const controller = new AbortController();
-
-		_getHomeData(controller.signals);
-
-		return () => controller.abort();
-	}, []);
-
 	return (
 		<div className="home">
 			{/* cover section */}
-			<CoverSection data={homeData.slider_contents} loading={loading} />
+			<CoverSection data={homeData.slider_contents} loading={rest.loading} />
 			{/* separator */}
 			<div className="main-separator">
 				<div></div>
@@ -80,7 +33,7 @@ function Home({ homeData, menuData, ...rest }) {
 				<div></div>
 			</div>
 			{/* image gallery section */}
-			<GallerySection data={homeData.product_category} loading={loading} />
+			<GallerySection data={homeData.product_category} loading={rest.loading} />
 			{/* our clients change to working areas */}
 			<OurClients />
 			<div className="main-separator">
@@ -89,12 +42,12 @@ function Home({ homeData, menuData, ...rest }) {
 			{/* parallex section */}
 			<ParallexSection />
 			{/* clients view section */}
-			<ClientsView data={homeData.testimonials} loading={loading} />
+			<ClientsView data={homeData.testimonials} loading={rest.loading} />
 			{/* add about us section */}
 			<AboutCompanyInfo />
 			{/* add blogs section */}
 			{/* faqs */}
-			<Faqs data={homeData.faqs} loading={loading} />
+			<Faqs data={homeData.faqs} loading={rest.loading} />
 		</div>
 	);
 }

@@ -26,6 +26,8 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 	const [activeDialogData, setActiveDialogData] = useState({});
 	const [activeSubCat, setActiveSubCat] = useState(null);
 
+	console.log("activeDialogData", activeDialogData);
+
 	useEffect(() => {
 		if (location.pathname) {
 			dispatch(changeActiveNav(location.pathname));
@@ -150,6 +152,7 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 						activeDialogData.header === "Products" &&
 						activeDialogData.category &&
 						activeDialogData.category.map((cat, ind) => {
+							console.log("category data:", cat);
 							return (
 								<div className="supcat">
 									<span key={ind}>
@@ -157,9 +160,13 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 										<span onClick={() => _expandCat(ind)} style={{ cursor: "pointer" }}>
 											{cat.title}
 										</span>
-										<Link to={cat.path}>
+										<a
+											onClick={() => {
+												navigate(cat.path);
+											}}
+										>
 											<HiOutlineArrowNarrowRight style={{ fontSize: "20px", marginLeft: "18px", color: "blue", marginTop: "-5px", cursor: "pointer" }} />
-										</Link>
+										</a>
 									</span>
 									{activeSubCat === ind ? (
 										<div className="subcategory">
@@ -195,25 +202,45 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 							<div className="contact-info">
 								<span className="head">Contact info</span>
 								<div className="info-item">
-									<FaMobileAlt /> +977-9816177889
+									<FaMobileAlt /> {activeDialogData && activeDialogData.contacts && activeDialogData.contacts.contact_number ? activeDialogData.contacts.contact_number : ""}
 								</div>
 								<div className="info-item">
-									<MdEmail /> vedalayatrading@gmail.com
+									<MdEmail /> {activeDialogData && activeDialogData.contacts && activeDialogData.contacts.contact_email ? activeDialogData.contacts.contact_email : ""}
 								</div>
 								<div className="info-item">
 									<IoMdLocate /> Town Planning, Sanothimi, Bhaktapur
 								</div>
 							</div>
-							<div className="divider"></div>
 							<div className="social-links">
 								<span className="head">Social Links</span>
-								<div className="info-item">
+								<div
+									className="info-item"
+									onClick={() => {
+										if (activeDialogData && activeDialogData.contacts && activeDialogData.contacts.facebook) {
+											window.open(activeDialogData.contacts.facebook, "_blank");
+										}
+									}}
+								>
 									<AiFillFacebook /> vedalayagroup
 								</div>
-								<div className="info-item">
+								<div
+									className="info-item"
+									onClick={() => {
+										if (activeDialogData && activeDialogData.contacts && activeDialogData.contacts.twitter) {
+											window.open(activeDialogData.contacts.twitter, "_blank");
+										}
+									}}
+								>
 									<AiFillTwitterSquare /> @vedalayagroup
 								</div>
-								<div className="info-item">
+								<div
+									className="info-item"
+									onClick={() => {
+										if (activeDialogData && activeDialogData.contacts && activeDialogData.contacts.instagram) {
+											window.open(activeDialogData.contacts.instagram, "_blank");
+										}
+									}}
+								>
 									<AiFillInstagram /> Vedalaya Group
 								</div>
 							</div>
