@@ -2,12 +2,15 @@ import React from "react";
 import { FaMobileAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoMdLocate } from "react-icons/io";
-import { AiFillInstagram, AiFillTwitterCircle, AiFillFacebook } from "react-icons/ai";
+import { AiFillInstagram, AiFillTwitterCircle, AiFillFacebook, AiOutlineWhatsApp } from "react-icons/ai";
 import { useSelector } from "react-redux";
+import { IoLogoWhatsapp } from "react-icons/io";
 
 function TopInfoNav() {
 	const activeHover = useSelector((state) => state.main.activeHover);
 	const contacts = useSelector((state) => state.main.contactDetails);
+	let contactNo = contacts && contacts.contact_number ? contacts.contact_number.split("+977").join("") : [];
+	let filteredContactNo = contactNo.toString().replace(/-/g, "");
 
 	return (
 		<div className={`public-layout-info-nav ${activeHover && "activeHover"}`}>
@@ -49,6 +52,15 @@ function TopInfoNav() {
 						onClick={() => {
 							if (contacts && contacts.twitter) {
 								window.open(contacts.twitter, "_blank");
+							}
+						}}
+					/>
+				</div>
+				<div className="public-layout-info-nav__right__item">
+					<IoLogoWhatsapp
+						onClick={() => {
+							if (contacts && contacts.contact_number) {
+								window.open(`https://wa.me/${filteredContactNo}`, "_blank");
 							}
 						}}
 					/>

@@ -8,6 +8,7 @@ import fireSpark from "../helpers/spark";
 import { submitContactData } from "../api/contact";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { IoLogoWhatsapp } from "react-icons/io";
 
 const contactDataModal = {
 	name: "",
@@ -95,6 +96,9 @@ function Contact() {
 		return <div style={{ width: "100%", fontSize: "14px", color: "red", fontStyle: "italic", marginLeft: "40px" }}>{msg}</div>;
 	};
 
+	let contactNo = contacts && contacts.contact_number ? contacts.contact_number.split("+977").join("") : [];
+	let filteredContactNo = contactNo.toString().replace(/-/g, "");
+
 	return (
 		<div className="connect-with-us-section">
 			<div className="connect-with-us-section__body">
@@ -147,6 +151,13 @@ function Contact() {
 										onClick={() => {
 											if (contacts && contacts.twitter) {
 												window.open(contacts.twitter, "_blank");
+											}
+										}}
+									/>
+									<IoLogoWhatsapp
+										onClick={() => {
+											if (contacts && contacts.contact_number) {
+												window.open(`https://wa.me/${filteredContactNo}`, "_blank");
 											}
 										}}
 									/>

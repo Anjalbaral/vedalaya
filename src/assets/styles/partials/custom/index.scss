@@ -19,7 +19,11 @@
 	@include media-breakpoint-down(md) {
 		right: 30px;
 	}
-	right: 40px;
+
+	@include media-breakpoint-down(md) {
+		right: 50px;
+	}
+	right: 35px;
 	top: 77%;
 	z-index: 10000;
 	animation: bounce 1s infinite;
