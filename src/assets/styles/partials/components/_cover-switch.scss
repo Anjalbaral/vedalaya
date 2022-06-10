@@ -7,7 +7,7 @@
 	min-height: 50px;
 	max-height: 50px;
 	z-index: 98;
-	top: 85vh;
+	bottom: 20px;
 	@include media-breakpoint-down(md) {
 		margin-top: -50px;
 	}

@@ -20,9 +20,6 @@
 		right: 30px;
 	}
 
-	@include media-breakpoint-down(md) {
-		right: 50px;
-	}
 	right: 35px;
 	top: 77%;
 	z-index: 10000;
