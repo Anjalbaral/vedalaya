@@ -26,8 +26,6 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 	const [activeDialogData, setActiveDialogData] = useState({});
 	const [activeSubCat, setActiveSubCat] = useState(null);
 
-	console.log("activeDialogData", activeDialogData);
-
 	useEffect(() => {
 		if (location.pathname) {
 			dispatch(changeActiveNav(location.pathname));
@@ -152,7 +150,6 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 						activeDialogData.header === "Products" &&
 						activeDialogData.category &&
 						activeDialogData.category.map((cat, ind) => {
-							console.log("category data:", cat);
 							return (
 								<div className="supcat">
 									<span key={ind}>

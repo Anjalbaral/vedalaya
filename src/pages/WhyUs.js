@@ -9,19 +9,47 @@ import Partnership from "../assets/images/partnership-prospects.png";
 import ResearchAndInnovation from "../assets/images/research-and-innovation.png";
 import avatar from "../assets/images/avatar.png";
 import { useSelector } from "react-redux";
+import { getHomePageData } from "../api/homepage";
+import _ from "lodash";
+import CONSTANTS from "../globals/constant";
+import parse from "html-react-parser";
 
 const WhyUs = () => {
 	let isMobile = window.innerWidth < 700;
 	const [whyUsData, setWhyUsData] = useState({});
 	const whyUsCover = useSelector((state) => state.main.coverData);
 	let filteredData = whyUsCover.filter((ac, ind) => ac.on_page === "why_us");
+	const [testimonialsData, setTestimonialsData] = useState({});
+	const [loading, setLoading] = useState(true);
+
+	const _getTestimonialData = (query, signal) => {
+		setLoading(true);
+		getHomePageData(query, signal)
+			.then((res) => {
+				if (res.response.ok) {
+					res = res.json;
+					setLoading(false);
+					let randomItem = res.testimonials ? _.shuffle(res.testimonials)[0] : {};
+					setTestimonialsData(randomItem);
+				}
+			})
+			.catch((err) => {
+				// fireSpark("error", err);
+			});
+	};
+
+	useEffect(() => {
+		const controller = new AbortController();
+		_getTestimonialData("", controller.signal);
+		return () => controller.abort();
+	}, []);
 
 	useEffect(() => {
 		if (filteredData[0]) {
 			let isVideo = filteredData[0].content.slice(-3) === "mp4";
 			setWhyUsData({ ...filteredData[0], isVideo: isVideo });
 		}
-	}, [filteredData]);
+	}, []);
 
 	return (
 		<div className="why-us">
@@ -147,18 +175,17 @@ const WhyUs = () => {
 					</div>
 				</div>
 			</div>
-			<div className="why-us__recomendation">
-				<div className="why-us__recomendation__header">" Vedalaya Group Is Great "</div>
-				<div className="why-us__recomendation__content">
-					Vedalaya is a group of construction and construction materials trading companies that specialize in modern construction methods and materials. Vedalaya Construction Pvt. Ltd. and Vedalaya
-					Trading Pvt. Ltd, are at the forefront of modern and innovative solutions in this field.
+			{testimonialsData ? (
+				<div className="why-us__recomendation">
+					<div className="why-us__recomendation__header">"Vedalaya Group Is Great"</div>
+					<div className="why-us__recomendation__content">{testimonialsData && testimonialsData.description ? parse(testimonialsData.description) : ""}</div>
+					<div className="why-us__recomendation__avatar">
+						<img src={testimonialsData && testimonialsData.logo ? `${CONSTANTS.BASE_URL}${testimonialsData.logo}` : avatar} />
+					</div>
+					<div className="why-us__recomendation__client">{testimonialsData && testimonialsData.name ? testimonialsData.name : ""}</div>
+					<div className="why-us__recomendation__client-info">---</div>
 				</div>
-				<div className="why-us__recomendation__avatar">
-					<img src={avatar} />
-				</div>
-				<div className="why-us__recomendation__client">John Doe</div>
-				<div className="why-us__recomendation__client-info">COORDINATOR, XYZ COMPANY</div>
-			</div>
+			) : null}
 		</div>
 	);
 };

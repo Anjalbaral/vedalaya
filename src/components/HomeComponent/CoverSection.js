@@ -72,7 +72,6 @@ function CoverSection({ data, loading }) {
 				</div>
 			</div>
 		);
-	console.log("slider data:", sliderData, sliderData.filter((sf, ind) => ind + 1 === activeCover)[0] && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0], activeCover);
 	return (
 		<Parallax
 			className="cover-parent"

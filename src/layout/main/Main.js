@@ -3,6 +3,7 @@ import TopNav from "./TopNav";
 import Footer from "./Footer";
 import TopInfoNav from "./TopInfoNav";
 import MobileNav from "./MobileNav";
+import ErrorBoundary from "../../hoc/ErrorBoundry";
 
 function Main(props) {
 	return (
@@ -14,7 +15,9 @@ function Main(props) {
 			{/* mobile nav */}
 			<MobileNav />
 			{/* body */}
-			<div className="public-body">{props.children}</div>
+			<ErrorBoundary>
+				<div className="public-body">{props.children}</div>
+			</ErrorBoundary>
 			{/* footer */}
 			<Footer />
 		</div>
