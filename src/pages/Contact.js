@@ -136,7 +136,7 @@ function Contact() {
 									<MdMail />
 								</div>
 								<div className="address">
-									<span>Town Planning, Sanothimi, Bhaktapur</span>
+									<span>Nikoshera, Madhyapur Thimi</span>
 									<MdLocationCity />
 								</div>
 								<div className="socials">

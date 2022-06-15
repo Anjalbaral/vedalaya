@@ -6,12 +6,19 @@ import BackPattern from "../assets/images/bbb.png";
 import { Link } from "react-router-dom";
 import { RiMessage2Fill } from "react-icons/ri";
 import { useSelector } from "react-redux";
+import { getPageImages } from "../api/others";
+
+const pageImagesTemp = [
+	// "https://hace-software.com/wp-content/uploads/2021/05/iStock-501222552.jpg",
+	// "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+];
 
 function AboutUs() {
 	const [aboutUsData, setAboutUsData] = useState({});
 	let isMobile = window.innerWidth < 700;
 	const aboutUsCover = useSelector((state) => state.main.coverData);
 	let filteredData = aboutUsCover.filter((ac, ind) => ac.on_page === "about");
+	const [pageImages, setPageImages] = useState([...pageImagesTemp]);
 
 	useEffect(() => {
 		if (filteredData[0]) {
@@ -19,6 +26,30 @@ function AboutUs() {
 			setAboutUsData({ ...filteredData[0], isVideo: isVideo });
 		}
 	}, [filteredData]);
+
+	const _getPageImages = (query, signal) => {
+		getPageImages(query, signal)
+			.then((res) => {
+				if (res.response.ok) {
+					if (res.json.results && res.json.results.length > 0) {
+						setPageImages(
+							res.json.results.map((imgg) => {
+								return imgg.image;
+							})
+						);
+					}
+				}
+			})
+			.catch((err) => {
+				// err
+			});
+	};
+
+	useEffect(() => {
+		const controller = new AbortController();
+		_getPageImages("?search=about", controller.signal);
+		return () => controller.abort();
+	}, []);
 
 	return (
 		<>
@@ -95,7 +126,7 @@ function AboutUs() {
 					</div>
 					<div className="about-us__body__our-mission">
 						<div className="about-us__body__our-mission__left">
-							<img src="https://hace-software.com/wp-content/uploads/2021/05/iStock-501222552.jpg" />
+							<img src={`${pageImages[0] ? pageImages[0] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"}`} />
 							{/* <img src="https://hace-software.com/wp-content/uploads/2021/05/iStock-501222552.jpg" /> */}
 						</div>
 						<div className="about-us__body__our-mission__right">
@@ -173,7 +204,12 @@ function AboutUs() {
 							</div>
 						</div>
 						<div className="about-us__body__our-team__right">
-							<div style={{ backgroundImage: `url(https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)` }}></div>
+							<div
+								style={{
+									backgroundImage: `url(${pageImages[1] ? pageImages[1] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+									backgroundRepeat: "no-repeat"
+								}}
+							></div>
 						</div>
 					</div>
 					<div className="about-us__body__future-prospects">

@@ -205,7 +205,8 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 									<MdEmail /> {activeDialogData && activeDialogData.contacts && activeDialogData.contacts.contact_email ? activeDialogData.contacts.contact_email : ""}
 								</div>
 								<div className="info-item">
-									<IoMdLocate /> Town Planning, Sanothimi, Bhaktapur
+									<IoMdLocate />
+									Nikoshera, Madhyapur Thimi
 								</div>
 							</div>
 							<div className="social-links">

@@ -7,3 +7,11 @@ export const getContactDetails = (query, signal) => {
 		// error handling
 	}
 };
+
+export const getPageImages = (query, signal) => {
+	try {
+		return pubRequest(`/content/page_images/${query && query}`, "GET", null, signal);
+	} catch (err) {
+		//    error handling
+	}
+};

@@ -30,7 +30,7 @@ function Footer() {
 					<h4>CONTACT US</h4>
 					<div className="footer__right__item">
 						<IoLocationSharp />
-						<span>Town planning, Sanothimi, Bhaktapur</span>
+						<span>Nikoshera, Madhyapur Thimi</span>
 					</div>
 					<div className="footer__right__item">
 						<ImMobile />

@@ -12,6 +12,7 @@ import commercial2 from "../assets/images/commercial2.jpg";
 import commercial3 from "../assets/images/commercial3.jpg";
 import commercial4 from "../assets/images/commercial4.jpg";
 import commercial5 from "../assets/images/commercial5.jpg";
+import { getPageImages } from "../api/others";
 
 import industrial1 from "../assets/images/industrial1.jpg";
 import industrial2 from "../assets/images/industrial2.jpg";
@@ -24,6 +25,7 @@ const Expertise = () => {
 	const [expertiseData, setExpertiseData] = useState({});
 	const expertiseCover = useSelector((state) => state.main.coverData);
 	let filteredData = expertiseCover.filter((ac, ind) => ac.on_page === "expertise");
+	const [pageImages, setPageImages] = useState([]);
 
 	useEffect(() => {
 		if (filteredData[0]) {
@@ -31,6 +33,30 @@ const Expertise = () => {
 			setExpertiseData({ ...filteredData[0], isVideo: isVideo });
 		}
 	}, [filteredData]);
+
+	const _getPageImages = (query, signal) => {
+		getPageImages(query, signal)
+			.then((res) => {
+				if (res.response.ok) {
+					if (res.json.results && res.json.results.length > 0) {
+						setPageImages(
+							res.json.results.map((imgg) => {
+								return imgg.image;
+							})
+						);
+					}
+				}
+			})
+			.catch((err) => {
+				// err
+			});
+	};
+
+	useEffect(() => {
+		const controller = new AbortController();
+		_getPageImages("?search=expertise", controller.signal);
+		return () => controller.abort();
+	}, []);
 
 	return (
 		<div className="expertise">
@@ -137,10 +163,30 @@ const Expertise = () => {
 				</div>
 				<div className="expertise__sectionB__residental">
 					<div className="expertise__sectionB__residental__left">
-						<div className="residental-image" style={{ backgroundImage: `url(${residental1})` }}></div>
-						<div className="residental-image" style={{ backgroundImage: `url(${residental2})` }}></div>
-						<div className="residental-image" style={{ backgroundImage: `url(${residental3})` }}></div>
-						<div className="residental-image" style={{ backgroundImage: `url(${residental4})` }}></div>
+						<div
+							className="residental-image"
+							style={{
+								backgroundImage: `url(${pageImages[0] ? pageImages[0] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "100%"
+							}}
+						></div>
+						<div
+							className="residental-image"
+							style={{
+								backgroundImage: `url(${pageImages[1] ? pageImages[1] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "100%"
+							}}
+						></div>
+						<div
+							className="residental-image"
+							style={{ backgroundImage: `url(${pageImages[2] ? pageImages[2] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+						></div>
+						<div
+							className="residental-image"
+							style={{ backgroundImage: `url(${pageImages[3] ? pageImages[3] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+						></div>
 					</div>
 					<div className="expertise__sectionB__residental__right">
 						<div className="expertise__sectionB__residental__right__header">Residental</div>
@@ -264,19 +310,43 @@ const Expertise = () => {
 						</div>
 					</div>
 					<div className="expertise__sectionB__commercial__right">
-						<div className="residental-image" style={{ backgroundImage: `url(${commercial1})` }}></div>
-						<div className="residental-image" style={{ backgroundImage: `url(${commercial2})` }}></div>
-						<div className="residental-image" style={{ backgroundImage: `url(${commercial3})` }}></div>
-						<div className="residental-image" style={{ backgroundImage: `url(${commercial4})` }}></div>
-						<div className="residental-image" style={{ backgroundImage: `url(${commercial5})` }}></div>
+						<div
+							className="residental-image"
+							style={{ backgroundImage: `url(${pageImages[4] ? pageImages[4] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+						></div>
+						<div
+							className="residental-image"
+							style={{ backgroundImage: `url(${pageImages[5] ? pageImages[5] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+						></div>
+						<div
+							className="residental-image"
+							style={{ backgroundImage: `url(${pageImages[6] ? pageImages[6] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+						></div>
+						<div
+							className="residental-image"
+							style={{ backgroundImage: `url(${pageImages[7] ? pageImages[7] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+						></div>
+						<div
+							className="residental-image"
+							style={{ backgroundImage: `url(${pageImages[8] ? pageImages[8] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+						></div>
 					</div>
 				</div>
 				<div className="divider"></div>
 				<div className="expertise__sectionB__industrial">
 					<div className="expertise__sectionB__industrial__left">
-						<div className="industrial-image" style={{ backgroundImage: `url(${industrial1})` }}></div>
-						<div className="industrial-image" style={{ backgroundImage: `url(${industrial2})` }}></div>
-						<div className="industrial-image" style={{ backgroundImage: `url(${industrial3})` }}></div>
+						<div
+							className="industrial-image"
+							style={{ backgroundImage: `url(${pageImages[9] ? pageImages[9] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+						></div>
+						<div
+							className="industrial-image"
+							style={{ backgroundImage: `url(${pageImages[10] ? pageImages[10] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+						></div>
+						<div
+							className="industrial-image"
+							style={{ backgroundImage: `url(${pageImages[11] ? pageImages[11] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+						></div>
 						<ul>
 							<li>
 								<span>Control panels:</span>

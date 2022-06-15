@@ -25,7 +25,7 @@ function TopInfoNav() {
 				</div>
 				<div className="public-layout-info-nav__left__item">
 					<IoMdLocate />
-					<span>Town Planning, Sanothimi, Bhaktapur</span>
+					<span>Nikoshera, Madhyapur Thimi</span>
 				</div>
 			</div>
 			<div className="public-layout-info-nav__right">
