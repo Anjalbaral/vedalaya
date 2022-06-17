@@ -37,7 +37,7 @@ function PortfolioDetails() {
 	useEffect(() => {
 		const controller = new AbortController();
 		_getPortfolioDetails(`${params.id}/`, controller.signal);
-		_getPortfolioImages(`images/`, controller.signal);
+		_getPortfolioImages(`images/?portfolio=${params.id}`, controller.signal);
 		return () => controller.abort();
 	}, []);
 
@@ -101,7 +101,13 @@ function PortfolioDetails() {
 					<div className="product-details__body__right__images" style={{ padding: "15px 0px 5px 20px" }}>
 						{portfolioImages && portfolioImages[0]
 							? portfolioImages.map((pi, key) => {
-									return <div onClick={() => window.open(pi.image, "_blank")} className="product-details__body__right__images__image" style={{ backgroundImage: `url(${pi.image})` }}></div>;
+									return (
+										<div
+											onClick={() => window.open(pi.image, "_blank")}
+											className="product-details__body__right__images__image"
+											style={{ backgroundImage: `url(${pi.image})`, backgroundSize: "160%", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}
+										></div>
+									);
 							  })
 							: null}
 					</div>

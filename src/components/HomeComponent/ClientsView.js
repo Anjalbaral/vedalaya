@@ -71,7 +71,7 @@ function ClientsView({ data, loading }) {
 
 	return (
 		<div className="home__clients-view">
-			<div className="home__clients-view__header">TESTIMONILS</div>
+			<div className="home__clients-view__header">TESTIMONIALS</div>
 			<div className="underline-separator">
 				<div className="line"></div>
 				<div className="mid"></div>

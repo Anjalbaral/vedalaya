@@ -58,12 +58,6 @@ function OurClients() {
 				</div>
 				<div className="home__our-clients__clients__client">
 					<div className="home__our-clients__clients__client__top">
-						<RiBuildingFill />
-					</div>
-					<div className="home__our-clients__clients__client__bottom">Rental Retails</div>
-				</div>
-				<div className="home__our-clients__clients__client">
-					<div className="home__our-clients__clients__client__top">
 						<svg
 							height="100px"
 							width="100px"

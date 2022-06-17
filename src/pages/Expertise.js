@@ -168,7 +168,7 @@ const Expertise = () => {
 							style={{
 								backgroundImage: `url(${pageImages[0] ? pageImages[0] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
 								backgroundPosition: "center",
-								backgroundSize: "100%"
+								backgroundSize: "120%"
 							}}
 						></div>
 						<div
@@ -176,16 +176,24 @@ const Expertise = () => {
 							style={{
 								backgroundImage: `url(${pageImages[1] ? pageImages[1] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
 								backgroundPosition: "center",
-								backgroundSize: "100%"
+								backgroundSize: "120%"
 							}}
 						></div>
 						<div
 							className="residental-image"
-							style={{ backgroundImage: `url(${pageImages[2] ? pageImages[2] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+							style={{
+								backgroundImage: `url(${pageImages[2] ? pageImages[2] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "120%"
+							}}
 						></div>
 						<div
 							className="residental-image"
-							style={{ backgroundImage: `url(${pageImages[3] ? pageImages[3] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+							style={{
+								backgroundImage: `url(${pageImages[3] ? pageImages[3] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "120%"
+							}}
 						></div>
 					</div>
 					<div className="expertise__sectionB__residental__right">
@@ -312,23 +320,43 @@ const Expertise = () => {
 					<div className="expertise__sectionB__commercial__right">
 						<div
 							className="residental-image"
-							style={{ backgroundImage: `url(${pageImages[4] ? pageImages[4] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+							style={{
+								backgroundImage: `url(${pageImages[4] ? pageImages[4] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "120%"
+							}}
 						></div>
 						<div
 							className="residental-image"
-							style={{ backgroundImage: `url(${pageImages[5] ? pageImages[5] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+							style={{
+								backgroundImage: `url(${pageImages[5] ? pageImages[5] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "120%"
+							}}
 						></div>
 						<div
 							className="residental-image"
-							style={{ backgroundImage: `url(${pageImages[6] ? pageImages[6] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+							style={{
+								backgroundImage: `url(${pageImages[6] ? pageImages[6] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "120%"
+							}}
 						></div>
 						<div
 							className="residental-image"
-							style={{ backgroundImage: `url(${pageImages[7] ? pageImages[7] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+							style={{
+								backgroundImage: `url(${pageImages[7] ? pageImages[7] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "120%"
+							}}
 						></div>
 						<div
 							className="residental-image"
-							style={{ backgroundImage: `url(${pageImages[8] ? pageImages[8] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+							style={{
+								backgroundImage: `url(${pageImages[8] ? pageImages[8] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "120%"
+							}}
 						></div>
 					</div>
 				</div>
@@ -337,15 +365,27 @@ const Expertise = () => {
 					<div className="expertise__sectionB__industrial__left">
 						<div
 							className="industrial-image"
-							style={{ backgroundImage: `url(${pageImages[9] ? pageImages[9] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+							style={{
+								backgroundImage: `url(${pageImages[9] ? pageImages[9] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "120%"
+							}}
 						></div>
 						<div
 							className="industrial-image"
-							style={{ backgroundImage: `url(${pageImages[10] ? pageImages[10] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+							style={{
+								backgroundImage: `url(${pageImages[10] ? pageImages[10] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "120%"
+							}}
 						></div>
 						<div
 							className="industrial-image"
-							style={{ backgroundImage: `url(${pageImages[11] ? pageImages[11] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`, backgroundPosition: "center" }}
+							style={{
+								backgroundImage: `url(${pageImages[11] ? pageImages[11] : "http://www.artamis.be/wp-content/uploads/2014/04/default_image_01.png"})`,
+								backgroundPosition: "center",
+								backgroundSize: "120%"
+							}}
 						></div>
 						<ul>
 							<li>
