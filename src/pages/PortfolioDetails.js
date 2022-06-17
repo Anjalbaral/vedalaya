@@ -28,7 +28,7 @@ function PortfolioDetails() {
 		getPortfoliosData(query, signal)
 			.then((res) => {
 				if (res.response.ok) {
-					setPortfolioImages(res.json);
+					setPortfolioImages(res.json.results);
 				}
 			})
 			.catch((err) => {});
