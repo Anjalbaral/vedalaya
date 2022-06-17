@@ -219,7 +219,7 @@ function GallerySection({ data, loading }) {
 						)}
 					</div>
 				</div>
-				<div className="home__gallery-section__body__item">
+				{/* <div className="home__gallery-section__body__item">
 					<div
 						className="home__gallery-section__body__item__subitem"
 						style={{ backgroundImage: galleryItems && galleryItems[5] && galleryItems[5].image ? `url(${CONSTANTS.BASE_URL}${galleryItems[5].image})` : `url(${defaultGalleryImage.image})` }}
@@ -243,7 +243,7 @@ function GallerySection({ data, loading }) {
 							</div>
 						)}
 					</div>
-				</div>
+				</div> */}
 			</div>
 			<div className="home__gallery-section__bottom">
 				<Link to="/products" className="btn-primary-outlined">
