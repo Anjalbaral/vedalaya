@@ -73,15 +73,7 @@ function CoverSection({ data, loading }) {
 			</div>
 		);
 	return (
-		<Parallax
-			className="cover-parent"
-			style={{ minWidth: "100%" }}
-			blur={{ min: -10, max: 10 }}
-			strength={300}
-			bgClassName="parallexComp"
-			// bgImageStyle={{ width: isMobile ? "150%" : "100%" }}
-			// bgImage={}
-		>
+		<Parallax className="cover-parent" style={{ minWidth: "100%" }} blur={{ min: -10, max: 10 }} strength={300} bgClassName="parallexComp">
 			<Background>
 				{sliderData && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0] && sliderData.filter((sf, ind) => ind + 1 === activeCover)[0].isVideo ? (
 					<video
@@ -106,8 +98,6 @@ function CoverSection({ data, loading }) {
 				)}
 			</Background>
 			<div className="home__cover-section">
-				{/* <div className="home__cover-section__full-cover-img" style={{ backgroundImage: `url(${sliders.filter((im, ind) => im.id === activeCover)[0].image})` }}></div> */}
-				{/* left arrow */}
 				<div
 					onClick={() => {
 						if (activeCover === 1) {

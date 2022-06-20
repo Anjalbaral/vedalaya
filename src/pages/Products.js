@@ -606,6 +606,7 @@ function Products() {
 						onClick={() => {
 							setActiveFilters({ ...tempFilters });
 							setSearchModal(false);
+							setProductList([]);
 						}}
 						className="btn-primary"
 					>
