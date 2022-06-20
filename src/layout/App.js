@@ -9,7 +9,6 @@ import Loader from "../components/Reusable/Loader";
 import { MdKeyboardArrowUp } from "react-icons/md";
 import { getCoverData } from "../api/cover";
 import { setCoverData } from "../redux/actions";
-import MessengerCustomerChat from "react-messenger-customer-chat";
 import { getHomePageData } from "../api/homepage";
 import { useDispatch, connect } from "react-redux";
 import { setMenuData, setHomeData } from "../redux/actions/home";
@@ -179,7 +178,6 @@ function App(props) {
                     </Suspense>
                 </Dashboard> */}
 			</ScrollToTop>
-			<MessengerCustomerChat pageId="102777118875171" appId="902362331163258" />
 		</Wrapper>
 	);
 }
