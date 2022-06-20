@@ -224,12 +224,12 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 								<div
 									className="info-item"
 									onClick={() => {
-										if (activeDialogData && activeDialogData.contacts && activeDialogData.contacts.twitter) {
-											window.open(activeDialogData.contacts.twitter, "_blank");
+										if (activeDialogData && activeDialogData.contacts && activeDialogData.contacts.instagram) {
+											window.open(activeDialogData.contacts.instagram, "_blank");
 										}
 									}}
 								>
-									<AiFillTwitterSquare /> @vedalayagroup
+									<AiFillInstagram /> vedalaya-group
 								</div>
 								<div
 									className="info-item"

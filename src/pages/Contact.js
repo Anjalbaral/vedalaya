@@ -147,10 +147,10 @@ function Contact() {
 											}
 										}}
 									/>
-									<TiSocialTwitter
+									<TiSocialInstagram
 										onClick={() => {
-											if (contacts && contacts.twitter) {
-												window.open(contacts.twitter, "_blank");
+											if (contacts && contacts.instagram) {
+												window.open(contacts.instagram, "_blank");
 											}
 										}}
 									/>

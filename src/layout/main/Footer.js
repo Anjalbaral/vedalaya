@@ -1,6 +1,6 @@
 import React from "react";
 import bottomlogo from "../../assets/images/bottomlogo.png";
-import { AiFillFacebook, AiFillTwitterSquare, AiFillLinkedin } from "react-icons/ai";
+import { AiFillFacebook, AiFillTwitterSquare, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import { IoLocationSharp, IoMailSharp } from "react-icons/io5";
 import { ImMobile } from "react-icons/im";
 import { useSelector } from "react-redux";
@@ -39,14 +39,14 @@ function Footer() {
 					</div>
 					<div
 						onClick={() => {
-							if (contacts && contacts.twitter) {
-								window.open(contacts.twitter, "_blank");
+							if (contacts && contacts.instagram) {
+								window.open(contacts.instagram, "_blank");
 							}
 						}}
 						className="footer__left__item"
 					>
-						<span>Twitter.com/vedalaya</span>
-						<AiFillTwitterSquare />
+						<span>Instagram.com/vedalaya</span>
+						<AiFillInstagram />
 					</div>
 				</div>
 				<div className="footer__center">
