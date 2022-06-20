@@ -1,7 +1,7 @@
 const App = () => {
 	return (
 		<div>
-			<span>Vedalaya init</span>
+			<span>Vedalaya</span>
 		</div>
 	);
 };
