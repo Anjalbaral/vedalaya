@@ -9,7 +9,6 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
 import { Provider } from "react-redux";
 import Loader from "./components/Reusable/Loader";
-import MessengerCustomerChat from "react-messenger-customer-chat";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,7 +17,6 @@ root.render(
 			<Router history={History}>
 				<PersistGate loading={<Loader />} persistor={persistor}>
 					<App />
-					<MessengerCustomerChat pageId={process.env.REACT_APP_PAGE_ID} appId={process.env.REACT_APP_APP_ID} />
 				</PersistGate>
 			</Router>
 		</Provider>

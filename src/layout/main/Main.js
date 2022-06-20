@@ -15,9 +15,9 @@ function Main(props) {
 			{/* mobile nav */}
 			<MobileNav />
 			{/* body */}
-			<ErrorBoundary>
-				<div className="public-body">{props.children}</div>
-			</ErrorBoundary>
+			{/* <ErrorBoundary> */}
+			<div className="public-body">{props.children}</div>
+			{/* </ErrorBoundary> */}
 			{/* footer */}
 			<Footer />
 		</div>

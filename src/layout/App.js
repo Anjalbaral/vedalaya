@@ -17,6 +17,7 @@ import { setNavItems, setContactDetailsAction } from "../redux/actions";
 import CONSTANTS from "../globals/constant";
 import { getProductCategories } from "../api/products";
 import { getContactDetails } from "../api/others";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 
 function App(props) {
 	const dispatch = useDispatch();
@@ -178,6 +179,7 @@ function App(props) {
                     </Suspense>
                 </Dashboard> */}
 			</ScrollToTop>
+			<MessengerCustomerChat pageId="102777118875171" appId="902362331163258" />
 		</Wrapper>
 	);
 }
