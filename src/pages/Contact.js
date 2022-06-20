@@ -140,10 +140,10 @@ function Contact() {
 									<MdLocationCity />
 								</div>
 								<div className="socials">
-									<TiSocialInstagram
+									<TiSocialLinkedin
 										onClick={() => {
-											if (contacts && contacts.instagram) {
-												window.open(contacts.instagram, "_blank");
+											if (contacts && contacts.linked_in) {
+												window.open(contacts.linked_in, "_blank");
 											}
 										}}
 									/>

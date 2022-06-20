@@ -9,7 +9,7 @@ import { HiMenuAlt3, HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { IoCloseOutline } from "react-icons/io5";
 import { GrFormNextLink } from "react-icons/gr";
 import { MdOutlineCategory } from "react-icons/md";
-import { AiFillFacebook, AiFillTwitterSquare, AiFillInstagram } from "react-icons/ai";
+import { AiFillFacebook, AiFillTwitterSquare, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { FaMobileAlt } from "react-icons/fa";
 import { MdEmail, MdOutlineWorkspaces, MdOutlineSettingsSuggest } from "react-icons/md";
 import { IoMdLocate, IoIosArrowRoundForward, IoMdArrowDropright } from "react-icons/io";
@@ -234,12 +234,12 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 								<div
 									className="info-item"
 									onClick={() => {
-										if (activeDialogData && activeDialogData.contacts && activeDialogData.contacts.instagram) {
-											window.open(activeDialogData.contacts.instagram, "_blank");
+										if (activeDialogData && activeDialogData.contacts && activeDialogData.contacts.linked_in) {
+											window.open(activeDialogData.contacts.linked_in, "_blank");
 										}
 									}}
 								>
-									<AiFillInstagram /> Vedalaya Group
+									<AiFillLinkedin /> Vedalaya Group
 								</div>
 							</div>
 						</div>

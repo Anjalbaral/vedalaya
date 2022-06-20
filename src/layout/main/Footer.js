@@ -1,24 +1,50 @@
 import React from "react";
 import bottomlogo from "../../assets/images/bottomlogo.png";
-import { AiFillFacebook, AiFillTwitterSquare, AiFillInstagram } from "react-icons/ai";
+import { AiFillFacebook, AiFillTwitterSquare, AiFillLinkedin } from "react-icons/ai";
 import { IoLocationSharp, IoMailSharp } from "react-icons/io5";
 import { ImMobile } from "react-icons/im";
+import { useSelector } from "react-redux";
 
 function Footer() {
+	const contacts = useSelector((state) => state.main.contactDetails);
+	let contactNo = contacts && contacts.contact_number ? contacts.contact_number.split("+977").join("") : [];
+	let filteredContactNo = contactNo.toString().replace(/-/g, "");
+
 	return (
 		<>
 			<div className="footer">
 				<div className="footer__left">
 					<h4>GET IN TOUCH</h4>
-					<div className="footer__left__item">
+					<div
+						onClick={() => {
+							if (contacts && contacts.facebook) {
+								window.open(contacts.facebook, "_blank");
+							}
+						}}
+						className="footer__left__item"
+					>
 						<span>Facebook.com/vedalaya</span>
 						<AiFillFacebook />
 					</div>
-					<div className="footer__left__item">
-						<span>Instagram.com/vedalaya</span>
-						<AiFillInstagram />
+					<div
+						onClick={() => {
+							if (contacts && contacts.linked_in) {
+								window.open(contacts.linked_in, "_blank");
+							}
+						}}
+						className="footer__left__item"
+					>
+						<span>Linkedin.com/vedalaya</span>
+						<AiFillLinkedin />
 					</div>
-					<div className="footer__left__item">
+					<div
+						onClick={() => {
+							if (contacts && contacts.twitter) {
+								window.open(contacts.twitter, "_blank");
+							}
+						}}
+						className="footer__left__item"
+					>
 						<span>Twitter.com/vedalaya</span>
 						<AiFillTwitterSquare />
 					</div>
@@ -34,11 +60,11 @@ function Footer() {
 					</div>
 					<div className="footer__right__item">
 						<ImMobile />
-						<span>+977-9851080988</span>
+						<span>{filteredContactNo ? filteredContactNo : "-"}</span>
 					</div>
 					<div className="footer__right__item">
 						<IoMailSharp />
-						<span>vedalayatrading2021@gmail.com</span>
+						<span>{contacts && contacts.contact_email ? contacts.contact_email : ""}</span>
 					</div>
 				</div>
 			</div>

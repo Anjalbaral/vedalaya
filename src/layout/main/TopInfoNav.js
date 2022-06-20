@@ -2,7 +2,7 @@ import React from "react";
 import { FaMobileAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoMdLocate } from "react-icons/io";
-import { AiFillInstagram, AiFillTwitterCircle, AiFillFacebook, AiOutlineWhatsApp } from "react-icons/ai";
+import { AiFillInstagram, AiFillTwitterCircle, AiFillFacebook, AiOutlineWhatsApp, AiFillLinkedin } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { IoLogoWhatsapp } from "react-icons/io";
 
@@ -52,6 +52,15 @@ function TopInfoNav() {
 						onClick={() => {
 							if (contacts && contacts.twitter) {
 								window.open(contacts.twitter, "_blank");
+							}
+						}}
+					/>
+				</div>
+				<div className="public-layout-info-nav__right__item">
+					<AiFillLinkedin
+						onClick={() => {
+							if (contacts && contacts.linked_in) {
+								window.open(contacts.linked_in, "_blank");
 							}
 						}}
 					/>
