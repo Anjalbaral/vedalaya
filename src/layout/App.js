@@ -179,7 +179,7 @@ function App(props) {
                     </Suspense>
                 </Dashboard> */}
 			</ScrollToTop>
-			<MessengerCustomerChat pageId="102777118875171" appId="902362331163258" />
+			{/* <MessengerCustomerChat pageId="102777118875171" appId="902362331163258" /> */}
 		</Wrapper>
 	);
 }
