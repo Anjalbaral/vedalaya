@@ -1,5 +1,5 @@
 import React from "react";
-import { FaMobileAlt } from "react-icons/fa";
+import { FaMobileAlt, FaPinterestSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoMdLocate } from "react-icons/io";
 import { AiFillInstagram, AiFillTwitterCircle, AiFillFacebook, AiOutlineWhatsApp, AiFillLinkedin } from "react-icons/ai";
@@ -61,6 +61,16 @@ function TopInfoNav() {
 						onClick={() => {
 							if (contacts && contacts.linked_in) {
 								window.open(contacts.linked_in, "_blank");
+							}
+						}}
+					/>
+				</div>
+				<div className="public-layout-info-nav__right__item">
+					<FaPinterestSquare
+						style={{ fontSize: "16px" }}
+						onClick={() => {
+							if (contacts && contacts.pinterest) {
+								window.open(contacts.pinterest, "_blank");
 							}
 						}}
 					/>

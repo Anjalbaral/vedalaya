@@ -34,7 +34,7 @@ function AboutUsSection() {
 				{/* HEAD CONTENT SECTION */}
 				<div className="home__about-us__head-content">
 					<span>
-						we specialize in the construction materials trading, the company has a wide range of products that cater to both the construction and manufacturing industries. With a focus on quality and
+						We specialize in the construction materials trading, the company has a wide range of products that cater to both the construction and manufacturing industries. With a focus on quality and
 						customer satisfaction, Vedalaya sets the benchmark in this field.
 					</span>
 				</div>

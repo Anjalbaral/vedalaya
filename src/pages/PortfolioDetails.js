@@ -58,7 +58,7 @@ function PortfolioDetails() {
 					<div className="portfolio-details__content__right__header">{portfolioDetails && portfolioDetails.name ? portfolioDetails.name : "Untitled"}</div>
 					<div className="separator"></div>
 					<div className="portfolio-details__content__right__timeline">
-						<div className="port-item">
+						<div className="port-item" style={{ paddingLeft: "7px" }}>
 							<div className="port-item__title">
 								<div className="port-item__title__dot"></div>
 								<span>started date</span>
@@ -75,13 +75,13 @@ function PortfolioDetails() {
 					</div>
 					<div className="portfolio-details__content__right__project-type">
 						<div className="portfolio-details__content__right__project-type__header">
-							<MdOutlineWork /> <span>project type</span>
+							<MdOutlineWork /> <span>Project type</span>
 						</div>
 						<div className="portfolio-details__content__right__project-type__content">{portfolioDetails && portfolioDetails.project_type ? portfolioDetails.project_type : "unknown"}</div>
 					</div>
 					<div className="portfolio-details__content__right__project-budget">
 						<div className="portfolio-details__content__right__project-budget__header">
-							<MdAttachMoney /> <span>state</span>
+							<MdAttachMoney style={{ marginLeft: "5px" }} /> <span style={{ marginLeft: "4px" }}>State</span>
 						</div>
 						<div className="portfolio-details__content__right__project-budget__content">{portfolioDetails && portfolioDetails.state ? portfolioDetails.state : "unknown"}</div>
 					</div>

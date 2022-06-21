@@ -50,7 +50,7 @@ function Footer() {
 					</div>
 				</div>
 				<div className="footer__center">
-					<img src={bottomlogo} />
+					<img style={{ width: "200px", height: "190px" }} src={bottomlogo} />
 				</div>
 				<div className="footer__right">
 					<h4>CONTACT US</h4>

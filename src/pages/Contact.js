@@ -9,6 +9,7 @@ import { submitContactData } from "../api/contact";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { FaPinterestSquare } from "react-icons/fa";
 
 const contactDataModal = {
 	name: "",
@@ -140,6 +141,13 @@ function Contact() {
 									<MdLocationCity />
 								</div>
 								<div className="socials">
+									<FaPinterestSquare
+										onClick={() => {
+											if (contacts && contacts.pinterest) {
+												window.open(contacts.pinterest, "_blank");
+											}
+										}}
+									/>
 									<TiSocialLinkedin
 										onClick={() => {
 											if (contacts && contacts.linked_in) {
