@@ -23,7 +23,7 @@ function Footer() {
 						}}
 						className="footer__left__item"
 					>
-						<span>Facebook.com/vedalaya</span>
+						<span>{contacts && contacts.facebook ? contacts.facebook : "Facebook.com/vedalaya"}</span>
 						<AiFillFacebook />
 					</div>
 					<div
@@ -34,7 +34,7 @@ function Footer() {
 						}}
 						className="footer__left__item"
 					>
-						<span>Linkedin.com/vedalaya</span>
+						<span>{contacts && contacts.linked_in ? contacts.linked_in : "Linkedin.com/vedalaya"}</span>
 						<AiFillLinkedin />
 					</div>
 					<div
@@ -45,7 +45,7 @@ function Footer() {
 						}}
 						className="footer__left__item"
 					>
-						<span>Instagram.com/vedalaya</span>
+						<span>{contacts && contacts.instagram ? contacts.instagram : "Instagram.com/vedalaya"}</span>
 						<AiFillInstagram />
 					</div>
 				</div>

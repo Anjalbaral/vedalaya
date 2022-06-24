@@ -121,17 +121,6 @@ function CoverSection({ data, loading }) {
 										{<span className="highlight">{infos.title.split(" ")[infos.title.split(" ").length - 1]}</span>}
 									</div>
 									<div className="cover-info-brief">{infos && infos.description ? parse(infos.description) : ""}</div>
-									{/* <div className="cover-info-head">
-										<span className="highlight">Vedalaya Group</span>
-										<span>expertize on</span>
-									</div>
-
-									<div className="cover-info-title">
-										<span>{removeLastWord(infos.content.title)}</span>
-										<span className="highlight">{infos.content.title.split(" ")[infos.content.title.split(" ").length - 1]}</span>
-									</div>
-									<div className="cover-info-divider"></div>
-									<div className="cover-info-brief">{infos.content.brief}</div> */}
 									{infos && infos.redirect && (
 										<a className="btn-primary" href={infos.redirect.toString()}>
 											Learn More
@@ -147,7 +136,7 @@ function CoverSection({ data, loading }) {
 						{sliderData &&
 							sliderData.map((immg, index) => {
 								if (immg.isVideo) {
-									return <video key={index} className={`cover-img ${index + 1 === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} controls />;
+									return <video key={index} className={`cover-img ${index + 1 === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} controls autoPlay muted />;
 								} else {
 									return <img className={`cover-img ${index + 1 === activeCover ? "cover-active" : ""}`} src={`${CONSTANTS.BASE_URL}${immg.content}`} />;
 								}
@@ -174,7 +163,7 @@ function CoverSection({ data, loading }) {
 				</div>
 
 				{/* cover slider switch */}
-				<CoverRadioSwitch />
+				<CoverRadioSwitch sliderData={sliderData} />
 			</div>
 		</Parallax>
 	);

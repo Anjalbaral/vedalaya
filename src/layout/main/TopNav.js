@@ -219,7 +219,7 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 										}
 									}}
 								>
-									<AiFillFacebook /> vedalayagroup
+									<AiFillFacebook /> {activeDialogData && activeDialogData.contacts && activeDialogData.contacts.facebook ? activeDialogData.contacts.facebook : "vedalayagroup"}
 								</div>
 								<div
 									className="info-item"
@@ -229,7 +229,8 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 										}
 									}}
 								>
-									<AiFillInstagram /> vedalaya-group
+									<AiFillInstagram />
+									{activeDialogData && activeDialogData.contacts && activeDialogData.contacts.instagram ? activeDialogData.contacts.instagram : "vedalaya-group"}
 								</div>
 								<div
 									className="info-item"
@@ -239,7 +240,7 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 										}
 									}}
 								>
-									<AiFillLinkedin /> Vedalaya Group
+									<AiFillLinkedin /> {activeDialogData && activeDialogData.contacts && activeDialogData.contacts.linked_in ? activeDialogData.contacts.linked_in : "Vedalaya Group"}
 								</div>
 								<div
 									className="info-item"
@@ -249,7 +250,8 @@ function TopNav({ navItems, activeNav, activeHover, menuData }) {
 										}
 									}}
 								>
-									<FaPinterestSquare /> vedalaya group
+									<FaPinterestSquare />
+									{activeDialogData && activeDialogData.contacts && activeDialogData.contacts.pinterest ? activeDialogData.contacts.pinterest : "vedalaya group"}
 								</div>
 							</div>
 						</div>

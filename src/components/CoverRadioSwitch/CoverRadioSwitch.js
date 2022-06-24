@@ -5,7 +5,7 @@ import { changeActiveSlide } from "../../redux/actions";
 import { connect, useDispatch } from "react-redux";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 
-function CoverRadioSwitch({ activeSlide, ...rest }) {
+function CoverRadioSwitch({ activeSlide, ...props }) {
 	const cover_sliders_radio = [
 		{
 			id: 1,
@@ -37,17 +37,17 @@ function CoverRadioSwitch({ activeSlide, ...rest }) {
 
 	return (
 		<div className="cover-switch">
-			{/* <div className="cover-switch__left">
+			<div className="cover-switch__left">
 				<IoIosArrowRoundBack
 					onClick={() => {
 						if (activeSlide === 1) {
-							_setCoverSlider(5);
+							_setCoverSlider(props.sliderData.length);
 						} else {
 							_setCoverSlider(activeSlide - 1);
 						}
 					}}
 				/>
-			</div> */}
+			</div>
 			{cover_sliders_radio.map((btn, index) => {
 				return (
 					<div
@@ -61,17 +61,17 @@ function CoverRadioSwitch({ activeSlide, ...rest }) {
 					</div>
 				);
 			})}
-			{/* <div className="cover-switch__right">
+			<div className="cover-switch__right">
 				<IoIosArrowRoundForward
 					onClick={() => {
-						if (activeSlide === 5) {
+						if (activeSlide === props.sliderData.length) {
 							_setCoverSlider(1);
 						} else {
 							_setCoverSlider(activeSlide + 1);
 						}
 					}}
 				/>
-			</div> */}
+			</div>
 		</div>
 	);
 }
