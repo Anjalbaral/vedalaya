@@ -190,7 +190,7 @@ function AboutUs() {
 						<div className="about-us__body__our-team__left">
 							<div className="about-us__body__our-team__left__header">Our Team</div>
 							<div className="separator"></div>
-							<div className="about-us__body__our-team__left__body">
+							<div className="about-us__body__our-team__left__body" style={{ textAlign: "justify" }}>
 								The founder of Vedalaya Construction and Trading Company, Mr. Jaya Ram Aryal, has a long and successful history in the construction and trading industry. Beginning with a background in
 								construction, Mr. Aryal has worked his way up to leading one of the most successful construction and trading firms in Nepal, Kshamadevi Group. With more than two decades of experience
 								in the field, he has the knowledge and expertise to oversee all aspects of Vedalaya Construction and Trading Company. From construction to marketing and sales, Mr. Aryal is dedicated
