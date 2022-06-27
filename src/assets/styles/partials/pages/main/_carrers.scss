@@ -1,0 +1,16 @@
+.careers {
+	padding: 100px 110px 100px 110px;
+	@include media-breakpoint-down(md) {
+		padding: 100px 20px 100px 20px;
+	}
+
+	.careers-container {
+		display: flex;
+		flex-direction: column;
+
+		h2 {
+			color: $default-primary-color-bold;
+			font-weight: $font-weight-heavy-bold;
+		}
+	}
+}

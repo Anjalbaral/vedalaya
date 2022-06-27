@@ -10,6 +10,7 @@ import glutter from "../../assets/images/glutter.jpg";
 import pipes from "../../assets/images/pipes.jpg";
 import CONSTANTS from "../../globals/constant";
 import DotLoader from "../Reusable/DotLoader";
+import parse from "html-react-parser";
 
 const defaultGalleryImage = {
 	id: 0,
@@ -110,10 +111,13 @@ function GallerySection({ data, loading }) {
 									<img src={activemenuicon} />
 								</div>
 								<div className="content__body">
-									<span className="title">{galleryItems && galleryItems[0] && galleryItems[0].name ? `${galleryItems[0].name}` : `unknown`}</span>
-									<div className="separator"></div>
+									<span className="title" id="tit">
+										{galleryItems && galleryItems[0] && galleryItems[0].name ? `${galleryItems[0].name}` : `unknown`}
+									</span>
+									<span className="desc">{galleryItems && galleryItems[0] && galleryItems[0].description ? parse(galleryItems[0].description) : ""}</span>
+									<div className="separator" id="sep"></div>
 									{galleryItems && galleryItems[0] && (
-										<Link to="/products" className="redirect">
+										<Link to="/products" id="vitm" className="redirect">
 											view items
 											<CgArrowLongRight style={{ fontSize: "20px" }} />
 										</Link>
@@ -133,10 +137,13 @@ function GallerySection({ data, loading }) {
 									<img src={activemenuicon} />
 								</div>
 								<div className="content__body">
-									<span className="title">{galleryItems && galleryItems[1] && galleryItems[1].name ? `${galleryItems[1].name}` : `unknown`}</span>
-									<div className="separator"></div>
+									<span className="title" id="tit">
+										{galleryItems && galleryItems[1] && galleryItems[1].name ? `${galleryItems[1].name}` : `unknown`}
+									</span>
+									<span className="desc">{galleryItems && galleryItems[1] && galleryItems[1].description ? parse(galleryItems[1].description) : ""}</span>
+									<div className="separator" id="sep"></div>
 									{galleryItems && galleryItems[1] && (
-										<Link to="/products" className="redirect">
+										<Link to="/products" id="vitm" className="redirect">
 											view items
 											<CgArrowLongRight style={{ fontSize: "20px" }} />
 										</Link>
@@ -158,10 +165,13 @@ function GallerySection({ data, loading }) {
 									<img src={activemenuicon} />
 								</div>
 								<div className="content__body">
-									<span className="title">{galleryItems && galleryItems[2] && galleryItems[2].name ? `${galleryItems[2].name}` : `unknown`}</span>
-									<div className="separator"></div>
+									<span className="title" id="tit">
+										{galleryItems && galleryItems[2] && galleryItems[2].name ? `${galleryItems[2].name}` : `unknown`}
+									</span>
+									<span className="desc">{galleryItems && galleryItems[2] && galleryItems[2].description ? parse(galleryItems[2].description) : ""}</span>
+									<div className="separator" id="sep"></div>
 									{galleryItems && galleryItems[2] && (
-										<Link to="/products" className="redirect">
+										<Link to="/products" id="vitm" className="redirect">
 											view items
 											<CgArrowLongRight style={{ fontSize: "20px" }} />
 										</Link>
@@ -183,10 +193,13 @@ function GallerySection({ data, loading }) {
 									<img src={activemenuicon} />
 								</div>
 								<div className="content__body">
-									<span className="title">{galleryItems && galleryItems[3] && galleryItems[3].name ? `${galleryItems[3].name}` : `unknown`}</span>
-									<div className="separator"></div>
+									<span className="title" id="tit">
+										{galleryItems && galleryItems[3] && galleryItems[3].name ? `${galleryItems[3].name}` : `unknown`}
+									</span>
+									<span className="desc">{galleryItems && galleryItems[3] && galleryItems[3].description ? parse(galleryItems[3].description) : ""}</span>
+									<div className="separator" id="sep"></div>
 									{galleryItems && galleryItems[3] && (
-										<Link to="/products" className="redirect">
+										<Link to="/products" id="vitm" className="redirect">
 											view items
 											<CgArrowLongRight style={{ fontSize: "20px" }} />
 										</Link>
@@ -206,10 +219,13 @@ function GallerySection({ data, loading }) {
 									<img src={activemenuicon} />
 								</div>
 								<div className="content__body">
-									<span className="title">{galleryItems && galleryItems[4] && galleryItems[4].name ? `${galleryItems[4].name}` : `unknown`}</span>
-									<div className="separator"></div>
+									<span className="title" id="tit">
+										{galleryItems && galleryItems[4] && galleryItems[4].name ? `${galleryItems[4].name}` : `unknown`}
+									</span>
+									<span className="desc">{galleryItems && galleryItems[4] && galleryItems[4].description ? parse(galleryItems[4].description) : ""}</span>
+									<div className="separator" id="sep"></div>
 									{galleryItems && galleryItems[4] && (
-										<Link to="/products" className="redirect">
+										<Link to="/products" id="vitm" className="redirect">
 											view items
 											<CgArrowLongRight style={{ fontSize: "20px" }} />
 										</Link>

@@ -15,3 +15,11 @@ export const getPageImages = (query, signal) => {
 		//    error handling
 	}
 };
+
+export const getCareers = (query, signal) => {
+	try {
+		return pubRequest(`/content/career/${query && query}`, "GET", null, signal);
+	} catch (err) {
+		//    error handling
+	}
+};

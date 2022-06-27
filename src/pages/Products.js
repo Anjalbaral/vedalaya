@@ -460,8 +460,11 @@ function Products() {
 															<img src={activemenuicon} />
 														</div>
 														<div className="content__body">
-															<span className="title">{dat && dat.name ? dat.name : `unknown`}</span>
-															<div className="separator"></div>
+															<span className="title" id="tit">
+																{dat && dat.name ? dat.name : `unknown`}
+															</span>
+															<span className="desc">{dat && dat.description ? parse(dat.description) : ""}</span>
+															<div className="separator" id="sep"></div>
 															{dat && (
 																<span
 																	onClick={() => {
@@ -471,6 +474,7 @@ function Products() {
 																		setSearchParams(searchParams);
 																	}}
 																	className="redirect"
+																	id="vitm"
 																>
 																	view items
 																	<CgArrowLongRight style={{ fontSize: "20px" }} />

@@ -1,0 +1,55 @@
+.career-card {
+	display: flex;
+	margin: 15px 0px 15px 0px;
+	flex-direction: row;
+	@include media-breakpoint-down(md) {
+		flex-direction: column;
+	}
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	// box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	width: 100%;
+	min-height: 300px;
+	flex: 1;
+	padding: 10px 0px 10px 0px;
+
+	&__left {
+		display: flex;
+		flex: 0.3;
+		width: 100%;
+		@include media-breakpoint-down(md) {
+			min-height: 300px;
+			flex: 1;
+			width: 100%;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__right {
+		padding: 15px;
+		display: flex;
+		flex-direction: column;
+		flex: 0.6;
+
+		h3 {
+			font-weight: $font-weight-bold;
+		}
+		div {
+			p {
+				font-size: $display-font-size-10;
+				opacity: 0.7;
+			}
+		}
+
+		.gotolink {
+			a {
+				color: blue;
+				svg {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}

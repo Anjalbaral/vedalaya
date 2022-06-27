@@ -20,6 +20,9 @@ const Expertise = React.lazy(() => import("../pages/Expertise"));
 const Areas = React.lazy(() => import("../pages/Areas"));
 const Services = React.lazy(() => import("../pages/Services"));
 
+const Careers = React.lazy(() => import("../pages/Careers"));
+const Career = React.lazy(() => import("../pages/Career"));
+
 const pubRoutes = [
 	{
 		path: "/",
@@ -104,6 +107,18 @@ const pubRoutes = [
 		exact: true,
 		name: "Portfolio Details",
 		component: PortfolioDetails
+	},
+	{
+		path: "/Careers",
+		exact: true,
+		name: "Careers",
+		component: Careers
+	},
+	{
+		path: "/Career/:id",
+		exact: true,
+		name: "Career",
+		component: Career
 	},
 	{
 		path: "*",

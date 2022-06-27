@@ -4,6 +4,8 @@ import { AiFillFacebook, AiFillTwitterSquare, AiFillLinkedin, AiFillInstagram } 
 import { IoLocationSharp, IoMailSharp } from "react-icons/io5";
 import { ImMobile } from "react-icons/im";
 import { useSelector } from "react-redux";
+import { FaPinterestSquare } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Footer() {
 	const contacts = useSelector((state) => state.main.contactDetails);
@@ -48,6 +50,17 @@ function Footer() {
 						<span>{contacts && contacts.instagram ? contacts.instagram : "Instagram.com/vedalaya"}</span>
 						<AiFillInstagram />
 					</div>
+					<div
+						onClick={() => {
+							if (contacts && contacts.instagram) {
+								window.open(contacts.instagram, "_blank");
+							}
+						}}
+						className="footer__left__item"
+					>
+						<span>{contacts && contacts.pinterest ? contacts.pinterest : "Pinterest.com/vedalaya"}</span>
+						<FaPinterestSquare />
+					</div>
 				</div>
 				<div className="footer__center">
 					<img style={{ width: "200px", height: "190px" }} src={bottomlogo} />
@@ -65,6 +78,11 @@ function Footer() {
 					<div className="footer__right__item">
 						<IoMailSharp />
 						<span>{contacts && contacts.contact_email ? contacts.contact_email : ""}</span>
+					</div>
+					<div className="footer__right__item" style={{ width: "250px" }}>
+						<Link to="/careers" className="btn btn-secondary-2" style={{ width: "100%" }}>
+							Careers
+						</Link>
 					</div>
 				</div>
 			</div>

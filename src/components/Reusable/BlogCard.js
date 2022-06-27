@@ -21,7 +21,7 @@ const BlogCard = ({ blog, type, loading }) => {
 		);
 	}
 
-	let blogText = blog && blog.content ? blog.content : "";
+	let blogText = blog && blog.sub_title ? blog.sub_title : "";
 
 	return (
 		<>

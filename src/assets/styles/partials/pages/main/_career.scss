@@ -1,0 +1,132 @@
+.career {
+	padding: 50px 110px 50px 110px;
+	background: $interested-gradient-bg;
+	@include media-breakpoint-down(md) {
+		padding: 50px 20px 50px 20px;
+	}
+
+	.interested {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+
+		@include media-breakpoint-up(lg) {
+			padding-top: 5rem;
+			padding-bottom: 5rem;
+		}
+
+		@include media-breakpoint-down(lg) {
+			margin-top: 1rem;
+		}
+
+		&__wrapper {
+			@include make-row();
+		}
+
+		&__job {
+			@include make-col-ready();
+			@include make-col(12);
+
+			@include media-breakpoint-up(lg) {
+				@include make-col(12);
+			}
+		}
+
+		&__apply {
+			@include make-col-ready();
+			@include make-col(12);
+
+			@include media-breakpoint-up(lg) {
+				@include make-col(3);
+				@include make-col-offset(1);
+			}
+		}
+	}
+
+	.interested-job {
+		.wrap {
+			display: flex;
+			@include media-breakpoint-down(md) {
+				flex-direction: column-reverse;
+				width: 100%;
+			}
+			width: 100%;
+		}
+		&__image {
+			width: 100%;
+			@include media-breakpoint-down(md) {
+				min-height: 400px;
+			}
+			height: 400px;
+			background-position: center;
+			background-size: 100%;
+			background-repeat: no-repeat;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			align-items: center;
+			justify-content: center;
+		}
+		&__title {
+			@extend .display-5;
+			font-weight: $font-weight-bold;
+
+			@include media-breakpoint-down(lg) {
+				font-size: $display-font-size-6;
+			}
+		}
+
+		&__location {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			font-size: 5px;
+			&__title {
+				font-size: 15px;
+				font-weight: $font-weight-bold;
+				color: black;
+				svg {
+					margin-right: 5px;
+					font-size: 20px;
+				}
+
+				@include media-breakpoint-down(lg) {
+					font-size: $font-size-sm;
+				}
+			}
+
+			&__address {
+				font-weight: $font-weight-normal;
+				font-size: 15px;
+				display: flex;
+				div {
+					width: 25px;
+				}
+
+				@include media-breakpoint-down(lg) {
+					font-size: $font-size-base;
+				}
+			}
+		}
+
+		&__section {
+			margin-top: 2rem;
+
+			@include media-breakpoint-up(lg) {
+				margin-top: 2rem;
+			}
+
+			&__header {
+				font-size: $display-font-size-8;
+				font-weight: $font-weight-bold;
+				margin-bottom: 1rem;
+
+				@include media-breakpoint-up(lg) {
+					font-size: $display-font-size-8;
+				}
+			}
+
+			&__content {
+			}
+		}
+	}
+}
