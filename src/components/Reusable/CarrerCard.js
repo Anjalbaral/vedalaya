@@ -22,13 +22,14 @@ const CareerCard = ({ career, loading }) => {
 					}}
 				></div>
 				<div className="career-card__right">
-					<span style={{ borderBottomStyle: "solid", borderBottomWidth: "1px", paddingBottom: "3px", marginBottom: "3px", borderColor: "rgba(0,0,0,0.1)", opacity: "0.5" }}>
-						location : <b>{career.location ? career.location : "-"}</b>
-					</span>
 					<h3>{career.title ? career.title : "Untitled"}</h3>
+
 					<p style={{ opacity: 0.7 }}>
-						required number - <b>{career.number_of_vacancies ? career.number_of_vacancies : 0}</b>
+						Number of Positions : <b>{career.number_of_vacancies ? career.number_of_vacancies : 0}</b>
 					</p>
+					<span style={{ borderBottomStyle: "solid", borderBottomWidth: "1px", paddingBottom: "3px", marginBottom: "3px", borderColor: "rgba(0,0,0,0.1)", opacity: "0.5" }}>
+						Location : <b>{career.location ? career.location : "-"}</b>
+					</span>
 					<br />
 					<div>
 						<p style={{ height: "150px", overflow: "hidden", paddingTop: "5px" }}>{careerText ? parse(careerText) : ""}</p>
