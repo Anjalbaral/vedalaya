@@ -25,27 +25,38 @@ let careersData = [
 
 function Careers() {
 	const [careers, setCareers] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const [instanceCount, setInstanceCount] = useState(0);
+	const [searchParams, setSearchParams] = useSearchParams();
 
 	const _getCareers = (query, signal) => {
-		setLoading(true);
 		getCareers(query, signal)
 			.then((res) => {
 				if (res.response.ok) {
 					setLoading(false);
-					setCareers(res.json.results);
+					setCareers([...careers, ...res.json.results]);
 					setInstanceCount(res.json.count);
+				} else {
+					setLoading(false);
 				}
 			})
-			.catch((err) => {});
+			.catch((err) => {
+				setLoading(false);
+			});
 	};
 
 	useEffect(() => {
 		const controller = new AbortController();
-		_getCareers("", controller.signal);
+		let currentpage = searchParams.get("page") ? searchParams.get("page") : 1;
+		let pageqry = `page=${currentpage}`;
+		let filterQuery = "";
+		if (currentpage) {
+			filterQuery = `?${pageqry}`;
+		}
+
+		_getCareers(filterQuery, controller.signal);
 		return () => controller.abort();
-	}, []);
+	}, [searchParams]);
 
 	if (loading)
 		return (
@@ -56,7 +67,7 @@ function Careers() {
 	return (
 		<div className="careers">
 			<div className="careers-container">
-				<h2>Careers page</h2>
+				<h2>Careers</h2>
 				<br />
 				<div className="career-items">
 					{careers.map((cd) => {
