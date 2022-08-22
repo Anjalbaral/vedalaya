@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaMobileAlt, FaPinterestSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoMdLocate } from "react-icons/io";
@@ -27,6 +27,7 @@ function TopInfoNav() {
 					<IoMdLocate />
 					<span>Nikoshera, Madhyapur Thimi</span>
 				</div>
+				<div className="public-layout-info-nav__left__item" id="google_translate_element"></div>
 			</div>
 			<div className="public-layout-info-nav__right">
 				<div className="public-layout-info-nav__right__item">
