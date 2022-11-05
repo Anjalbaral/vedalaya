@@ -115,7 +115,7 @@ function CoverSection({ data, loading }) {
 					{sliderData &&
 						sliderData.map((infos, index) => {
 							return (
-								<div key={index} className={`cover-info ${index + 1 === activeCover ? "cover-info-active" : ""}`}>
+								<div key={index} className={`cover-info ${index + 1 === activeCover ? "cover-info-active" : ""}`} style={{maxWidth:'65%'}} >
 									<div className="cover-info-title">
 										<span>{infos.title && infos.title.split(" ").length > 1 && removeLastWord(infos.title)}</span>
 										{<span className="highlight">{infos.title.split(" ")[infos.title.split(" ").length - 1]}</span>}
