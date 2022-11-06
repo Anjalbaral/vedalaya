@@ -91,7 +91,7 @@ const Blogs = () => {
 					{!isEmpty(Blogs) && (
 						<div className="blogs__contain">
 							{Blogs.map((blog) => (
-								<BlogCard key={blog.id} blog={blog} type="blog" />
+								<BlogCard key={blog.slug} blog={blog} type="blog" />
 							))}
 						</div>
 					)}

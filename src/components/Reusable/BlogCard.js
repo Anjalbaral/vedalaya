@@ -41,7 +41,7 @@ const BlogCard = ({ blog, type, loading }) => {
 					</div>
 				)}
 				<h4>
-					<Link to={"/blog/" + blog.id}>{blog.title}</Link>
+					<Link to={"/blog/" + blog.slug}>{blog.title}</Link>
 				</h4>
 				<div className="divider"></div>
 				<p style={{ height: "110px", overflow: "hidden", paddingTop: "5px" }}>{blogText ? blogText.toString().slice(0, 120) : ""}</p>
