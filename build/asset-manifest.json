@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.c5715da8.css",
-    "main.js": "/static/js/main.b0e15295.js",
+    "main.js": "/static/js/main.1181cb19.js",
     "static/js/898.cd31b0f5.chunk.js": "/static/js/898.cd31b0f5.chunk.js",
     "static/js/987.9d4a2e42.chunk.js": "/static/js/987.9d4a2e42.chunk.js",
     "static/js/207.c89bf50c.chunk.js": "/static/js/207.c89bf50c.chunk.js",
@@ -79,7 +79,7 @@
     "static/media/Empty.svg": "/static/media/Empty.ffdad94dbeb81217e89bdf846d33e501.svg",
     "static/media/government_icon.svg": "/static/media/government_icon.f6cfcf5580507c4429db16a3430c81b2.svg",
     "main.c5715da8.css.map": "/static/css/main.c5715da8.css.map",
-    "main.b0e15295.js.map": "/static/js/main.b0e15295.js.map",
+    "main.1181cb19.js.map": "/static/js/main.1181cb19.js.map",
     "898.cd31b0f5.chunk.js.map": "/static/js/898.cd31b0f5.chunk.js.map",
     "987.9d4a2e42.chunk.js.map": "/static/js/987.9d4a2e42.chunk.js.map",
     "207.c89bf50c.chunk.js.map": "/static/js/207.c89bf50c.chunk.js.map",
@@ -109,6 +109,6 @@
   },
   "entrypoints": [
     "static/css/main.c5715da8.css",
-    "static/js/main.b0e15295.js"
+    "static/js/main.1181cb19.js"
   ]
 }
